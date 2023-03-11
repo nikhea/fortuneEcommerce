@@ -1,3 +1,4 @@
+import CompaniesIcon from "../components/Layout/companines";
 import Footer from "../components/Layout/Footer";
 import "../styles/globals.css";
 export const metadata = {
@@ -15,6 +16,7 @@ export default function RootLayout({
       <body>
         header
         {children}
+        <CompaniesIcon />
         <Footer />
       </body>
     </html>
