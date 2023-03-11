@@ -1,11 +1,12 @@
-import React from "react";
 import SubHeader from "./subHeader";
+import MainNav from "./mainNav";
 
 const index = () => {
   return (
-    <div>
+    <>
       <SubHeader />
-    </div>
+      <MainNav />
+    </>
   );
 };
 
