@@ -1,5 +1,6 @@
 import CompaniesIcon from "../components/Layout/companines";
 import Footer from "../components/Layout/Footer";
+import Header from "../components/Layout/header";
 import "../styles/globals.css";
 export const metadata = {
   title: "Next.js",
@@ -14,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        header
+        <Header />
         {children}
         <CompaniesIcon />
         <Footer />

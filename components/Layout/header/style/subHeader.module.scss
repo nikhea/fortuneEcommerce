@@ -1,0 +1,20 @@
+.subHeaderBg {
+  @apply bg-violet-500 text-white py-2;
+  // bg-[#7E33E0]
+}
+
+.subHeaderGrid {
+  @apply flex justify-between;
+}
+.subHeaderRight {
+  @apply flex items-center gap-x-10;
+}
+.subHeaderLeft {
+  @apply flex items-center gap-x-10;
+}
+.subHeader__content {
+  @apply flex items-center;
+  .icons {
+    @apply h-6 w-6 mr-2;
+  }
+}

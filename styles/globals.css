@@ -9,5 +9,5 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Public Sans', sans-serif;
 font-family: 'Roboto', sans-serif; */
 .container {
-  @apply w-[95%] m-auto;
+  @apply w-[90%] m-auto;
 }

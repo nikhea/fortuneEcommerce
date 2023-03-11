@@ -2,7 +2,7 @@
   @apply lg:grid grid-cols-12 place-content-center h-full;
 }
 .footer__bg {
-  @apply bg-[#EEEFFB] p-10  text-[#8A8FB9];
+  @apply bg-[#EEEFFB] py-10  text-[#8A8FB9];
   .footer__right {
     @apply grid place-items-center text-center lg:place-items-start lg:text-start  lg:flex flex-col  col-start-1 col-end-5 justify-evenly space-y-5 mb-10;
     .footer__rightText {
@@ -28,7 +28,7 @@
   }
 }
 .footer__subBg {
-  @apply bg-[#E7E4F8] p-3  text-[#9DA0AE];
+  @apply bg-[#E7E4F8] py-3  text-[#9DA0AE];
   .footer__sub {
     @apply flex flex-col lg:flex-row gap-3 cursor-pointer items-center justify-center lg:justify-between;
   }
