@@ -1,0 +1,35 @@
+.footer__grid {
+  @apply lg:grid grid-cols-12 place-content-center h-full;
+}
+.footer__bg {
+  @apply bg-[#EEEFFB] p-10  text-[#8A8FB9];
+  .footer__right {
+    @apply grid place-items-center text-center lg:place-items-start lg:text-start  lg:flex flex-col  col-start-1 col-end-5 justify-evenly space-y-5 mb-10;
+    .footer__rightText {
+      @apply space-y-3;
+      h1 {
+        @apply text-xl capitalize;
+      }
+      p {
+      }
+    }
+  }
+  .footer__left {
+    @apply col-start-5 w-full col-end-13 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+    .FooterDataName {
+      @apply text-black my-3 capitalize text-2xl font-Josefin font-bold grid place-items-center;
+    }
+    ul {
+      @apply capitalize text-lg grid place-items-center;
+      li {
+        @apply py-2 cursor-pointer  w-fit;
+      }
+    }
+  }
+}
+.footer__subBg {
+  @apply bg-[#E7E4F8] p-3  text-[#9DA0AE];
+  .footer__sub {
+    @apply flex flex-col lg:flex-row gap-3 cursor-pointer items-center justify-center lg:justify-between;
+  }
+}

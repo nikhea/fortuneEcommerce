@@ -1,12 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './app/**/*.{js,ts,jsx,tsx}',
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Montserrat: ["Montserrat", "sans-serif"],
+        Raleway: ["Raleway", "sans-serif"],
+        Roboto: ["Roboto", "sans-serif"],
+        Josefin: ["Josefin Sans", "sans-serif"],
+      }, //end of fontFamily
+      colors: {
+        primary: "",
+      },
+    },
   },
-  plugins: [],
-}
+  plugins: [
+    // require("tailwindcss-container-query")
+  ],
+};
