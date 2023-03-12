@@ -19,3 +19,17 @@
 .label {
   @apply capitalize tracking-[1.1px] font-light mx-2;
 }
+
+.TextContainer {
+  @apply text-center;
+  h1 {
+    @apply font-bold text-2xl uppercase;
+  }
+  p {
+    @apply text-[#9096B2];
+  }
+}
+.TextContainerFooter {
+  @apply text-center flex items-center justify-center mt-5 text-[#9096B2];
+}
+// 9096B2

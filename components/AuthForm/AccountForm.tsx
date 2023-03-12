@@ -63,12 +63,12 @@ const AccountForm: FC<IAccountFormDefaultText> = (AccountFormDefaultText) => {
                 />
               </div>
               <Button isCurve primary padding uppercase full>
-                sign in
+                {AccountFormDefaultText.ButtonSign}
               </Button>
             </div>
           </form>
         </FormProvider>
-        <div className={style.TextContainer}>
+        <div className={style.TextContainerFooter}>
           <h1>{AccountFormDefaultText.altBase}</h1>
           <Link href={AccountFormDefaultText.altLink}>
             {AccountFormDefaultText.altLinkText}
