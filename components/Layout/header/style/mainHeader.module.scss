@@ -1,0 +1,20 @@
+.mainHeader {
+  @apply flex items-center justify-between py-5;
+
+  ul {
+    @apply flex items-center gap-5 font-medium;
+
+    li {
+      @apply capitalize text-[#0D0E43] text-lg;
+    }
+  }
+}
+.subHeaderLeft {
+  @apply flex items-center gap-x-10;
+}
+.subHeader__content {
+  @apply flex items-center;
+  .icons {
+    @apply h-6 w-6 mr-2;
+  }
+}

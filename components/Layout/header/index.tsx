@@ -4,7 +4,7 @@ import MainNav from "./mainNav";
 const index = () => {
   return (
     <>
-      <SubHeader />
+      {/* <SubHeader /> */}
       <MainNav />
     </>
   );
