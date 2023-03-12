@@ -1,0 +1,12 @@
+.contactway {
+  h1 {
+    @apply text-2xl capitalize text-[#151875] mb-5 font-bold;
+  }
+  p {
+    // @apply text-[#8A8FB9];
+  }
+}
+
+.FourGridColumn {
+  @apply grid grid-cols-2 gap-y-5;
+}
