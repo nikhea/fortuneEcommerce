@@ -14,7 +14,8 @@ module.exports = {
         Josefin: ["Josefin Sans", "sans-serif"],
       }, //end of fontFamily
       colors: {
-        primary: "",
+        primary: "#FB2E86",
+        secondary: "#EEEFFB",
       },
     },
   },

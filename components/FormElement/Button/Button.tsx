@@ -17,13 +17,14 @@ type IButton = {
 const style = {
   btn: `border-0 border-solid bg-transparen min-w-[10px] w-fit not-italic font-[400] text-[14px] outline-none cursor-pointer mx-0 py-[1em] px-0`,
   disabled: `cursor-not-allowed`,
-  primary: `text-white font-bold bg-[#06c4e5] `,
+  primary: `text-white font-bold bg-primary `,
   rounded: `rounded-[40px] `,
   full: `w-full`,
   curve: `rounded-[8px] `,
   uppercase: `uppercase`,
   padding: `!px-[5em] !py-[1em]`,
 };
+// bg-[#06c4e5]
 const Button: FC<IButton> = ({
   children,
   primary,

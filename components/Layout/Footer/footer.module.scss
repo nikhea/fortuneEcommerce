@@ -2,7 +2,7 @@
   @apply lg:grid grid-cols-12 place-content-center h-full;
 }
 .footer__bg {
-  @apply bg-[#EEEFFB] py-10  text-[#8A8FB9];
+  @apply bg-secondary py-10  text-[#8A8FB9];
   .footer__right {
     @apply grid place-items-center text-center lg:place-items-start lg:text-start  lg:flex flex-col  col-start-1 col-end-5 justify-evenly space-y-5 mb-10;
     .footer__rightText {
