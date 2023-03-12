@@ -16,7 +16,10 @@ const mainNav = () => {
       setBackground(false);
     }
   };
-  window.addEventListener("scroll", ChangeBackground);
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", ChangeBackground);
+  }
+
   const displayNameItems = NavItems.map((links, idx) => (
     <li
       key={idx}
