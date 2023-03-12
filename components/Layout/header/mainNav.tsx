@@ -6,6 +6,7 @@ import { NavItems } from "./headerData";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { UserCircleIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import DropDown from "./dropDown";
 const mainNav = () => {
   const pathname = usePathname();
   const [background, setBackground] = useState(false);
@@ -42,12 +43,14 @@ const mainNav = () => {
         </Link>
         <ul>{displayNameItems}</ul>
         <div className={style.subHeaderLeft}>
-          <Link href="/login">
-            <div className={style.subHeader__content}>
-              <UserCircleIcon className={style.icons} />
-              <h1>login</h1>
-            </div>
-          </Link>
+          <DropDown>
+            <Link href="/#">
+              <div className={style.subHeader__content}>
+                <UserCircleIcon className={style.icons} />
+                <h1>account</h1>
+              </div>
+            </Link>
+          </DropDown>
           <div className={`${style.subHeader__content} relative`}>
             <ShoppingCartIcon className={style.icons} />
             <span className="absolute left-[12px] top-[-5px] bg-primary  w-5 h-5 rounded-full flex justify-center items-center">

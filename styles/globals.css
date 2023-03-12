@@ -8,6 +8,10 @@
 font-family: 'Poppins', sans-serif;
 font-family: 'Public Sans', sans-serif;
 font-family: 'Roboto', sans-serif; */
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
 .container {
   @apply w-[90%] m-auto;
 }
