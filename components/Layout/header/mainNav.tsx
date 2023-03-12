@@ -47,7 +47,7 @@ const mainNav = () => {
             <Link href="/#">
               <div className={style.subHeader__content}>
                 <UserCircleIcon className={style.icons} />
-                <h1>account</h1>
+                <h1>Account</h1>
               </div>
             </Link>
           </DropDown>

@@ -1,15 +1,15 @@
 "use client";
+
 import AccountForm from "../../components/AuthForm/AccountForm";
 import Banner from "../../components/Banner/Banner";
 
-const page = () => {
-  const loginData = (data: any) => {
-    console.log(data, "LoginData");
+const Register = () => {
+  const registerData = (data: any) => {
+    console.log(data, "registerData");
   };
   return (
     <>
-      <Banner title={BannerData.title} />
-
+      <Banner image={BannerData.image} title={BannerData.title} />
       <div className="container">
         <AccountForm
           type={AccountFormDefaultText.type}
@@ -18,22 +18,24 @@ const page = () => {
           altBase={AccountFormDefaultText.altBase}
           altLink={AccountFormDefaultText.altLink}
           altLinkText={AccountFormDefaultText.altLinkText}
-          FormInputData={loginData}
+          FormInputData={registerData}
         />
       </div>
     </>
   );
 };
 
-export default page;
+export default Register;
+
 const BannerData = {
   title: `My Account`,
+  image: ` https://cdn.shopify.com/s/files/1/0617/9179/7437/files/decor-tinteggiatura-interni-02.jpg?v=1652080075&width=1500`,
 };
 const AccountFormDefaultText = {
-  type: "login",
-  subText: "please login using the account details below.",
+  type: "register",
+  subText: "please create an account using the details below.",
   ButtonSign: "sign in",
-  altBase: "don’t have an account?",
-  altLink: "/register",
-  altLinkText: "create account",
+  altBase: "already have an Account?",
+  altLink: "/login",
+  altLinkText: "login",
 };

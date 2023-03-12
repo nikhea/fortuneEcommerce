@@ -11,25 +11,41 @@ import { IAccountFormDefaultText } from "../../interface/AccountForm";
 import Link from "next/link";
 // import { DevTool } from "@hookform/devtools";
 
-const AccountForm: FC<IAccountFormDefaultText> = (AccountFormDefaultText) => {
+const AccountForm: FC<IAccountFormDefaultText> = ({
+  type,
+  subText,
+  altBase,
+  altLink,
+  altLinkText,
+  ButtonSign,
+  FormInputData,
+}) => {
   const methods = useForm<AccountFormData>({
     resolver: yupResolver(AccountSchema),
   });
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = methods;
+  console.log(errors);
   const submitForm = (formData: any) => {
-    console.log(formData, "filter Data");
-    console.log(FormData);
+    console.log(errors);
+
+    if (formData) {
+      if (formData.email === "" || formData.password === "") {
+        FormInputData(formData);
+        reset();
+      }
+    }
   };
   return (
     <div className={style.formMainContainer}>
       <div className={style.formContainer}>
         <div className={style.TextContainer}>
-          <h1>{AccountFormDefaultText.type}</h1>
-          <p>{AccountFormDefaultText.subText}</p>
+          <h1>{type}</h1>
+          <p>{subText}</p>
         </div>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(submitForm)}>
@@ -40,7 +56,7 @@ const AccountForm: FC<IAccountFormDefaultText> = (AccountFormDefaultText) => {
                   type="email"
                   placeholder="Email Address"
                   name="email"
-                  required
+                  // required
                   isWhiteBg
                   isCurve
                   errors={errors}
@@ -54,7 +70,7 @@ const AccountForm: FC<IAccountFormDefaultText> = (AccountFormDefaultText) => {
                   type="password"
                   placeholder="Password Address"
                   name="password"
-                  required
+                  // required
                   isWhiteBg
                   isCurve
                   errors={errors}
@@ -63,16 +79,14 @@ const AccountForm: FC<IAccountFormDefaultText> = (AccountFormDefaultText) => {
                 />
               </div>
               <Button isCurve primary padding uppercase full>
-                {AccountFormDefaultText.ButtonSign}
+                {ButtonSign}
               </Button>
             </div>
           </form>
         </FormProvider>
         <div className={style.TextContainerFooter}>
-          <h1>{AccountFormDefaultText.altBase}</h1>
-          <Link href={AccountFormDefaultText.altLink}>
-            {AccountFormDefaultText.altLinkText}
-          </Link>
+          <h1>{altBase}</h1>
+          <Link href={altLink}>{altLinkText}</Link>
         </div>
       </div>
     </div>

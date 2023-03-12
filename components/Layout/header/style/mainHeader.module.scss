@@ -1,5 +1,5 @@
 .mainHeaderBgNormal {
-  @apply sticky bg-white top-0 left-0 right-0;
+  @apply sticky bg-white top-0 left-0 right-0 z-50;
 }
 
 .mainHeaderBgActive {
@@ -16,7 +16,7 @@
       @apply capitalize text-[#0D0E43] text-lg;
     }
     li.active {
-      @apply text-primary border-0 hover:border-b-2 rounded-sm;
+      @apply text-primary border-0  rounded-sm;
     }
   }
 }

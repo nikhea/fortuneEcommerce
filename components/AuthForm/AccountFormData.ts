@@ -6,6 +6,6 @@ export type AccountFormData = {
 };
 
 export const AccountSchema = yup.object().shape({
-  email: yup.string(),
-  password: yup.string()
+  email: yup.string().required(),
+  password: yup.string().required(),
 });

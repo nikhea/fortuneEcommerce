@@ -13,4 +13,5 @@ export type IAccountFormDefaultText = {
   altBase: string;
   altLink: string;
   altLinkText: string;
+  FormInputData: any;
 };
