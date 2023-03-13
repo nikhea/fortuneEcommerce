@@ -8,7 +8,7 @@ const Features = () => {
   const displayFeatures = FeaturesData.map((feature, idx) => (
     <div
       key={idx}
-      className="flex flex-col items-center pb-5 gap-5 text-center border-0 hover:border-b-2 border-primary transistionMode border-spacing-10 "
+      className="flex flex-col items-center pb-5 gap-5 text-center cursor-pointer border-0 hover:border-b-2 border-primary transistionMode border-spacing-10 "
     >
       <h3>{feature.icon}</h3>
       <h1>{feature.name}</h1>

@@ -9,9 +9,8 @@ export type IBanner = {
   subTitle?: string;
 };
 const Banner: FC<IBanner> = ({ image, title, subTitle }) => {
-
   const style = {
-    bgImage: ` md:mt-[2em] w-full h-[60vh] md:h-[340px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-30 `,
+    bgImage: `  w-full h-[60vh] md:h-[340px]  bg-cover bg-center bg-no-repeat relative bg-fixed object-content z-30 `,
     container: `h-full  w-[85%] m-auto flex flex-col text-cente md:flex-row  justify-center md:justify-between md:items-center`,
     textContainer: `text-white z-50   md:text-start mt-5`,
     title: `text-5xl md:text-7xl font-black uppercase tracking-wider`,
