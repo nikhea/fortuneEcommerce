@@ -2,6 +2,8 @@ import style from "./style/index.module.scss";
 import Banner from "../../components/Banner/Banner";
 import ContactWay from "./components/ContactWay";
 import Information from "./components/Information";
+import ContactForm from "./components/ContactForm";
+import ContactLogo from "./components/ContactLogo";
 
 const Contact = () => {
   return (
@@ -12,6 +14,12 @@ const Contact = () => {
         <div className={style.TwoColumGrid}>
           <Information />
           <ContactWay />
+        </div>
+        <div className={style.TwoColumGrid}>
+          <ContactForm />
+          <div>
+            <ContactLogo />
+          </div>
         </div>
       </div>
     </>

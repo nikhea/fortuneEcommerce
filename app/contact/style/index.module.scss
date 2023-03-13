@@ -1,3 +1,5 @@
 .TwoColumGrid {
-  @apply grid grid-cols-2 my-16 gap-16;
+  @apply grid grid-cols-2 my-16 gap-16 overflow-hidden;
 }
+
+// @apply grid grid-cols-2 my-16 gap-16;

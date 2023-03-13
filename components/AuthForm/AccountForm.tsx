@@ -56,7 +56,7 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
                   type="email"
                   placeholder="Email Address"
                   name="email"
-                  // required
+                  required
                   isWhiteBg
                   isCurve
                   errors={errors}
@@ -70,7 +70,7 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
                   type="password"
                   placeholder="Password Address"
                   name="password"
-                  // required
+                  required
                   isWhiteBg
                   isCurve
                   errors={errors}
