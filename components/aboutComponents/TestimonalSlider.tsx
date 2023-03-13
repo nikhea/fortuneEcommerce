@@ -41,11 +41,11 @@ const TestimonalSlider = () => {
       {swipdata.map((swiper, idx) => (
         <SwiperSlide key={idx}>
           <div className="flex text-center items-center justify-center flex-col mb-10 gap-2">
-            <div className="rounded-full h-[100px] w-[100px]">
+            <div className="rounded-full h-[150px] w-[150px]">
               <img
-                src={swiper.image.src}
-                alt={swiper.image.src}
-                className="rounded-full h-[100px] w-[100px]"
+                src={swiper.image}
+                alt={swiper.image}
+                className="rounded-full h-[150px] w-[150px]"
               />
             </div>
             <h1 className="text-center text-xl uppercase">{swiper.name}</h1>
@@ -63,14 +63,38 @@ export default TestimonalSlider;
 
 const swipdata = [
   {
-    image: HistoryImage,
-    name: "fortune ugbodaga",
+    image: "https://randomuser.me/api/portraits/men/88.jpg",
+    name: "Gene Reyes",
     testimonal:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
   },
   {
-    image: HistoryImage,
-    name: "love ugbodaga",
+    image: "https://randomuser.me/api/portraits/women/50.jpg",
+    name: "Lucille Lewis",
+    testimonal:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/men/74.jpg",
+    name: "Kyle Chapman",
+    testimonal:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/women/19.jpg",
+    name: "Sally Davis",
+    testimonal:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/men/80.jpg",
+    name: "Roger Gomez",
+    testimonal:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
+  },
+  {
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "Jennie Nichols",
     testimonal:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
   },
