@@ -28,9 +28,11 @@ const ContactForm = () => {
       <div className={style.TextForm}>
         <h1>get in touch </h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis neque
-          ultrices tristique amet erat vitae eget dolor los vitae lobortis quis
-          bibendum quam.
+          Please don't hesitate to contact us. Our team is ready to assist you
+          with any questions or concerns you may have. You can reach us through
+          phone, email, or our website's contact form. We value your feedback
+          and are always striving to improve our services. We look forward to
+          hearing from you soon.
         </p>
       </div>
       <FormProvider {...methods}>

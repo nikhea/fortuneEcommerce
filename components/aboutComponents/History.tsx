@@ -8,7 +8,7 @@ import HistoryImage from "./Icon/Group 267.jpg";
 const History = () => {
   return (
     <div className="flex gap-x-5 items-center w-[70%] m-auto my-20">
-      <div className=" w-[100%] ">
+      <div className=" w-[300%] ">
         <Image
           src={HistoryImage.src}
           alt={HistoryImage.src}
@@ -19,10 +19,12 @@ const History = () => {
       <div className={style.textContainer}>
         <h1>know about our ecomerce business, history</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis neque
-          ultrices mattis aliquam, malesuada diam est. Malesuada sem tristique
-          amet erat vitae eget dolor lobortis. Accumsan faucibus vitae lobortis
-          quis bibendum quam.
+          At Hekto Furniture, we prioritize our clients' satisfaction and strive
+          to provide an exceptional shopping experience. Our selection of home
+          decor is designed to meet your specific needs, and we maintain high
+          standards in our shopping practices. Whether you're uncertain about
+          your preferences or seeking inspiration, our e-shop offers various
+          resources to help you identify what you're looking for.
         </p>
         <Link href="/contact">
           <Button isCurve primary padding uppercase>

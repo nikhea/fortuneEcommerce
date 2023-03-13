@@ -30,13 +30,13 @@ const TestimonalSlider = () => {
       slidesPerView={1}
       loop={true}
       autoplay={{
-        delay: 2000,
+        delay: 3000,
         disableOnInteraction: false,
       }}
       pagination={{ clickable: true }}
       // scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
+      // onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log("slide change")}
     >
       {swipdata.map((swiper, idx) => (
         <SwiperSlide key={idx}>
@@ -49,7 +49,7 @@ const TestimonalSlider = () => {
               />
             </div>
             <h1 className="text-center text-xl uppercase">{swiper.name}</h1>
-            <p className="text-center w-[20%] text-[#8A8FB9]">
+            <p className="text-center w-[50%] text-[#8A8FB9]">
               {swiper.testimonal}
             </p>
           </div>
@@ -66,36 +66,36 @@ const swipdata = [
     image: "https://randomuser.me/api/portraits/men/88.jpg",
     name: "Gene Reyes",
     testimonal:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
+      "I recently purchased a new sofa from this furniture e-commerce and I couldn't be happier! The quality of the product exceeded my expectations, and the free delivery made the purchase even sweeter. I highly recommend this store.",
   },
   {
     image: "https://randomuser.me/api/portraits/women/50.jpg",
     name: "Lucille Lewis",
     testimonal:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
+      "I was hesitant to buy furniture online, but this e-commerce made the process so easy. The 360-degree view of the products allowed me to see every angle of the furniture, and the detailed product descriptions were very helpful. I will definitely be shopping here again.",
   },
   {
     image: "https://randomuser.me/api/portraits/men/74.jpg",
     name: "Kyle Chapman",
     testimonal:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
+      "The customer service at this furniture e-commerce is top-notch. They were so patient and helpful with my inquiries, and even gave me recommendations on which pieces would work best in my space. I am extremely satisfied with my purchase and the overall shopping experience.",
   },
   {
     image: "https://randomuser.me/api/portraits/women/19.jpg",
     name: "Sally Davis",
     testimonal:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
+      "I love the variety of furniture options available at this e-commerce store. From modern to classic, they have it all. The quality of the products is exceptional and I am so happy with my new bedroom set.",
   },
   {
     image: "https://randomuser.me/api/portraits/men/80.jpg",
     name: "Roger Gomez",
     testimonal:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
+      "The prices at this furniture e-commerce are unbeatable. I was able to get high-quality furniture for a fraction of the cost I would have paid at a brick-and-mortar store. Plus, the free delivery made it even more affordable. I highly recommend this store to anyone looking to spruce up their home.",
   },
   {
     image: "https://randomuser.me/api/portraits/women/44.jpg",
     name: "Jennie Nichols",
     testimonal:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.",
+      "I had a great experience shopping at this furniture e-commerce. The website was easy to navigate, the checkout process was simple, and my order arrived promptly. The quality of the furniture is fantastic and I will definitely be shopping here again in the future.",
   },
 ];

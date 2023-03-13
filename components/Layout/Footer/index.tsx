@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import Button from "../../FormElement/Button/Button";
 import style from "./footer.module.scss";
@@ -20,9 +21,11 @@ const Footer = () => {
         <div className={`${style.footer__grid} container`}>
           <div className={style.footer__right}>
             <HektoIcon />
-            <Button isCurve primary padding uppercase>
-              sign up
-            </Button>
+            <Link href="/register">
+              <Button isCurve primary padding uppercase>
+                sign up
+              </Button>
+            </Link>
             <div className={style.footer__rightText}>
               <h1> contact information</h1>
               <p> 17 Princess Road, London, Greater London NW1 8JR, UK</p>
@@ -49,11 +52,11 @@ const displayFooterData = [
   {
     name: "categories",
     items: [
-      "laptos & computers",
-      "cameras & photography",
-      "smart phone & tablets",
-      "video games & consoles",
-      "waterproof headphones",
+      "Living Room Furniture",
+      "Bedroom Furniture",
+      "Dining Room Furniture",
+      "Living Room Furniture",
+      "Mattresses & Bedding",
     ],
   },
   {
@@ -70,7 +73,7 @@ const displayFooterData = [
     name: "pages",
     items: [
       "blog",
-      "browse the sho",
+      "browse the shop",
       "category",
       "pre-Built pages",
       "visual composer elements",
