@@ -3,6 +3,7 @@ import History from "../../components/aboutComponents/History";
 import Features from "../../components/aboutComponents/Features";
 
 import Banner from "../../components/Banner/Banner";
+import ClientSay from "../../components/aboutComponents/ClientSay";
 
 const About = () => {
   return (
@@ -11,7 +12,8 @@ const About = () => {
 
       <div className="container">
         <History />
-        <Features/>
+        <Features />
+        <ClientSay />
       </div>
     </>
   );

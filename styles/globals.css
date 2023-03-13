@@ -21,3 +21,9 @@ body {
 .icons {
   @apply h-6 w-6 mr-2;
 }
+
+/* swiper */
+
+.swiper-pagination-bullet-active {
+  background-color: #000 !important;
+}
