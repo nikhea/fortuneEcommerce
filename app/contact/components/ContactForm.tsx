@@ -89,7 +89,7 @@ const ContactForm = () => {
             />
           </div>
           <Button isCurve primary padding uppercase>
-            sand mail
+            send mail
           </Button>
         </form>
       </FormProvider>

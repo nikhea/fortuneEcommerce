@@ -1,0 +1,10 @@
+.textContainer {
+  @apply flex  flex-col justify-evenly gap-y-3;
+
+  h1 {
+    @apply text-2xl capitalize text-[#151875]  font-bold;
+  }
+  p {
+    @apply text-[#8A8FB9];
+  }
+}
