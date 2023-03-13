@@ -83,9 +83,9 @@ const ContactForm = () => {
             <label className={style.label}> message</label>
             <textarea
               placeholder="type your message*"
-              name="message"
+              // name="message"
               className="p-5 rounded-[10px] my-3 w-full h-full min-h-[150px] outline-none border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-sky-500"
-              // ref={register({ required: true, maxLength: 1000 })}
+              {...register("message", { required: true, maxLength: 1000 })}
             />
           </div>
           <Button isCurve primary padding uppercase>
