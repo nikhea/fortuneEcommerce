@@ -16,15 +16,15 @@ body {
   @apply w-[90%] m-auto;
 }
 .transistionMode {
-  @apply transition	duration-500	ease-in	delay-200;
+  @apply transition duration-500 ease-in delay-200;
 }
 .icons {
-  @apply h-6 w-6 mr-2;
+  @apply w-6 h-6 mr-2;
 }
 
 /* swiper */
 
 .swiper-pagination-bullet-active {
   /* background-color: #000 !important; */
-  @apply bg-pink-500;
+  @apply !bg-pink-500;
 }
