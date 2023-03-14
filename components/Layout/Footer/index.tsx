@@ -21,7 +21,7 @@ const Footer = () => {
         <div className={`${style.footer__grid} container`}>
           <div className={style.footer__right}>
             <HektoIcon />
-            <Link href="/register">
+            <Link href="/register" shallow>
               <Button isCurve primary padding uppercase>
                 sign up
               </Button>

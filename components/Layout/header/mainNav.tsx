@@ -28,7 +28,9 @@ const mainNav = () => {
         pathname == links.link ? `${style.active} transistionMode` : ""
       }`}
     >
-      <Link href={links.link}>{links.name} </Link>
+      <Link href={links.link} shallow>
+        {links.name}{" "}
+      </Link>
     </li>
   ));
   return (
@@ -38,13 +40,13 @@ const mainNav = () => {
       }`}
     >
       <div className={`${style.mainHeader} container`}>
-        <Link href="/">
+        <Link href="/" shallow>
           <HeaderIcon />
         </Link>
         <ul>{displayNameItems}</ul>
         <div className={style.subHeaderLeft}>
           <DropDown>
-            <Link href="/#">
+            <Link href="/#" shallow>
               <div className={style.subHeader__content}>
                 <UserCircleIcon className={style.icons} />
                 <h1>Account</h1>

@@ -26,18 +26,18 @@ const dropDown = ({ children }: any) => {
       <MenuItem key="0" className={style.MenuItem}>
         {!user ? (
           <>
-            <Link href="/register" className={style.MenuItemLink}>
+            <Link href="/register" shallow className={style.MenuItemLink}>
               <UserPlusIcon className={style.icons} />
               <p className={style.MenuItemLinkText}>register</p>
             </Link>
-            <Link href="/login" className={style.MenuItemLink}>
+            <Link href="/login" shallow className={style.MenuItemLink}>
               <ArrowLeftOnRectangleIcon className={style.icons} />
               <p className={style.MenuItemLinkText}>login</p>
             </Link>
           </>
         ) : (
           <>
-            <Link href="/settings" className={style.MenuItemLink}>
+            <Link href="/settings" shallow className={style.MenuItemLink}>
               <Cog6ToothIcon className={style.icons} />
               <p className={style.MenuItemLinkText}>settings</p>
             </Link>

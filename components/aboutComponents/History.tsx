@@ -26,7 +26,7 @@ const History = () => {
           your preferences or seeking inspiration, our e-shop offers various
           resources to help you identify what you're looking for.
         </p>
-        <Link href="/contact">
+        <Link href="/contact" shallow>
           <Button isCurve primary padding uppercase>
             contact us
           </Button>
