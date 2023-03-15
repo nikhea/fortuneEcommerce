@@ -67,5 +67,9 @@
   border-radius: 10px !important;
 }
 .css-t3ipsp-control {
-  @apply focus:outline-none focus:border-pink-500 border-pink-500;
+  @apply focus:outline-none focus:border-pink-500 !border-pink-500;
+}
+
+.css-t3ipsp-control:hover {
+  @apply focus:outline-none focus:border-pink-500 !border-pink-500;
 }
