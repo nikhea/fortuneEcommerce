@@ -9,6 +9,7 @@
     "@heroicons/react": "^2.0.16",
     "@hookform/resolvers": "^2.9.11",
     "classnames": "^2.3.2",
+    "framer-motion": "^10.3.1",
     "next": "latest",
     "rc-dropdown": "^4.0.1",
     "rc-menu": "^9.8.2",
@@ -17,10 +18,12 @@
     "react-hook-form": "^7.43.5",
     "react-hook-form-persist": "^3.0.0",
     "react-id-swiper": "^4.0.0",
+    "react-select": "^5.7.0",
     "sass": "^1.58.3",
     "swiper": "^9.1.0",
     "tailwindcss-container-query": "^1.1.0",
-    "yup": "^1.0.2"
+    "yup": "^1.0.2",
+    "zustand": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
