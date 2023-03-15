@@ -4,28 +4,16 @@ import Select from "../../FormElement/select/select";
 
 const ProductHeader = () => {
   return (
-    <div className="flex items-center justify-between my-10">
+    <div className="flex items-center justify-between my-10 flex-col lg:flex-row">
       <div className="flex flex-col justify-between">
         <h2>Ecommerce Acceories & Furniture item </h2>
         <p>About 9,620 results</p>
       </div>
       <div className={style.filiters}>
         <div className={style.filiterItem}>
-          <p>per page :</p>
-          <Select
-            placeholder="Type*"
-            // options={propertyTypeOPtions}
-            // field={propertyTypeOPtions.find(
-            //   ({ value }) => value === propertyTypeField.value
-            // )}
-            // handleSelectChange={handlepropertyTypeChange}
-            inputFull
-          />
-        </div>
-        <div className={style.filiterItem}>
           <p>sort by :</p>
           <Select
-            placeholder="Type*"
+            placeholder="Type"
             // options={propertyTypeOPtions}
             // field={propertyTypeOPtions.find(
             //   ({ value }) => value === propertyTypeField.value
@@ -36,6 +24,19 @@ const ProductHeader = () => {
           />
         </div>
         <div className={style.filiterItem}>
+          <p>per page :</p>
+          <Select
+            placeholder="Type"
+            // options={propertyTypeOPtions}
+            // field={propertyTypeOPtions.find(
+            //   ({ value }) => value === propertyTypeField.value
+            // )}
+            // handleSelectChange={handlepropertyTypeChange}
+            inputFull
+          />
+        </div>
+
+        <div className={`${style.filiterItem} hidden `}>
           <p>view :</p>
           <ListBulletIcon className="icons" />
           <Squares2X2Icon className="icons" />

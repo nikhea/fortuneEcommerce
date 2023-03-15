@@ -8,7 +8,7 @@ const Features = () => {
   const displayFeatures = FeaturesData.map((feature, idx) => (
     <div
       key={idx}
-      className="flex flex-col items-center pb-5 gap-y-5 gap-x-10 text-center cursor-pointer border-0 hover:border-b-2 border-primary transistionMode border-spacing-10 "
+      className="flex flex-col items-center pb-5 gap-y-5 gap-x-10 text-center cursor-pointer border-0 lg:hover:border-b-2 lg:border-primary transistionMode border-spacing-10 "
     >
       <h3>{feature.icon}</h3>
       <h1>{feature.name}</h1>
@@ -18,7 +18,7 @@ const Features = () => {
   return (
     <div className="my-10">
       <h1 className="text-2xl capitalize text-center  font-bold">Features</h1>
-      <div className="grid grid-cols-4 w-[90%] gap-x-3  m-auto my-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-[90%] gap-x-3  m-auto my-10">
         {displayFeatures}
       </div>
     </div>

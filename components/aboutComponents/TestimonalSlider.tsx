@@ -49,7 +49,7 @@ const TestimonalSlider = () => {
               />
             </div>
             <h1 className="text-center text-xl uppercase">{swiper.name}</h1>
-            <p className="text-center w-[50%] text-[#8A8FB9]">
+            <p className="text-center lg:w-[50%] text-[#8A8FB9]">
               {swiper.testimonal}
             </p>
           </div>

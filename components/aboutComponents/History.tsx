@@ -7,8 +7,8 @@ import HistoryIcon from "./Icon/HistoryIcon";
 import HistoryImage from "./Icon/Group 267.jpg";
 const History = () => {
   return (
-    <div className="flex gap-x-5 items-center w-[70%] m-auto my-20">
-      <div className=" w-[300%] ">
+    <div className="flex flex-col lg:flex-row gap-x-5 gap-y-5 lg:gap-y-0 items-center md:w-[90%] lg:w-[70%] m-auto my-20">
+      <div className="w-full lg:w-[300%] ">
         <Image
           src={HistoryImage.src}
           alt={HistoryImage.src}

@@ -65,6 +65,7 @@
 .css-13cymwt-control {
   @apply focus:outline-none focus:border-pink-500;
   border-radius: 10px !important;
+  width: 110%;
 }
 .css-t3ipsp-control {
   @apply focus:outline-none focus:border-pink-500 !border-pink-500;

@@ -17,7 +17,7 @@ const Contact = () => {
         </div>
         <div className={style.TwoColumGrid}>
           <ContactForm />
-          <div>
+          <div className="hidden lg:flex">
             <ContactLogo />
           </div>
         </div>
