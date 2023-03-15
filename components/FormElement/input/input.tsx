@@ -30,7 +30,7 @@ const style = {
   curve: `rounded-[10px]`,
   rounded: `rounded-[25px]`,
   bold: `font-bold`,
-  isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-sky-500 `,
+  isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-pink-500 `,
   isBlackBg: `border border-[#C4C4C4] border-solid bg-[#2b2b2b] text-white placeholder-white  `,
   borderBottom: ` border-bottom border-t-0 border-l-0 border-r-0 border-b-2  py-[1px] px-[2px]`,
   errors: ``,

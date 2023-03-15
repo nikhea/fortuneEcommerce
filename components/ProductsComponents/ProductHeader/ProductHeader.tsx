@@ -32,6 +32,7 @@ const ProductHeader = () => {
             // )}
             // handleSelectChange={handlepropertyTypeChange}
             inputFull
+            isCurve
           />
         </div>
         <div className={style.filiterItem}>

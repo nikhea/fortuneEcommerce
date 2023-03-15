@@ -28,7 +28,7 @@ const style = {
   input: `my-[10px]  bg-[#f1f1f1]  py-[15px] px-[23px] text-[#9a9a9a] text-[.9375rem]  outline-none pr-[23px]`,
   inputHalf: `w-[47%]`,
   inputFull: ` w-full`,
-  curve: `rounded-[10px]`,
+  curve: `!rounded-[10px]`,
   rounded: `rounded-[25px]`,
   bold: `font-bold`,
   isWhiteBg: `border border-[#C4C4C4] border-solid bg-white text-black`,
@@ -62,7 +62,7 @@ const InputSelect: FC<inputProps> = ({
     }),
     control: (provided: any) => ({
       ...provided,
-      marginTop: "5%",
+      // marginTop: "5%",
     }),
   };
   return (
