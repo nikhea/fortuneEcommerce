@@ -1,0 +1,7 @@
+.historyHero {
+  @apply bg-secondary w-full h-[90vh] md:h-[90vh] bg-cover bg-center bg-no-repeat relative bg-fixed z-30;
+}
+
+.textContent {
+  @apply flex flex-col gap-y-5 justify-center relative;
+}

@@ -1,0 +1,7 @@
+.categoriesSm {
+  @apply relative col-start-1 col-end-3 p-3 border-r-2 rounded-md w-fit  h-fit bg-secondary;
+}
+
+.categorieslg {
+  @apply absolute top-0 bg-secondary  left-[186px] w-[60vw]  h-full p-5 border-0 rounded-r-md;
+}

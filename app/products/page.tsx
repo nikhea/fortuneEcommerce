@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "../../components/Banner/Banner";
+import CategoriesSiderBar from "../../components/CategoriesSiderBar/CategoriesSiderBar";
 import ProductHeader from "../../components/ProductsComponents/ProductHeader/ProductHeader";
 
 const Products = () => {
@@ -8,6 +9,12 @@ const Products = () => {
       <Banner image={BannerData.image} title={BannerData.title} />
       <div className="container">
         <ProductHeader />
+        <div className="grid grid-cols-12">
+          <CategoriesSiderBar />
+          <div className="w-full h-full min-h-screen col-start-3 col-end-13 bg-red-200">
+            product list
+          </div>
+        </div>
       </div>
     </>
   );
