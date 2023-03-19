@@ -19,9 +19,9 @@ const FeaturedProductCardsItems: FC<FeaturedProduct> = ({
   priceSymbol,
 }) => {
   return (
-    <div className={style.cards}>
+    <div className={`${style.cards} group`}>
       <div className="relative flex flex-col  w-full h-full  bg-[#F6F7FB] rounded-md py-3 items-center  ">
-        <div className="absolute flex left-2">
+        <div className="absolute flex transition-all duration-500 ease-in delay-200 opacity-0 left-2 group-hover:opacity-100 ">
           <ShoppingCartIcon className={style.icons} />
           <HeartIcon className={style.icons} />
           <MagnifyingGlassPlusIcon className={style.icons} />
