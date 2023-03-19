@@ -1,7 +1,6 @@
 import React from "react";
 import History from "../../components/aboutComponents/History";
-import Features from "../../components/aboutComponents/Features";
-
+import Features from "../../components/Features/Features";
 import Banner from "../../components/Banner/Banner";
 import ClientSay from "../../components/aboutComponents/ClientSay";
 
@@ -12,7 +11,7 @@ const About = () => {
 
       <div className="container">
         <History />
-        <Features />
+        <Features title="Features" />
         <ClientSay />
       </div>
     </>

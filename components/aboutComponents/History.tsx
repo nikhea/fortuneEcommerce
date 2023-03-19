@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import Button from "../FormElement/Button/Button";
-import HistoryIcon from "./Icon/HistoryIcon";
-import HistoryImage from "./Icon/Group 267.jpg";
+// import HistoryIcon from "./Icon/HistoryIcon";
+import HistoryImage from "./Group 267.jpg";
 const History = () => {
   return (
     <div className="flex flex-col lg:flex-row gap-x-5 gap-y-5 lg:gap-y-0 items-center md:w-[90%] lg:w-[70%] m-auto my-20">

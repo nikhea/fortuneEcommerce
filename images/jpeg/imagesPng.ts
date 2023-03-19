@@ -7,7 +7,7 @@ import Image6 from "../../images/jpeg/image5.png";
 import Image7 from "../../images/jpeg/image6.png";
 import Image8 from "../../images/jpeg/image7.png";
 import Image9 from "../../images/jpeg/image8.png";
-
+import NewLetterBannerImage from "../../images/jpeg/newletterBanner.png";
 export {
   Image1,
   Image2,
@@ -18,4 +18,5 @@ export {
   Image7,
   Image8,
   Image9,
+  NewLetterBannerImage,
 };
