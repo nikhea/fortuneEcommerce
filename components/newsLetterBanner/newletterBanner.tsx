@@ -9,7 +9,7 @@ const newletterBanner = () => {
         src={NewLetterBannerImage.src}
         className="absolute object-cover w-full h-full"
       />
-      <div className="container absolute top-0 bottom-0 left-0 right-0 z-50 flex flex-col items-center justify-center w-full h-full gap-y-5">
+      <div className="container absolute top-0 bottom-0 left-0 right-0 z-10 flex flex-col items-center justify-center w-full h-full gap-y-5">
         <h6 className="text-2xl font-bold text-white capitalize">
           get leatest update by subscribing to our new letter
         </h6>

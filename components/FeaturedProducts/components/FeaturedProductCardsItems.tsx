@@ -20,8 +20,8 @@ const FeaturedProductCardsItems: FC<FeaturedProduct> = ({
 }) => {
   return (
     <div className={style.cards}>
-      <div className="relative flex flex-col  w-full h-full  bg-[#F6F7FB] rounded-md py-3 items-center mb-3 ">
-        <div className="flex absolute left-2">
+      <div className="relative flex flex-col  w-full h-full  bg-[#F6F7FB] rounded-md py-3 items-center  ">
+        <div className="absolute flex left-2">
           <ShoppingCartIcon className={style.icons} />
           <HeartIcon className={style.icons} />
           <MagnifyingGlassPlusIcon className={style.icons} />
@@ -30,20 +30,20 @@ const FeaturedProductCardsItems: FC<FeaturedProduct> = ({
           <Image
             src={image}
             alt={name}
-            width={500}
-            height={500}
-            className="h-[200px] object-cover"
+            width={300}
+            // height={500}
+            className="h-[300px] object-cover"
           />
         </div>
         <Link className={style.link} href="#">
           view details
         </Link>
       </div>
-      <div className="px-3 ">
+      <div className="w-full h-full px-3 py-3 ">
         <h6 className=" text-xl capitalize text-[#151875]  font-bold  ">
           {name}
         </h6>
-        <div className="flex items-center justify-between  py-3 ">
+        <div className="flex items-center justify-between ">
           <h2>
             <span className="mr-1"> {priceSymbol}</span>
             {price}

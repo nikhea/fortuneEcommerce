@@ -1,9 +1,9 @@
-import style from "./style/index.module.scss";
+import style from "./index.module.scss";
 import Banner from "../../components/Banner/Banner";
-import ContactWay from "./components/ContactWay";
-import Information from "./components/Information";
-import ContactForm from "./components/ContactForm";
-import ContactLogo from "./components/ContactLogo";
+import ContactWay from "../../components/ContactComponents/components/ContactWay";
+import Information from "../../components/ContactComponents/components/Information";
+import ContactForm from "../../components/ContactComponents/components/ContactForm";
+import ContactLogo from "../../components/ContactComponents/components/ContactLogo";
 
 const Contact = () => {
   return (

@@ -4,8 +4,8 @@ import style from "../style/form.module.scss";
 import useFormPersist from "react-hook-form-persist";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import Input from "../../../components/FormElement/input/input";
-import Button from "../../../components/FormElement/Button/Button";
+import Input from "../../FormElement/input/input";
+import Button from "../../FormElement/Button/Button";
 import { FC } from "react";
 import { ContactFormData, ContactSchema } from "./ContactFormData";
 const ContactForm = () => {

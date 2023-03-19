@@ -47,21 +47,21 @@ const FeaturedProductCards: FC<FeaturedProductsProps> = ({
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
-      slidesPerView={4}
+      slidesPerView={3}
       pagination={{ clickable: true }}
       breakpoints={{
         600: {
-          slidesPerView: 2,
+          slidesPerView: 1,
         },
         800: {
-          slidesPerView: 4,
+          slidesPerView: 2,
         },
         1000: {
-          slidesPerView: 4,
+          slidesPerView: 3,
         },
       }}
     >
-      <div className="my-10 h-full"> {displayData}</div>
+      <div className="h-full my-10"> {displayData}</div>
     </Swiper>
   );
 };

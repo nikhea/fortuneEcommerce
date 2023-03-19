@@ -15,7 +15,9 @@ body {
 .icons {
   @apply w-6 h-6 mr-2;
 }
-
+.mainText {
+  @apply text-2xl capitalize text-[#151875] mb-5 font-bold;
+}
 /* swiper */
 
 .swiper-pagination-bullet-active {
