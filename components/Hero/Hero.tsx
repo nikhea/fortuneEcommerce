@@ -34,6 +34,7 @@ const Hero = () => {
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       slidesPerView={1}
+      allowTouchMove={false}
       loop={true}
       autoplay={{
         delay: 3000,

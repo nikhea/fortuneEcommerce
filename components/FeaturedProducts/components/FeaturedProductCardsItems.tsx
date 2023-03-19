@@ -20,20 +20,26 @@ const FeaturedProductCardsItems: FC<FeaturedProduct> = ({
 }) => {
   return (
     <div className={style.cards}>
-      <div className="relative flex flex-col  w-full  bg-[#F6F7FB] rounded-md py-3 items-center mb-3 ">
+      <div className="relative flex flex-col  w-full h-full  bg-[#F6F7FB] rounded-md py-3 items-center mb-3 ">
         <div className="flex absolute left-2">
           <ShoppingCartIcon className={style.icons} />
           <HeartIcon className={style.icons} />
           <MagnifyingGlassPlusIcon className={style.icons} />
         </div>
         <div className="mt-[30px]">
-          <Image src={image} alt={name} width={500} height={500} />
+          <Image
+            src={image}
+            alt={name}
+            width={500}
+            height={500}
+            className="h-[200px] object-cover"
+          />
         </div>
         <Link className={style.link} href="#">
           view details
         </Link>
       </div>
-      <div className="px-3">
+      <div className="px-3 ">
         <h6 className=" text-xl capitalize text-[#151875]  font-bold  ">
           {name}
         </h6>

@@ -50,7 +50,7 @@ const FeaturedProductCards: FC<FeaturedProductsProps> = ({
       slidesPerView={4}
       pagination={{ clickable: true }}
     >
-      <div className="my-10"> {displayData}</div>
+      <div className="my-10 h-full"> {displayData}</div>
     </Swiper>
   );
 };
