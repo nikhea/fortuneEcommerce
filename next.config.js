@@ -5,6 +5,6 @@ module.exports = {
     appDir: true,
   },
   images: {
-    domains: ["randomuser.me"],
+    domains: ["127.0.0.1", "localhost"],
   },
 };

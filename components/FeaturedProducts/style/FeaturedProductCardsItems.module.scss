@@ -1,0 +1,12 @@
+.cards {
+  @apply flex flex-col mx-5 mb-16 shadow-md rounded-md items-center justify-center;
+}
+
+.link {
+  @apply border-0 border-solid min-w-[10px] w-fit px-10 not-italic font-[400] text-[14px] outline-none cursor-pointer my-3 py-[1em]  capitalize rounded-[8px] text-center text-white bg-primary;
+}
+.icons {
+  @apply h-5 w-5 mr-2 text-blue-500 cursor-pointer mb-3;
+  @apply hover:text-blue-700 hover:bg-[#EEEFFB] hover:rounded-full;
+  // color: linear-gradient(135deg, #1389ff 0%, #1db4e7 100%);
+}
