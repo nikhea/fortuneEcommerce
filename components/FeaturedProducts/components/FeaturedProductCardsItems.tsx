@@ -26,23 +26,25 @@ const FeaturedProductCardsItems: FC<FeaturedProduct> = ({
           <HeartIcon className={style.icons} />
           <MagnifyingGlassPlusIcon className={style.icons} />
         </div>
-        <div className="mt-[30px]">
+        <div className="mt-[30px] w-[200px]">
           <Image
             src={image}
             alt={name}
-            width={300}
+            // width={300}
             // height={500}
-            className="h-[300px] object-cover"
+            className="h-[200px] object-cover"
           />
         </div>
-        <Link className={style.link} href="#">
+        {/* <Link className={style.link} href="#">
           view details
-        </Link>
+        </Link> */}
       </div>
       <div className="w-full h-full px-3 py-3 ">
-        <h6 className=" text-xl capitalize text-[#151875]  font-bold  ">
-          {name}
-        </h6>
+        <Link href="#">
+          <h6 className=" text-xl capitalize text-[#151875]  font-bold  ">
+            {name}
+          </h6>
+        </Link>
         <div className="flex items-center justify-between ">
           <h2>
             <span className="mr-1"> {priceSymbol}</span>
