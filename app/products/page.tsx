@@ -9,9 +9,9 @@ const Products = () => {
       <Banner image={BannerData.image} title={BannerData.title} />
       <div className="container">
         <ProductHeader />
-        <div className="grid grid-cols-12">
+        <div className="grid grid-cols-12 gap-5">
           <CategoriesSiderBar />
-          <div className="w-full h-full min-h-screen col-start-3 col-end-13 bg-red-200">
+          <div className="w-full h-full min-h-screen col-start-3 col-end-13">
             product list
           </div>
         </div>
