@@ -1,7 +1,9 @@
+import { PagesRoutes } from "../../../routes/ PagesRoutes";
+
 export const NavItems = [
   {
     name: "products",
-    link: "/products",
+    link: PagesRoutes.products,
   },
   // {
   //   name: "shop",
@@ -9,10 +11,10 @@ export const NavItems = [
   // },
   {
     name: "contact",
-    link: "/contact",
+    link: PagesRoutes.contact,
   },
   {
     name: "about",
-    link: "/about",
+    link: PagesRoutes.about,
   },
 ];

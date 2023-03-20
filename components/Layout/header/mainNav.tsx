@@ -29,7 +29,7 @@ const mainNav = () => {
       }`}
     >
       <Link href={links.link} shallow>
-        {links.name}{" "}
+        {links.name}
       </Link>
     </li>
   ));

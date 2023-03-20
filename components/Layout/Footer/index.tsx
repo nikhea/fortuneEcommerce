@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { PagesRoutes } from "../../../routes/ PagesRoutes";
 import Button from "../../FormElement/Button/Button";
 import style from "./footer.module.scss";
 import HektoIcon from "./HektoIcon";
@@ -21,7 +22,7 @@ const Footer = () => {
         <div className={`${style.footer__grid} container`}>
           <div className={style.footer__right}>
             <HektoIcon />
-            <Link href="/register" shallow>
+            <Link href={PagesRoutes.register} shallow>
               <Button isCurve primary padding uppercase>
                 sign up
               </Button>

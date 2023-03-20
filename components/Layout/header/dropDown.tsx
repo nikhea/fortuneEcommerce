@@ -7,6 +7,7 @@ import {
   ArrowLeftOnRectangleIcon,
   Cog6ToothIcon,
 } from "@heroicons/react/24/outline";
+import { PagesRoutes } from "../../../routes/ PagesRoutes";
 const style = {
   Menu: `min-w-[150px] mx-auto  flex flex-col rounded-[10px] py-1 mt-2`,
   MenuItem: `!mb-2`,
@@ -26,11 +27,19 @@ const dropDown = ({ children }: any) => {
       <MenuItem key="0" className={style.MenuItem}>
         {!user ? (
           <>
-            <Link href="/register" shallow className={style.MenuItemLink}>
+            <Link
+              href={PagesRoutes.register}
+              shallow
+              className={style.MenuItemLink}
+            >
               <UserPlusIcon className={style.icons} />
               <p className={style.MenuItemLinkText}>register</p>
             </Link>
-            <Link href="/login" shallow className={style.MenuItemLink}>
+            <Link
+              href={PagesRoutes.login}
+              shallow
+              className={style.MenuItemLink}
+            >
               <ArrowLeftOnRectangleIcon className={style.icons} />
               <p className={style.MenuItemLinkText}>login</p>
             </Link>
