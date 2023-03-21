@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import Button from "../FormElement/Button/Button";
-// import HistoryIcon from "./Icon/HistoryIcon";
 import HistoryImage from "./Group 267.jpg";
+import { PagesRoutes } from "../../routes/ PagesRoutes";
 const History = () => {
   return (
     <div className="flex flex-col lg:flex-row gap-x-5 gap-y-5 lg:gap-y-0 items-center md:w-[90%] lg:w-[70%] m-auto my-20">
@@ -26,7 +26,7 @@ const History = () => {
           your preferences or seeking inspiration, our e-shop offers various
           resources to help you identify what you're looking for.
         </p>
-        <Link href="/contact" shallow>
+        <Link href={PagesRoutes.contact} shallow>
           <Button isCurve primary padding uppercase>
             contact us
           </Button>

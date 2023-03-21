@@ -8,7 +8,7 @@ import {
   Image7,
 } from "../images/jpeg/imagesPng";
 
-export const ProductsData = [
+export const dummyProductsData = [
   {
     _id: "323434",
     name: "luxury bedroom chair",
