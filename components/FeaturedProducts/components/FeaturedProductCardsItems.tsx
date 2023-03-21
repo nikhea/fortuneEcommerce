@@ -19,7 +19,9 @@ const FeaturedProductCardsItems: FC<FeaturedProduct> = ({
   priceSymbol,
 }) => {
   return (
-    <div className={`${style.cards} group`}>
+    <div
+      className={`${style.cards} group transition-all duration-500 ease-in delay-200`}
+    >
       <div className="relative flex flex-col  w-full h-full  bg-[#F6F7FB] rounded-md py-3 items-center  ">
         <div className="absolute flex transition-all duration-500 ease-in delay-200 opacity-0 left-2 group-hover:opacity-100 ">
           <ShoppingCartIcon className={style.icons} />
@@ -32,7 +34,7 @@ const FeaturedProductCardsItems: FC<FeaturedProduct> = ({
             alt={name}
             // width={300}
             // height={500}
-            className="h-[200px] object-cover"
+            className="h-[200px] object-cover group-hover:scale-125 transition-all duration-500 ease-in delay-200"
           />
         </div>
         {/* <Link className={style.link} href="#">

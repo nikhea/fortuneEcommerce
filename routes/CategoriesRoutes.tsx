@@ -1,9 +1,16 @@
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import {
+  PlusCircleIcon,
+  DeviceTabletIcon,
+  ComputerDesktopIcon,
+  TruckIcon,
+  TvIcon,
+  ArrowsPointingInIcon,
+} from "@heroicons/react/24/outline";
 
 export const categoriesRoutes = [
   {
     name: "health & Beauty",
-    icon: <ShoppingCartIcon />,
+    icon: <PlusCircleIcon />,
     subcategories: [
       {
         subName: "make up",
@@ -43,8 +50,130 @@ export const categoriesRoutes = [
     ],
   },
   {
-    name: "health & Beauty",
-    icon: <ShoppingCartIcon />,
+    name: "phones & tablets",
+    icon: <DeviceTabletIcon />,
+    subcategories: [
+      {
+        subName: "MOBILE PHONES        ",
+        subLinks: ["Smartphones", "Basic Phones", "Refurbished Phones"],
+      },
+      {
+        subName: "MOBILE ACCESSORIES",
+        subLinks: [
+          "Accessory Kits",
+          "Adapters",
+          "Batteries",
+          "Battery Chargers",
+          "Bluetooth Headsets",
+          "Cables",
+          "Car Accessories",
+          "Chargers",
+          "Earphones & Headsets",
+          "MicroSD Cards",
+          "Screen Protectors",
+          // "Selfie Sticks & Tripods",
+          // "Smart Watches",
+        ],
+      },
+      {
+        subName: "TABLETS",
+        subLinks: [
+          "iPads",
+          "Android Tablets",
+          "Educational Tablets",
+          "Tablet Accessories",
+        ],
+      },
+    ],
+  },
+  {
+    name: "computing",
+    icon: <ComputerDesktopIcon />,
+    subcategories: [
+      {
+        subName: "computers",
+        subLinks: ["desktops", "laptops"],
+      },
+      {
+        subName: "PRINTERS",
+        subLinks: ["Inkjet Printers", "Laser Printers", "Printer Ink & Toner"],
+      },
+      {
+        subName: "COMPUTER ACCESSORIES",
+        subLinks: [
+          "eyboards & Mice",
+          "Uninterrupted Power Supply",
+          "Memory Cards",
+          "Batteries",
+          "Scanners",
+          "Video Projectors",
+        ],
+      },
+    ],
+  },
+  {
+    name: "fashion",
+    icon: <PlusCircleIcon />,
+    subcategories: [
+      {
+        subName: "WOMEN'S FASHION",
+        subLinks: [
+          "Clothing",
+          "Shoes",
+          "Accessories",
+          "Jewelry",
+          "Handbags & Wallets",
+          "Underwear & Sleepwear",
+          "Maternity",
+          "Dresses",
+          "Traditional",
+          "Beach & Swimwear",
+          "Flats",
+        ],
+      },
+      {
+        subName: "MEN'S FASHION",
+        subLinks: [
+          "Clothing",
+          "Shoes",
+          "Accessories",
+          "Underwear & Sleepwear",
+          "Traditional & Cultural Wear",
+          "T-Shirts",
+          " Polo Shirts",
+          "Trousers & Chinos",
+          "Sneakers",
+          "Jewelry",
+          "Jerseys",
+        ],
+      },
+      {
+        subName: "Watches",
+        subLinks: ["Men's Watches", "Women's Watches"],
+      },
+    ],
+  },
+  {
+    name: "automobile",
+    icon: <TruckIcon />,
+    subcategories: [
+      {
+        subName: "ELECTRONICS & ACCESSORIES",
+        subLinks: ["Car Electronics", "Car Accessories", "Power & Battery"],
+      },
+      {
+        subName: "CAR CARE",
+        subLinks: ["Cleaning Kits", "Exterior Care", "Interior Care"],
+      },
+      {
+        subName: "TYRE & RIMS",
+        subLinks: ["Tyre", "Inflator & Guages"],
+      },
+    ],
+  },
+  {
+    name: "funiture",
+    icon: <ArrowsPointingInIcon />,
     subcategories: [
       {
         subName: "make up",
@@ -84,206 +213,35 @@ export const categoriesRoutes = [
     ],
   },
   {
-    name: "health & Beauty",
-    icon: <ShoppingCartIcon />,
+    name: "eletronics",
+    icon: <TvIcon />,
     subcategories: [
       {
-        subName: "make up",
+        subName: "TELEVISION & VIDEO",
         subLinks: [
-          "Concealers & Color Correctors",
-          "Foundation",
-          "Powder",
-          "Lip Gloss",
-          "Lip Liner",
-          "Lipstick",
-          "Eyeliner & Kajal",
-          "Eyeshadow",
-          "Mascara",
+          "Televisions",
+          "Smart TVs",
+          "LED & LCD TVs",
+          "QLED & OLED TVs",
+          "DVD Players & Recorders",
         ],
       },
       {
-        subName: "hair care",
+        subName: "CAMERAS & PHOTOS",
         subLinks: [
-          "Hair & Scalp Care",
-          "Hair Accessories",
-          "Hair Cutting Tools",
-          "Shampoo & Conditioner",
-          "Wigs & Accessories",
+          "Digital Cameras",
+          "Projectors",
+          "Video Surveillance",
+          "Camcorders",
         ],
       },
       {
-        subName: "oral care",
+        subName: "GENERATORS & PORTABLE POWER",
         subLinks: [
-          "Dental Care kits",
-          "Dental Floss & Picks",
-          "Teeth Whitening",
-          "Toothbrushes",
-          "Toothpaste",
-          "Breath Freshners",
-        ],
-      },
-    ],
-  },
-  {
-    name: "health & Beauty",
-    icon: <ShoppingCartIcon />,
-    subcategories: [
-      {
-        subName: "make up",
-        subLinks: [
-          "Concealers & Color Correctors",
-          "Foundation",
-          "Powder",
-          "Lip Gloss",
-          "Lip Liner",
-          "Lipstick",
-          "Eyeliner & Kajal",
-          "Eyeshadow",
-          "Mascara",
-        ],
-      },
-      {
-        subName: "hair care",
-        subLinks: [
-          "Hair & Scalp Care",
-          "Hair Accessories",
-          "Hair Cutting Tools",
-          "Shampoo & Conditioner",
-          "Wigs & Accessories",
-        ],
-      },
-      {
-        subName: "oral care",
-        subLinks: [
-          "Dental Care kits",
-          "Dental Floss & Picks",
-          "Teeth Whitening",
-          "Toothbrushes",
-          "Toothpaste",
-          "Breath Freshners",
-        ],
-      },
-    ],
-  },
-  {
-    name: "health & Beauty",
-    icon: <ShoppingCartIcon />,
-    subcategories: [
-      {
-        subName: "make up",
-        subLinks: [
-          "Concealers & Color Correctors",
-          "Foundation",
-          "Powder",
-          "Lip Gloss",
-          "Lip Liner",
-          "Lipstick",
-          "Eyeliner & Kajal",
-          "Eyeshadow",
-          "Mascara",
-        ],
-      },
-      {
-        subName: "hair care",
-        subLinks: [
-          "Hair & Scalp Care",
-          "Hair Accessories",
-          "Hair Cutting Tools",
-          "Shampoo & Conditioner",
-          "Wigs & Accessories",
-        ],
-      },
-      {
-        subName: "oral care",
-        subLinks: [
-          "Dental Care kits",
-          "Dental Floss & Picks",
-          "Teeth Whitening",
-          "Toothbrushes",
-          "Toothpaste",
-          "Breath Freshners",
-        ],
-      },
-    ],
-  },
-  {
-    name: "health & Beauty",
-    icon: <ShoppingCartIcon />,
-    subcategories: [
-      {
-        subName: "make up",
-        subLinks: [
-          "Concealers & Color Correctors",
-          "Foundation",
-          "Powder",
-          "Lip Gloss",
-          "Lip Liner",
-          "Lipstick",
-          "Eyeliner & Kajal",
-          "Eyeshadow",
-          "Mascara",
-        ],
-      },
-      {
-        subName: "hair care",
-        subLinks: [
-          "Hair & Scalp Care",
-          "Hair Accessories",
-          "Hair Cutting Tools",
-          "Shampoo & Conditioner",
-          "Wigs & Accessories",
-        ],
-      },
-      {
-        subName: "oral care",
-        subLinks: [
-          "Dental Care kits",
-          "Dental Floss & Picks",
-          "Teeth Whitening",
-          "Toothbrushes",
-          "Toothpaste",
-          "Breath Freshners",
-        ],
-      },
-    ],
-  },
-  {
-    name: "health & Beauty",
-    icon: <ShoppingCartIcon />,
-    subcategories: [
-      {
-        subName: "make up",
-        subLinks: [
-          "Concealers & Color Correctors",
-          "Foundation",
-          "Powder",
-          "Lip Gloss",
-          "Lip Liner",
-          "Lipstick",
-          "Eyeliner & Kajal",
-          "Eyeshadow",
-          "Mascara",
-        ],
-      },
-      {
-        subName: "hair care",
-        subLinks: [
-          "Hair & Scalp Care",
-          "Hair Accessories",
-          "Hair Cutting Tools",
-          "Shampoo & Conditioner",
-          "Wigs & Accessories",
-        ],
-      },
-      {
-        subName: "oral care",
-        subLinks: [
-          "Dental Care kits",
-          "Dental Floss & Picks",
-          "Teeth Whitening",
-          "Toothbrushes",
-          "Toothpaste",
-          "Breath Freshners",
+          "Generators",
+          "Power Inverters",
+          "Solar & Wind Power",
+          "Stablizers",
         ],
       },
     ],
