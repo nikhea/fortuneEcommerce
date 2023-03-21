@@ -11,9 +11,8 @@ const Shipping = () => {
       <div className="container grid grid-cols-12 !my-32 gap-x-5">
         <ShippingForm />
         <div className="flex flex-col justify-between w-full h-full col-start-9 col-end-13 ">
-          <div className="">cart</div>
-          <ShippingSideTotal />
           <ShippingCartItems />
+          <ShippingSideTotal />
         </div>
       </div>
     </div>
