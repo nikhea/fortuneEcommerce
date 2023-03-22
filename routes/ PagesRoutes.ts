@@ -6,4 +6,5 @@ export const PagesRoutes = {
   about: "/about",
   products: "/products",
   shipping: "/shipping",
+  shoppingCart: "/shoppingCart",
 };

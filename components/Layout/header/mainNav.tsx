@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { UserCircleIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
 import DropDown from "./dropDown";
+import { PagesRoutes } from "../../../routes/ PagesRoutes";
 const mainNav = () => {
   const pathname = usePathname();
   const [background, setBackground] = useState(false);
@@ -40,7 +41,7 @@ const mainNav = () => {
       }`}
     >
       <div className={`${style.mainHeader} container`}>
-        <Link href="/" shallow>
+        <Link href={PagesRoutes.home} shallow>
           <HeaderIcon />
         </Link>
         <ul>{displayNameItems}</ul>
@@ -53,12 +54,14 @@ const mainNav = () => {
               </div>
             </Link>
           </DropDown>
-          <div className={`${style.subHeader__content} relative`}>
-            <ShoppingCartIcon className={style.icons} />
-            <span className="absolute left-[12px] top-[-5px] bg-primary  w-5 h-5 rounded-full flex justify-center items-center">
-              <h1 className="text-[12px] text-white">78</h1>
-            </span>
-          </div>
+          <Link href={PagesRoutes.shoppingCart} shallow>
+            <div className={`${style.subHeader__content} relative`}>
+              <ShoppingCartIcon className={style.icons} />
+              <span className="absolute left-[12px] top-[-5px] bg-primary  w-5 h-5 rounded-full flex justify-center items-center">
+                <h1 className="text-[12px] text-white">78</h1>
+              </span>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
