@@ -6,6 +6,14 @@
   .icons {
     @apply h-6 w-6 mr-2;
   }
+  .iconContainer {
+    @apply cursor-pointer relative text-xl hover:text-primary transition-all duration-500 ease-in delay-200;
+  }
+  input {
+    width: 50px;
+    margin: 0 auto;
+    text-align: center;
+  }
   /* 
 Generic Styling, for Desktops/Laptops 
 */

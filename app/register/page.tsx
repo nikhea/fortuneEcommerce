@@ -1,8 +1,8 @@
 "use client";
 
-import AccountForm from "../../components/AuthForm/AccountForm";
-import Banner from "../../components/Banner/Banner";
-import { PagesRoutes } from "../../routes/ PagesRoutes";
+import AccountForm from "../../src/components/AuthForm/AccountForm";
+import Banner from "../../src/components/Banner/Banner";
+import { PagesRoutes } from "../../src/routes/ PagesRoutes";
 
 const Register = () => {
   const registerData = (data: any) => {

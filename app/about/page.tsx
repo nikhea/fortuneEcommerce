@@ -1,8 +1,8 @@
 import React from "react";
-import History from "../../components/aboutComponents/History";
-import Features from "../../components/Features/Features";
-import Banner from "../../components/Banner/Banner";
-import ClientSay from "../../components/aboutComponents/ClientSay";
+import History from "../../src/components/aboutComponents/History";
+import Features from "../../src/components/Features/Features";
+import Banner from "../../src/components/Banner/Banner";
+import ClientSay from "../../src/components/aboutComponents/ClientSay";
 
 const About = () => {
   return (

@@ -1,4 +1,4 @@
-// "use clinet"
+"use client";
 import style from "./style/ShoppingCartTable.module.scss";
 import React from "react";
 import { dummyProductsData } from "../../seed/seedDB";
@@ -6,11 +6,36 @@ import Image from "next/image";
 import RatingStar from "../FormElement/RatingStar/RatingStar";
 import Button from "../FormElement/Button/Button";
 import Link from "next/link";
-import { ArrowLongLeftIcon, XCircleIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowLongLeftIcon,
+  XCircleIcon,
+  MinusCircleIcon,
+  PlusCircleIcon,
+} from "@heroicons/react/24/outline";
 
 import { PagesRoutes } from "../../routes/ PagesRoutes";
+import { useState } from "react";
+import QualityProduct from "../Features/Icon/QualityProduct";
 
 const shoppingCartTable = () => {
+  const [cartQuantity, setCartQuantity] = useState(1);
+
+  const increaseCartQuantity = () => {
+    setCartQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  const decreaseCartQuantity = () => {
+    if (cartQuantity > 1) {
+      setCartQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  };
+  const handleCartQuantity = (action: string) => {
+    if (action === "increase") {
+      setCartQuantity(cartQuantity + 1);
+    } else if (action === "decrease" && cartQuantity > 1) {
+      setCartQuantity(cartQuantity - 1);
+    }
+  };
   return (
     <div className={style.ShoppingCartTableContainer}>
       <div className={style.ShoppingCartTableContainerBg}>
@@ -50,11 +75,30 @@ const shoppingCartTable = () => {
                   {item.priceSymbol} {item.price}
                 </td>
                 <td>
-                  <input type="number" />
+                  <span className="flex items-center">
+                    <button
+                      className={style.iconContainer}
+                      onClick={increaseCartQuantity}
+                    >
+                      <PlusCircleIcon className={style.icons} />
+                    </button>
+                    <input
+                      type="number"
+                      value={cartQuantity}
+                      readOnly
+                      className="w-fit"
+                    />
+                    <button
+                      className={style.iconContainer}
+                      onClick={decreaseCartQuantity}
+                    >
+                      <MinusCircleIcon className={style.icons} />
+                    </button>
+                  </span>
                 </td>
                 <td> {item.priceSymbol} 76589</td>
 
-                <td className=" cursor-pointer relative text-xl hover:text-primary transition-all duration-500 ease-in delay-200">
+                <td className={style.iconContainer}>
                   <XCircleIcon className={style.icons} />
                 </td>
               </tr>

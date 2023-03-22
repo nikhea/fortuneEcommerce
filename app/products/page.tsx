@@ -1,7 +1,7 @@
 import React from "react";
-import Banner from "../../components/Banner/Banner";
-import CategoriesSiderBar from "../../components/CategoriesSiderBar/CategoriesSiderBar";
-import ProductHeader from "../../components/ProductsComponents/ProductHeader/ProductHeader";
+import Banner from "../../src/components/Banner/Banner";
+import CategoriesSiderBar from "../../src/components/CategoriesSiderBar/CategoriesSiderBar";
+import ProductHeader from "../../src/components/ProductsComponents/ProductHeader/ProductHeader";
 
 const Products = () => {
   return (

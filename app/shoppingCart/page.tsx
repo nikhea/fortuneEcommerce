@@ -1,7 +1,7 @@
 import React from "react";
-import Banner from "../../components/Banner/Banner";
-import ShippingSideTotal from "../../components/ShippingForm/ShippingSide/ShippingSideTotal";
-import ShoppingCartTable from "../../components/shoppingCartComponents/ShoppingCartTable";
+import Banner from "../../src/components/Banner/Banner";
+import ShippingSideTotal from "../../src/components/ShippingForm/ShippingSide/ShippingSideTotal";
+import ShoppingCartTable from "../../src/components/shoppingCartComponents/ShoppingCartTable";
 const ShoppingCart = () => {
   return (
     <div>

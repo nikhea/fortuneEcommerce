@@ -1,8 +1,8 @@
 import { FC } from "react";
-import Banner from "../../components/Banner/Banner";
-import ShippingForm from "../../components/ShippingForm/ShippingForm";
-import ShippingCartItems from "../../components/ShippingForm/ShippingSide/ShippingCartItems";
-import ShippingSideTotal from "../../components/ShippingForm/ShippingSide/ShippingSideTotal";
+import Banner from "../../src/components/Banner/Banner";
+import ShippingForm from "../../src/components/ShippingForm/ShippingForm";
+import ShippingCartItems from "../../src/components/ShippingForm/ShippingSide/ShippingCartItems";
+import ShippingSideTotal from "../../src/components/ShippingForm/ShippingSide/ShippingSideTotal";
 
 const Shipping = () => {
   return (

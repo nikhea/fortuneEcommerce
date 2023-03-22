@@ -1,7 +1,7 @@
 "use client";
-import AccountForm from "../../components/AuthForm/AccountForm";
-import Banner from "../../components/Banner/Banner";
-import { PagesRoutes } from "../../routes/ PagesRoutes";
+import AccountForm from "../../src/components/AuthForm/AccountForm";
+import Banner from "../../src/components/Banner/Banner";
+import { PagesRoutes } from "../../src/routes/ PagesRoutes";
 
 const page = () => {
   const loginData = (data: any) => {
@@ -35,6 +35,6 @@ const AccountFormDefaultText = {
   subText: "please login using the account details below.",
   ButtonSign: "sign in",
   altBase: "don’t have an account?",
-  altLink:   PagesRoutes.register,
+  altLink: PagesRoutes.register,
   altLinkText: "create account",
 };
