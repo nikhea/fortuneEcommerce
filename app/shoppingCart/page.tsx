@@ -9,9 +9,9 @@ const ShoppingCart = () => {
       <Banner image={BannerData.image} title={BannerData.title} />
       <div className="container grid grid-cols-12 !my-32 gap-x-5">
         <ShoppingCartTable />
-        <div className="flex flex-col justify-between w-full h-full col-start-9 col-end-13 ">
+        <div className="flex flex-col justify-between w-full  col-start-9 col-end-13 h-fit">
           <ShippingSideTotal />
-          <CalulateShipping title="Calculate Shopping" />
+          <CalulateShipping title="Calculate  Shiping" />
         </div>
       </div>
     </div>

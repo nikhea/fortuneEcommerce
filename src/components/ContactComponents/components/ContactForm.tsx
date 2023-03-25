@@ -86,7 +86,7 @@ const ContactForm = () => {
             <textarea
               placeholder="type your message*"
               // name="message"
-              className="p-5 rounded-[10px] my-3 w-full h-full min-h-[150px] outline-none border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-sky-500"
+              className="p-5 rounded-[10px] my-3 w-full h-full min-h-[150px] outline-none border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-pink-500"
               {...register("message", { required: true, maxLength: 1000 })}
             />
           </div>

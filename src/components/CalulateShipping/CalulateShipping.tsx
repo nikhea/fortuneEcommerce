@@ -6,7 +6,7 @@ export type ICalulateShipping = {
 };
 const CalulateShipping: FC<ICalulateShipping> = ({ title }) => {
   return (
-    <div>
+    <div className="my-20">
       <h1 className=" text-center text-xl capitalize text-[#151875] mb-5 font-bold;">
         {title}
       </h1>

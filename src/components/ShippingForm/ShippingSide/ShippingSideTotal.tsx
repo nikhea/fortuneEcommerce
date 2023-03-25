@@ -15,7 +15,7 @@ const ShippingSideTotal = () => {
         <h2>$ 42343</h2>
       </div>
       <hr className="h-[2px] bg-gray-400 w-full " />
-      <Link href="" className="grid my-5 place-items-center">
+      <Link href="/shipping" className="grid my-5 place-items-center">
         <Button isCurve primary padding uppercase>
           proceed to checkout
         </Button>

@@ -22,15 +22,13 @@ SwiperCore.use([
 ]);
 import React, { FC } from "react";
 import {
-  FeaturedProductsProps,
-  FeaturedProduct,
-} from "../../../interface/FeaturedProductsDataInterface";
+  featuredProducts,
+  Product,
+} from "../../../interface/ProductsDataInterface";
 import FeaturedProductCardsItems from "./FeaturedProductCardsItems";
 
-const FeaturedProductCards: FC<FeaturedProductsProps> = ({
-  featuredProducts,
-}) => {
-  const displayData = featuredProducts.map((product: FeaturedProduct) => (
+const FeaturedProductCards: FC<featuredProducts> = ({ featuredProducts }) => {
+  const displayData = featuredProducts.map((product: Product) => (
     <SwiperSlide key={product._id}>
       <FeaturedProductCardsItems
         key={product._id}

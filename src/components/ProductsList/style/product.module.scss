@@ -8,4 +8,6 @@
 .icons {
   @apply h-5 w-5 mr-2 text-blue-500 cursor-pointer mb-3;
   @apply hover:text-blue-700 hover:bg-[#EEEFFB] hover:rounded-full;
+
+  // color: linear-gradient(135deg, #1389ff 0%, #1db4e7 100%);
 }

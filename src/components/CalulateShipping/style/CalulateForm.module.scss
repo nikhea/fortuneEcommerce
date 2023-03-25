@@ -1,0 +1,6 @@
+.inputContainer {
+  @apply flex flex-col my-1 w-full;
+}
+.label {
+  @apply capitalize tracking-[1.1px] font-light mx-2;
+}

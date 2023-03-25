@@ -1,6 +1,6 @@
 import { StaticImageData } from "next/image";
 
-export type FeaturedProduct = {
+export type Product = {
   _id: string;
   name: string;
   image: string | StaticImageData;
@@ -10,10 +10,12 @@ export type FeaturedProduct = {
   priceSymbol: string;
 };
 
-export type FeaturedProductsProps = {
-  featuredProducts: FeaturedProduct[];
+export type ProductsProps = {
+  products: Product[];
 };
-
-export type FeaturedProductCardsProps = {
-  featuredProducts: FeaturedProduct[];
+export type featuredProducts= {
+  featuredProducts: Product[];
+}
+export type ProductCardsProps = {
+  products: Product[];
 };
