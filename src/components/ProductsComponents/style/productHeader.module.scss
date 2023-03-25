@@ -12,3 +12,6 @@
   @apply rounded-[10px];
   @apply border border-[#C4C4C4] border-solid bg-white text-black  focus:outline-none focus:border-pink-500;
 }
+.activeButton {
+  @apply text-pink-500 cursor-pointer;
+}

@@ -8,14 +8,15 @@ export type Product = {
   price: number;
   rating: number;
   priceSymbol: string;
+  description: string;
 };
 
 export type ProductsProps = {
   products: Product[];
 };
-export type featuredProducts= {
+export type featuredProducts = {
   featuredProducts: Product[];
-}
+};
 export type ProductCardsProps = {
   products: Product[];
 };
