@@ -1,4 +1,6 @@
 "use client";
+import { PagesRoutes } from "../../routes/ PagesRoutes";
+import { useState } from "react";
 import style from "./style/ShoppingCartTable.module.scss";
 import React from "react";
 import { dummyProductsData } from "../../seed/seedDB";
@@ -12,10 +14,6 @@ import {
   MinusCircleIcon,
   PlusCircleIcon,
 } from "@heroicons/react/24/outline";
-
-import { PagesRoutes } from "../../routes/ PagesRoutes";
-import { useState } from "react";
-import QualityProduct from "../Features/Icon/QualityProduct";
 
 const shoppingCartTable = () => {
   const [cartQuantity, setCartQuantity] = useState(1);
@@ -96,7 +94,9 @@ const shoppingCartTable = () => {
                     </button>
                   </span>
                 </td>
-                <td> {item.priceSymbol} 76589</td>
+                <td style={{ textAlign: "center" }}>
+                  {item.priceSymbol} 76589
+                </td>
 
                 <td className={style.iconContainer}>
                   <XCircleIcon className={style.icons} />

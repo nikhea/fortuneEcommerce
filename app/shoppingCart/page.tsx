@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "../../src/components/Banner/Banner";
+import CalulateShipping from "../../src/components/CalulateShipping/CalulateShipping";
 import ShippingSideTotal from "../../src/components/ShippingForm/ShippingSide/ShippingSideTotal";
 import ShoppingCartTable from "../../src/components/shoppingCartComponents/ShoppingCartTable";
 const ShoppingCart = () => {
@@ -10,6 +11,7 @@ const ShoppingCart = () => {
         <ShoppingCartTable />
         <div className="flex flex-col justify-between w-full h-full col-start-9 col-end-13 ">
           <ShippingSideTotal />
+          <CalulateShipping title="Calculate Shopping" />
         </div>
       </div>
     </div>

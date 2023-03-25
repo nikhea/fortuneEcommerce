@@ -4,10 +4,11 @@
     @apply bg-secondary py-10 px-3 rounded-md;
   }
   .icons {
-    @apply h-6 w-6 mr-2;
+    @apply h-6 w-6;
   }
   .iconContainer {
-    @apply cursor-pointer relative text-xl hover:text-primary transition-all duration-500 ease-in delay-200;
+    @apply cursor-pointer relative text-xl hover:text-primary;
+    // transition-all duration-500 ease-in delay-200
   }
   input {
     width: 50px;
@@ -32,7 +33,7 @@ Generic Styling, for Desktops/Laptops
   th {
     padding: 6px;
     // border: 1px solid #ccc;
-    text-align: center;
+    // text-align: center;
   }
   td {
     padding: 6px;
