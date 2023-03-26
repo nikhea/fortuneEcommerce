@@ -38,6 +38,7 @@ const FeaturedProductCards: FC<featuredProducts> = ({ featuredProducts }) => {
         rating={product.rating}
         image={product.image}
         images={product.images}
+        description={product.description}
         _id={product._id}
       />
     </SwiperSlide>
