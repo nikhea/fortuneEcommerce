@@ -7,7 +7,6 @@ import {
 import style from "./style/product.module.scss";
 import ProductListItem from "./ProductListItem";
 import { useViewState } from "../../store/useView";
-
 const ProductCards: FC<ProductCardsProps> = ({ products }) => {
   const { gridStyle } = useViewState();
   const displayProducts = products.map((product: Product) => (
@@ -22,6 +21,8 @@ const ProductCards: FC<ProductCardsProps> = ({ products }) => {
       description={product.description}
     />
   ));
+  console.log(gridStyle, "gridStyle");
+
   return (
     <div className={`${gridStyle ? style.productGrid : style.productList}`}>
       {displayProducts}

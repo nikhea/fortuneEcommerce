@@ -9,8 +9,10 @@ import {
   HeartIcon,
   MagnifyingGlassPlusIcon,
 } from "@heroicons/react/24/outline";
+import { PagesRoutes } from "../../../routes/ PagesRoutes";
 
 const FeaturedProductCardsItems: FC<Product> = ({
+  _id,
   name,
   price,
   image,
@@ -42,7 +44,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
         </Link> */}
       </div>
       <div className="w-full h-full px-3 py-3 ">
-        <Link href="#">
+        <Link href={`${PagesRoutes.products}/${_id}`}>
           <h6 className=" text-xl capitalize text-[#151875]  font-bold  ">
             {name}
           </h6>

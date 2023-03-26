@@ -38,7 +38,7 @@ const ProductListItem: FC<Product> = ({
         </div>
       </div>
       <div className={style.textContainer}>
-        <Link href="#">
+        <Link href={`${PagesRoutes.products}/${_id}`}>
           <h6 className={style.h6}>{name}</h6>
         </Link>
         <p className={style.text}>{description}</p>

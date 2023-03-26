@@ -22,5 +22,9 @@ module.exports = {
   },
   plugins: [
     // require("tailwindcss-container-query")
+    require("tailwind-scrollbar"),
   ],
+  variants: {
+    scrollbar: ["rounded"],
+  },
 };

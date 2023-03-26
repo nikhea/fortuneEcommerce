@@ -1,0 +1,7 @@
+.icons {
+  @apply h-6 w-6 cursor-pointer hover:text-primary text-3xl;
+}
+.iconContainer {
+  @apply flex justify-end     top-0;
+  // transition-all duration-500 ease-in delay-200
+}
