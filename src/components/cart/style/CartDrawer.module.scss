@@ -1,7 +1,33 @@
+.container {
+  @apply flex items-center  justify-between;
+  input {
+    width: 50px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
 .icons {
   @apply h-6 w-6 cursor-pointer hover:text-primary text-3xl;
 }
 .iconContainer {
-  @apply flex justify-end     top-0;
+  @apply flex justify-end     top-0 my-5;
   // transition-all duration-500 ease-in delay-200
+}
+
+.btn {
+  @apply border-0  border-solid bg-transparent min-w-[10px] w-full rounded-[8px] text-white  bg-primary  not-italic font-[400] text-[14px] outline-none cursor-pointer mx-0 py-[1em] px-0  h-full;
+}
+.btnOutline {
+  @apply border-2  border-solid border-primary bg-transparent min-w-[10px] w-full rounded-[8px] text-primary  bg-white  not-italic font-[400] text-[14px] outline-none cursor-pointer mx-0 py-[1em] px-0;
+}
+
+.imgContainer {
+  @apply mt-[30px] w-[100px] overflow-hidden;
+  .img {
+    @apply h-[100px] object-cover  transition-all duration-500 ease-in delay-200;
+  }
+}
+.priceRateContainer {
+  @apply flex flex-col gap-y-3;
 }

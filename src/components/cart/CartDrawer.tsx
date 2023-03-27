@@ -6,28 +6,34 @@ import { useCartDrawerState } from "../../store/useShoppingCartSideBar";
 import { PagesRoutes } from "../../routes/ PagesRoutes";
 import style from "./style/CartDrawer.module.scss";
 import { dummyProductsData } from "../../seed/seedDB";
-import Image from "next/image";
-import RatingStar from "../FormElement/RatingStar/RatingStar";
-import Button from "../FormElement/Button/Button";
 import Link from "next/link";
-import {
-  ArrowLongLeftIcon,
-  XCircleIcon,
-  MinusCircleIcon,
-  PlusCircleIcon,
-} from "@heroicons/react/24/outline";
+import { XCircleIcon } from "@heroicons/react/24/outline";
+import CartItem from "./CartItem";
+import { Product } from "../../interface/ProductsDataInterface";
 const CartDrawer = () => {
   const { CartDrawer, setCartDrawer } = useCartDrawerState();
   const toggleDrawer = () => {
     setCartDrawer(!CartDrawer);
   };
+  const displayCartItem = dummyProductsData.map((cartItem: Product) => (
+    <CartItem
+      key={cartItem._id}
+      name={cartItem.name}
+      price={cartItem.price}
+      priceSymbol={cartItem.priceSymbol}
+      rating={cartItem.rating}
+      image={cartItem.image}
+      images={cartItem.images}
+      description={cartItem.description}
+      _id={cartItem._id}
+    />
+  ));
   return (
     <Drawer
       open={CartDrawer}
       onClose={toggleDrawer}
       direction="right"
       duration={1000}
-      // className="w-[80vw]"
       className="h-10 scrollbar-thin scrollbar-thumb-pink-500 scrollbar-track-pink-300 overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
       style={{
         width: "40vw",
@@ -41,11 +47,21 @@ const CartDrawer = () => {
         <div className={style.iconContainer}>
           <XCircleIcon className={style.icons} onClick={() => toggleDrawer()} />
         </div>
-        <Link href={PagesRoutes.shoppingCart} onClick={() => toggleDrawer()}>
-          <Button isCurve primary padding uppercase full>
-            view cart
-          </Button>
-        </Link>
+        <div className="grid grid-cols-1 gap-3 text-sm mb-5">
+          {displayCartItem}
+        </div>
+        <div className="flex items-center justify-between capitalize  text-xl py-2">
+          <h1 className="">subTotal:</h1>
+          <h2>$ 12343</h2>
+        </div>
+        <div className="grid grid-cols-2 gap-3 text-sm mb-5">
+          <Link href={PagesRoutes.products} onClick={() => toggleDrawer()}>
+            <button className={style.btnOutline}> continue shopping</button>
+          </Link>
+          <Link href={PagesRoutes.shoppingCart} onClick={() => toggleDrawer()}>
+            <button className={style.btn}> view cart</button>
+          </Link>
+        </div>
       </div>
     </Drawer>
   );
