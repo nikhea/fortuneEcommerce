@@ -58,12 +58,6 @@ const CartItem: FC<Product> = ({
         <h6 className="w-fit mt-[0.2rem] py-1 px-5 border border-pink-500">
           {cartQuantity}
         </h6>
-        {/* <input
-          type="number"
-          value={cartQuantity}
-          readOnly
-          className="w-fit mt-[0.2rem] py-1 border border-pink-500"
-        /> */}
         <button className={style.iconContainer} onClick={decreaseCartQuantity}>
           <MinusCircleIcon className={style.icons} />
         </button>
