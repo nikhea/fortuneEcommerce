@@ -1,6 +1,5 @@
-"use client";
 import { FC } from "react";
-import "./select.css";
+// import "./select.css";
 import Select from "react-select";
 import classnames from "classnames";
 export interface optionsProps {
