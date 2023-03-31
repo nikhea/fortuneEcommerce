@@ -35,7 +35,7 @@ const ProductListItem: FC<Product> = ({
           <Image
             src={image}
             alt={name}
-            className={`${style.img} group-hover:scale-125`}
+            className={`${style.img} group-hover:scale-110`}
           />
         </div>
       </div>

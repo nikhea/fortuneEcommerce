@@ -36,7 +36,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
             alt={name}
             // width={300}
             // height={500}
-            className="h-[200px] object-cover group-hover:scale-125 transition-all duration-500 ease-in delay-200"
+            className="h-[200px] object-cover group-hover:scale-110 transition-all duration-500 ease-in delay-200"
           />
         </div>
         {/* <Link className={style.link} href="#">
