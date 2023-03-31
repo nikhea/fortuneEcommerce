@@ -14,7 +14,7 @@
       @apply relative flex flex-col  w-full h-full  bg-[#F6F7FB] rounded-md py-3 items-center;
     }
     .iconsContainer {
-      @apply absolute flex flex-col  transition-all duration-500 ease-in delay-200 opacity-0 left-2 bottom-0;
+      @apply absolute flex flex-col  transition-all duration-500 ease-in delay-200  left-2 bottom-0;
     }
     .imgContainer {
       @apply mt-[30px] w-[200px] overflow-hidden;

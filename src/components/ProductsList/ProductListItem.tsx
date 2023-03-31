@@ -24,7 +24,9 @@ const ProductListItem: FC<Product> = ({
   return (
     <div className={`${style.cards} group `}>
       <div className={style.upperPart}>
-        <div className={`${style.iconsContainer} group-hover:opacity-100`}>
+        <div
+          className={`${style.iconsContainer} opacity-0 group-hover:opacity-100`}
+        >
           <ShoppingCartIcon className={style.icons} />
           <HeartIcon className={style.icons} />
           <MagnifyingGlassPlusIcon className={style.icons} />
