@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import Link from "next/link";
 import style from "./style/CalulateForm.module.scss";
 import React from "react";
@@ -51,7 +51,7 @@ const CalulateForm = () => {
           // inputRef={register("email")}
         />
       </div>
-      <Link href="" className="grid place-items-center mb-3">
+      <Link href="" className="grid mb-3 place-items-center">
         <Button isCurve primary padding uppercase full>
           Calculate Shiping
         </Button>

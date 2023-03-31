@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import style from "../style/productHeader.module.scss";
 import { ListBulletIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
 import Select from "../../FormElement/select/select";

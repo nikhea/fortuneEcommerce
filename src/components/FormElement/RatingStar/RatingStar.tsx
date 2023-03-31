@@ -1,4 +1,4 @@
-"use client";
+// "use client";a
 import { FC } from "react";
 import ReactStars from "react-rating-stars-component";
 

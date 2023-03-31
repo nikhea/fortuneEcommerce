@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { useState } from "react";
 import style from "./style/mainHeader.module.scss";
 import HeaderIcon from "./headerIcon";

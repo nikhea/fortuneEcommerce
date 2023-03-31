@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import React, { useState } from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
@@ -34,7 +34,7 @@ const CartDrawer = () => {
       onClose={toggleDrawer}
       direction="right"
       duration={1000}
-      className="h-10 scrollbar-thin scrollbar-thumb-pink-500 scrollbar-track-pink-300 overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
+      className="h-10 overflow-y-scroll scrollbar-thin scrollbar-thumb-pink-500 scrollbar-track-pink-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
       style={{
         width: "40vw",
         height: "100%",
@@ -47,14 +47,14 @@ const CartDrawer = () => {
         <div className={style.iconContainer}>
           <XCircleIcon className={style.icons} onClick={() => toggleDrawer()} />
         </div>
-        <div className="grid grid-cols-1 gap-3 text-sm mb-5">
+        <div className="grid grid-cols-1 gap-3 mb-5 text-sm">
           {displayCartItem}
         </div>
-        <div className="flex items-center justify-between capitalize  text-xl py-2">
+        <div className="flex items-center justify-between py-2 text-xl capitalize">
           <h1 className="">subTotal:</h1>
           <h2>$ 12343</h2>
         </div>
-        <div className="grid grid-cols-2 gap-3 text-sm mb-5">
+        <div className="grid grid-cols-2 gap-3 mb-5 text-sm">
           <Link href={PagesRoutes.products} onClick={() => toggleDrawer()}>
             <button className={style.btnOutline}> continue shopping</button>
           </Link>

@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import style from "./style/ShippingForm.module.scss";
 import { useForm, FormProvider, useController } from "react-hook-form";
 

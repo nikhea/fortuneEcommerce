@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { useForm, FormProvider, useController } from "react-hook-form";
 import style from "./style/AccountForm.module.scss";
 import useFormPersist from "react-hook-form-persist";

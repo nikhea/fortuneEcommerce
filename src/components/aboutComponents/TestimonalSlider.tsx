@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import HistoryImage from "./Icon/Group 267.jpg";
 
 import "swiper/swiper-bundle.css";
@@ -40,7 +40,7 @@ const TestimonalSlider = () => {
     >
       {swipdata.map((swiper, idx) => (
         <SwiperSlide key={idx}>
-          <div className="flex text-center items-center justify-center flex-col mb-10 gap-2">
+          <div className="flex flex-col items-center justify-center gap-2 mb-10 text-center">
             <div className="rounded-full h-[150px] w-[150px]">
               <img
                 src={swiper.image}
@@ -48,7 +48,7 @@ const TestimonalSlider = () => {
                 className="rounded-full h-[150px] w-[150px]"
               />
             </div>
-            <h1 className="text-center text-xl uppercase">{swiper.name}</h1>
+            <h1 className="text-xl text-center uppercase">{swiper.name}</h1>
             <p className="text-center lg:w-[50%] text-[#8A8FB9]">
               {swiper.testimonal}
             </p>

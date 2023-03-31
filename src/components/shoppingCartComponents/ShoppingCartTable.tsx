@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { PagesRoutes } from "../../routes/ PagesRoutes";
 import { useState } from "react";
 import style from "./style/ShoppingCartTable.module.scss";
@@ -109,7 +109,7 @@ const shoppingCartTable = () => {
       <div className="flex items-center justify-between my-5">
         <Link
           href={PagesRoutes.products}
-          className="text-blue-900 flex items-center capitalize"
+          className="flex items-center text-blue-900 capitalize"
         >
           <ArrowLongLeftIcon className={style.icons} />
           continue shopping

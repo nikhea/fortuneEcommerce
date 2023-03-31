@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import style from "./style/Hero.module.scss";
 import Image from "next/image";
 import ImageSlide1 from "../../images/svg/ImageSlide1.png";
