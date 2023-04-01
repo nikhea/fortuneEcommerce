@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 import Image from "next/image";
 
 const ImageContainer = ({ images }: any) => {
-  // const displayImages = images.map(() => (
-
-  // ))
+  const [idx, setIdx] = useState(0);
+  const displayImages = images.map((image: any, index: number) => (
+    <div key={index} onClick={() => setIdx(index)} className=" cursor-pointer">
+      <Image
+        src={image.src}
+        blurDataURL={image.blurDataURL}
+        width={100}
+        height={100}
+        alt={""}
+      />
+    </div>
+  ));
   return (
-    <div className=" h-full w-full rounded-l-md">
-      {/* <Image src={images[0]} width={200} height={200} alt={""} /> */}
+    <div className=" h-full w-full rounded-l-md  grid place-items-center py-5">
+      <div className=" w-[400px] h-[400px] grid place-content-center">
+        <Zoom>
+          <Image
+            src={images[idx]}
+            blurDataURL={images[idx].blurDataURL}
+            width={400}
+            height={400}
+            alt={""}
+          />
+        </Zoom>
+      </div>
+
+      <div className="h-full  flex">{displayImages}</div>
     </div>
   );
 };
