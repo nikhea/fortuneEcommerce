@@ -33,7 +33,7 @@ const RelatedProductItem: FC<IRelatedProductItem> = ({
         <h6 className=" text-xl capitalize text-[#151875]  font-bold  ">
           {name}
         </h6>
-      </Link>{" "}
+      </Link>
       <RatingStar value={rating} size={24} edit={false} />
       <h2 className=" capitalize text-xl ">
         <span className="mr-1"> {priceSymbol}</span>
