@@ -11,6 +11,15 @@ export type Product = {
   description: string;
 };
 
+export type SingleInfoPageComponentProduct = {
+  _id: string;
+  name: string;
+  price: number;
+  rating: number;
+  priceSymbol: string;
+  description: string;
+};
+
 export type ProductsProps = {
   products: Product[];
 };

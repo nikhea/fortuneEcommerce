@@ -10,6 +10,7 @@ type IButton = {
   uppercase?: boolean;
   disabled?: boolean;
   padding?: boolean;
+  shadow?: boolean;
   types?: any;
   onClick?: any;
   Color?: string;
@@ -23,6 +24,7 @@ const style = {
   curve: `rounded-[8px] `,
   uppercase: `uppercase`,
   padding: `!px-[5em] !py-[1em]`,
+  shadow: `shadow-xl shadow-pink-100`,
 };
 // bg-[#06c4e5]
 const Button: FC<IButton> = ({
@@ -37,6 +39,7 @@ const Button: FC<IButton> = ({
   types,
   Color,
   onClick,
+  shadow,
 }) => {
   let btn = {
     [`${style.btn}`]: true,
@@ -47,6 +50,7 @@ const Button: FC<IButton> = ({
     [`${style.disabled}`]: disabled,
     [`${style.uppercase}`]: uppercase,
     [`${style.padding}`]: padding,
+    [`${style.shadow}`]: shadow,
   };
   return (
     <button
