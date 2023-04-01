@@ -4,11 +4,13 @@ import "react-medium-image-zoom/dist/styles.css";
 import Image from "next/image";
 
 const ImageContainer = ({ images }: any) => {
+  console.log(images);
+
   const [idx, setIdx] = useState(0);
   const displayImages = images.map((image: any, index: number) => (
     <div key={index} onClick={() => setIdx(index)} className=" cursor-pointer">
       <Image
-        src={image.src}
+        src={image}
         blurDataURL={image.blurDataURL}
         width={100}
         height={100}
@@ -23,8 +25,8 @@ const ImageContainer = ({ images }: any) => {
           <Image
             src={images[idx]}
             blurDataURL={images[idx].blurDataURL}
-            width={400}
-            height={400}
+            width={250}
+            height={200}
             alt={""}
           />
         </Zoom>

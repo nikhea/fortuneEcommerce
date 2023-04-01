@@ -10,7 +10,14 @@ export type Product = {
   priceSymbol: string;
   description: string;
 };
-
+export type IRelatedProductItem = {
+  _id: string;
+  image: string | StaticImageData;
+  name: string;
+  price: number;
+  priceSymbol: string;
+  rating: number;
+};
 export type SingleInfoPageComponentProduct = {
   _id: string;
   name: string;
