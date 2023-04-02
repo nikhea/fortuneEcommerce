@@ -11,6 +11,7 @@ const Products = () => {
       <Banner image={BannerData.image} title={BannerData.title} />
       <div className="container">
         <ProductHeader />
+
         <div className="grid grid-cols-12 gap-2">
           <CategoriesSiderBar />
           <div className="w-full h-full min-h-screen col-start-3 col-end-13">

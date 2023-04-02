@@ -40,7 +40,7 @@ const RelatedProduct = () => {
   ));
   return (
     <div className="relative group">
-      <h1 className="text-2xl capitalize text-center  font-bold mt-10 text-[#151875]">
+      <h1 className="text-2xl capitalize font-bold mt-10 text-[#151875]">
         Related Product
       </h1>
       <Swiper

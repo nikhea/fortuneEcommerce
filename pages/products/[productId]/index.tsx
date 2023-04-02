@@ -12,6 +12,7 @@ import {
 import ImageContainer from "../../../src/components/SingleroductPageView/components/ImageContainer";
 import TextContainer from "../../../src/components/SingleroductPageView/components/TextContainer";
 import RelatedProduct from "../../../src/components/RelatedProduct/RelatedProduct";
+import ProductInfo from "../../../src/components/SingleroductPageView/components/ProductInfo/ProductInfo";
 
 const ProductPage = () => {
   return (
@@ -27,6 +28,7 @@ const ProductPage = () => {
           description={product.description}
         />
       </div>
+      <ProductInfo productName={product.name} />
       <RelatedProduct />
     </div>
   );
