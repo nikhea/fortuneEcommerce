@@ -4,7 +4,7 @@ import "react-medium-image-zoom/dist/styles.css";
 import Image from "next/image";
 
 const ImageContainer = ({ images }: any) => {
-  console.log(images);
+  // console.log(images);
 
   const [idx, setIdx] = useState(0);
   const displayImages = images.map((image: any, index: number) => (

@@ -9,7 +9,7 @@ const QualityProduct = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_108_10351)">
+      <g clipPath="url(#clip0_108_10351)">
         <path
           d="M15.9442 36.5387L8.10352 58.7719L15.992 58.6951L25.7206 36.5387H15.9442Z"
           fill="#80AAFF"

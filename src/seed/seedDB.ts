@@ -17,9 +17,43 @@ export const dummyProductsData = [
     price: 5544,
     rating: 5,
     priceSymbol: "$",
+    status: "in stock",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    reviews: [
+      {
+        rating: 2,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 4,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 3,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 5,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 1,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+    ],
   },
+
   {
     _id: "323434",
     name: "luxury bedroom chair",
@@ -28,8 +62,41 @@ export const dummyProductsData = [
     price: 5544,
     rating: 3,
     priceSymbol: "$",
+    status: "out of stock",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    reviews: [
+      {
+        rating: 2,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 4,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 3,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 5,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 1,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+    ],
   },
   {
     _id: "323434",
@@ -39,8 +106,41 @@ export const dummyProductsData = [
     price: 5544,
     rating: 2,
     priceSymbol: "$",
+    status: "being restocked",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    reviews: [
+      {
+        rating: 2,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 4,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 3,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 5,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 1,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+    ],
   },
   {
     _id: "323434",
@@ -50,8 +150,41 @@ export const dummyProductsData = [
     price: 5544,
     rating: 1,
     priceSymbol: "$",
+    status: "in stock",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    reviews: [
+      {
+        rating: 2,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 4,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 3,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 5,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 1,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+    ],
   },
   {
     _id: "323434",
@@ -61,8 +194,41 @@ export const dummyProductsData = [
     price: 5544,
     rating: 5,
     priceSymbol: "$",
+    status: "out of stock",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    reviews: [
+      {
+        rating: 2,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 4,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 3,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 5,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 1,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+    ],
   },
   {
     _id: "323434",
@@ -72,8 +238,41 @@ export const dummyProductsData = [
     price: 5544,
     rating: 4,
     priceSymbol: "$",
+    status: "being restocked",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    reviews: [
+      {
+        rating: 2,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 4,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 3,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 5,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 1,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+    ],
   },
   {
     _id: "323434",
@@ -83,8 +282,41 @@ export const dummyProductsData = [
     price: 5544,
     rating: 3,
     priceSymbol: "$",
+    status: "in stock",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    reviews: [
+      {
+        rating: 2,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 4,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 3,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 5,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+      {
+        rating: 1,
+        text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+        date: new Date(),
+        name: "fortune",
+      },
+    ],
   },
 ];
 // "http://localhost:3000/_next/image?url=http%3A%2F%2F127.0.0.1%3A8887%2Fjpeg%2FchairLuxury.png&w=640&q=75",

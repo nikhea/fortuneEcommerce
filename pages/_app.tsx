@@ -14,6 +14,7 @@ import {
 import { useState } from "react";
 import { config } from "../src/lib/react-query-config";
 import Devtools from "../src/lib/Devtools";
+// import NiceModal from "@ebay/nice-modal-react";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const [queryClient] = useState(() => new QueryClient(config));
@@ -22,7 +23,9 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
+          {/* <NiceModal.Provider> */}
           <Header />
+          {/* </NiceModal.Provider> */}
           <CartDrawerComponent />
           <Component {...pageProps} />
           <CompaniesIcon />

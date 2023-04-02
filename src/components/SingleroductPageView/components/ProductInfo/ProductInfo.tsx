@@ -5,17 +5,19 @@ import Description from "./Description";
 import ProductInfoHeader from "./ProductInfoHeader";
 import Reviews from "./Reviews";
 import Videos from "./Videos";
-import { FetchData } from "../../../../services/shared/YoutubeVideo";
+import { fetchYouTubeVideos } from "../../../../services/shared/YoutubeVideo";
+import { IProductReviews } from "../../../../interface/ProductsDataInterface";
 
 export type IProductInfo = {
   productName: string;
+  productReviews: IProductReviews[];
 };
-const ProductInfo: FC<IProductInfo> = ({ productName }) => {
+const ProductInfo: FC<IProductInfo> = ({ productName, productReviews }) => {
   const [step, setStep] = useState(0);
 
   const { data: YouTubeVideo } = useQuery<any, Error>(
     ["youtube-videos", productName],
-    () => FetchData(productName)
+    () => fetchYouTubeVideos(productName)
   );
   return (
     <div className="bg-gray-100 shadow-md rounded-md my-10 p-5">
@@ -30,7 +32,7 @@ const ProductInfo: FC<IProductInfo> = ({ productName }) => {
             case 2:
               return <Videos YouTubeVideo={YouTubeVideo} />;
             case 3:
-              return <Reviews />;
+              return <Reviews productReviews={productReviews} />;
             default:
               return <Description />;
           }

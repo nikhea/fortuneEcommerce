@@ -9,6 +9,7 @@ export type Product = {
   rating: number;
   priceSymbol: string;
   description: string;
+  status: string;
 };
 export type IRelatedProductItem = {
   _id: string;
@@ -25,6 +26,13 @@ export type SingleInfoPageComponentProduct = {
   rating: number;
   priceSymbol: string;
   description: string;
+};
+export type IProductReviews = {
+  text: string;
+  rating: number;
+  name: string;
+  date: any;
+  photo?: string;
 };
 
 export type ProductsProps = {

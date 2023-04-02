@@ -28,7 +28,10 @@ const ProductPage = () => {
           description={product.description}
         />
       </div>
-      <ProductInfo productName={product.name} />
+      <ProductInfo
+        productName={product.name}
+        productReviews={product.reviews}
+      />
       <RelatedProduct />
     </div>
   );
@@ -47,6 +50,48 @@ const product = {
   priceSymbol: "$",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+  reviews: [
+    {
+      rating: 2,
+
+      text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+      date: Date.now(),
+      photo: "https://randomuser.me/api/portraits/men/29.jpg",
+      name: "fortune",
+    },
+    {
+      rating: 4,
+      text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+      date: Date.now(),
+      photo: "https://randomuser.me/api/portraits/men/29.jpg",
+
+      name: "fortune",
+    },
+    {
+      rating: 3,
+      text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+      date: Date.now(),
+      photo: "https://randomuser.me/api/portraits/men/29.jpg",
+
+      name: "fortune",
+    },
+    {
+      rating: 5,
+      text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+      date: Date.now(),
+      photo: "https://randomuser.me/api/portraits/men/29.jpg",
+
+      name: "fortune",
+    },
+    {
+      rating: 1,
+      text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+      date: Date.now(),
+      photo: "https://randomuser.me/api/portraits/men/29.jpg",
+
+      name: "fortune",
+    },
+  ],
 };
 // images: [Image1, Image2, Image3, Image4, Image5, Image6, Image7],
 
