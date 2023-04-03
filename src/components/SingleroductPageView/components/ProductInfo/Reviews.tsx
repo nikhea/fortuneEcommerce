@@ -44,6 +44,11 @@ const reviews: FC<IProductReview> = ({ productReviews }) => {
         </div>
         <div className="w-full h-full min-h-screen col-start-5 col-end-13 flex flex-col ">
           {displayReview}
+          <div className="text-center my-3 grid place-content-center">
+            <button className=" bg-primary rounded-md text-white p-2 capitalize">
+              load more
+            </button>
+          </div>
         </div>
       </div>
     </>
