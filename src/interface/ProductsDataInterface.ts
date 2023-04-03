@@ -9,7 +9,7 @@ export type Product = {
   rating: number;
   priceSymbol: string;
   description: string;
-  status: string;
+  status?: string;
 };
 export type IRelatedProductItem = {
   _id: string;
