@@ -12,7 +12,7 @@ const style = {
 export type IWishListItem = {
   name: string;
   rating: number;
-  status: string;
+  status: string | undefined;
   price: number;
   priceSymbol: string;
   image: any;
@@ -51,7 +51,7 @@ const WishListItem: FC<IWishListItem> = ({
           alt={name}
           width={100}
           height={100}
-          className=" object-cover"
+          className="object-cover "
         />
         <div>
           <h1> {name}</h1>
