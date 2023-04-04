@@ -17,7 +17,7 @@ import ProductInfo from "../../../src/components/SingleroductPageView/components
 const ProductPage = () => {
   return (
     <div className="container my-5">
-      <div className="grid grid-cols-2 gap-x-5 bg-gray-100 shadow-md rounded-md">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 bg-gray-100 shadow-md rounded-md">
         <ImageContainer images={product.images} />
         <TextContainer
           _id={product._id}

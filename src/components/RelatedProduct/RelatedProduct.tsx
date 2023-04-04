@@ -24,8 +24,11 @@ import { dummyProductsData } from "../../seed/seedDB";
 
 import RelatedProductItem from "./RelatedProductItem";
 import ButtonControl from "./ButtonControl";
+import useDeviceProperties from "../../Hooks/UseMediaQueries";
 
 const RelatedProduct = () => {
+  const { isDesktopOrLaptop } = useDeviceProperties();
+
   const displayProducts = dummyProductsData.slice(0, 8).map((product) => (
     <SwiperSlide key={product._id}>
       <RelatedProductItem
@@ -43,18 +46,34 @@ const RelatedProduct = () => {
       <h1 className="text-2xl capitalize font-bold mt-10 text-[#151875]">
         Related Product
       </h1>
-      <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        slidesPerView={4}
-        // loop={true}
-        // autoplay={{
-        //   delay: 3000,
-        //   disableOnInteraction: false,
-        // }}
-      >
-        <div className="h-full my-10"> {displayProducts}</div>
-        <ButtonControl />
-      </Swiper>
+
+      {isDesktopOrLaptop ? (
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          slidesPerView={4}
+          // loop={true}
+          // autoplay={{
+          //   delay: 3000,
+          //   disableOnInteraction: false,
+          // }}
+        >
+          <div className="h-full my-10"> {displayProducts}</div>
+          <ButtonControl />
+        </Swiper>
+      ) : (
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          slidesPerView={2}
+          // loop={true}
+          // autoplay={{
+          //   delay: 3000,
+          //   disableOnInteraction: true,
+          // }}
+        >
+          <div className="h-full my-10"> {displayProducts}</div>
+          <ButtonControl />
+        </Swiper>
+      )}
     </div>
   );
 };

@@ -33,7 +33,7 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
     setIsAdded(true);
   };
   return (
-    <div className="h-full w-full flex flex-col justify-between py-5 pr-5 ">
+    <div className="h-full w-full flex flex-col justify-between py-5 px-2 lg:px-0 lg:pr-5 ">
       <div className="flex items-center justify-between">
         <h1 className="  text-xl capitalize text-[#151875]  font-bold ">
           {name}

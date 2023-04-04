@@ -27,7 +27,7 @@ const WishListItem: FC<IWishListItem> = ({
   priceSymbol,
   image,
 }) => {
-  const { isDesktopOrLaptop } = useDeviceProperties();
+  const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
 
   const statusStyle: any = {
     backgroundColor:
@@ -50,7 +50,7 @@ const WishListItem: FC<IWishListItem> = ({
   };
   return (
     <>
-      {isDesktopOrLaptop ? (
+      {isDesktopOrLaptop && (
         <div className="flex items-center justify-between my-5">
           <div className="flex items-center">
             <Image
@@ -78,43 +78,104 @@ const WishListItem: FC<IWishListItem> = ({
             <XCircleIcon className={style.icons} />
           </div>
         </div>
-      ) : (
-        <div className=" flex flex-col my-5">
-          <div className="flex justify-between">
-            <div className="flex items-center">
-              <Image
-                src={image}
-                alt={name}
-                width={50}
-                height={100}
-                className="object-cover "
-              />
-              <div>
-                <h1> {name}</h1>
-                <RatingStar value={rating} size={24} edit={false} />
+      )}
+      {isTabletOrMobile && (
+        <>
+          <div className=" flex flex-col my-5">
+            <div className="flex justify-between">
+              <div className="flex items-center">
+                <Image
+                  src={image}
+                  alt={name}
+                  width={50}
+                  height={100}
+                  className="object-cover "
+                />
+                <div>
+                  <h1> {name}</h1>
+                  <RatingStar value={rating} size={24} edit={false} />
+                </div>
+              </div>
+              <div className={style.iconContainer}>
+                <XCircleIcon className={style.icons} />
               </div>
             </div>
-            <div className={style.iconContainer}>
-              <XCircleIcon className={style.icons} />
+            <h2 className="my-3">
+              {priceSymbol}
+              <span className="mr-1"> {price}</span>
+            </h2>
+            <div className="flex justify-between">
+              <button className={style.btnStatusSm} style={statusStyle}>
+                {status}
+              </button>
+              <button className={style.btnStatusSm}>add to cart</button>
             </div>
           </div>
-          <h2 className="my-3">
-            {priceSymbol}
-            <span className="mr-1"> {price}</span>
-          </h2>
-          <div className="flex justify-between">
-            <button className={style.btnStatusSm} style={statusStyle}>
-              {status}
-            </button>
-            <button className={style.btnStatusSm}>add to cart</button>
-          </div>
-        </div>
+        </>
       )}
     </>
   );
 };
-// {
-//     borderColor: "red",
-//     background: "red",
-//   }
+
 export default WishListItem;
+
+// {isDesktopOrLaptop ? (
+//   <div className="flex items-center justify-between my-5">
+//     <div className="flex items-center">
+//       <Image
+//         src={image}
+//         alt={name}
+//         width={100}
+//         height={100}
+//         className="object-cover "
+//       />
+//       <div>
+//         <h1> {name}</h1>
+//         <RatingStar value={rating} size={24} edit={false} />
+//       </div>
+//     </div>
+//     <h2>
+//       {priceSymbol}
+//       <span className="mr-1"> {price}</span>
+//     </h2>
+
+//     <button className={style.btnStatus} style={statusStyle}>
+//       {status}
+//     </button>
+//     <button className={style.btnOutline}>add to cart</button>
+//     <div className={style.iconContainer}>
+//       <XCircleIcon className={style.icons} />
+//     </div>
+//   </div>
+// ) : (
+//   <div className=" flex flex-col my-5">
+//     <div className="flex justify-between">
+//       <div className="flex items-center">
+//         <Image
+//           src={image}
+//           alt={name}
+//           width={50}
+//           height={100}
+//           className="object-cover "
+//         />
+//         <div>
+//           <h1> {name}</h1>
+//           <RatingStar value={rating} size={24} edit={false} />
+//         </div>
+//       </div>
+//       <div className={style.iconContainer}>
+//         <XCircleIcon className={style.icons} />
+//       </div>
+//     </div>
+//     <h2 className="my-3">
+//       {priceSymbol}
+//       <span className="mr-1"> {price}</span>
+//     </h2>
+//     <div className="flex justify-between">
+//       <button className={style.btnStatusSm} style={statusStyle}>
+//         {status}
+//       </button>
+//       <button className={style.btnStatusSm}>add to cart</button>
+//     </div>
+//   </div>
+// )}

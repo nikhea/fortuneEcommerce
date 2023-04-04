@@ -6,7 +6,9 @@ import {
   UserPlusIcon,
   ArrowLeftOnRectangleIcon,
   Cog6ToothIcon,
+  
 } from "@heroicons/react/24/outline";
+import {TbBrandWish} from "react-icons/tb"
 import { PagesRoutes } from "../../../routes/ PagesRoutes";
 const style = {
   Menu: `min-w-[150px] mx-auto  flex flex-col rounded-[10px] py-1 mt-2`,
@@ -42,6 +44,14 @@ const dropDown = ({ children }: any) => {
             >
               <ArrowLeftOnRectangleIcon className={style.icons} />
               <p className={style.MenuItemLinkText}>login</p>
+            </Link>
+            <Link
+              href={PagesRoutes.wishList}
+              shallow
+              className={style.MenuItemLink}
+            >
+              <TbBrandWish className={style.icons} />
+              <p className={style.MenuItemLinkText}>wish list</p>
             </Link>
           </>
         ) : (

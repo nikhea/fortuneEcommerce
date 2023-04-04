@@ -7,7 +7,7 @@ body {
   font-family: "Josefin Sans", sans-serif;
 }
 .container {
-  @apply w-[90%] m-auto;
+  @apply w-[95%] lg:w-[90%] m-auto;
 }
 .transistionMode {
   @apply transition duration-500 ease-in delay-200;

@@ -7,4 +7,5 @@ export const PagesRoutes = {
   products: "/products",
   shipping: "/shipping",
   shoppingCart: "/shoppingCart",
+  wishList: "/wishList",
 };
