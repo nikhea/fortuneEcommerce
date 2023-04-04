@@ -7,9 +7,9 @@ const ShoppingCart = () => {
   return (
     <div>
       <Banner image={BannerData.image} title={BannerData.title} />
-      <div className="container grid grid-cols-12 !my-32 gap-x-5">
+      <div className="container grid grid-cols-1  lg:grid-cols-12 lg:!my-32 !mt-24 gap-x-5">
         <ShoppingCartTable />
-        <div className="flex flex-col justify-between w-full  col-start-9 col-end-13 h-fit">
+        <div className="flex flex-col justify-between w-full col-start-1 col-end-13  lg:col-start-9 lg:col-end-13 h-fit">
           <ShippingSideTotal />
           <CalulateShipping title="Calculate  Shiping" />
         </div>

@@ -49,7 +49,7 @@ const Hero = () => {
               <div className={style.textContent}>
                 <div>
                   <Image
-                    className="absolute right-[36em] w-[166px] top-[-166px]"
+                    className="absolute right-[36em] w-[166px] top-[-166px] hidden lg:flex"
                     width={lamp.width}
                     height={lamp.height}
                     src={lamp.src}
@@ -65,7 +65,7 @@ const Hero = () => {
                   </Button>
                 </Link>
               </div>
-              <div className="w-[100%]">
+              <div className="w-[100%] hidden lg:flex">
                 <Image
                   // className="w-[100%]"
                   width={swiper.image.width}

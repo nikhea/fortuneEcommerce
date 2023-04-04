@@ -10,7 +10,7 @@ const Shipping = () => {
       <Banner image={BannerData.image} title={BannerData.title} />
       <div className="container grid grid-cols-12 !my-32 gap-x-5">
         <ShippingForm />
-        <div className="flex flex-col justify-between w-full h-full col-start-9 col-end-13 ">
+        <div className="flex flex-col justify-between w-full h-full col-start-1 col-end-13 lg:col-start-9 lg:col-end-13 ">
           <ShippingCartItems />
           <ShippingSideTotal />
         </div>

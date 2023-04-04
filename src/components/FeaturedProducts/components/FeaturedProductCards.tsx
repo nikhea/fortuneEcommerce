@@ -26,8 +26,10 @@ import {
   Product,
 } from "../../../interface/ProductsDataInterface";
 import FeaturedProductCardsItems from "./FeaturedProductCardsItems";
+import useDeviceProperties from "../../../Hooks/UseMediaQueries";
 
 const FeaturedProductCards: FC<featuredProducts> = ({ featuredProducts }) => {
+  const { isDesktopOrLaptop } = useDeviceProperties();
   const displayData = featuredProducts.map((product: Product) => (
     <SwiperSlide key={product._id}>
       <FeaturedProductCardsItems
@@ -44,24 +46,25 @@ const FeaturedProductCards: FC<featuredProducts> = ({ featuredProducts }) => {
     </SwiperSlide>
   ));
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      slidesPerView={3}
-      pagination={{ clickable: true }}
-      breakpoints={{
-        600: {
-          slidesPerView: 1,
-        },
-        800: {
-          slidesPerView: 2,
-        },
-        1000: {
-          slidesPerView: 3,
-        },
-      }}
-    >
-      <div className="h-full my-10"> {displayData}</div>
-    </Swiper>
+    <>
+      {isDesktopOrLaptop ? (
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          slidesPerView={3}
+          pagination={{ clickable: true }}
+        >
+          <div className="h-full my-10"> {displayData}</div>
+        </Swiper>
+      ) : (
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+        >
+          <div className="h-full my-10"> {displayData}</div>
+        </Swiper>
+      )}
+    </>
   );
 };
 
@@ -87,5 +90,17 @@ export default FeaturedProductCards;
 //   },
 //   1700: {
 //     slidesPerView: 7,
+//   },
+// }}
+
+// breakpoints={{
+//   600: {
+//     slidesPerView: 1,
+//   },
+//   800: {
+//     slidesPerView: 2,
+//   },
+//   1000: {
+//     slidesPerView: 3,
 //   },
 // }}

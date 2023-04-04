@@ -47,12 +47,12 @@ const ShippingForm = () => {
               placeholder="Email Address"
               {...register("getUpdates")}
             />
-            <p className="text-[#151875]">
+            <p className="text-[#151875] text-sm md:text-base">
               Keep me up to date on news and excluive offers
             </p>
           </div>
 
-          <div className="grid w-full grid-cols-2 gap-5 my-5">
+          <div className="grid w-full grid-cols-1 lg:grid-cols-2 gap-5 my-5">
             <div className={style.inputContainer}>
               <label className={style.label}>first Name</label>
               <Input

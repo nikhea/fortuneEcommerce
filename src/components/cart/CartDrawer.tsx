@@ -12,7 +12,7 @@ import CartItem from "./CartItem";
 import { Product } from "../../interface/ProductsDataInterface";
 import useDeviceProperties from "../../Hooks/UseMediaQueries";
 const CartDrawer = () => {
-  const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
+  const { isDesktopOrLaptop } = useDeviceProperties();
 
   const { CartDrawer, setCartDrawer } = useCartDrawerState();
   const toggleDrawer = () => {

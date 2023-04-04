@@ -28,7 +28,7 @@ const ShippingCartItems = () => {
     </div>
   ));
   return (
-    <div className="h-full flex flex-col justify-between">
+    <div className="h-full flex flex-col justify-between my-20 lg:my-0">
       {displaycheckoutItems}
     </div>
   );

@@ -1,5 +1,5 @@
 .ShoppingCartTableContainer {
-  @apply w-full h-full  min-h-screen  col-start-1 col-end-9;
+  @apply w-full h-full  min-h-screen  col-start-1 col-end-13 lg:col-start-1 lg:col-end-9;
   .ShoppingCartTableContainerBg {
     @apply bg-secondary py-10 px-3 rounded-md;
   }
