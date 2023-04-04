@@ -21,7 +21,6 @@ const ProductCards: FC<ProductCardsProps> = ({ products }) => {
       description={product.description}
     />
   ));
-  console.log(gridStyle, "gridStyle");
 
   return (
     <div className={`${gridStyle ? style.productGrid : style.productList}`}>

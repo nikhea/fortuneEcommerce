@@ -10,7 +10,10 @@ import Link from "next/link";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import CartItem from "./CartItem";
 import { Product } from "../../interface/ProductsDataInterface";
+import useDeviceProperties from "../../Hooks/UseMediaQueries";
 const CartDrawer = () => {
+  const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
+
   const { CartDrawer, setCartDrawer } = useCartDrawerState();
   const toggleDrawer = () => {
     setCartDrawer(!CartDrawer);
@@ -36,7 +39,7 @@ const CartDrawer = () => {
       duration={1000}
       className="h-10 overflow-y-scroll scrollbar-thin scrollbar-thumb-pink-500 scrollbar-track-pink-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
       style={{
-        width: "40vw",
+        width: isDesktopOrLaptop ? "40vw" : "100vw",
         height: "100%",
         zIndex: "99999999999999999",
         overflow: "hidden",
@@ -50,11 +53,11 @@ const CartDrawer = () => {
         <div className="grid grid-cols-1 gap-3 mb-5 text-sm">
           {displayCartItem}
         </div>
-        <div className="flex items-center justify-between py-2 text-xl capitalize">
+        <div className="flex items-center justify-between py-2 text-xl capitalize w-[95%] m-auto">
           <h1 className="">subTotal:</h1>
           <h2>$ 12343</h2>
         </div>
-        <div className="grid grid-cols-2 gap-3 mb-5 text-sm">
+        <div className="grid grid-cols-2 gap-3 m-auto mb-5 text-sm  w-[95%]">
           <Link href={PagesRoutes.products} onClick={() => toggleDrawer()}>
             <button className={style.btnOutline}> continue shopping</button>
           </Link>

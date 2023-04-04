@@ -37,7 +37,7 @@ const ContactForm = () => {
       </div>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(submitForm)}>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid md:gap-5 md:grid-cols-2">
             <div className={style.inputContainer}>
               <label className={style.label}>email</label>
               <Input

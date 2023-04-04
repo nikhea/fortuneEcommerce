@@ -7,7 +7,7 @@ import { useViewState } from "../../../store/useView";
 const ProductHeader = () => {
   const { gridStyle, setGridStyle } = useViewState();
   return (
-    <div className="flex flex-col items-center justify-between my-10 lg:flex-row">
+    <div className="flex-col items-center justify-between hidden my-10 lg:flex lg:flex-row">
       <div className="flex flex-col justify-between">
         <h2>Ecommerce Acceories & Furniture item </h2>
         <p>About 9,620 results</p>

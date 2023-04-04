@@ -7,7 +7,7 @@
 }
 
 .productGrid {
-  @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3  transition-all duration-500 ease-in delay-200;
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  transition-all duration-500 ease-in delay-200;
   .cards {
     @apply flex flex-col mx-5 mb-16 shadow-md rounded-md items-center justify-center transition-all duration-500 ease-in delay-200;
     .upperPart {
