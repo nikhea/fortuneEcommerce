@@ -9,9 +9,11 @@ import { UserCircleIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
 import DropDown from "./dropDown";
 import { PagesRoutes } from "../../../routes/ PagesRoutes";
 import { useCartDrawerState } from "../../../store/useShoppingCartSideBar";
+import useDeviceProperties from "../../../Hooks/UseMediaQueries";
 // import CartDrawerComponent from "../../cart/CartDrawer";
 
 const mainNav = () => {
+  const { isDesktopOrLaptop } = useDeviceProperties();
   const pathname = usePathname();
   const { CartDrawer, setCartDrawer } = useCartDrawerState();
 
@@ -50,16 +52,18 @@ const mainNav = () => {
           <Link href={PagesRoutes.home} shallow>
             <HeaderIcon />
           </Link>
-          <ul>{displayNameItems}</ul>
+          {isDesktopOrLaptop && <ul className="hidden">{displayNameItems}</ul>}
           <div className={style.subHeaderLeft}>
-            <DropDown>
-              <Link href="/#" shallow>
-                <div className={style.subHeader__content}>
-                  <UserCircleIcon className={style.icons} />
-                  <h1>Account</h1>
-                </div>
-              </Link>
-            </DropDown>
+            {isDesktopOrLaptop && (
+              <DropDown>
+                <Link href="/#" shallow>
+                  <div className={style.subHeader__content}>
+                    <UserCircleIcon className={style.icons} />
+                    <h1>Account</h1>
+                  </div>
+                </Link>
+              </DropDown>
+            )}
             {/* <Link href={PagesRoutes.shoppingCart} shallow> */}
             <div
               onClick={() => setCartDrawer(true)}
