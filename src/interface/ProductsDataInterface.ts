@@ -3,7 +3,8 @@ import { StaticImageData } from "next/image";
 export type Product = {
   _id: string;
   name: string;
-  coverPhoto: string | StaticImageData;
+  coverPhoto?: string | StaticImageData;
+  image: string | StaticImageData;
   images?: string[];
   price: number;
   rating: number;
