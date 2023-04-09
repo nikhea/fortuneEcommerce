@@ -14,7 +14,7 @@ import { PagesRoutes } from "../../routes/ PagesRoutes";
 const ProductListItem: FC<Product> = ({
   _id,
   name,
-  image,
+  coverPhoto,
   images,
   description,
   price,
@@ -33,8 +33,11 @@ const ProductListItem: FC<Product> = ({
         </div>
         <div className={style.imgContainer}>
           <Image
-            src={image}
+            src={coverPhoto}
             alt={name}
+            layout="responsive"
+            width={900}
+            height={900}
             className={`${style.img} group-hover:scale-110`}
           />
         </div>

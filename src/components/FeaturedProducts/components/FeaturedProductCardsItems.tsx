@@ -10,34 +10,54 @@ import {
   MagnifyingGlassPlusIcon,
 } from "@heroicons/react/24/outline";
 import { PagesRoutes } from "../../../routes/ PagesRoutes";
+import { useCartState } from "../../../store/useCartStore";
 
 const FeaturedProductCardsItems: FC<Product> = ({
   _id,
   name,
   price,
-  image,
+  coverPhoto,
   images,
   rating,
   priceSymbol,
+  product,
 }) => {
+  const { addToCart } = useCartState();
+
   return (
     <div
-      className={`${style.cards} group transition-all duration-500 ease-in delay-200`}
+      className={`${style.cards} group transition-all duration-500 ease-in delay-200 hover:cursor-pointer h-[500]`}
     >
-      <div className="relative flex flex-col  w-full h-full  bg-[#F6F7FB] rounded-md py-3 items-center  ">
-        <div className="absolute flex transition-all duration-500 ease-in delay-200 opacity-0 left-2 group-hover:opacity-100 ">
-          <ShoppingCartIcon className={style.icons} />
-          <HeartIcon className={style.icons} />
-          <MagnifyingGlassPlusIcon className={style.icons} />
-        </div>
-        <div className="mt-[30px] w-[200px] overflow-hidden">
-          <Image
-            src={image}
-            alt={name}
-            // width={300}
-            // height={500}
-            className="h-[200px] object-cover group-hover:scale-110 transition-all duration-500 ease-in delay-200"
+      <div className="relative flex flex-col  w-full h-full  bg-[#F6F7FB] rounded-md  items-center  ">
+        <div className="absolute flex transition-all duration-500 ease-in delay-200 opacity-0 left-2 group-hover:opacity-100 z-20 mt-3">
+          <ShoppingCartIcon
+            className={style.icons}
+            onClick={() =>
+              addToCart({
+                product,
+                quantity: 1,
+              })
+            }
           />
+          <HeartIcon className={style.icons} />
+          {/* <div className="bg-red-200 flex justify-center items-center rounded-full p-1 h-full "> */}
+          <MagnifyingGlassPlusIcon className={style.icons} />
+          {/* </div> */}
+        </div>
+        {/* h-[200px]mt-[30px] w-[200px] */}
+        <div className=" h-full w-full overflow-hidden rounded-t-md">
+          <Image
+            src={coverPhoto}
+            alt={name}
+            // layout="fill"
+            // width={200}
+            // height={200}
+            layout="responsive"
+            width={900}
+            height={900}
+            className=" overflow-hidden object-cover rounded-t-md group-hover:scale-105 transition-all duration-500 ease-in delay-200"
+          />
+          {/* h-[200px] w-[200px] */}
         </div>
         {/* <Link className={style.link} href="#">
           view details
@@ -45,8 +65,8 @@ const FeaturedProductCardsItems: FC<Product> = ({
       </div>
       <div className="w-full h-full px-3 py-3 ">
         <Link href={`${PagesRoutes.products}/${_id}`}>
-          <h6 className=" text-xl capitalize text-[#151875]  font-bold  ">
-            {name}
+          <h6 className=" text-md capitalize text-[#151875]  font-bold  ">
+            {name} {rating}
           </h6>
         </Link>
         <div className="flex items-center justify-between ">

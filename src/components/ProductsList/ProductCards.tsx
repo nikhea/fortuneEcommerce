@@ -14,7 +14,7 @@ const ProductCards: FC<ProductCardsProps> = ({ products }) => {
       key={product._id}
       _id={product._id}
       name={product.name}
-      image={product.image}
+      coverPhoto={product.coverPhoto}
       price={product.price}
       rating={product.rating}
       priceSymbol={product.priceSymbol}

@@ -38,10 +38,11 @@ const FeaturedProductCards: FC<featuredProducts> = ({ featuredProducts }) => {
         price={product.price}
         priceSymbol={product.priceSymbol}
         rating={product.rating}
-        image={product.image}
+        coverPhoto={product.coverPhoto}
         images={product.images}
         description={product.description}
         _id={product._id}
+        product={product}
       />
     </SwiperSlide>
   ));
@@ -58,7 +59,7 @@ const FeaturedProductCards: FC<featuredProducts> = ({ featuredProducts }) => {
       ) : (
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          slidesPerView={1}
+          slidesPerView={2}
           pagination={{ clickable: true }}
         >
           <div className="h-full my-10"> {displayData}</div>

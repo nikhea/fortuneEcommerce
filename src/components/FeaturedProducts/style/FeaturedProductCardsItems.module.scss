@@ -6,6 +6,8 @@
   @apply border-0 border-solid min-w-[10px] w-fit px-10 not-italic font-[400] text-[14px] outline-none cursor-pointer my-3 py-[1em]  capitalize rounded-[8px] text-center text-white bg-primary;
 }
 .icons {
-  @apply h-5 w-5 mr-2 text-blue-500 cursor-pointer mb-3;
-  @apply hover:text-blue-700 hover:bg-[#EEEFFB] hover:rounded-full;
+  @apply h-auto  w-[34px] p-[5px] mr-2 bg-white text-pink-400 cursor-pointer mb-3;
+  @apply hover:text-primary hover:scale-105 hover:bg-[#EEEFFB] rounded-full;
+  @apply transition-all duration-500 ease-in delay-200;
 }
+// h-5 w-5 mr-2 text-primary cursor-pointer mb-3

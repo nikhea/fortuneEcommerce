@@ -10,7 +10,7 @@ import {
 
 export const dummyProductsData = [
   {
-    _id: "323434",
+    _id: "1",
     name: "luxury bedroom chair",
     image: Image1,
     images: [],
@@ -55,7 +55,7 @@ export const dummyProductsData = [
   },
 
   {
-    _id: "323434",
+    _id: "2",
     name: "luxury bedroom chair",
     image: Image2,
     images: [],
@@ -99,7 +99,7 @@ export const dummyProductsData = [
     ],
   },
   {
-    _id: "323434",
+    _id: "3",
     name: "luxury bedroom chair",
     image: Image3,
     images: [],
@@ -143,7 +143,7 @@ export const dummyProductsData = [
     ],
   },
   {
-    _id: "323434",
+    _id: "4",
     name: "luxury bedroom chair",
     image: Image4,
     images: [],
@@ -187,7 +187,7 @@ export const dummyProductsData = [
     ],
   },
   {
-    _id: "323434",
+    _id: "5",
     name: "luxury bedroom chair",
     image: Image5,
     images: [],
@@ -231,7 +231,7 @@ export const dummyProductsData = [
     ],
   },
   {
-    _id: "323434",
+    _id: "6",
     name: "luxury bedroom chair",
     image: Image6,
     images: [],
@@ -275,7 +275,7 @@ export const dummyProductsData = [
     ],
   },
   {
-    _id: "323434",
+    _id: "7",
     name: "luxury bedroom chair",
     image: Image7,
     images: [],

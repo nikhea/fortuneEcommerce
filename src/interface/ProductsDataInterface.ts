@@ -3,13 +3,14 @@ import { StaticImageData } from "next/image";
 export type Product = {
   _id: string;
   name: string;
-  image: string | StaticImageData;
+  coverPhoto: string | StaticImageData;
   images?: string[];
   price: number;
   rating: number;
   priceSymbol: string;
   description: string;
   status?: string;
+  product?: any;
 };
 export type IRelatedProductItem = {
   _id: string;

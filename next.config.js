@@ -12,6 +12,7 @@ module.exports = {
       "plus.unsplash.com",
       "images.unsplash.com",
       "media.istockphoto.com",
+      "ng.jumia.is",
     ],
   },
 };

@@ -14,8 +14,11 @@ import {
   MinusCircleIcon,
   PlusCircleIcon,
 } from "@heroicons/react/24/outline";
+import { useCartState } from "../../store/useCartStore";
 
 const shoppingCartTable = () => {
+  const { cart, removeFromCart, clearCart } = useCartState();
+
   const [cartQuantity, setCartQuantity] = useState(1);
 
   const increaseCartQuantity = () => {
@@ -34,6 +37,8 @@ const shoppingCartTable = () => {
       setCartQuantity(cartQuantity - 1);
     }
   };
+  console.log(cart.items);
+
   return (
     <div className={style.ShoppingCartTableContainer}>
       <div className={style.ShoppingCartTableContainerBg}>
@@ -47,21 +52,21 @@ const shoppingCartTable = () => {
             </tr>
           </thead>
           <tbody>
-            {dummyProductsData.map((item: any, index: number) => (
+            {cart.items?.map((item: any, index: number) => (
               <tr key={index}>
                 <td>
                   <div className="flex items-center gap-2">
                     <Image
-                      src={item.image}
-                      alt={item.name}
+                      src={item.product.image}
+                      alt={item.product.name}
                       width={100}
                       height={100}
                     />
                     <div className="flex flex-col">
-                      <h2>{item.name}</h2>
+                      <h2>{item.product.name}</h2>
                       <div>
                         <RatingStar
-                          value={item.rating}
+                          value={item.product.rating}
                           size={24}
                           edit={false}
                         />
@@ -70,7 +75,7 @@ const shoppingCartTable = () => {
                   </div>
                 </td>
                 <td>
-                  {item.priceSymbol} {item.price}
+                  {item.product.priceSymbol} {item.product.price}
                 </td>
                 <td>
                   <span className="flex items-center">
@@ -95,11 +100,14 @@ const shoppingCartTable = () => {
                   </span>
                 </td>
                 <td style={{ textAlign: "center" }}>
-                  {item.priceSymbol} 76589
+                  {item.product.priceSymbol} 76589
                 </td>
 
                 <td className={style.iconContainer}>
-                  <XCircleIcon className={style.icons} />
+                  <XCircleIcon
+                    className={style.icons}
+                    onClick={() => removeFromCart(item.product._id)}
+                  />
                 </td>
               </tr>
             ))}
@@ -114,7 +122,13 @@ const shoppingCartTable = () => {
           <ArrowLongLeftIcon className={style.icons} />
           continue shopping
         </Link>
-        <Button isCurve primary padding uppercase>
+        <Button
+          isCurve
+          primary
+          padding
+          uppercase
+          onClick={() => clearCart(cart)}
+        >
           clear cart
         </Button>
       </div>

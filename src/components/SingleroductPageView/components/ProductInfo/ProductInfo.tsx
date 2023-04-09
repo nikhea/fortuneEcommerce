@@ -5,7 +5,7 @@ import Description from "./Description";
 import ProductInfoHeader from "./ProductInfoHeader";
 import Reviews from "./Reviews";
 import Videos from "./Videos";
-import { fetchYouTubeVideos } from "../../../../services/shared/YoutubeVideo";
+import { FetchYoutubeData } from "../../../../services/shared/YoutubeVideo";
 import { IProductReviews } from "../../../../interface/ProductsDataInterface";
 
 export type IProductInfo = {
@@ -17,7 +17,8 @@ const ProductInfo: FC<IProductInfo> = ({ productName, productReviews }) => {
 
   const { data: YouTubeVideo } = useQuery<any, Error>(
     ["youtube-videos", productName],
-    () => fetchYouTubeVideos(productName)
+    () => FetchYoutubeData(productName),
+    { ...defaultQueryOptions }
   );
   return (
     <div className="bg-gray-100 shadow-md rounded-md my-10 p-5">
@@ -43,9 +44,8 @@ const ProductInfo: FC<IProductInfo> = ({ productName, productReviews }) => {
 };
 
 export default ProductInfo;
-// const nextStep = () => {
-//   setStep(step + 1);
-// };
-// const prevStep = () => {
-//   setStep(step - 1);
-// };
+const defaultQueryOptions = {
+  staleTime: 1 * 60 * 60 * 1000, // 1 hour
+  cacheTime: 5 * 60 * 60 * 1000, // 5 hours
+  refetchOnWindowFocus: false,
+};

@@ -1,11 +1,7 @@
-import Link from "next/link";
-
 const Videos = ({ YouTubeVideo }: any) => {
-  console.log(YouTubeVideo);
-
   return (
-    <div className="grid grid-cols-3 gap-y-3">
-      {YouTubeVideo?.items?.slice(0, 8).map((video: Video) => (
+    <div className="grid grid-cols-3 gap-y-3 gap-x-3">
+      {YouTubeVideo?.items?.slice(0, 3).map((video: Video) => (
         <iframe
           width="100%"
           height="315"
