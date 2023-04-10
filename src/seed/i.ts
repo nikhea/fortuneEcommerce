@@ -6,7 +6,7 @@ import {
   Image5,
   Image6,
   Image7,
-} from "../../../src/images/jpeg/imagesPng";
+} from "../images/jpeg/imagesPng";
 export const product = {
   _id: "323434",
   name: "luxury bedroom chair",
