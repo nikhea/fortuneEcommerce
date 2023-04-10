@@ -39,6 +39,7 @@ const ProductPage = (props: Props) => {
       <ProductInfo
         productName={product.name}
         productReviews={product.reviews}
+        product={product}
       />
       <RelatedProduct />
     </div>

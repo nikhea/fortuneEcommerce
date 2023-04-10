@@ -3,8 +3,8 @@ import { StaticImageData } from "next/image";
 export type Product = {
   _id: string;
   name: string;
-  coverPhoto?: string | StaticImageData;
-  image?: string | StaticImageData;
+  coverPhoto?: any;
+  image?: any;
   images?: string[];
   price: number;
   rating: number;
@@ -46,3 +46,6 @@ export type featuredProducts = {
 export type ProductCardsProps = {
   products: Product[];
 };
+
+// coverPhoto?: string | StaticImageData
+// image?: string | StaticImageData;

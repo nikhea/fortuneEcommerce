@@ -10,6 +10,9 @@ import {
 import Link from "next/link";
 import RatingStar from "../FormElement/RatingStar/RatingStar";
 import { PagesRoutes } from "../../routes/ PagesRoutes";
+import NiceModal from "@ebay/nice-modal-react";
+import { useQueryClient } from "@tanstack/react-query";
+import { fetchSingleProducts } from "../../services/shared/products";
 
 const ProductListItem: FC<Product> = ({
   _id,
@@ -21,15 +24,35 @@ const ProductListItem: FC<Product> = ({
   rating,
   priceSymbol,
 }) => {
+  const queryClient = useQueryClient();
+
+  const showProductModal = (id: any) => {
+    console.log("model", id);
+
+    NiceModal.show("product-modal", { productId: id });
+  };
+  const productFetch = (id: any) => {
+    console.log("model", id);
+    queryClient.prefetchQuery({
+      queryKey: ["products", id],
+      queryFn: () => fetchSingleProducts(id),
+    });
+  };
   return (
-    <div className={`${style.cards} group `}>
+    <div
+      className={`${style.cards} group `}
+      onMouseEnter={() => productFetch(_id)}
+    >
       <div className={style.upperPart}>
         <div
           className={`${style.iconsContainer} opacity-0 group-hover:opacity-100`}
         >
           <ShoppingCartIcon className={style.icons} />
           <HeartIcon className={style.icons} />
-          <MagnifyingGlassPlusIcon className={style.icons} />
+          <MagnifyingGlassPlusIcon
+            className={style.icons}
+            onClick={() => showProductModal(_id)}
+          />
         </div>
         <div className={style.imgContainer}>
           <Image

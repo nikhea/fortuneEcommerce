@@ -6,11 +6,15 @@ import ProductInfoHeader from "./ProductInfoHeader";
 import Reviews from "./Reviews";
 import Videos from "./Videos";
 import { FetchYoutubeData } from "../../../../services/shared/YoutubeVideo";
-import { IProductReviews } from "../../../../interface/ProductsDataInterface";
+import {
+  IProductReviews,
+  Product,
+} from "../../../../interface/ProductsDataInterface";
 
 export type IProductInfo = {
   productName: string;
   productReviews: IProductReviews[];
+  product: Product;
 };
 const ProductInfo: FC<IProductInfo> = ({ productName, productReviews }) => {
   const [step, setStep] = useState(0);

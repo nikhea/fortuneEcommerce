@@ -11,6 +11,13 @@ import {
 } from "@heroicons/react/24/outline";
 import { PagesRoutes } from "../../../routes/ PagesRoutes";
 import { useCartState } from "../../../store/useCartStore";
+import NiceModal from "@ebay/nice-modal-react";
+import MyModal from "../../productModal/MyModal";
+import usePrefechSingleHover from "../../../Hooks/usePrefechSingleHover";
+import { useQueryClient } from "@tanstack/react-query";
+import { fetchSingleProducts } from "../../../services/shared/products";
+
+NiceModal.register("product-modal", MyModal);
 
 const FeaturedProductCardsItems: FC<Product> = ({
   _id,
@@ -22,14 +29,24 @@ const FeaturedProductCardsItems: FC<Product> = ({
   priceSymbol,
   product,
 }) => {
+  const queryClient = useQueryClient();
   const { addToCart } = useCartState();
-
+  const showProductModal = (id: any) => {
+    NiceModal.show("product-modal", { productId: id });
+  };
+  const productFetch = (id: any) => {
+    queryClient.prefetchQuery({
+      queryKey: ["products", id],
+      queryFn: () => fetchSingleProducts(id),
+    });
+  };
   return (
     <div
+      onMouseEnter={() => productFetch(_id)}
       className={`${style.cards} group transition-all duration-500 ease-in delay-200 hover:cursor-pointer h-[500]`}
     >
       <div className="relative flex flex-col  w-full h-full  bg-[#F6F7FB] rounded-md  items-center  ">
-        <div className="absolute flex transition-all duration-500 ease-in delay-200 opacity-0 left-2 group-hover:opacity-100 z-20 mt-3">
+        <div className="absolute z-20 flex mt-3 transition-all duration-500 ease-in delay-200 opacity-0 left-2 group-hover:opacity-100">
           <ShoppingCartIcon
             className={style.icons}
             onClick={() =>
@@ -40,12 +57,15 @@ const FeaturedProductCardsItems: FC<Product> = ({
             }
           />
           <HeartIcon className={style.icons} />
-          {/* <div className="bg-red-200 flex justify-center items-center rounded-full p-1 h-full "> */}
-          <MagnifyingGlassPlusIcon className={style.icons} />
+          {/* <div className="flex items-center justify-center h-full p-1 bg-red-200 rounded-full "> */}
+          <MagnifyingGlassPlusIcon
+            className={style.icons}
+            onClick={() => showProductModal(_id)}
+          />
           {/* </div> */}
         </div>
         {/* h-[200px]mt-[30px] w-[200px] */}
-        <div className=" h-full w-full overflow-hidden rounded-t-md">
+        <div className="w-full h-full overflow-hidden  rounded-t-md">
           <Image
             src={coverPhoto}
             alt={name}
@@ -55,7 +75,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
             layout="responsive"
             width={900}
             height={900}
-            className=" overflow-hidden object-cover rounded-t-md group-hover:scale-105 transition-all duration-500 ease-in delay-200"
+            className="object-cover overflow-hidden transition-all duration-500 ease-in delay-200  rounded-t-md group-hover:scale-105"
           />
           {/* h-[200px] w-[200px] */}
         </div>

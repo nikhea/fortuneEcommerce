@@ -1,0 +1,19 @@
+.icons {
+  @apply h-6 w-6 mr-2;
+}
+.iconsHover {
+  @apply cursor-pointer hover:text-primary;
+}
+.iconsHover2 {
+  @apply h-6 w-6 mr-2 cursor-pointer hover:text-primary;
+}
+.btn {
+  @apply bg-transparent min-w-[10px]  rounded-[8px] hover:text-primary   not-italic font-[400] text-[14px] outline-none cursor-pointer mx-0 py-[1em] px-0;
+}
+
+.cartButton {
+  @apply border-2  border-solid border-primary bg-transparent rounded-[5px] text-primary  bg-white  not-italic font-[400] text-2xl outline-none cursor-pointer   text-center py-1 px-0;
+}
+.spacer {
+  @apply bg-gray-300 h-[.5px] w-full rounded-[8px] my-2;
+}

@@ -17,7 +17,7 @@
       @apply relative flex flex-col  w-full h-[100%]  bg-[#F6F7FB] rounded-md  items-center;
     }
     .iconsContainer {
-      @apply absolute flex flex-col  transition-all duration-500 ease-in delay-200  left-2 bottom-0 z-50;
+      @apply absolute flex flex-col  transition-all duration-500 ease-in delay-200  left-2 bottom-0 z-20;
     }
     .imgContainer {
       // @apply mt-[30px] w-[200px] overflow-hidden;
@@ -51,7 +51,7 @@
       @apply relative flex flex-col   h-full  bg-[#F6F7FB] rounded-md  items-center w-[300px];
     }
     .iconsContainer {
-      @apply absolute flex flex-col  transition-all duration-500 ease-in delay-200 left-2 bottom-0 z-50;
+      @apply absolute flex flex-col  transition-all duration-500 ease-in delay-200 left-2 bottom-0 z-20;
     }
     .imgContainer {
       @apply w-full h-full overflow-hidden;

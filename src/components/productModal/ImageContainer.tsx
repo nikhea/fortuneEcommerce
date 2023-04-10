@@ -4,14 +4,12 @@ import "react-medium-image-zoom/dist/styles.css";
 import Image from "next/image";
 
 const ImageContainer = ({ images }: any) => {
-  // console.log(images);
-
   const [idx, setIdx] = useState(0);
-  const displayImages = images.map((image: any, index: number) => (
+  const displayImages = images?.map((image: any, index: number) => (
     <div
       key={index}
       onClick={() => setIdx(index)}
-      className=" cursor-pointer mx-3 rounded-xl"
+      className="mx-3 cursor-pointer  rounded-xl"
     >
       <Image
         src={image}
@@ -25,8 +23,9 @@ const ImageContainer = ({ images }: any) => {
   ));
   return (
     // grid place-content-start place-items-center
-    <div className=" h-full  rounded-l-md  pb-5 pt-6  w-[95%] m-auto grid place-content-center place-items-center">
-      <div className=" h-full  mb-5">
+    // h-fulll  rounded-l-md  pb-5 pt-6  w-full m-auto grid place-content-center
+    <div className="grid w-full h-full pt-6 pb-5 m-auto  rounded-l-md place-content-center">
+      <div className=" h-full  mb-5  w-[80%] mx-auto">
         <Zoom>
           <Image
             src={images[idx]}
@@ -35,11 +34,12 @@ const ImageContainer = ({ images }: any) => {
             width={900}
             height={900}
             alt={""}
+            className="w-full h-full  rounded-xl"
           />
         </Zoom>
       </div>
 
-      <div className="h-full  flex justify-center">{displayImages}</div>
+      <div className="flex justify-center h-full">{displayImages}</div>
     </div>
   );
 };
