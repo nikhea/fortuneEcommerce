@@ -1,81 +1,89 @@
-import React from "react";
-import ImageContainer from "../../../src/components/SingleroductPageView/components/ImageContainer";
-import TextContainer from "../../../src/components/SingleroductPageView/components/TextContainer";
-import RelatedProduct from "../../../src/components/RelatedProduct/RelatedProduct";
-import ProductInfo from "../../../src/components/SingleroductPageView/components/ProductInfo/ProductInfo";
-import { QueryClient, dehydrate } from "@tanstack/react-query";
-import {
-  fetchProducts,
-  fetchSingleProducts,
-} from "../../../src/services/shared/products";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { useSingleFetchProducts } from "../../../src/Hooks/useSingleFetchProducts";
+// import React from "react";
+import React from 'react'
 
-interface Props {
-  initialData: {
-    product: any;
-  };
-  id: string | undefined;
-}
-const ProductPage = (props: Props) => {
-  const { data: product } = useSingleFetchProducts(props);
-
+const t = () => {
   return (
-    <div className="container my-5">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 bg-gray-100 shadow-md rounded-md">
-        <ImageContainer images={product.photos} />
-        <TextContainer
-          _id={product._id}
-          name={product.name}
-          price={product.price}
-          rating={product.rating}
-          priceSymbol={product.priceSymbol}
-          description={product.description}
-        />
-      </div>
-      <ProductInfo
-        productName={product.name}
-        productReviews={product.reviews}
-        product={product}
-      />
-      <RelatedProduct />
-    </div>
-  );
-};
-export const getStaticPaths: GetStaticPaths = async () => {
-  // Fetch the list of products from your API
-  const products = await fetchProducts();
+    <div>t</div>
+  )
+}
 
-  // Generate the paths for each product
-  const paths = products?.data.map((product: any) => ({
-    params: { productId: product._id.toString() },
-  }));
+export default t
 
-  return { paths, fallback: false };
-};
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const SingleproductId = params?.productId;
-  //  productId
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(["products"], fetchProducts);
+// import ImageContainer from "../../../src/components/SingleroductPageView/components/ImageContainer";
+// import TextContainer from "../../../src/components/SingleroductPageView/components/TextContainer";
+// import RelatedProduct from "../../../src/components/RelatedProduct/RelatedProduct";
+// import ProductInfo from "../../../src/components/SingleroductPageView/components/ProductInfo/ProductInfo";
+// import { QueryClient, dehydrate } from "@tanstack/react-query";
+// import {
+//   fetchProducts,
+//   fetchSingleProducts,
+// } from "../../../src/services/shared/products";
+// import { GetStaticPaths, GetStaticProps } from "next";
+// import { useSingleFetchProducts } from "../../../src/Hooks/useSingleFetchProducts";
 
-  await queryClient.prefetchQuery(["products", SingleproductId], () =>
-    fetchSingleProducts(SingleproductId)
-  );
-  const ProductsData = await fetchSingleProducts(SingleproductId);
-  console.log(ProductsData, "Products");
+// interface Props {
+//   initialData: {
+//     product: any;
+//   };
+//   id: string | undefined;
+// }
+// const ProductPage = (props: Props) => {
+//   const { data: product } = useSingleFetchProducts(props);
 
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-      initialData: {
-        product: ProductsData,
-      },
-      id: SingleproductId,
-    },
+//   return (
+//     <div className="container my-5">
+//       <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 bg-gray-100 shadow-md rounded-md">
+//         <ImageContainer images={product.photos} />
+//         <TextContainer
+//           _id={product._id}
+//           name={product.name}
+//           price={product.price}
+//           rating={product.rating}
+//           priceSymbol={product.priceSymbol}
+//           description={product.description}
+//         />
+//       </div>
+//       <ProductInfo
+//         productName={product.name}
+//         productReviews={product.reviews}
+//         product={product}
+//       />
+//       <RelatedProduct />
+//     </div>
+//   );
+// };
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const products = await fetchProducts();
 
-    revalidate: 10,
-  };
-};
-export default ProductPage;
+//   const paths = products?.data.map((product: any) => ({
+//     params: { productId: product._id.toString() },
+//   }));
+
+//   return { paths, fallback: false };
+// };
+
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   const SingleproductId = params?.productId;
+//   const queryClient = new QueryClient();
+//   await queryClient.prefetchQuery(["products"], fetchProducts);
+
+//   await queryClient.prefetchQuery(["products", SingleproductId], () =>
+//     fetchSingleProducts(SingleproductId)
+//   );
+//   const ProductsData = await fetchSingleProducts(SingleproductId);
+//   console.log(ProductsData, "Products");
+
+//   return {
+//     props: {
+//       dehydratedState: dehydrate(queryClient),
+//       initialData: {
+//         product: ProductsData,
+//       },
+//       id: SingleproductId,
+//     },
+
+//     revalidate: 10,
+//   };
+// };
+// export default ProductPage;
