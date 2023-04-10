@@ -15,11 +15,11 @@ export type IProductInfo = {
 const ProductInfo: FC<IProductInfo> = ({ productName, productReviews }) => {
   const [step, setStep] = useState(0);
 
-  const { data: YouTubeVideo } = useQuery<any, Error>(
-    ["youtube-videos", productName],
-    () => FetchYoutubeData(productName),
-    { ...defaultQueryOptions }
-  );
+  // const { data: YouTubeVideo } = useQuery<any, Error>(
+  //   ["youtube-videos", productName],
+  //   () => FetchYoutubeData(productName),
+  //   { ...defaultQueryOptions }
+  // );
   return (
     <div className="bg-gray-100 shadow-md rounded-md my-10 p-5">
       <ProductInfoHeader step={step} setStep={setStep} />
@@ -31,7 +31,7 @@ const ProductInfo: FC<IProductInfo> = ({ productName, productReviews }) => {
             case 1:
               return <AdditionalInformation />;
             case 2:
-              return <Videos YouTubeVideo={YouTubeVideo} />;
+            // return <Videos YouTubeVideo={YouTubeVideo} />;
             case 3:
               return <Reviews productReviews={productReviews} />;
             default:

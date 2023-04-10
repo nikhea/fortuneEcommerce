@@ -8,7 +8,11 @@ const ImageContainer = ({ images }: any) => {
 
   const [idx, setIdx] = useState(0);
   const displayImages = images.map((image: any, index: number) => (
-    <div key={index} onClick={() => setIdx(index)} className=" cursor-pointer">
+    <div
+      key={index}
+      onClick={() => setIdx(index)}
+      className=" cursor-pointer mx-3"
+    >
       <Image
         src={image}
         blurDataURL={image.blurDataURL}
@@ -19,17 +23,18 @@ const ImageContainer = ({ images }: any) => {
     </div>
   ));
   return (
-    <div className=" h-full w-full rounded-l-md  grid place-items-center py-5">
-      <div className=" w-[400px] h-[400px] grid place-content-center">
-        <Zoom>
-          <Image
-            src={images[idx]}
-            blurDataURL={images[idx].blurDataURL}
-            width={250}
-            height={200}
-            alt={""}
-          />
-        </Zoom>
+    <div className=" h-full w-full rounded-l-md  py-5  grid place-content-start place-items-center ">
+      <div className="w-[80%] h-full  mb-5">
+        {/* <Zoom> */}
+        <Image
+          src={images[idx]}
+          blurDataURL={images[idx].blurDataURL}
+          layout="responsive"
+          width={900}
+          height={900}
+          alt={""}
+        />
+        {/* </Zoom> */}
       </div>
 
       <div className="h-full  flex">{displayImages}</div>
