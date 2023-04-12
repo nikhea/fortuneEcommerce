@@ -1,4 +1,6 @@
+import axios from "../../lib/axios";
+
 export const fetchCategories = async () => {
-  const res = await fetch("http://localhost:4000/api/category");
-  return await res.json();
+  const { data } = await axios.get("category");
+  return data;
 };

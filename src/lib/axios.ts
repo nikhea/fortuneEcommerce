@@ -1,13 +1,9 @@
 import axios from "axios";
-// import p from "../pages/api/templates"
-// import a from "../pages/api/templates";
-let main = "/api/templates";
 
-// let main = "https://template-task-nikhea.vercel.app/api/templates";
-let test = "http://localhost:3000/api/templates";
+let main = "https://backendfortuneecommerce-production.up.railway.app/api/";
+let test = "http://localhost:4000/api/";
 const instance = axios.create({
   baseURL: main,
-  // http://localhost:3000/api/templates
 });
 
 export default instance;
