@@ -9,6 +9,7 @@ import {
 } from "../../../src/services/shared/products";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useSingleFetchProducts } from "../../../src/Hooks/useSingleFetchProducts";
+import { useRouter } from "next/router";
 
 interface Props {
   initialData: {
@@ -18,10 +19,14 @@ interface Props {
 }
 const ProductPage = (props: Props) => {
   const { data: product } = useSingleFetchProducts(props);
+  const router = useRouter();
 
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="container my-5">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 bg-gray-100 shadow-md rounded-md">
+      <div className="grid grid-cols-1 bg-gray-100 rounded-md shadow-md lg:grid-cols-2 gap-x-5">
         <ImageContainer images={product.photos} />
         <TextContainer
           _id={product._id}
@@ -41,17 +46,8 @@ const ProductPage = (props: Props) => {
     </div>
   );
 };
-export const getStaticPaths: GetStaticPaths = async () => {
-  const products = await fetchProducts();
-
-  const paths = products?.data.map((product: any) => ({
-    params: { productId: product._id.toString() },
-  }));
-
-  return { paths, fallback: false };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export async function getServerSideProps(context: { params: any }) {
+  const { params } = context;
   const SingleproductId = params?.productId;
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(["products"], fetchProducts);
@@ -59,19 +55,52 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   await queryClient.prefetchQuery(["products", SingleproductId], () =>
     fetchSingleProducts(SingleproductId)
   );
-  const ProductsData = await fetchSingleProducts(SingleproductId);
-  console.log(ProductsData, "Products");
+  const product = await fetchSingleProducts(SingleproductId);
+  // console.log(product, "Products");
 
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
       initialData: {
-        product: ProductsData,
+        product,
       },
       id: SingleproductId,
     },
-
-    revalidate: 10,
   };
-};
+}
+
 export default ProductPage;
+
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const products = await fetchProducts();
+
+//   const paths = products?.data.map((product: any) => ({
+//     params: { productId: product._id.toString() },
+//   }));
+
+//   return { paths, fallback: false };
+// };
+
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   const SingleproductId = params?.productId;
+//   const queryClient = new QueryClient();
+//   await queryClient.prefetchQuery(["products"], fetchProducts);
+
+//   await queryClient.prefetchQuery(["products", SingleproductId], () =>
+//     fetchSingleProducts(SingleproductId)
+//   );
+//   const ProductsData = await fetchSingleProducts(SingleproductId);
+//   console.log(ProductsData, "Products");
+
+//   return {
+//     props: {
+//       dehydratedState: dehydrate(queryClient),
+//       initialData: {
+//         product: ProductsData,
+//       },
+//       id: SingleproductId,
+//     },
+
+//     revalidate: 10,
+//   };
+// };
