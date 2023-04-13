@@ -33,7 +33,7 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
     setIsAdded(true);
   };
   return (
-    <div className="h-full w-full flex flex-col justify-between py-5 px-2 lg:px-0 lg:pr-5 ">
+    <div className="flex flex-col justify-between w-full h-full px-2 py-5 lg:px-0 lg:pr-5 ">
       <div className="flex items-center justify-between">
         <h1 className="  text-xl capitalize text-[#151875]  font-bold ">
           {name}
@@ -52,13 +52,13 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
       </div>
       <div className={style.spacer} />
       <div className="flex flex-col space-y-3">
-        <h2 className=" capitalize text-xl ">
+        <h2 className="text-xl capitalize ">
           <span className="mr-1"> {priceSymbol}</span>
           {price}
         </h2>
         <p>{description}</p>
-        <div className="flex items-center  text-primary">
-          <CheckCircleIcon className={style.icons} />
+        <div className="flex items-center text-primary">
+          <CheckCircleIcon className={`${style.icons} h-6 w-6 mr-2`} />
           <h5>shop secure, free return</h5>
         </div>
       </div>
@@ -86,7 +86,7 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
             Add to cart
           </Button>
         ) : (
-          <div className="grid grid-cols-3  w-fit  items-center ">
+          <div className="grid items-center grid-cols-3 w-fit ">
             <button onClick={increaseCartQuantity} className={style.cartButton}>
               +
             </button>
