@@ -19,11 +19,11 @@ interface Props {
 }
 const ProductPage = (props: Props) => {
   const { data: product } = useSingleFetchProducts(props);
-  const router = useRouter();
+  // const router = useRouter();
 
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
+  // if (router.isFallback) {
+  //   return <div>Loading...</div>;
+  // }
   return (
     <div className="container my-5">
       <div className="grid grid-cols-1 bg-gray-100 rounded-md shadow-md lg:grid-cols-2 gap-x-5">
@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     fetchSingleProducts(SingleproductId)
   );
   const ProductsData = await fetchSingleProducts(SingleproductId);
-  console.log(ProductsData, "Products");
+  // console.log(ProductsData, "Products");
 
   return {
     props: {
