@@ -7,7 +7,7 @@ import {
   fetchProducts,
   fetchSingleProducts,
 } from "../../../src/services/shared/products";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, GetServerSideProps } from "next";
 import { useSingleFetchProducts } from "../../../src/Hooks/useSingleFetchProducts";
 import { useRouter } from "next/router";
 
@@ -46,8 +46,17 @@ const ProductPage = (props: Props) => {
     </div>
   );
 };
-export async function getServerSideProps(context: { params: any }) {
-  const { params } = context;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const products = await fetchProducts();
+
+  const paths = products?.data.map((product: any) => ({
+    params: { productId: product._id.toString() },
+  }));
+
+  return { paths, fallback: false };
+};
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const SingleproductId = params?.productId;
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(["products"], fetchProducts);
@@ -55,19 +64,21 @@ export async function getServerSideProps(context: { params: any }) {
   await queryClient.prefetchQuery(["products", SingleproductId], () =>
     fetchSingleProducts(SingleproductId)
   );
-  const product = await fetchSingleProducts(SingleproductId);
-  // console.log(product, "Products");
+  const ProductsData = await fetchSingleProducts(SingleproductId);
+  console.log(ProductsData, "Products");
 
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
       initialData: {
-        product,
+        product: ProductsData,
       },
       id: SingleproductId,
     },
+
+    revalidate: 10,
   };
-}
+};
 
 export default ProductPage;
 
@@ -104,3 +115,30 @@ export default ProductPage;
 //     revalidate: 10,
 //   };
 // };
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   return {
+//     paths: [],
+//     fallback: true,
+//   };
+// };
+
+// export async function getServerSideProps(context: { params: any }) {
+//   const { params } = context;
+//   const SingleproductId = params?.productId;
+//   const queryClient = new QueryClient();
+//   await queryClient.prefetchQuery(["products"], fetchProducts);
+
+//   await queryClient.prefetchQuery(["products", SingleproductId], () =>
+//     fetchSingleProducts(SingleproductId)
+//   );
+//   const product = await fetchSingleProducts(SingleproductId);
+//   return {
+//     props: {
+//       dehydratedState: dehydrate(queryClient),
+//       initialData: {
+//         product,
+//       },
+//       id: SingleproductId,
+//     },
+//   };
+// }
