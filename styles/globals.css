@@ -3,8 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 @import "node_modules/nprogress/nprogress.css";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: "Josefin Sans", sans-serif;
+}
+li {
+  list-style: none;
 }
 .container {
   @apply w-[95%] lg:w-[90%] m-auto;

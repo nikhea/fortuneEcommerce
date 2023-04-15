@@ -8,4 +8,5 @@ export const PagesRoutes = {
   shipping: "/shipping",
   shoppingCart: "/shoppingCart",
   wishList: "/wishList",
+  shop: "/shop",
 };

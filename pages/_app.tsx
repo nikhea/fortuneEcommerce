@@ -6,6 +6,7 @@ import Footer from "../src/components/Layout/Footer";
 import Header from "../src/components/Layout/header";
 import "rc-dropdown/assets/index.css";
 import CartDrawerComponent from "../src/components/cart/CartDrawer";
+import MainNavMobile from "../src/components/Layout/header/mainNavMobile";
 import {
   Hydrate,
   QueryClient,
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           <NiceModal.Provider>
             <Header />
             <CartDrawerComponent />
+            <MainNavMobile />
             <Component {...pageProps} />
             <CompaniesIcon />
             <Footer />

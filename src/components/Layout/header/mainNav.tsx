@@ -5,19 +5,25 @@ import HeaderIcon from "./headerIcon";
 import { NavItems } from "./headerData";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { UserCircleIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import {
+  UserCircleIcon,
+  ShoppingCartIcon,
+  Bars3Icon,
+} from "@heroicons/react/24/outline";
 import DropDown from "./dropDown";
 import { PagesRoutes } from "../../../routes/ PagesRoutes";
 import { useCartDrawerState } from "../../../store/useShoppingCartSideBar";
+import { useMobileMenuStateState } from "../../../store/useMobileMenuState";
 import useDeviceProperties from "../../../Hooks/UseMediaQueries";
 // import CartDrawerComponent from "../../cart/CartDrawer";
 
 const mainNav = () => {
-  const { isDesktopOrLaptop } = useDeviceProperties();
+  const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
   const pathname = usePathname();
-  const { CartDrawer, setCartDrawer } = useCartDrawerState();
-
+  const { setCartDrawer } = useCartDrawerState();
+  const { setMobileMenuState } = useMobileMenuStateState();
   const [background, setBackground] = useState(false);
+
   const ChangeBackground = () => {
     if (window.scrollY >= 90) {
       setBackground(true);
@@ -74,7 +80,12 @@ const mainNav = () => {
                 <h1 className="text-[12px] text-white">78</h1>
               </span>
             </div>
-            {/* </Link> */}
+            <div
+              onClick={() => setMobileMenuState(true)}
+              className={`${style.subHeader__content} relative cursor-pointer`}
+            >
+              <Bars3Icon className={style.icons} />
+            </div>
           </div>
         </div>
       </div>

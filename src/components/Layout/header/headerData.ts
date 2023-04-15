@@ -2,6 +2,10 @@ import { PagesRoutes } from "../../../routes/ PagesRoutes";
 
 export const NavItems = [
   {
+    name: "shop",
+    link: PagesRoutes.shop,
+  },
+  {
     name: "products",
     link: PagesRoutes.products,
   },
