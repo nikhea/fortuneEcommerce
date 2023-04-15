@@ -80,12 +80,14 @@ const mainNav = () => {
                 <h1 className="text-[12px] text-white">78</h1>
               </span>
             </div>
-            <div
-              onClick={() => setMobileMenuState(true)}
-              className={`${style.subHeader__content} relative cursor-pointer`}
-            >
-              <Bars3Icon className={style.icons} />
-            </div>
+            {isTabletOrMobile && (
+              <div
+                onClick={() => setMobileMenuState(true)}
+                className={`${style.subHeader__content} relative cursor-pointer`}
+              >
+                <Bars3Icon className={style.icons} />
+              </div>
+            )}
           </div>
         </div>
       </div>
