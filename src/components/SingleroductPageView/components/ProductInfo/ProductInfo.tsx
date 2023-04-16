@@ -3,19 +3,23 @@ import { useQuery } from "@tanstack/react-query";
 import AdditionalInformation from "./AdditionalInformation";
 import Description from "./Description";
 import ProductInfoHeader from "./ProductInfoHeader";
-import Reviews from "./Reviews";
+import Reviews from "./review/Reviews";
 import Videos from "./Videos";
 import { FetchYoutubeData } from "../../../../services/shared/YoutubeVideo";
 import {
   IProductReviews,
   Product,
 } from "../../../../interface/ProductsDataInterface";
+import NiceModal from "@ebay/nice-modal-react";
+import ReviewModel from "./review/ReviewModel";
 
 export type IProductInfo = {
   productName: string;
   productReviews: IProductReviews[];
   product: Product;
 };
+NiceModal.register("review-modal", ReviewModel);
+
 const ProductInfo: FC<IProductInfo> = ({ productName, productReviews }) => {
   const [step, setStep] = useState(0);
 
@@ -25,7 +29,7 @@ const ProductInfo: FC<IProductInfo> = ({ productName, productReviews }) => {
   //   { ...defaultQueryOptions }
   // );
   return (
-    <div className="bg-gray-100 shadow-md rounded-md my-10 p-5">
+    <div className="p-5 my-10 bg-gray-100 rounded-md shadow-md">
       <ProductInfoHeader step={step} setStep={setStep} />
       <div>
         {(() => {

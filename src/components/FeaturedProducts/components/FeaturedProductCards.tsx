@@ -59,7 +59,7 @@ const FeaturedProductCards: FC<featuredProducts> = ({ featuredProducts }) => {
       ) : (
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          slidesPerView={2}
+          slidesPerView={1}
           pagination={{ clickable: true }}
         >
           <div className="h-full my-10"> {displayData}</div>

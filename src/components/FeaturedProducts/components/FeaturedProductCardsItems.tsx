@@ -84,7 +84,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
         </Link> */}
       </div>
       <div className="w-full h-full px-3 py-3 ">
-        <Link href={`${PagesRoutes.products}/${_id}`}>
+        <Link href={`${PagesRoutes.products}/${name}`}>
           <h6 className=" text-md capitalize text-[#151875]  font-bold  ">
             {name} {rating}
           </h6>

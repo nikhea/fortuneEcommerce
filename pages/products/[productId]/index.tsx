@@ -50,10 +50,12 @@ const ProductPage = (props: Props) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const products = await fetchProducts();
 
+  // const paths = products?.data.map((product: any) => ({
+  //   params: { productId: product._id.toString() },
+  // }));
   const paths = products?.data.map((product: any) => ({
-    params: { productId: product._id.toString() },
+    params: { productId: product.name.toString() },
   }));
-
   return { paths, fallback: false };
 };
 export const getStaticProps: GetStaticProps = async ({ params }) => {

@@ -43,13 +43,13 @@ const mainNavMobile = () => {
         // background: "pink",
       }}
     >
-      <div className=" flex justify-end mx-7 mt-6 text-end">
+      <div className="flex justify-end mt-6  mx-7 text-end">
         <XMarkIcon
-          className="h-6 w-6 mr-2 cursor-pointer"
+          className="w-6 h-6 mr-2 cursor-pointer"
           onClick={toggleDrawer}
         />
       </div>
-      <ul className="uppercase mx-5   h-full flex flex-col my-10  text-[#0D0E43] text-lg">
+      <ul className="uppercase mx-5   h-full flex flex-col my-10 mb-20 text-[#0D0E43] text-lg">
         {displayNameItems}
       </ul>
     </Drawer>

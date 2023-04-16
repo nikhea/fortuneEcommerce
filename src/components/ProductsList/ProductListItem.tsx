@@ -25,14 +25,10 @@ const ProductListItem: FC<Product> = ({
   priceSymbol,
 }) => {
   const queryClient = useQueryClient();
-
   const showProductModal = (id: any) => {
-    console.log("model", id);
-
     NiceModal.show("product-modal", { productId: id });
   };
   const productFetch = (id: any) => {
-    console.log("model", id);
     queryClient.prefetchQuery({
       queryKey: ["products", id],
       queryFn: () => fetchSingleProducts(id),
@@ -66,7 +62,7 @@ const ProductListItem: FC<Product> = ({
         </div>
       </div>
       <div className={style.textContainer}>
-        <Link href={`${PagesRoutes.products}/${_id}`}>
+        <Link href={`${PagesRoutes.products}/${name}`}>
           <h6 className={style.h6}>{name}</h6>
         </Link>
         <p className={style.text}>{description}</p>
