@@ -15,12 +15,12 @@ const reviews: FC<IProductReview> = ({ productReviews }) => {
   const showReviewModal = () => {
     NiceModal.show("review-modal");
   };
-  const displayReview = productReviews.map((review, index) => (
+  const displayReview = reviewList.map((review, index) => (
     <div key={index}>
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <img
-            src={review.photo}
+            // src={review.photo}
             alt={review.name}
             className={` w-[50px] h-[50px] rounded-full group-hover:scale-125`}
           />
@@ -66,3 +66,36 @@ const reviews: FC<IProductReview> = ({ productReviews }) => {
 };
 
 export default reviews;
+
+const reviewList = [
+  {
+    rating: 2,
+    text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    date: new Date(),
+    name: "fortune",
+  },
+  {
+    rating: 4,
+    text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    date: new Date(),
+    name: "fortune",
+  },
+  {
+    rating: 3,
+    text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    date: new Date(),
+    name: "fortune",
+  },
+  {
+    rating: 5,
+    text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    date: new Date(),
+    name: "fortune",
+  },
+  {
+    rating: 1,
+    text: "Lorem ipsum dolor sit amet, consectetur,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
+    date: new Date(),
+    name: "fortune",
+  },
+];

@@ -31,6 +31,18 @@ const FeaturedProductCardsItems: FC<Product> = ({
 }) => {
   const queryClient = useQueryClient();
   const { addToCart } = useCartState();
+  const handleAddToCart = (product: any, quantity: number, _id: string) => {
+    // console.log(_id, "jdshkjs");
+
+    addToCart({
+      product,
+      quantity,
+      _id,
+    });
+  };
+  const handleAddLike = () => {
+    console.log("like");
+  };
   const showProductModal = (id: any) => {
     NiceModal.show("product-modal", { productId: id });
   };
@@ -40,6 +52,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
       queryFn: () => fetchSingleProducts(id),
     });
   };
+
   return (
     <div
       onMouseEnter={() => productFetch(_id)}
@@ -49,14 +62,12 @@ const FeaturedProductCardsItems: FC<Product> = ({
         <div className="absolute z-20 flex mt-3 transition-all duration-500 ease-in delay-200 opacity-0 left-2 group-hover:opacity-100">
           <ShoppingCartIcon
             className={style.icons}
-            onClick={() =>
-              addToCart({
-                product,
-                quantity: 1,
-              })
-            }
+            onClick={() => handleAddToCart(product, 1, _id)}
           />
-          <HeartIcon className={style.icons} />
+          <HeartIcon
+            className={style.icons}
+            onMouseEnter={() => console.log("like")}
+          />
           {/* <div className="flex items-center justify-center h-full p-1 bg-red-200 rounded-full "> */}
           <MagnifyingGlassPlusIcon
             className={style.icons}

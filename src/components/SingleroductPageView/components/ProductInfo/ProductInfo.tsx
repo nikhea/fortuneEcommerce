@@ -57,3 +57,4 @@ const defaultQueryOptions = {
   cacheTime: 5 * 60 * 60 * 1000, // 5 hours
   refetchOnWindowFocus: false,
 };
+

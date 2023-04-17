@@ -25,9 +25,7 @@ const HomePage: FC<Props> = (props) => {
     <div>
       <Hero />
       <FeaturedProducts products={products} />
-      {/* {JSON.stringify(categories)} */}
       <Features title="what shopex offer!" />
-      {/* {JSON.stringify(products)} */}
       <NewletterBanner />
     </div>
   );

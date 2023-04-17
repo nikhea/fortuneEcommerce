@@ -15,9 +15,11 @@ import { PagesRoutes } from "../../../routes/ PagesRoutes";
 import { useCartDrawerState } from "../../../store/useShoppingCartSideBar";
 import { useMobileMenuStateState } from "../../../store/useMobileMenuState";
 import useDeviceProperties from "../../../Hooks/UseMediaQueries";
+import { useCartState } from "../../../store/useCartStore";
 // import CartDrawerComponent from "../../cart/CartDrawer";
 
 const mainNav = () => {
+  const { cart } = useCartState();
   const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
   const pathname = usePathname();
   const { setCartDrawer } = useCartDrawerState();
@@ -77,7 +79,7 @@ const mainNav = () => {
             >
               <ShoppingCartIcon className={style.icons} />
               <span className="absolute left-[12px] top-[-5px] bg-primary  w-5 h-5 rounded-full flex justify-center items-center">
-                <h1 className="text-[12px] text-white">78</h1>
+                <h1 className="text-[12px] text-white">{cart.items.length}</h1>
               </span>
             </div>
             {isTabletOrMobile && (

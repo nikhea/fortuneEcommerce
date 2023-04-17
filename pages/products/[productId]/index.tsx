@@ -49,10 +49,6 @@ const ProductPage = (props: Props) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const products = await fetchProducts();
-
-  // const paths = products?.data.map((product: any) => ({
-  //   params: { productId: product._id.toString() },
-  // }));
   const paths = products?.data.map((product: any) => ({
     params: { productId: product.name.toString() },
   }));
@@ -67,8 +63,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     fetchSingleProducts(SingleproductId)
   );
   const ProductsData = await fetchSingleProducts(SingleproductId);
-  // console.log(ProductsData, "Products");
-
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

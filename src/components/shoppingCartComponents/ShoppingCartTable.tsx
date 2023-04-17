@@ -17,27 +17,16 @@ import {
 import { useCartState } from "../../store/useCartStore";
 
 const shoppingCartTable = () => {
-  const { cart, removeFromCart, clearCart } = useCartState();
+  const {
+    cart,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+    clearCart,
+    getProductItemTotal,
+  } = useCartState();
 
-  const [cartQuantity, setCartQuantity] = useState(1);
-
-  const increaseCartQuantity = () => {
-    setCartQuantity((prevQuantity) => prevQuantity + 1);
-  };
-
-  const decreaseCartQuantity = () => {
-    if (cartQuantity > 1) {
-      setCartQuantity((prevQuantity) => prevQuantity - 1);
-    }
-  };
-  const handleCartQuantity = (action: string) => {
-    if (action === "increase") {
-      setCartQuantity(cartQuantity + 1);
-    } else if (action === "decrease" && cartQuantity > 1) {
-      setCartQuantity(cartQuantity - 1);
-    }
-  };
-  console.log(cart.items);
+  console.log(cart);
 
   return (
     <div className={style.ShoppingCartTableContainer}>
@@ -57,7 +46,7 @@ const shoppingCartTable = () => {
                 <td>
                   <div className="flex items-center gap-2">
                     <Image
-                      src={item.product.image}
+                      src={item.product.coverPhoto}
                       alt={item.product.name}
                       width={100}
                       height={100}
@@ -81,26 +70,28 @@ const shoppingCartTable = () => {
                   <span className="flex items-center">
                     <button
                       className={style.iconContainer}
-                      onClick={increaseCartQuantity}
+                      onClick={() => increaseQuantity(item.product._id)}
                     >
                       <PlusCircleIcon className={style.icons} />
                     </button>
                     <input
                       type="number"
-                      value={cartQuantity}
+                      value={item.quantity}
                       readOnly
                       className="w-fit"
                     />
                     <button
                       className={style.iconContainer}
-                      onClick={decreaseCartQuantity}
+                      // onClick={decreaseCartQuantity}
+                      onClick={() => decreaseQuantity(item.product._id)}
                     >
                       <MinusCircleIcon className={style.icons} />
                     </button>
                   </span>
                 </td>
                 <td style={{ textAlign: "center" }}>
-                  {item.product.priceSymbol} 76589
+                  {item.product.priceSymbol}{" "}
+                  {getProductItemTotal(item.quantity, item.product.price)}
                 </td>
 
                 <td className={style.iconContainer}>
@@ -138,3 +129,22 @@ const shoppingCartTable = () => {
 
 export default shoppingCartTable;
 // "bg-red-200 w-[10] h-[10] rounded-full   right-0
+
+// const [cartQuantity, setCartQuantity] = useState(1);
+
+// const increaseCartQuantity = () => {
+//   setCartQuantity((prevQuantity) => prevQuantity + 1);
+// };
+
+// const decreaseCartQuantity = () => {
+//   if (cartQuantity > 1) {
+//     setCartQuantity((prevQuantity) => prevQuantity - 1);
+//   }
+// };
+// const handleCartQuantity = (action: string) => {
+//   if (action === "increase") {
+//     setCartQuantity(cartQuantity + 1);
+//   } else if (action === "decrease" && cartQuantity > 1) {
+//     setCartQuantity(cartQuantity - 1);
+//   }
+// };
