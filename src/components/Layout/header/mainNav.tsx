@@ -16,9 +16,13 @@ import { useCartDrawerState } from "../../../store/useShoppingCartSideBar";
 import { useMobileMenuStateState } from "../../../store/useMobileMenuState";
 import useDeviceProperties from "../../../Hooks/UseMediaQueries";
 import { useCartState } from "../../../store/useCartStore";
+import { useUser } from "../../../auth/auth";
 // import CartDrawerComponent from "../../cart/CartDrawer";
 
 const mainNav = () => {
+  const user = useUser({});
+  console.log(user);
+
   const { cart } = useCartState();
   const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
   const pathname = usePathname();

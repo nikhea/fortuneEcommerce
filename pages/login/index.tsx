@@ -1,10 +1,16 @@
 "use client";
+import { useLogin } from "../../src/auth/auth";
 import AccountForm from "../../src/components/AuthForm/AccountForm";
 import Banner from "../../src/components/Banner/Banner";
 import { PagesRoutes } from "../../src/routes/ PagesRoutes";
 
 const page = () => {
+  const login = useLogin();
+
   const loginData = (data: any) => {
+    login.mutate(data, {
+      onSuccess: () => console.log("login"),
+    });
     console.log(data, "LoginData");
   };
   return (

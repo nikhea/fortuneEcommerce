@@ -31,13 +31,13 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
   } = methods;
   console.log(errors);
   const submitForm = (formData: any) => {
-    console.log(errors);
+    console.log(formData);
 
     if (formData) {
-      if (formData.email === "" || formData.password === "") {
-        FormInputData(formData);
-        reset();
-      }
+      // if (formData.email === "" || formData.password === "") {
+      FormInputData(formData);
+      // reset();
+      // }
     }
   };
   return (
