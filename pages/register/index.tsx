@@ -1,12 +1,17 @@
 "use client";
 
-import AccountForm from "../../src/components/AuthForm/AccountForm";
+import { useRegister } from "../../src/auth/auth";
+import AccountForm from "../../src/components/AuthForm/RegisterForm";
 import Banner from "../../src/components/Banner/Banner";
 import { PagesRoutes } from "../../src/routes/ PagesRoutes";
 
 const Register = () => {
+  const register = useRegister();
+
   const registerData = (data: any) => {
-    console.log(data, "registerData");
+    register.mutate(data, {
+      onSuccess: () => console.log("register"),
+    });
   };
   return (
     <>

@@ -14,8 +14,9 @@ export type LoginCredentials = {
 };
 
 export type RegisterCredentials = {
+  firstname: string;
+  lastname: string;
   email: string;
-  name: string;
   password: string;
 };
 
@@ -25,9 +26,7 @@ async function handleUserResponse(data: any) {
     token: jwt,
     email,
     firstname,
-    userID,
     lastname,
-    username,
     role,
     profile,
   } = data.data;
@@ -38,9 +37,7 @@ async function handleUserResponse(data: any) {
     // jwt,
     email,
     firstname,
-    userID,
     lastname,
-    username,
     role,
     profile,
   };
@@ -58,19 +55,15 @@ async function userFn() {
         email,
         firstname,
         lastname,
-        userID,
-        username,
+
         role,
         profile,
       } = data.data;
       user = {
         _id,
-        // jwt:storage.getToken(),
         email,
         firstname,
-        userID,
         lastname,
-        username,
         role,
         profile,
       };
@@ -91,7 +84,7 @@ async function registerFn(data: RegisterCredentials) {
   return user;
 }
 
-async function logoutFn() {
+export async function logoutFn() {
   // await logout();
   storage.clearToken();
 }

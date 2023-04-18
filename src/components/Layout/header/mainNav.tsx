@@ -20,8 +20,8 @@ import { useUser } from "../../../auth/auth";
 // import CartDrawerComponent from "../../cart/CartDrawer";
 
 const mainNav = () => {
-  const user = useUser({});
-  console.log(user);
+  const user = useUser();
+  console.log(user.data?.firstname);
 
   const { cart } = useCartState();
   const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
@@ -68,10 +68,14 @@ const mainNav = () => {
           <div className={style.subHeaderLeft}>
             {isDesktopOrLaptop && (
               <DropDown>
-                <Link href="/#" shallow>
+                <Link href="/#" shallow className="text-[#0D0E43]">
                   <div className={style.subHeader__content}>
                     <UserCircleIcon className={style.icons} />
-                    <h1>Account</h1>
+                    <h1>
+                      {user.data?.firstname
+                        ? `${user.data?.firstname} ${user.data?.lastname}`
+                        : "Account"}
+                    </h1>
                   </div>
                 </Link>
               </DropDown>

@@ -1,15 +1,15 @@
-// "use client";
-import { useForm, FormProvider, useController } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import style from "./style/AccountForm.module.scss";
-import useFormPersist from "react-hook-form-persist";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { AccountFormData, AccountSchema } from "./AccountFormData";
+import {
+  registerAccountFormData,
+  registerAccountSchema,
+} from "./AccountFormData";
 import Input from "../FormElement/input/input";
 import Button from "../FormElement/Button/Button";
 import { FC } from "react";
 import { IAccountFormDefaultText } from "../../interface/AccountForm";
 import Link from "next/link";
-// import { DevTool } from "@hookform/devtools";
 
 const AccountForm: FC<IAccountFormDefaultText> = ({
   type,
@@ -20,8 +20,8 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
   ButtonSign,
   FormInputData,
 }) => {
-  const methods = useForm<AccountFormData>({
-    resolver: yupResolver(AccountSchema),
+  const methods = useForm<registerAccountFormData>({
+    resolver: yupResolver(registerAccountSchema),
   });
   const {
     register,
@@ -50,6 +50,34 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(submitForm)}>
             <div className="  w-[90%] m-auto ">
+              <div className={style.inputContainer}>
+                <label className={style.label}>first name</label>
+                <Input
+                  type="text"
+                  placeholder="firstname"
+                  name="firstname"
+                  required
+                  isWhiteBg
+                  isCurve
+                  errors={errors}
+                  // Width="100%"
+                  inputRef={register("firstname")}
+                />
+              </div>
+              <div className={style.inputContainer}>
+                <label className={style.label}>last name</label>
+                <Input
+                  type="text"
+                  placeholder="lastname"
+                  name="lastname"
+                  required
+                  isWhiteBg
+                  isCurve
+                  errors={errors}
+                  // Width="100%"
+                  inputRef={register("lastname")}
+                />
+              </div>
               <div className={style.inputContainer}>
                 <label className={style.label}>email</label>
                 <Input

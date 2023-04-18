@@ -16,7 +16,8 @@ import { useState } from "react";
 import { config } from "../src/lib/react-query-config";
 import Devtools from "../src/lib/Devtools";
 import NiceModal from "@ebay/nice-modal-react";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function MyApp({ Component, pageProps, router }: AppProps) {
   const [queryClient] = useState(() => new QueryClient(config));
 
@@ -25,6 +26,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <NiceModal.Provider>
+            <ToastContainer />
             <Header />
             <CartDrawerComponent />
             <MainNavMobile />

@@ -13,7 +13,7 @@
   @apply flex items-center gap-x-10;
 }
 .subHeader__content {
-  @apply flex items-center;
+  @apply flex items-center text-[#0D0E43];
   .icons {
     @apply h-6 w-6 mr-2;
   }
