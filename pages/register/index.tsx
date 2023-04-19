@@ -1,18 +1,14 @@
 "use client";
 
+import { useRouter } from "next/router";
 import { useRegister } from "../../src/auth/auth";
 import AccountForm from "../../src/components/AuthForm/RegisterForm";
 import Banner from "../../src/components/Banner/Banner";
 import { PagesRoutes } from "../../src/routes/ PagesRoutes";
+import { notify } from "../../src/utils/notify";
 
 const Register = () => {
-  const register = useRegister();
-
-  const registerData = (data: any) => {
-    register.mutate(data, {
-      onSuccess: () => console.log("register"),
-    });
-  };
+  const registerData = (data: any) => {};
   return (
     <>
       <Banner image={BannerData.image} title={BannerData.title} />

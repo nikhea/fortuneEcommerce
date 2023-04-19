@@ -10,6 +10,9 @@ import Button from "../FormElement/Button/Button";
 import { FC } from "react";
 import { IAccountFormDefaultText } from "../../interface/AccountForm";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useRegister } from "../../auth/auth";
+import { notify } from "../../utils/notify";
 
 const AccountForm: FC<IAccountFormDefaultText> = ({
   type,
@@ -20,6 +23,9 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
   ButtonSign,
   FormInputData,
 }) => {
+  const router = useRouter();
+
+  const registers = useRegister();
   const methods = useForm<registerAccountFormData>({
     resolver: yupResolver(registerAccountSchema),
   });
@@ -30,15 +36,17 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
     formState: { errors },
   } = methods;
   console.log(errors);
-  const submitForm = (formData: any) => {
-    console.log(formData);
-
-    if (formData) {
-      // if (formData.email === "" || formData.password === "") {
-      FormInputData(formData);
-      // reset();
-      // }
-    }
+  const submitForm = (data: any) => {
+    registers.mutate(data, {
+      onSuccess: () => {
+        reset();
+        router.push("/");
+        notify({
+          type: "success",
+          message: "Register  Successfully",
+        });
+      },
+    });
   };
   return (
     <div className={style.formMainContainer}>
@@ -107,7 +115,7 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
                 />
               </div>
               <Button isCurve primary padding uppercase full>
-                {ButtonSign}
+                {registers.isLoading ? "signing up..." : ButtonSign}
               </Button>
             </div>
           </form>

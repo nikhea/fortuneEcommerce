@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useLogin } from "../../auth/auth";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import { notify } from "../../utils/notify";
 
 const AccountForm: FC<IAccountFormDefaultText> = ({
   type,
@@ -32,12 +33,15 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
     handleSubmit,
     formState: { errors },
   } = methods;
-  // console.log(errors);
   const submitForm = (data: any) => {
     login.mutate(data, {
       onSuccess: () => {
-        toast.success("LoggedIn Successfully");
+        reset();
         router.push("/");
+        notify({
+          type: "success",
+          message: "Logged In Successfully",
+        });
       },
     });
   };
@@ -81,7 +85,7 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
                 />
               </div>
               <Button isCurve primary padding uppercase full>
-                {ButtonSign}
+                {login.isLoading ? "signing in..." : ButtonSign}
               </Button>
             </div>
           </form>
