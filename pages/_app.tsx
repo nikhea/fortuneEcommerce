@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <NiceModal.Provider>
-            <ToastContainer />
+            {/* <ToastContainer /> */}
             <Header />
             <CartDrawerComponent />
             <MainNavMobile />

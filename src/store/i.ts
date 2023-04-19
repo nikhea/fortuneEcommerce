@@ -51,7 +51,6 @@ export const useCartState = create<CartStore>()(
       (set) => ({
         cart: initialCartState,
         addToCart: (item) => {
-          console.log(item);
           set((state) => ({
             cart: {
               ...state.cart,
