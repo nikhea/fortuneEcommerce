@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const useFetchWishlist = (props: Props) => {
-  const { data: wishlist } = useQuery(
+  const { data: wishlist, isLoading } = useQuery(
     ["wishlist"],
     fetchWishlist, // replace with your actual fetch function
     {
@@ -15,5 +15,8 @@ export const useFetchWishlist = (props: Props) => {
     }
   );
 
-  return wishlist;
+  return {
+    wishlist,
+    isLoading,
+  };
 };

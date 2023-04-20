@@ -18,6 +18,7 @@ export type IWishListItem = {
   price: number;
   priceSymbol: string;
   image: any;
+  WishListId: string;
 };
 const WishListItem: FC<IWishListItem> = ({
   name,
@@ -26,6 +27,7 @@ const WishListItem: FC<IWishListItem> = ({
   price,
   priceSymbol,
   image,
+  WishListId,
 }) => {
   const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
 
@@ -48,11 +50,14 @@ const WishListItem: FC<IWishListItem> = ({
         : null,
     color: "#fff",
   };
+  const handleRemove = (WishListId: string) => {
+    console.log(WishListId);
+  };
   return (
     <>
       {isDesktopOrLaptop && (
-        <div className="flex items-center justify-between my-5">
-          <div className="flex items-center">
+        <div className="flex items-center justify-between my-5 w-full">
+          <div className="flex items-center mr-2">
             <Image
               src={image}
               alt={name}
@@ -60,8 +65,8 @@ const WishListItem: FC<IWishListItem> = ({
               height={100}
               className="object-cover "
             />
-            <div>
-              <h1> {name}</h1>
+            <div className=" mx-2">
+              <h1 className=""> {name}</h1>
               <RatingStar value={rating} size={24} edit={false} />
             </div>
           </div>
@@ -74,7 +79,10 @@ const WishListItem: FC<IWishListItem> = ({
             {status}
           </button>
           <button className={style.btnOutline}>add to cart</button>
-          <div className={style.iconContainer}>
+          <div
+            className={style.iconContainer}
+            onClick={() => handleRemove(WishListId)}
+          >
             <XCircleIcon className={style.icons} />
           </div>
         </div>
@@ -96,7 +104,10 @@ const WishListItem: FC<IWishListItem> = ({
                   <RatingStar value={rating} size={24} edit={false} />
                 </div>
               </div>
-              <div className={style.iconContainer}>
+              <div
+                className={style.iconContainer}
+                onClick={() => handleRemove(WishListId)}
+              >
                 <XCircleIcon className={style.icons} />
               </div>
             </div>

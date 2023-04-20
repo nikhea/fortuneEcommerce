@@ -13,12 +13,22 @@ interface Props {
   };
 }
 const wishList = (props: Props) => {
-  // const wishlist = useFetchWishlist(props);
+  const { wishlist, isLoading } = useFetchWishlist(props);
 
+  if (isLoading) {
+    // console.log(wishlist[0]);
+    return "Loading";
+  }
+  const result = wishlist.map((item: any) => (
+    <WishList key={item._id} WishListId={item._id} product={item.product} />
+  ));
+  //  _id: item._id,
+  //   product: item.product,
   return (
     <div className="container m-auto">
-      <WishListHeader productsLength={dummyProductsData.length} />
-      <WishList products={dummyProductsData} />
+      <WishListHeader productsLength={wishlist.length} />
+      {/* <WishList products={dummyProductsData} /> */}
+      {result}
       <div className="grid my-3 text-center place-content-center">
         <button className="p-2 text-white capitalize rounded-md bg-primary">
           load more

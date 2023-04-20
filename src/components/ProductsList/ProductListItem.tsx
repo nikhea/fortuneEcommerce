@@ -47,7 +47,7 @@ const ProductListItem: FC<Product> = ({
           <HeartIcon className={style.icons} />
           <MagnifyingGlassPlusIcon
             className={style.icons}
-            onClick={() => showProductModal(_id)}
+            onClick={() => showProductModal(name)}
           />
         </div>
         <div className={style.imgContainer}>

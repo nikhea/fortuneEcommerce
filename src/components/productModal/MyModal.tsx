@@ -12,12 +12,14 @@ interface modals {
 }
 
 const ModalComponent: FC = NiceModal.create<any>(({ productId }) => {
+  console.log(productId);
+
   const { data: product } = useQuery(["products", productId], () =>
     fetchSingleProducts(productId)
   );
-  // if (product) {
-  //   console.log(product.data);
-  // }
+  if (product) {
+    console.log(product.data);
+  }
 
   const modal = useModal();
 
@@ -58,7 +60,7 @@ const ModalComponent: FC = NiceModal.create<any>(({ productId }) => {
         //@ts-ignore  //@ts-ignore
         appElement={document.getElementById("app")}
       >
-        <ProductModal product={product && product.data} />
+        {product && <ProductModal product={product && product.data} />}
       </ReactModal>
     </div>
   );

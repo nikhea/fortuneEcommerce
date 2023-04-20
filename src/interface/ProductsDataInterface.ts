@@ -47,5 +47,10 @@ export type ProductCardsProps = {
   products: Product[];
 };
 
+export type WishlistProps = {
+  product: Product;
+  WishListId: string;
+};
+
 // coverPhoto?: string | StaticImageData
 // image?: string | StaticImageData;

@@ -71,7 +71,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
           {/* <div className="flex items-center justify-center h-full p-1 bg-red-200 rounded-full "> */}
           <MagnifyingGlassPlusIcon
             className={style.icons}
-            onClick={() => showProductModal(_id)}
+            onClick={() => showProductModal(name)}
           />
           {/* </div> */}
         </div>
