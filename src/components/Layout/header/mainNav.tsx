@@ -16,9 +16,12 @@ import { useMobileMenuStateState } from "../../../store/useMobileMenuState";
 import useDeviceProperties from "../../../Hooks/UseMediaQueries";
 import { useCartState } from "../../../store/useCartStore";
 import { useUser } from "../../../auth/auth";
+import { useFetchWishlist } from "../../../Hooks/useFetchWishlist";
 
 const mainNav = () => {
   const user = useUser();
+  const { wishlist, isLoading } = useFetchWishlist();
+
   const { cart } = useCartState();
   const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
   const pathname = usePathname();
