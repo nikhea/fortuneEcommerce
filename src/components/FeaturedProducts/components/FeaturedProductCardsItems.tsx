@@ -10,6 +10,8 @@ import {
   MagnifyingGlassPlusIcon,
 } from "@heroicons/react/24/outline";
 import { PagesRoutes } from "../../../routes/ PagesRoutes";
+import { useAddWishlist } from "../../../Hooks/useAddWishlist";
+
 import { useCartState } from "../../../store/useCartStore";
 import NiceModal from "@ebay/nice-modal-react";
 import MyModal from "../../productModal/MyModal";
@@ -31,6 +33,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
 }) => {
   const queryClient = useQueryClient();
   const { addToCart } = useCartState();
+  const { AddWishlist } = useAddWishlist();
   const handleAddToCart = (product: any, quantity: number, _id: string) => {
     // console.log(_id, "jdshkjs");
 
@@ -64,10 +67,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
             className={style.icons}
             onClick={() => handleAddToCart(product, 1, _id)}
           />
-          <HeartIcon
-            className={style.icons}
-            onMouseEnter={() => console.log("like")}
-          />
+          <HeartIcon className={style.icons} onClick={() => AddWishlist(_id)} />
           {/* <div className="flex items-center justify-center h-full p-1 bg-red-200 rounded-full "> */}
           <MagnifyingGlassPlusIcon
             className={style.icons}
@@ -76,7 +76,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
           {/* </div> */}
         </div>
         {/* h-[200px]mt-[30px] w-[200px] */}
-        <div className="w-full h-full overflow-hidden  rounded-t-md">
+        <div className="w-full h-full overflow-hidden rounded-t-md">
           <Image
             src={coverPhoto}
             alt={name}
@@ -86,7 +86,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
             layout="responsive"
             width={900}
             height={900}
-            className="object-cover overflow-hidden transition-all duration-500 ease-in delay-200  rounded-t-md group-hover:scale-105"
+            className="object-cover overflow-hidden transition-all duration-500 ease-in delay-200 rounded-t-md group-hover:scale-105"
           />
           {/* h-[200px] w-[200px] */}
         </div>

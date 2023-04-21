@@ -3,6 +3,8 @@ import Image from "next/image";
 import RatingStar from "../FormElement/RatingStar/RatingStar";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import useDeviceProperties from "../../Hooks/UseMediaQueries";
+import { useRemoveWishlist } from "../../Hooks/useRemoveWishlist";
+
 const style = {
   icons: ` @apply h-6 w-6;`,
   iconContainer: `@apply cursor-pointer relative text-xl hover:text-primary transition-all duration-500 ease-in delay-200 `,
@@ -30,6 +32,7 @@ const WishListItem: FC<IWishListItem> = ({
   WishListId,
 }) => {
   const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
+  const { removeFromWishlist } = useRemoveWishlist();
 
   const statusStyle: any = {
     backgroundColor:
@@ -50,9 +53,7 @@ const WishListItem: FC<IWishListItem> = ({
         : null,
     color: "#fff",
   };
-  const handleRemove = (WishListId: string) => {
-    console.log(WishListId);
-  };
+
   return (
     <>
       {isDesktopOrLaptop && (
@@ -81,7 +82,7 @@ const WishListItem: FC<IWishListItem> = ({
           <button className={style.btnOutline}>add to cart</button>
           <div
             className={style.iconContainer}
-            onClick={() => handleRemove(WishListId)}
+            onClick={() => removeFromWishlist(WishListId)}
           >
             <XCircleIcon className={style.icons} />
           </div>
@@ -99,14 +100,14 @@ const WishListItem: FC<IWishListItem> = ({
                   height={100}
                   className="object-cover "
                 />
-                <div>
+                <div className="mx-2">
                   <h1> {name}</h1>
                   <RatingStar value={rating} size={24} edit={false} />
                 </div>
               </div>
               <div
                 className={style.iconContainer}
-                onClick={() => handleRemove(WishListId)}
+                onClick={() => removeFromWishlist(WishListId)}
               >
                 <XCircleIcon className={style.icons} />
               </div>
