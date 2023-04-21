@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { dummyProductsData } from "../../../seed/seedDB";
 import RatingStar from "../../FormElement/RatingStar/RatingStar";
+import { formatToCurrency } from "../../../utils/formateNumbers";
 
 const ShippingCartItems = () => {
   const displaycheckoutItems = dummyProductsData.slice(0, 5).map((product) => (
@@ -23,7 +24,7 @@ const ShippingCartItems = () => {
         </div>
       </div>
       <p>
-        {product.priceSymbol} {product.price}
+        {product.priceSymbol} {formatToCurrency(product.price)}
       </p>
     </div>
   ));

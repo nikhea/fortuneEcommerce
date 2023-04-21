@@ -4,6 +4,7 @@ import RatingStar from "../FormElement/RatingStar/RatingStar";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import useDeviceProperties from "../../Hooks/UseMediaQueries";
 import { useRemoveWishlist } from "../../Hooks/useRemoveWishlist";
+import { formatToCurrency } from "../../utils/formateNumbers";
 
 const style = {
   icons: ` @apply h-6 w-6;`,
@@ -73,7 +74,7 @@ const WishListItem: FC<IWishListItem> = ({
           </div>
           <h2>
             {priceSymbol}
-            <span className="mr-1"> {price}</span>
+            <span className="mr-1"> {formatToCurrency(price)}</span>
           </h2>
 
           <button className={style.btnStatus} style={statusStyle}>
@@ -114,7 +115,7 @@ const WishListItem: FC<IWishListItem> = ({
             </div>
             <h2 className="my-3">
               {priceSymbol}
-              <span className="mr-1"> {price}</span>
+              <span className="mr-1"> {formatToCurrency(price)}</span>
             </h2>
             <div className="flex justify-between">
               <button className={style.btnStatusSm} style={statusStyle}>

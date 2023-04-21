@@ -11,6 +11,7 @@ import { XCircleIcon } from "@heroicons/react/24/outline";
 import CartItem from "./CartItem";
 import { Product } from "../../interface/ProductsDataInterface";
 import useDeviceProperties from "../../Hooks/UseMediaQueries";
+import { formatToCurrency } from "../../utils/formateNumbers";
 const CartDrawer = () => {
   const { isDesktopOrLaptop } = useDeviceProperties();
 
@@ -55,7 +56,7 @@ const CartDrawer = () => {
         </div>
         <div className="flex items-center justify-between py-2 text-xl capitalize w-[95%] m-auto">
           <h1 className="">subTotal:</h1>
-          <h2>$ 12343</h2>
+          <h2>$ {formatToCurrency(12343)}</h2>
         </div>
         <div className="grid grid-cols-2 gap-3 m-auto mb-5 text-sm  w-[95%]">
           <Link href={PagesRoutes.products} onClick={() => toggleDrawer()}>

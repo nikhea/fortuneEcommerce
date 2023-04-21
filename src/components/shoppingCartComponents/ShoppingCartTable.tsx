@@ -15,6 +15,7 @@ import {
   PlusCircleIcon,
 } from "@heroicons/react/24/outline";
 import { useCartState } from "../../store/useCartStore";
+import { formatToCurrency } from "../../utils/formateNumbers";
 
 const shoppingCartTable = () => {
   const {
@@ -64,7 +65,8 @@ const shoppingCartTable = () => {
                   </div>
                 </td>
                 <td>
-                  {item.product.priceSymbol} {item.product.price}
+                  {item.product.priceSymbol}{" "}
+                  {formatToCurrency(item.product.price)}
                 </td>
                 <td>
                   <span className="flex items-center">

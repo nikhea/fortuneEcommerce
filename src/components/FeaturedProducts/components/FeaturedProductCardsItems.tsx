@@ -18,6 +18,7 @@ import MyModal from "../../productModal/MyModal";
 import usePrefechSingleHover from "../../../Hooks/usePrefechSingleHover";
 import { useQueryClient } from "@tanstack/react-query";
 import { fetchSingleProducts } from "../../../services/shared/products";
+import { formatToCurrency } from "../../../utils/formateNumbers";
 
 NiceModal.register("product-modal", MyModal);
 
@@ -97,13 +98,13 @@ const FeaturedProductCardsItems: FC<Product> = ({
       <div className="w-full h-full px-3 py-3 ">
         <Link href={`${PagesRoutes.products}/${name}`}>
           <h6 className=" text-md capitalize text-[#151875]  font-bold  ">
-            {name} {rating}
+            {name}
           </h6>
         </Link>
         <div className="flex items-center justify-between ">
           <h2>
             <span className="mr-1"> {priceSymbol}</span>
-            {price}
+            {formatToCurrency(price)}
           </h2>
           <div>
             <RatingStar value={rating} size={24} edit={false} />

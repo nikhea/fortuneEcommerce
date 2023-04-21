@@ -12,6 +12,7 @@ import {
   MinusCircleIcon,
   PlusCircleIcon,
 } from "@heroicons/react/24/outline";
+import { formatToCurrency } from "../../utils/formateNumbers";
 const CartItem: FC<Product> = ({
   name,
   image,
@@ -45,7 +46,7 @@ const CartItem: FC<Product> = ({
           <h2>{name}</h2>
           <div className="flex items-center">
             <span className="mr-1"> {priceSymbol}</span>
-            {price}
+            {formatToCurrency(price)}
             <XMarkIcon className="h-[12px] w-[30px] text-gray-500" />
             <span className=" text-gray-500">{cartQuantity}</span>
           </div>

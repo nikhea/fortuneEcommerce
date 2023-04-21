@@ -13,6 +13,7 @@ import { PagesRoutes } from "../../routes/ PagesRoutes";
 import NiceModal from "@ebay/nice-modal-react";
 import { useQueryClient } from "@tanstack/react-query";
 import { fetchSingleProducts } from "../../services/shared/products";
+import { formatToCurrency } from "../../utils/formateNumbers";
 
 const ProductListItem: FC<Product> = ({
   _id,
@@ -69,7 +70,7 @@ const ProductListItem: FC<Product> = ({
         <div className={style.priceRateContainer}>
           <h2>
             <span className="mr-1"> {priceSymbol}</span>
-            {price}
+            {formatToCurrency(price)}
           </h2>
           <div>
             <RatingStar value={rating} size={24} edit={false} />
