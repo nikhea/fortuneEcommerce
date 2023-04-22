@@ -18,7 +18,7 @@ export const fetchCart = async () => {
 export const addToCartServer = async (product: any) => {
   return new Promise(async (resolve, reject) => {
     try {
-      useCartState.getState().addToCart(product);
+      // useCartState.getState().addToCart(product);
       const { data } = await axios.post(
         "carts",
         {

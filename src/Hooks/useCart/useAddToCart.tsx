@@ -18,7 +18,7 @@ export const useAddToCart = () => {
 
   const AddCart = async (product: any) => {
     try {
-      // addToCart(product);
+      addToCart(product);
       await mutateAsync(product);
     } catch (error) {
       removeFromCart(product._id);
