@@ -17,7 +17,7 @@ export const useAddToCart = () => {
   );
 
   const AddCart = async (product: any) => {
-    addToCart(product);
+    // addToCart(product);
 
     try {
       await mutateAsync(product);

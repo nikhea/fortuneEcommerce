@@ -18,6 +18,7 @@ export const useclearCart = () => {
 
   const clearItemCart = async (cart: any) => {
     try {
+      clearCart(cart);
       await mutateAsync(cart._id);
     } catch (error) {
       //   removeFromCart(product._id);
