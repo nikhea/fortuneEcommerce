@@ -10,15 +10,16 @@ import {
   MagnifyingGlassPlusIcon,
 } from "@heroicons/react/24/outline";
 import { PagesRoutes } from "../../../routes/ PagesRoutes";
-import { useAddWishlist } from "../../../Hooks/useAddWishlist";
+import { useAddWishlist } from "../../../Hooks/useWishlist/useAddWishlist";
 
 import { useCartState } from "../../../store/useCartStore";
 import NiceModal from "@ebay/nice-modal-react";
 import MyModal from "../../productModal/MyModal";
-import usePrefechSingleHover from "../../../Hooks/usePrefechSingleHover";
+import usePrefechSingleHover from "../../../Hooks/useProducts/usePrefechSingleHover";
 import { useQueryClient } from "@tanstack/react-query";
 import { fetchSingleProducts } from "../../../services/shared/products";
 import { formatToCurrency } from "../../../utils/formateNumbers";
+import { useAddToCart } from "../../../Hooks/useCart/useAddToCart";
 
 NiceModal.register("product-modal", MyModal);
 
@@ -33,16 +34,17 @@ const FeaturedProductCardsItems: FC<Product> = ({
   product,
 }) => {
   const queryClient = useQueryClient();
+  const { AddCart } = useAddToCart();
   const { addToCart } = useCartState();
   const { AddWishlist } = useAddWishlist();
   const handleAddToCart = (product: any, quantity: number, _id: string) => {
-    // console.log(_id, "jdshkjs");
+    // addToCart({
+    //   product,
+    //   quantity,
+    //   _id,
+    // });
 
-    addToCart({
-      product,
-      quantity,
-      _id,
-    });
+    AddCart(product);
   };
   const handleAddLike = () => {
     console.log("like");

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchProducts } from "../services/shared/products";
+import { fetchProducts } from "../../services/shared/products";
 
 interface Props {
   initialData: any; // replace 'any' with your actual type

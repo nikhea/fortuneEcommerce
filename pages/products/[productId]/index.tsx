@@ -8,7 +8,7 @@ import {
   fetchSingleProducts,
 } from "../../../src/services/shared/products";
 import { GetStaticPaths, GetStaticProps, GetServerSideProps } from "next";
-import { useSingleFetchProducts } from "../../../src/Hooks/useSingleFetchProducts";
+import { useSingleFetchProducts } from "../../../src/Hooks/useProducts/useSingleFetchProducts";
 import { useRouter } from "next/router";
 
 interface Props {

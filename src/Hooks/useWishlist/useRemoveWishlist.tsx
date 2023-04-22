@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   addToWishlist,
   removeWishlist,
-} from "../services/authenticated/wishlist";
+} from "../../services/authenticated/wishlist";
 export const useRemoveWishlist = () => {
   const queryClient = useQueryClient();
 

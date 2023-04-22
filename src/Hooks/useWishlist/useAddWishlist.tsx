@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addToWishlist } from "../services/authenticated/wishlist";
+import { addToWishlist } from "../../services/authenticated/wishlist";
 
 export const useAddWishlist = () => {
   const queryClient = useQueryClient();

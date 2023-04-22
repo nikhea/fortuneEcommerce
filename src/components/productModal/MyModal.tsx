@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import NiceModal, { useModal } from "@ebay/nice-modal-react";
 import ReactModal from "react-modal";
 import ProductModal from "./productModal";
-import { useSingleFetchProducts } from "../../Hooks/useSingleFetchProducts";
+import { useSingleFetchProducts } from "../../Hooks/useProducts/useSingleFetchProducts";
 import { useQuery } from "@tanstack/react-query";
 import { fetchSingleProducts } from "../../services/shared/products";
 

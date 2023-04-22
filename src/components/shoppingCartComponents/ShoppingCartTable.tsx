@@ -16,19 +16,21 @@ import {
 } from "@heroicons/react/24/outline";
 import { useCartState } from "../../store/useCartStore";
 import { formatToCurrency } from "../../utils/formateNumbers";
+import { useRemoveCartItems } from "../../Hooks/useCart/useRemoveCartItems";
+import { useclearCart } from "../../Hooks/useCart/useClearCart";
+import { increaseCartItemQuantity } from "../../Hooks/useCart/useIncreaseQuantity";
+import { decreaseCartItemQuantity } from "../../Hooks/useCart/useDecreaseQuantity";
 
 const shoppingCartTable = () => {
-  const {
-    cart,
-    increaseQuantity,
-    decreaseQuantity,
-    removeFromCart,
-    clearCart,
-    getProductItemTotal,
-  } = useCartState();
+  const { removeCartItem } = useRemoveCartItems();
+  const { clearItemCart } = useclearCart();
+  const { increaseQuantitys } = increaseCartItemQuantity();
+  const { decreaseQuantitys } = decreaseCartItemQuantity();
+  const { cart, getProductItemTotal } = useCartState();
 
-  console.log(cart);
-
+  const handleRemoveItems = (product: any, itemId: string) => {
+    removeCartItem(product, itemId);
+  };
   return (
     <div className={style.ShoppingCartTableContainer}>
       <div className={style.ShoppingCartTableContainerBg}>
@@ -72,7 +74,9 @@ const shoppingCartTable = () => {
                   <span className="flex items-center">
                     <button
                       className={style.iconContainer}
-                      onClick={() => increaseQuantity(item.product._id)}
+                      onClick={() =>
+                        increaseQuantitys(item._id, item.quantity, item.product)
+                      }
                     >
                       <PlusCircleIcon className={style.icons} />
                     </button>
@@ -85,7 +89,9 @@ const shoppingCartTable = () => {
                     <button
                       className={style.iconContainer}
                       // onClick={decreaseCartQuantity}
-                      onClick={() => decreaseQuantity(item.product._id)}
+                      onClick={() =>
+                        decreaseQuantitys(item._id, item.quantity, item.product)
+                      }
                     >
                       <MinusCircleIcon className={style.icons} />
                     </button>
@@ -99,7 +105,8 @@ const shoppingCartTable = () => {
                 <td className={style.iconContainer}>
                   <XCircleIcon
                     className={style.icons}
-                    onClick={() => removeFromCart(item.product._id)}
+                    // onClick={() => removeFromCart(item.product._id)}
+                    onClick={() => handleRemoveItems(item.product, item._id)}
                   />
                 </td>
               </tr>
@@ -120,7 +127,7 @@ const shoppingCartTable = () => {
           primary
           padding
           uppercase
-          onClick={() => clearCart(cart)}
+          onClick={() => clearItemCart(cart)}
         >
           clear cart
         </Button>

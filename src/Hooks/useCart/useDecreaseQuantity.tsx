@@ -1,0 +1,38 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { decreaseCartItemQuantityServer } from "../../services/authenticated/cart";
+import { useCartState } from "../../store/useCartStore";
+
+export const decreaseCartItemQuantity = () => {
+  const { removeFromCart, addToCart, decreaseQuantity } = useCartState();
+  const queryClient = useQueryClient();
+
+  const decreaseCartItemQuantity = useMutation(
+    async ({ ItemId, quantity }: any) => {
+      await decreaseCartItemQuantityServer(ItemId, quantity);
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["cart"]);
+      },
+    }
+  );
+
+  const decreaseQuantitys = async (
+    ItemId: string,
+    quantity: number,
+    product: any
+  ) => {
+    try {
+      decreaseQuantity(product._id);
+      await decreaseCartItemQuantity.mutateAsync({ ItemId, quantity });
+    } catch (error) {
+      //   addToCart(product);
+    }
+  };
+  return {
+    decreaseQuantitys,
+    status: decreaseCartItemQuantity.status,
+    isLoading: decreaseCartItemQuantity.isLoading,
+    data: decreaseCartItemQuantity.data,
+  };
+};

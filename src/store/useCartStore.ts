@@ -30,6 +30,7 @@ interface CartItem {
 }
 
 interface CartState {
+  // _id: any,
   items: CartItem[];
 }
 
@@ -47,6 +48,7 @@ interface CartStore {
 
 // Define the initial cart state
 const initialCartState: CartState = {
+  // _id: null,
   items: [],
 };
 
@@ -87,7 +89,7 @@ export const useCartState = create<CartStore>()(
             }));
           }
         },
-        removeFromCart: (id) => {
+        removeFromCart: (id: any) => {
           set((state) => ({
             cart: {
               ...state.cart,

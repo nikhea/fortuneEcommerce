@@ -9,6 +9,7 @@ import { BsFacebook, BsInstagram, BsTwitter, BsTiktok } from "react-icons/bs";
 import { SingleInfoPageComponentProduct } from "../../interface/ProductsDataInterface";
 import Button from "../FormElement/Button/Button";
 import RatingStar from "../FormElement/RatingStar/RatingStar";
+import { formatToCurrency } from "../../utils/formateNumbers";
 const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   _id,
   name,
@@ -54,7 +55,7 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
       <div className="flex flex-col space-y-3">
         <h2 className="text-xl capitalize ">
           <span className="mr-1"> {priceSymbol}</span>
-          {price}
+          {formatToCurrency(price)}
         </h2>
         <p>{description}</p>
         <div className="flex items-center text-primary">

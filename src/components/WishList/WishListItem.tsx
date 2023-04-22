@@ -3,8 +3,9 @@ import Image from "next/image";
 import RatingStar from "../FormElement/RatingStar/RatingStar";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import useDeviceProperties from "../../Hooks/UseMediaQueries";
-import { useRemoveWishlist } from "../../Hooks/useRemoveWishlist";
+import { useRemoveWishlist } from "../../Hooks/useWishlist/useRemoveWishlist";
 import { formatToCurrency } from "../../utils/formateNumbers";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const style = {
   icons: ` @apply h-6 w-6;`,
@@ -33,7 +34,7 @@ const WishListItem: FC<IWishListItem> = ({
   WishListId,
 }) => {
   const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
-  const { removeFromWishlist } = useRemoveWishlist();
+  const { removeFromWishlist, isLoading } = useRemoveWishlist();
 
   const statusStyle: any = {
     backgroundColor:
@@ -58,7 +59,7 @@ const WishListItem: FC<IWishListItem> = ({
   return (
     <>
       {isDesktopOrLaptop && (
-        <div className="flex items-center justify-between my-5 w-full">
+        <div className="flex items-center justify-between w-full my-5">
           <div className="flex items-center mr-2">
             <Image
               src={image}
@@ -67,7 +68,7 @@ const WishListItem: FC<IWishListItem> = ({
               height={100}
               className="object-cover "
             />
-            <div className=" mx-2">
+            <div className="mx-2 ">
               <h1 className=""> {name}</h1>
               <RatingStar value={rating} size={24} edit={false} />
             </div>
@@ -85,13 +86,17 @@ const WishListItem: FC<IWishListItem> = ({
             className={style.iconContainer}
             onClick={() => removeFromWishlist(WishListId)}
           >
-            <XCircleIcon className={style.icons} />
+            {isLoading ? (
+              <LoadingSpinner />
+            ) : (
+              <XCircleIcon className={style.icons} />
+            )}
           </div>
         </div>
       )}
       {isTabletOrMobile && (
         <>
-          <div className=" flex flex-col my-5">
+          <div className="flex flex-col my-5 ">
             <div className="flex justify-between">
               <div className="flex items-center">
                 <Image
@@ -161,7 +166,7 @@ export default WishListItem;
 //     </div>
 //   </div>
 // ) : (
-//   <div className=" flex flex-col my-5">
+//   <div className="flex flex-col my-5 ">
 //     <div className="flex justify-between">
 //       <div className="flex items-center">
 //         <Image

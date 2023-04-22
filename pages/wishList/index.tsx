@@ -3,7 +3,7 @@ import Button from "../../src/components/FormElement/Button/Button";
 import WishList from "../../src/components/WishList/WishList";
 import WishListHeader from "../../src/components/WishList/WishListHeader";
 import { dummyProductsData } from "../../src/seed/seedDB";
-import { useFetchWishlist } from "../../src/Hooks/useFetchWishlist";
+import { useFetchWishlist } from "../../src/Hooks/useWishlist/useFetchWishlist";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { fetchWishlist } from "../../src/services/authenticated/wishlist";
 

@@ -1,6 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
-import { fetchSingleProducts } from "../services/shared/products";
+import { fetchSingleProducts } from "../../services/shared/products";
 
 const usePrefechSingleHover = (id: string) => {
   const queryClient = useQueryClient();

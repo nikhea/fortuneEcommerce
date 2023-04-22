@@ -6,7 +6,7 @@ import { QueryClient } from "@tanstack/react-query";
 import { dehydrate } from "@tanstack/react-query";
 import { FC } from "react";
 import { useFetchCategories } from "../src/Hooks/useFetchCategories";
-import { useFetchProducts } from "../src/Hooks/useFetchProducts";
+import { useFetchProducts } from "../src/Hooks/useProducts/useFetchProducts";
 import { fetchCategories } from "../src/services/shared/categories";
 import { fetchProducts } from "../src/services/shared/products";
 

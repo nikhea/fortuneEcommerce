@@ -24,7 +24,7 @@ const dropDown = ({ children }: any) => {
   const router = useRouter();
   const user = useUser();
   const logout = useLogout({});
-  console.log(user.data?.email);
+  // console.log(user.data?.email);
 
   // const user = false;.
   const [drop, setDrop] = useState(false);

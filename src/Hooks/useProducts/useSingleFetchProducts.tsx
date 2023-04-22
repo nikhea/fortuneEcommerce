@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchSingleProducts } from "../services/shared/products";
+import { fetchSingleProducts } from "../../services/shared/products";
 
 interface Props {
   initialData: any;

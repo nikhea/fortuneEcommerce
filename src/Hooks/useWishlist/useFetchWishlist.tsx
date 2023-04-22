@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchWishlist } from "../services/authenticated/wishlist";
+import { fetchWishlist } from "../../services/authenticated/wishlist";
 
 interface Props {
   initialData?: any; // replace 'any' with your actual type
