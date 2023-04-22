@@ -17,13 +17,13 @@ export const useAddToCart = () => {
   );
 
   const AddCart = async (product: any) => {
-    // addToCart(product);
+    addToCart(product);
 
-    try {
-      await mutateAsync(product);
-    } catch (error) {
-      removeFromCart(product._id);
-    }
+    // try {
+    //   await mutateAsync(product);
+    // } catch (error) {
+    //   removeFromCart(product._id);
+    // }
   };
   return {
     AddCart,
