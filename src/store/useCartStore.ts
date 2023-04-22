@@ -18,6 +18,7 @@ interface Product {
     quantity: number;
     deliveryDate: string;
   };
+  priceSymbol: string;
   category: string;
   subcategory: string;
   features: string[];
@@ -40,7 +41,7 @@ interface CartStore {
   increaseQuantity: (id: string) => void;
   decreaseQuantity: (id: string) => void;
   removeFromCart: (id: string) => void;
-  getProductItemTotal: (uantity: number, price: number) => number;
+  getProductItemTotal: (quantity: number, price: number) => number;
   // getTotal: () => void;
 
   clearCart: (cart: CartState) => void;

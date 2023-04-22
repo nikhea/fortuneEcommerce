@@ -1,30 +1,43 @@
 import Image from "next/image";
 import React from "react";
-import { dummyProductsData } from "../../../seed/seedDB";
+// import { dummyitem.ProductsData } from "../../../seed/seedDB";
 import RatingStar from "../../FormElement/RatingStar/RatingStar";
+import { useCartState } from "../../../store/useCartStore";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { formatToCurrency } from "../../../utils/formateNumbers";
 
 const ShippingCartItems = () => {
-  const displaycheckoutItems = dummyProductsData.slice(0, 5).map((product) => (
+  const { cart, getProductItemTotal } = useCartState();
+  const displaycheckoutItems = cart.items?.map((item) => (
     <div
-      key={product._id}
+      key={item.product._id}
       className="flex items-center justify-between pb-3 mb-3 border-b-[1px] border-b-gray-200 "
     >
-      <div className="flex">
+      <div className="flex ">
         <Image
-          alt={product.name}
-          src={product.image}
+          alt={item.product.name}
+          src={item.product.coverPhoto}
           width={50}
           height={50}
           className=" object-cover"
         />
-        <div className="">
-          <h1 className="text-sm capitalize">{product.name}</h1>
-          <RatingStar value={product.rating} size={24} edit={false} />
+        <div className="mx-1">
+          <h1 className="text-sm capitalize">
+            {item.product.name.substring(0, 40)}....
+          </h1>
+          <div className="flex items-center">
+            <span className="mr-1"> {item.product.priceSymbol}</span>
+            {formatToCurrency(item.product.price)}
+            <XMarkIcon className="h-[12px] w-[30px] text-gray-500" />
+            <span className=" text-gray-500">{item.quantity}</span>
+          </div>
         </div>
       </div>
       <p>
-        {product.priceSymbol} {formatToCurrency(product.price)}
+        {item.product.priceSymbol}
+        {formatToCurrency(
+          getProductItemTotal(item.quantity, item.product.price)
+        )}
       </p>
     </div>
   ));

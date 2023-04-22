@@ -19,7 +19,7 @@ export const increaseCartItemQuantity = () => {
 
   const increaseQuantitys = async (
     ItemId: string,
-    quantity: number,
+    quantity: any,
     product: any
   ) => {
     try {

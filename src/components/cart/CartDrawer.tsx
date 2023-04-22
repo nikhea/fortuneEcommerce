@@ -12,24 +12,27 @@ import CartItem from "./CartItem";
 import { Product } from "../../interface/ProductsDataInterface";
 import useDeviceProperties from "../../Hooks/UseMediaQueries";
 import { formatToCurrency } from "../../utils/formateNumbers";
+import { useCartState } from "../../store/useCartStore";
 const CartDrawer = () => {
   const { isDesktopOrLaptop } = useDeviceProperties();
-
   const { CartDrawer, setCartDrawer } = useCartDrawerState();
+  const { cart } = useCartState();
+
   const toggleDrawer = () => {
     setCartDrawer(!CartDrawer);
   };
-  const displayCartItem = dummyProductsData.map((cartItem: Product) => (
+  const displayCartItem = cart.items?.map((cartItem: any) => (
     <CartItem
       key={cartItem._id}
-      name={cartItem.name}
-      price={cartItem.price}
-      priceSymbol={cartItem.priceSymbol}
-      rating={cartItem.rating}
-      image={cartItem.image}
-      images={cartItem.images}
-      description={cartItem.description}
+      name={cartItem.product.name}
+      price={cartItem.product.price}
+      priceSymbol={cartItem.product.priceSymbol}
+      image={cartItem.product.coverPhoto}
+      quantity={cartItem.quantity}
       _id={cartItem._id}
+      rating={0}
+      product={cartItem.product}
+      description={""}
     />
   ));
   return (

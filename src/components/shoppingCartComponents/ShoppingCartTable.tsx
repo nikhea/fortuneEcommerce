@@ -20,6 +20,7 @@ import { useRemoveCartItems } from "../../Hooks/useCart/useRemoveCartItems";
 import { useclearCart } from "../../Hooks/useCart/useClearCart";
 import { increaseCartItemQuantity } from "../../Hooks/useCart/useIncreaseQuantity";
 import { decreaseCartItemQuantity } from "../../Hooks/useCart/useDecreaseQuantity";
+import { formatProductTitle } from "../../utils/formateString";
 
 const shoppingCartTable = () => {
   const { removeCartItem } = useRemoveCartItems();
@@ -55,7 +56,9 @@ const shoppingCartTable = () => {
                       height={100}
                     />
                     <div className="flex flex-col">
-                      <h2>{item.product.name}</h2>
+                      <h2 className=" text-sm">
+                        {formatProductTitle(item.product.name, 50)}
+                      </h2>
                       <div>
                         <RatingStar
                           value={item.product.rating}
@@ -99,7 +102,9 @@ const shoppingCartTable = () => {
                 </td>
                 <td style={{ textAlign: "center" }}>
                   {item.product.priceSymbol}{" "}
-                  {getProductItemTotal(item.quantity, item.product.price)}
+                  {formatToCurrency(
+                    getProductItemTotal(item.quantity, item.product.price)
+                  )}
                 </td>
 
                 <td className={style.iconContainer}>

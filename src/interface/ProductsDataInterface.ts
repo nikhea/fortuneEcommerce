@@ -12,6 +12,7 @@ export type Product = {
   description: string;
   status?: string;
   product?: any;
+  quantity?: number;
 };
 export type IRelatedProductItem = {
   _id: string;
