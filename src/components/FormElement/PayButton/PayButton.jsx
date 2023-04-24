@@ -7,7 +7,8 @@ import axios from "../../../lib/axios";
 const PayButton = () => {
   const { cart } = useCartState();
   const cartItem = cart.items;
-  const user = useUser();
+  const userData = useUser();
+  const user = userData.data;
 
   const handleCheckout = async () => {
     try {
@@ -15,6 +16,7 @@ const PayButton = () => {
         `stripe/create-checkout-session`,
         {
           cartItem,
+          user,
         },
         {
           headers: {
@@ -22,6 +24,7 @@ const PayButton = () => {
           },
         }
       );
+      // console.log(res.data.url);
       if (res.data.url) {
         window.location.href = res.data.url;
       }

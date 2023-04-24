@@ -27,7 +27,7 @@ const Products: FC<Props> = (props) => {
         <div className="grid-cols-12 gap-2 lg:grid">
           <CategoriesSiderBar />
           <div className="w-full h-full min-h-screen col-start-3 col-end-13">
-            <ProductsList products={products.data} />
+            {/* <ProductsList products={products.data} /> */}
           </div>
         </div>
       </div>
