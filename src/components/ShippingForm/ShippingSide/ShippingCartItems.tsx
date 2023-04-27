@@ -19,7 +19,7 @@ const ShippingCartItems = () => {
           src={item.product.coverPhoto}
           width={50}
           height={50}
-          className=" object-cover"
+          className="object-cover "
         />
         <div className="mx-1">
           <h1 className="text-sm capitalize">
@@ -29,7 +29,7 @@ const ShippingCartItems = () => {
             <span className="mr-1"> {item.product.priceSymbol}</span>
             {formatToCurrency(item.product.price)}
             <XMarkIcon className="h-[12px] w-[30px] text-gray-500" />
-            <span className=" text-gray-500">{item.quantity}</span>
+            <span className="text-gray-500 ">{item.quantity}</span>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@ const ShippingCartItems = () => {
     </div>
   ));
   return (
-    <div className="h-full flex flex-col justify-between my-20 lg:my-0">
+    <div className="flex flex-col h-full my-20 lg:my-0">
       {displaycheckoutItems}
     </div>
   );

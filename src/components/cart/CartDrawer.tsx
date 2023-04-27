@@ -18,7 +18,7 @@ import { CartEmptyImage } from "../../images/jpeg/imagesPng";
 const CartDrawer = () => {
   const { isDesktopOrLaptop } = useDeviceProperties();
   const { CartDrawer, setCartDrawer } = useCartDrawerState();
-  const { cart } = useCartState();
+  const { cart, getSubTotal } = useCartState();
 
   const toggleDrawer = () => {
     setCartDrawer(!CartDrawer);
@@ -61,19 +61,18 @@ const CartDrawer = () => {
           <div className="grid h-full grid-cols-1 gap-3 mb-5 text-sm">
             {cart?.items?.length > 0 ? (
               cart.items.map((cartItem: any) => (
-                // <CartItem
-                //   key={cartItem._id}
-                //   name={cartItem.product.name}
-                //   price={cartItem.product.price}
-                //   priceSymbol={cartItem.product.priceSymbol}
-                //   image={cartItem.product.coverPhoto}
-                //   quantity={cartItem.quantity}
-                //   _id={cartItem._id}
-                //   rating={0}
-                //   product={cartItem.product}
-                //   description={""}
-                // />
-                <>{JSON.stringify(cart)}</>
+                <CartItem
+                  key={cartItem._id}
+                  name={cartItem.product.name}
+                  price={cartItem.product.price}
+                  priceSymbol={cartItem.product.priceSymbol}
+                  image={cartItem.product.coverPhoto}
+                  quantity={cartItem.quantity}
+                  _id={cartItem._id}
+                  rating={0}
+                  product={cartItem.product}
+                  description={""}
+                />
               ))
             ) : (
               <div className="grid h-full place-content-center place-items-center">
@@ -90,7 +89,7 @@ const CartDrawer = () => {
           <div className="flex flex-col">
             <div className="flex items-center justify-between py-2 text-xl capitalize w-[95%] m-auto">
               <h1 className="">subTotal:</h1>
-              <h2>$ {formatToCurrency(12343)}</h2>
+              <h2>$ {formatToCurrency(getSubTotal())}</h2>
             </div>
             <div className="grid grid-cols-2 gap-3 m-auto mb-5 text-sm  w-[95%]">
               <Link href={PagesRoutes.products} onClick={() => toggleDrawer()}>
