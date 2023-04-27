@@ -1,33 +1,46 @@
 import { storage } from "../../auth/utils";
 import axios from "../../lib/axios";
 import { notify } from "../../utils/notify";
-export const addToWishlist = async (productId: string) => {
-  const { data } = await axios.post(
-    "wishlist",
-    { productId },
-    {
-      headers: {
-        Authorization: `Bearer ${storage.getToken()}`,
+export const StripPayment = async (cartItem: any, user: any) => {
+  try {
+    const res = await axios.post(
+      "stripe/create-checkout-session",
+      {
+        cartItem,
+        user,
       },
+      {
+        headers: {
+          Authorization: `Bearer ${storage.getToken()}`,
+        },
+      }
+    );
+    if (res.data.url) {
+      window.location.href = res.data.url;
     }
-  );
-  if (data.statuscode === 409) {
-    notify({
-      type: "info",
-      message: data.message,
-    });
+    return res.data;
+  } catch (error) {
+    console.log(error);
   }
-  if (data.statuscode === 201) {
-    notify({
-      type: "success",
-      message: data.message,
-    });
-  }
-  if (data.statuscode === 400) {
-    notify({
-      type: "error",
-      message: data.message,
-    });
-  }
-  return data.data;
 };
+
+// try {
+//   const res = await axios.post(
+//     `stripe/create-checkout-session`,
+//     {
+//       cartItem,
+//       user,
+//     },
+//     {
+//       headers: {
+//         Authorization: `Bearer ${storage.getToken()}`,
+//       },
+//     }
+//   );
+//   // console.log(res.data.url);
+//   if (res.data.url) {
+//     window.location.href = res.data.url;
+//   }
+// } catch (error) {
+//   console.log(error);
+// }

@@ -1,5 +1,6 @@
 // "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { useCartDrawerState } from "../../store/useShoppingCartSideBar";
@@ -13,6 +14,7 @@ import { Product } from "../../interface/ProductsDataInterface";
 import useDeviceProperties from "../../Hooks/UseMediaQueries";
 import { formatToCurrency } from "../../utils/formateNumbers";
 import { useCartState } from "../../store/useCartStore";
+import { CartEmptyImage } from "../../images/jpeg/imagesPng";
 const CartDrawer = () => {
   const { isDesktopOrLaptop } = useDeviceProperties();
   const { CartDrawer, setCartDrawer } = useCartDrawerState();
@@ -57,25 +59,31 @@ const CartDrawer = () => {
         </div>
         <div className="flex flex-col justify-between h-full">
           <div className="grid h-full grid-cols-1 gap-3 mb-5 text-sm">
-            {cart?.items?.length > 10 ? (
-              <div>hello</div>
+            {cart?.items?.length > 0 ? (
+              cart.items.map((cartItem: any) => (
+                // <CartItem
+                //   key={cartItem._id}
+                //   name={cartItem.product.name}
+                //   price={cartItem.product.price}
+                //   priceSymbol={cartItem.product.priceSymbol}
+                //   image={cartItem.product.coverPhoto}
+                //   quantity={cartItem.quantity}
+                //   _id={cartItem._id}
+                //   rating={0}
+                //   product={cartItem.product}
+                //   description={""}
+                // />
+                <>{JSON.stringify(cart)}</>
+              ))
             ) : (
-              // cart?.items?.map((cartItem: any) => (
-              //     <CartItem
-              //       key={cartItem._id}
-              //       name={cartItem.product.name}
-              //       price={cartItem.product.price}
-              //       priceSymbol={cartItem.product.priceSymbol}
-              //       image={cartItem.product.coverPhoto}
-              //       quantity={cartItem.quantity}
-              //       _id={cartItem._id}
-              //       rating={0}
-              //       product={cartItem.product}
-              //       description={""}
-              //     />
-              //   ))
-              <div className="grid h-full bg-red-500 place-content-center place-items-center">
-                no items
+              <div className="grid h-full place-content-center place-items-center">
+                <Image
+                  src={CartEmptyImage.src}
+                  alt={CartEmptyImage.src}
+                  width={500}
+                  height={500}
+                />
+                {cart?.items?.length === 0 && "Your cart is empty"}
               </div>
             )}
           </div>

@@ -38,7 +38,7 @@ const dropDown = ({ children }: any) => {
       {
         onSuccess: () => {
           // router.push("/");
-          toast.success("LoggedOut Successfully");
+          toast.success("Logged Out Successfully");
         },
       }
     );

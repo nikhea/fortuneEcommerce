@@ -89,7 +89,7 @@ const mainNav = () => {
             <ShoppingCartIcon className={style.icons} />
             <span className="absolute left-[12px] top-[-5px] bg-primary  w-5 h-5 rounded-full flex justify-center items-center">
               <h1 className="text-[12px] text-white">
-                {cart && cart.items.length}
+                {cart.items.length > 0 && cart.items.length}
               </h1>
             </span>
           </div>
