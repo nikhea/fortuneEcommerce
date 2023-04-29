@@ -9,4 +9,6 @@ export const PagesRoutes = {
   shoppingCart: "/shoppingCart",
   wishList: "/wishList",
   shop: "/shop",
+  checkoutSuccess: "/checkoutSuccess",
+  order: "/order",
 };
