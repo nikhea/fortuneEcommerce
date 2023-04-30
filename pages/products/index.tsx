@@ -8,6 +8,7 @@ import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { fetchCategories } from "../../src/services/shared/categories";
 import { fetchProducts } from "../../src/services/shared/products";
 import { useFetchProducts } from "../../src/Hooks/useProducts/useFetchProducts";
+import { queryKey } from "../../src/Hooks/queryKeys";
 
 interface Props {
   initialData: {
@@ -43,7 +44,7 @@ const BannerData = {
 export async function getStaticProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(["products"], fetchProducts);
+  await queryClient.prefetchQuery([queryKey.products], fetchProducts);
 
   return {
     props: {

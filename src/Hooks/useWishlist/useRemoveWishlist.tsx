@@ -1,14 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import {
-  addToWishlist,
-  removeWishlist,
-} from "../../services/authenticated/wishlist";
+import { removeWishlist } from "../../services/authenticated/wishlist";
+import { queryKey } from "../queryKeys";
 export const useRemoveWishlist = () => {
   const queryClient = useQueryClient();
 
   const { mutateAsync, status, isLoading, data } = useMutation(removeWishlist, {
     onSuccess: () => {
-      queryClient.invalidateQueries(["wishlist"]);
+      queryClient.invalidateQueries([queryKey.wishlist]);
     },
   });
 

@@ -29,8 +29,8 @@ export type SingleInfoPageComponentProduct = {
   rating: number;
   priceSymbol: string;
   description: string;
-  quantity: number;
-  product: any;
+  quantity?: number;
+  product?: any;
 };
 export type IProductReviews = {
   text: string;

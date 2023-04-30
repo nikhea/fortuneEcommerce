@@ -16,10 +16,8 @@ NiceModal.register("review-modal", ReviewModel);
 const reviews: FC<{ productId: string }> = ({ productId }) => {
   const { reviews, isLoading } = useFetchProductReviews(productId);
 
-  console.log(reviews);
-
   const showReviewModal = () => {
-    NiceModal.show("review-modal");
+    NiceModal.show("review-modal", { productId });
   };
   const displayReview = reviews?.map((review: any) => (
     <div key={review._id}>
@@ -64,7 +62,7 @@ const reviews: FC<{ productId: string }> = ({ productId }) => {
           review summary
         </div>
         {/* min-h-screen */}
-        <div className="flex flex-col w-full h-full  col-start-5 col-end-13 ">
+        <div className="flex flex-col w-full h-full col-start-5 col-end-13 ">
           {isLoading ? "Loading..." : displayReview}
           <div className="grid my-3 text-center place-content-center">
             <button className="p-2 text-white capitalize rounded-md bg-primary">

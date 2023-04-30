@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchSingleProducts } from "../../services/shared/products";
+import { queryKey } from "../queryKeys";
 
 interface Props {
   initialData: any;
@@ -8,7 +9,7 @@ interface Props {
 
 export const useSingleFetchProducts = (props: Props) => {
   const { data: product } = useQuery(
-    ["products", props.id],
+    [queryKey.products, props.id],
     () => fetchSingleProducts(props.id),
     {
       initialData: props.initialData.product,

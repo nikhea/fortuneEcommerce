@@ -11,11 +11,13 @@ import { ReviewFormData, ReviewSchema } from "./reviewFormdefault";
 import Button from "../../../../FormElement/Button/Button";
 import RatingStar from "../../../../FormElement/RatingStar/RatingStar";
 import Rating from "react-rating-stars-component";
+import { addProductReview } from "../../../../../Hooks/useReview/useAddReview";
 
 // import RatingStar from "../";
 // import RatingStar from "../../FormElement/RatingStar/RatingStar";
 
-const AddReviewForm = () => {
+const AddReviewForm = ({ productId }: any) => {
+  const { addReview } = addProductReview();
   const methods = useForm<ReviewFormData>({
     resolver: yupResolver(ReviewSchema),
   });
@@ -27,8 +29,8 @@ const AddReviewForm = () => {
     formState: { errors },
   } = methods;
   const submitForm = (formData: any) => {
-    console.log(errors);
-    console.log(formData);
+    const { rating, comment } = formData;
+    addReview(productId, rating, comment);
   };
   return (
     <FormProvider {...methods}>

@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteCartItem } from "../../services/authenticated/cart";
 import { useCartState } from "../../store/useCartStore";
+import { queryKey } from "../queryKeys";
 
 export const useRemoveCartItems = () => {
   const { removeFromCart, addToCart } = useCartState();
@@ -12,7 +13,7 @@ export const useRemoveCartItems = () => {
     },
     {
       onSuccess: () => {
-        queryClient.invalidateQueries(["cart"]);
+        queryClient.invalidateQueries([queryKey.carts]);
       },
     }
   );

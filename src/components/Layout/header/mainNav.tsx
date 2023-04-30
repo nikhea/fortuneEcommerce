@@ -25,8 +25,6 @@ const mainNav = () => {
 
   const { cart } = useCartState();
   const { CartItemState } = useCart();
-  // console.log(cart);
-
   const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
   const pathname = usePathname();
   const { setCartDrawer } = useCartDrawerState();

@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { BsFacebook, BsInstagram, BsTwitter, BsTiktok } from "react-icons/bs";
 import { formatToCurrency } from "../../../utils/formateNumbers";
+import { useFetchProductReviews } from "../../../Hooks/useReview/useFetchReview";
 const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   _id,
   name,
@@ -18,6 +19,8 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   priceSymbol,
   description,
 }) => {
+  const { reviews, isLoading } = useFetchProductReviews(_id);
+
   const [isAdded, setIsAdded] = useState(false);
   const [cartQuantity, setCartQuantity] = useState(1);
 

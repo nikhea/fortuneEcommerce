@@ -21,8 +21,6 @@ const CartDrawer = () => {
   const { CartDrawer, setCartDrawer } = useCartDrawerState();
   const { cart, getSubTotal } = useCartState();
   const user = useUser();
-  console.log(user);
-
   const toggleDrawer = () => {
     setCartDrawer(!CartDrawer);
   };

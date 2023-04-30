@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchWishlist } from "../../services/authenticated/wishlist";
+import { queryKey } from "../queryKeys";
 
 interface Props {
-  initialData?: any; // replace 'any' with your actual type
+  initialData?: any;
 }
 
 export const useFetchWishlist = (props?: Props) => {
   const { data: wishlist, isLoading } = useQuery(
-    ["wishlist"],
+    [queryKey.wishlist],
     fetchWishlist, // replace with your actual fetch function
     {
       //   initialData: props.initialData.wishlist,

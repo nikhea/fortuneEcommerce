@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ClearCartServer } from "../../services/authenticated/cart";
 import { useCartState } from "../../store/useCartStore";
+import { queryKey } from "../queryKeys";
 
 export const useclearCart = () => {
   const { removeFromCart, addToCart, clearCart } = useCartState();
@@ -11,7 +12,7 @@ export const useclearCart = () => {
     ClearCartServer,
     {
       onSuccess: () => {
-        queryClient.invalidateQueries(["carts"]);
+        queryClient.invalidateQueries([queryKey.carts]);
       },
     }
   );

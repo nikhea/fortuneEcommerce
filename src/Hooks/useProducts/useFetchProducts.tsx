@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchProducts } from "../../services/shared/products";
+import { queryKey } from "../queryKeys";
 
 interface Props {
   initialData: any; // replace 'any' with your actual type
@@ -7,7 +8,7 @@ interface Props {
 
 export const useFetchProducts = (props: Props) => {
   const { data: products } = useQuery(
-    ["products"],
+    [queryKey.products],
     fetchProducts, // replace with your actual fetch function
     {
       // initialData: props.initialData.products,

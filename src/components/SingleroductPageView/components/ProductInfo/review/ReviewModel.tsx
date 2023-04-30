@@ -3,7 +3,7 @@ import ReactModal from "react-modal";
 import AddReviewForm from "./AddReviewForm";
 import useDeviceProperties from "../../../../../Hooks/UseMediaQueries";
 
-const ReviewModel = NiceModal.create<any>(() => {
+const ReviewModel = NiceModal.create<any>(({ productId }) => {
   const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
 
   const modal = useModal();
@@ -34,8 +34,7 @@ const ReviewModel = NiceModal.create<any>(() => {
       appElement={document.getElementById("app")}
     >
       <div className="container flex flex-col justify-center h-full my-10">
-        {" "}
-        <AddReviewForm />
+        <AddReviewForm productId={productId} />
       </div>
     </ReactModal>
   );

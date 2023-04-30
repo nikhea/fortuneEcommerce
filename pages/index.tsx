@@ -9,6 +9,7 @@ import { useFetchCategories } from "../src/Hooks/useFetchCategories";
 import { useFetchProducts } from "../src/Hooks/useProducts/useFetchProducts";
 import { fetchCategories } from "../src/services/shared/categories";
 import { fetchProducts } from "../src/services/shared/products";
+import { queryKey } from "../src/Hooks/queryKeys";
 
 interface Props {
   initialData: {
@@ -36,8 +37,8 @@ export default HomePage;
 export async function getStaticProps() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(["categories"], fetchCategories);
-  await queryClient.prefetchQuery(["products"], fetchProducts);
+  await queryClient.prefetchQuery([queryKey.categories], fetchCategories);
+  await queryClient.prefetchQuery([queryKey.products], fetchProducts);
 
   return {
     props: {

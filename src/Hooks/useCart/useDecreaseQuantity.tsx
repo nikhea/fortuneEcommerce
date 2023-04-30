@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { decreaseCartItemQuantityServer } from "../../services/authenticated/cart";
 import { useCartState } from "../../store/useCartStore";
+import { queryKey } from "../queryKeys";
 
 export const decreaseCartItemQuantity = () => {
   const { removeFromCart, addToCart, decreaseQuantity } = useCartState();
@@ -12,7 +13,7 @@ export const decreaseCartItemQuantity = () => {
     },
     {
       onSuccess: () => {
-        queryClient.invalidateQueries(["cart"]);
+        queryClient.invalidateQueries([queryKey.carts]);
       },
     }
   );
