@@ -10,6 +10,10 @@ import { SingleInfoPageComponentProduct } from "../../interface/ProductsDataInte
 import Button from "../FormElement/Button/Button";
 import RatingStar from "../FormElement/RatingStar/RatingStar";
 import { formatToCurrency } from "../../utils/formateNumbers";
+import { useCartState } from "../../store/useCartStore";
+import { decreaseCartItemQuantity } from "../../Hooks/useCart/useDecreaseQuantity";
+import { increaseCartItemQuantity } from "../../Hooks/useCart/useIncreaseQuantity";
+import { useAddToCart } from "../../Hooks/useCart/useAddToCart";
 const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   _id,
   name,
@@ -17,22 +21,14 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   rating,
   priceSymbol,
   description,
+  quantity,
+  product,
 }) => {
-  const [isAdded, setIsAdded] = useState(false);
-  const [cartQuantity, setCartQuantity] = useState(1);
+  const { isProductInCart, increaseQuantity } = useCartState();
+  const { AddCart } = useAddToCart();
+  const { increaseQuantitys } = increaseCartItemQuantity();
+  const { decreaseQuantitys } = decreaseCartItemQuantity();
 
-  const increaseCartQuantity = () => {
-    setCartQuantity((prevQuantity) => prevQuantity + 1);
-  };
-
-  const decreaseCartQuantity = () => {
-    if (cartQuantity > 1) {
-      setCartQuantity((prevQuantity) => prevQuantity - 1);
-    }
-  };
-  const handleIsAdded = () => {
-    setIsAdded(true);
-  };
   return (
     <div className="flex flex-col justify-between w-full h-full px-2 py-5 lg:px-0 lg:pr-5 ">
       <div className="flex items-center justify-between">
@@ -74,7 +70,7 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
         </div>
       </div>
       <div className="mt-3">
-        {!isAdded ? (
+        {!isProductInCart(_id) ? (
           <Button
             isCurve
             primary
@@ -82,17 +78,23 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
             uppercase
             full
             shadow
-            onClick={handleIsAdded}
+            onClick={() => AddCart(product)}
           >
             Add to cart
           </Button>
         ) : (
           <div className="grid items-center grid-cols-3 w-fit ">
-            <button onClick={increaseCartQuantity} className={style.cartButton}>
+            <button
+              onClick={() => increaseQuantitys(_id, quantity, product)}
+              className={style.cartButton}
+            >
               +
             </button>
-            <h6 className="px-6"> {cartQuantity}</h6>
-            <button onClick={decreaseCartQuantity} className={style.cartButton}>
+            <h6 className="px-6"> {quantity}</h6>
+            <button
+              //  onClick={decreaseCartQuantity}
+              className={style.cartButton}
+            >
               -
             </button>
           </div>
@@ -103,3 +105,13 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
 };
 
 export default TextContainer;
+
+// const increaseCartQuantity = () => {
+//   setCartQuantity((prevQuantity) => prevQuantity + 1);
+// };
+
+// const decreaseCartQuantity = () => {
+//   if (cartQuantity > 1) {
+//     setCartQuantity((prevQuantity) => prevQuantity - 1);
+//   }
+// };

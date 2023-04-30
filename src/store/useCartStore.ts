@@ -43,8 +43,8 @@ interface CartStore {
   removeFromCart: (id: string) => void;
   getProductItemTotal: (quantity: number, price: number) => number;
   getSubTotal: () => number;
+  isProductInCart: (productId: string) => boolean;
   // getTotal: () => void;
-
   clearCart: (cart: CartState) => void;
 }
 
@@ -132,6 +132,10 @@ export const useCartState = create<CartStore>()(
               }),
             },
           }));
+        },
+        isProductInCart: (productId: string) => {
+          const { items } = get().cart;
+          return items.some((item) => item.product._id === productId);
         },
         getProductItemTotal: (quantity, price) => {
           return quantity * price;

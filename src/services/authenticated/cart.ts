@@ -1,6 +1,6 @@
 import { storage } from "../../auth/utils";
 import axios from "../../lib/axios";
-import { useCartState } from "../../store/i";
+import { useCartState } from "../../store/useCartStore";
 import { notify } from "../../utils/notify";
 
 const cartStore = useCartState.getState();

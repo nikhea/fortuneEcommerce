@@ -15,10 +15,13 @@ import useDeviceProperties from "../../Hooks/UseMediaQueries";
 import { formatToCurrency } from "../../utils/formateNumbers";
 import { useCartState } from "../../store/useCartStore";
 import { CartEmptyImage } from "../../images/jpeg/imagesPng";
+import { useUser } from "../../auth/auth";
 const CartDrawer = () => {
   const { isDesktopOrLaptop } = useDeviceProperties();
   const { CartDrawer, setCartDrawer } = useCartDrawerState();
   const { cart, getSubTotal } = useCartState();
+  const user = useUser();
+  console.log(user);
 
   const toggleDrawer = () => {
     setCartDrawer(!CartDrawer);

@@ -15,7 +15,7 @@ const productModal = ({ product }: any) => {
         <AiOutlineClose
           size={20}
           onClick={closeProductModal}
-          className=" cursor-pointer w-fit"
+          className="cursor-pointer  w-fit"
         />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -27,6 +27,8 @@ const productModal = ({ product }: any) => {
           rating={product.rating}
           priceSymbol={product.priceSymbol}
           description={product.description}
+          product={product}
+          quantity={product.quantity}
         />
       </div>
     </>
