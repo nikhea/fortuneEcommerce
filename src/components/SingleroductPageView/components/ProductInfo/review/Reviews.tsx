@@ -5,34 +5,45 @@ import { BsThreeDots, BsThreeDotsVertical } from "react-icons/bs";
 import RatingStar from "../../../../FormElement/RatingStar/RatingStar";
 import NiceModal from "@ebay/nice-modal-react";
 import ReviewModel from "./ReviewModel";
+import { useFetchProductReviews } from "../../../../../Hooks/useReview/useFetchReview";
+import { format, parseISO } from "date-fns";
 
 export type IProductReview = {
   productReviews: IProductReviews[];
 };
 NiceModal.register("review-modal", ReviewModel);
 
-const reviews: FC<IProductReview> = ({ productReviews }) => {
+const reviews: FC<{ productId: string }> = ({ productId }) => {
+  const { reviews, isLoading } = useFetchProductReviews(productId);
+
+  console.log(reviews);
+
   const showReviewModal = () => {
     NiceModal.show("review-modal");
   };
-  const displayReview = reviewList.map((review, index) => (
-    <div key={index}>
+  const displayReview = reviews?.map((review: any) => (
+    <div key={review._id}>
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <img
             // src={review.photo}
-            alt={review.name}
+            alt={`${review.user.firstname} ${review.user.lastname}`}
             className={` w-[50px] h-[50px] rounded-full group-hover:scale-125`}
           />
-          <h1 className="capitalize text-md">{review.name} ugbodaga</h1>
+          <h1 className="capitalize text-md">
+            {review.user.firstname} {review.user.lastname}
+          </h1>
         </div>
         <BsThreeDotsVertical className="text-gray-500" />
       </div>
       <div className="flex items-center my-1 space-x-4">
         <RatingStar value={review.rating} size={14} edit={false} />
-        <h6 className="text-sm text-gray-500">December 20, 2023</h6>
+        <h6 className="text-sm text-gray-500">
+          {format(parseISO(review.updatedAt), "MMMM d, yyyy h:mma")}
+          {/* December 20, 2023 */}
+        </h6>
       </div>
-      <p className="w-[80%] text-gray-500">{review.text}</p>
+      <p className="w-[80%] text-gray-500">{review.comment}</p>
 
       <div className="bg-gray-300 h-[.5px] w-full rounded-[8px] my-5" />
     </div>
@@ -52,8 +63,9 @@ const reviews: FC<IProductReview> = ({ productReviews }) => {
         <div className="flex w-full h-full col-start-1 col-end-5">
           review summary
         </div>
-        <div className="flex flex-col w-full h-full min-h-screen col-start-5 col-end-13 ">
-          {displayReview}
+        {/* min-h-screen */}
+        <div className="flex flex-col w-full h-full  col-start-5 col-end-13 ">
+          {isLoading ? "Loading..." : displayReview}
           <div className="grid my-3 text-center place-content-center">
             <button className="p-2 text-white capitalize rounded-md bg-primary">
               load more

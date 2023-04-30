@@ -35,11 +35,13 @@ const ProductPage = (props: Props) => {
           rating={product.rating}
           priceSymbol={product.priceSymbol}
           description={product.description}
+          quantity={0}
+          product={product}
         />
       </div>
       <ProductInfo
         productName={product.name}
-        productReviews={product.reviews}
+        productId={product._id}
         product={product}
       />
       <RelatedProduct />

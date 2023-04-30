@@ -15,12 +15,17 @@ import ReviewModel from "./review/ReviewModel";
 
 export type IProductInfo = {
   productName: string;
-  productReviews: IProductReviews[];
+  productReviews?: IProductReviews[];
   product: Product;
+  productId: string;
 };
 NiceModal.register("review-modal", ReviewModel);
 
-const ProductInfo: FC<IProductInfo> = ({ productName, productReviews }) => {
+const ProductInfo: FC<IProductInfo> = ({
+  productName,
+  productReviews,
+  productId,
+}) => {
   const [step, setStep] = useState(0);
 
   // const { data: YouTubeVideo } = useQuery<any, Error>(
@@ -41,7 +46,7 @@ const ProductInfo: FC<IProductInfo> = ({ productName, productReviews }) => {
             case 2:
             // return <Videos YouTubeVideo={YouTubeVideo} />;
             case 3:
-              return <Reviews productReviews={productReviews} />;
+              return <Reviews productId={productId} />;
             default:
               return <Description />;
           }
@@ -57,4 +62,3 @@ const defaultQueryOptions = {
   cacheTime: 5 * 60 * 60 * 1000, // 5 hours
   refetchOnWindowFocus: false,
 };
-
