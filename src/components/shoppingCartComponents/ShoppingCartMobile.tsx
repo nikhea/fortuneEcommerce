@@ -47,10 +47,14 @@ const ShoppingCartMobile = () => {
                     <h2 className=" text-sm">
                       {formatProductTitle(item.product.name, 50)}
                     </h2>
-                    <XCircleIcon
-                      className={style.icons}
-                      onClick={() => handleRemoveItems(item.product, item._id)}
-                    />
+                    <span className={style.iconContainer}>
+                      <XCircleIcon
+                        className={style.icons}
+                        onClick={() =>
+                          handleRemoveItems(item.product, item._id)
+                        }
+                      />
+                    </span>
                   </div>
                   <div className="mx-1 flex justify-between  w-full">
                     <h2 className=" text-sm uppercase">price</h2>
@@ -72,7 +76,7 @@ const ShoppingCartMobile = () => {
                       >
                         <PlusCircleIcon className={style.icons} />
                       </button>
-                      <div className="mx-2 border px-3  text-center">
+                      <div className="mx-2 border px-3 bg-white  text-center">
                         {item.quantity}
                       </div>
                       <button
@@ -99,7 +103,7 @@ const ShoppingCartMobile = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-300 h-[.5px] w-full rounded-[8px] my-2" />
+              <div className="bg-gray-300 h-[.5px] w-full rounded-[8px] my-5" />
             </div>
           ))}
         </div>
