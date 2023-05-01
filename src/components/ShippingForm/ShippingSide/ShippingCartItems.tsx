@@ -5,6 +5,8 @@ import RatingStar from "../../FormElement/RatingStar/RatingStar";
 import { useCartState } from "../../../store/useCartStore";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { formatToCurrency } from "../../../utils/formateNumbers";
+import Link from "next/link";
+import { PagesRoutes } from "../../../routes/ PagesRoutes";
 
 const ShippingCartItems = () => {
   const { cart, getProductItemTotal } = useCartState();
@@ -22,9 +24,14 @@ const ShippingCartItems = () => {
           className="object-cover "
         />
         <div className="mx-1">
-          <h1 className="text-sm capitalize">
-            {item.product.name.substring(0, 40)}....
-          </h1>
+          <Link
+            className="hover:text-primary"
+            href={`${PagesRoutes.products}/${item.product.name}`}
+          >
+            <h1 className="text-sm capitalize">
+              {item.product.name.substring(0, 40)}....
+            </h1>
+          </Link>
           <div className="flex items-center">
             <span className="mr-1"> {item.product.priceSymbol}</span>
             {formatToCurrency(item.product.price)}

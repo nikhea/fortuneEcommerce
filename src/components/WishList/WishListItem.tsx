@@ -6,15 +6,19 @@ import useDeviceProperties from "../../Hooks/UseMediaQueries";
 import { useRemoveWishlist } from "../../Hooks/useWishlist/useRemoveWishlist";
 import { formatToCurrency } from "../../utils/formateNumbers";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { Oval, TailSpin } from "react-loader-spinner";
+import Link from "next/link";
+import { PagesRoutes } from "../../routes/ PagesRoutes";
 
 const style = {
   icons: ` @apply h-6 w-6;`,
-  iconContainer: `@apply cursor-pointer relative text-xl hover:text-primary transition-all duration-500 ease-in delay-200 `,
+  iconContainer: `@apply cursor-pointer relative text-xl hover:text-primary transition-all duration-500 ease-in delay-200  `,
   btnOutline: `border-2  border-solid border-primary bg-transparent min-w-[10px] w-fit rounded-[8px] text-primary  bg-white  not-italic font-[400] text-[14px] outline-none cursor-pointer mx-0 py-2 px-2 hover:text-white hover:bg-primary capitalize transition-all duration-500 ease-in`,
-  btnStatus: `border-2  border-solid bg-transparent min-w-[10px] w-[12%] rounded-[8px]   text-white  not-italic font-[400] text-[14px] outline-none cursor-pointer mx-0 py-2 px-2 capitalize`,
+  btnStatus: `border-2  border-solid bg-transparent min-w-[10px]  rounded-[8px]   text-white  not-italic font-[400] text-[14px] outline-none cursor-pointer mx-0 py-2 px-2 capitalize`,
   btnStatusSm: `border-2  border-solid bg-transparent min-w-[10px] w-[40%] rounded-[8px] not-italic font-[400] text-[14px] outline-none cursor-pointer mx-0 py-2 px-2 capitalize text-primary border-primary`,
 };
-
+// btnStatus: `border-2  border-solid bg-transparent min-w-[10px] w-[12%] rounded-[8px]   text-white  not-italic font-[400] text-[14px] outline-none cursor-pointer mx-0 py-2 px-2 capitalize`,
+// w-[80%]
 export type IWishListItem = {
   name: string;
   rating: number;
@@ -59,8 +63,8 @@ const WishListItem: FC<IWishListItem> = ({
   return (
     <>
       {isDesktopOrLaptop && (
-        <div className="flex items-center justify-between w-full my-5">
-          <div className="flex items-center mr-2">
+        <div className="grid items-center justify-between w-full grid-cols-7 my-5 justify-items-end">
+          <div className="flex items-center col-start-1 col-end-4 mr-2">
             <Image
               src={image}
               alt={name}
@@ -69,7 +73,12 @@ const WishListItem: FC<IWishListItem> = ({
               className="object-cover "
             />
             <div className="mx-2 ">
-              <h1 className=""> {name}</h1>
+              <Link
+                className="hover:text-primary"
+                href={`${PagesRoutes.products}/${name}`}
+              >
+                <h1 className=""> {name}</h1>
+              </Link>
               <RatingStar value={rating} size={24} edit={false} />
             </div>
           </div>
@@ -87,7 +96,18 @@ const WishListItem: FC<IWishListItem> = ({
             onClick={() => removeFromWishlist(WishListId)}
           >
             {isLoading ? (
-              <LoadingSpinner />
+              <Oval
+                height={30}
+                width={30}
+                color="#FB2E86"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                ariaLabel="oval-loading"
+                secondaryColor="#FB2E86"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
+              />
             ) : (
               <XCircleIcon className={style.icons} />
             )}
@@ -107,7 +127,12 @@ const WishListItem: FC<IWishListItem> = ({
                   className="object-cover "
                 />
                 <div className="mx-2">
-                  <h1> {name}</h1>
+                  <Link
+                    className="hover:text-primary"
+                    href={`${PagesRoutes.products}/${name}`}
+                  >
+                    <h1 className=""> {name}</h1>
+                  </Link>
                   <RatingStar value={rating} size={24} edit={false} />
                 </div>
               </div>

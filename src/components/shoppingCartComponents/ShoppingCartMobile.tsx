@@ -40,13 +40,18 @@ const ShoppingCartMobile = () => {
                   alt={item.product.name}
                   width={100}
                   height={100}
-                  className=" object-cover"
+                  className="object-cover "
                 />
-                <div className="mx-1 flex flex-col space-y-3   w-full">
-                  <div className="mx-2 flex justify-between  w-full">
-                    <h2 className=" text-sm">
-                      {formatProductTitle(item.product.name, 50)}
-                    </h2>
+                <div className="flex flex-col w-full mx-1 space-y-3">
+                  <div className="flex justify-between w-full mx-2">
+                    <Link
+                      className="hover:text-primary"
+                      href={`${PagesRoutes.products}/${item.product.name}`}
+                    >
+                      <h2 className="text-sm ">
+                        {formatProductTitle(item.product.name, 50)}
+                      </h2>
+                    </Link>
                     <span className={style.iconContainer}>
                       <XCircleIcon
                         className={style.icons}
@@ -56,13 +61,13 @@ const ShoppingCartMobile = () => {
                       />
                     </span>
                   </div>
-                  <div className="mx-1 flex justify-between  w-full">
-                    <h2 className=" text-sm uppercase">price</h2>
+                  <div className="flex justify-between w-full mx-1">
+                    <h2 className="text-sm uppercase ">price</h2>
                     {item.product.priceSymbol}{" "}
                     {formatToCurrency(item.product.price)}
                   </div>
-                  <div className="mx-1 flex justify-between  w-full">
-                    <h2 className=" text-sm uppercase">quantity</h2>
+                  <div className="flex justify-between w-full mx-1">
+                    <h2 className="text-sm uppercase ">quantity</h2>
                     <span className="flex items-center">
                       <button
                         className={style.iconContainer}
@@ -76,7 +81,7 @@ const ShoppingCartMobile = () => {
                       >
                         <PlusCircleIcon className={style.icons} />
                       </button>
-                      <div className="mx-2 border px-3 bg-white  text-center">
+                      <div className="px-3 mx-2 text-center bg-white border">
                         {item.quantity}
                       </div>
                       <button
@@ -94,8 +99,8 @@ const ShoppingCartMobile = () => {
                       </button>
                     </span>
                   </div>
-                  <div className="mx-1 flex justify-between  w-full">
-                    <h2 className=" text-sm uppercase">subtotal</h2>
+                  <div className="flex justify-between w-full mx-1">
+                    <h2 className="text-sm uppercase ">subtotal</h2>
                     {item.product.priceSymbol}{" "}
                     {formatToCurrency(
                       getProductItemTotal(item.quantity, item.product.price)

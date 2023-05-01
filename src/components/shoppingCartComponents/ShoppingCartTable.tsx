@@ -56,9 +56,14 @@ const shoppingCartTable = () => {
                       height={100}
                     />
                     <div className="flex flex-col">
-                      <h2 className=" text-sm">
-                        {formatProductTitle(item.product.name, 50)}
-                      </h2>
+                      <Link
+                        className="hover:text-primary"
+                        href={`${PagesRoutes.products}/${item.product.name}`}
+                      >
+                        <h2 className="text-sm ">
+                          {formatProductTitle(item.product.name, 50)}
+                        </h2>
+                      </Link>
                       <div>
                         <RatingStar
                           value={item.product.rating}

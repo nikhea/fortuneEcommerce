@@ -18,6 +18,7 @@ import { decreaseCartItemQuantity } from "../../Hooks/useCart/useDecreaseQuantit
 import { increaseCartItemQuantity } from "../../Hooks/useCart/useIncreaseQuantity";
 import { useRemoveCartItems } from "../../Hooks/useCart/useRemoveCartItems";
 import { formatProductTitle } from "../../utils/formateString";
+import { PagesRoutes } from "../../routes/ PagesRoutes";
 const CartItem: FC<Product> = ({
   name,
   image,
@@ -48,7 +49,12 @@ const CartItem: FC<Product> = ({
           />
         </div>
         <div className={style.priceRateContainer}>
-          <h2 className="text-sm">{formatProductTitle(name, 20)}</h2>
+          <Link
+            className="hover:text-primary"
+            href={`${PagesRoutes.products}/${name}`}
+          >
+            <h2 className="text-sm">{formatProductTitle(name, 20)}</h2>
+          </Link>
           <div className="flex items-center">
             <span className="mr-1"> {priceSymbol}</span>
             {formatToCurrency(price)}
