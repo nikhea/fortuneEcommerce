@@ -31,7 +31,6 @@ interface CartItem {
 }
 
 interface CartState {
-  // _id: any,
   items: CartItem[];
 }
 
@@ -46,11 +45,12 @@ interface CartStore {
   isProductInCart: (productId: string) => boolean;
   // getTotal: () => void;
   clearCart: (cart: CartState) => void;
+  getItemDetails: (
+    productId: string
+  ) => { itemId: any; quantity: number } | undefined;
 }
 
-// Define the initial cart state
 const initialCartState: CartState = {
-  // _id: null,
   items: [],
 };
 
@@ -137,6 +137,17 @@ export const useCartState = create<CartStore>()(
           const { items } = get().cart;
           return items.some((item) => item.product._id === productId);
         },
+        getItemDetails: (productId: string) => {
+          const { items } = get().cart;
+          const item = items.find((item) => item.product._id === productId);
+
+          if (item) {
+            return { itemId: item._id, quantity: item.quantity };
+          }
+
+          return undefined;
+        },
+
         getProductItemTotal: (quantity, price) => {
           return quantity * price;
         },

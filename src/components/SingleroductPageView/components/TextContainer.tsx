@@ -11,6 +11,10 @@ import {
 import { BsFacebook, BsInstagram, BsTwitter, BsTiktok } from "react-icons/bs";
 import { formatToCurrency } from "../../../utils/formateNumbers";
 import { useFetchProductReviews } from "../../../Hooks/useReview/useFetchReview";
+import { useCartState } from "../../../store/useCartStore";
+import { useAddToCart } from "../../../Hooks/useCart/useAddToCart";
+import { decreaseCartItemQuantity } from "../../../Hooks/useCart/useDecreaseQuantity";
+import { increaseCartItemQuantity } from "../../../Hooks/useCart/useIncreaseQuantity";
 const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   _id,
   name,
@@ -18,24 +22,15 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   rating,
   priceSymbol,
   description,
+  product,
 }) => {
   const { reviews, isLoading } = useFetchProductReviews(_id);
 
-  const [isAdded, setIsAdded] = useState(false);
-  const [cartQuantity, setCartQuantity] = useState(1);
-
-  const increaseCartQuantity = () => {
-    setCartQuantity((prevQuantity) => prevQuantity + 1);
-  };
-
-  const decreaseCartQuantity = () => {
-    if (cartQuantity > 1) {
-      setCartQuantity((prevQuantity) => prevQuantity - 1);
-    }
-  };
-  const handleIsAdded = () => {
-    setIsAdded(true);
-  };
+  const { isProductInCart } = useCartState();
+  const { AddCart } = useAddToCart();
+  const { increaseQuantitys } = increaseCartItemQuantity();
+  const { decreaseQuantitys } = decreaseCartItemQuantity();
+  const itemDetails = useCartState((state) => state.getItemDetails(_id));
   return (
     <div className="h-full w-full flex flex-col justify-between py-5 px-2 lg:px-0 lg:pr-5 ">
       <div className="flex items-center justify-between">
@@ -82,7 +77,7 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
         </div>
       </div>
       <div className="mt-3">
-        {!isAdded ? (
+        {!isProductInCart(_id) ? (
           <Button
             isCurve
             primary
@@ -90,17 +85,35 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
             uppercase
             full
             shadow
-            onClick={handleIsAdded}
+            onClick={() => AddCart(product)}
           >
             Add to cart
           </Button>
         ) : (
-          <div className="grid grid-cols-3  w-fit  items-center ">
-            <button onClick={increaseCartQuantity} className={style.cartButton}>
+          <div className="grid items-center grid-cols-3 w-fit ">
+            <button
+              onClick={() =>
+                increaseQuantitys(
+                  itemDetails?.itemId,
+                  itemDetails?.quantity,
+                  product
+                )
+              }
+              className={style.cartButton}
+            >
               +
             </button>
-            <h6 className="px-6"> {cartQuantity}</h6>
-            <button onClick={decreaseCartQuantity} className={style.cartButton}>
+            <h6 className="px-6"> {itemDetails?.quantity}</h6>
+            <button
+              onClick={() =>
+                decreaseQuantitys(
+                  itemDetails?.itemId,
+                  itemDetails?.quantity,
+                  product
+                )
+              }
+              className={style.cartButton}
+            >
               -
             </button>
           </div>
@@ -111,3 +124,19 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
 };
 
 export default TextContainer;
+
+// const [isAdded, setIsAdded] = useState(false);
+// const [cartQuantity, setCartQuantity] = useState(1);
+
+// const increaseCartQuantity = () => {
+//   setCartQuantity((prevQuantity) => prevQuantity + 1);
+// };
+
+// const decreaseCartQuantity = () => {
+//   if (cartQuantity > 1) {
+//     setCartQuantity((prevQuantity) => prevQuantity - 1);
+//   }
+// };
+// const handleIsAdded = () => {
+//   setIsAdded(true);
+// };

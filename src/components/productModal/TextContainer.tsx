@@ -21,13 +21,13 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   rating,
   priceSymbol,
   description,
-  quantity,
   product,
 }) => {
-  const { isProductInCart, increaseQuantity } = useCartState();
+  const { isProductInCart } = useCartState();
   const { AddCart } = useAddToCart();
   const { increaseQuantitys } = increaseCartItemQuantity();
   const { decreaseQuantitys } = decreaseCartItemQuantity();
+  const itemDetails = useCartState((state) => state.getItemDetails(_id));
 
   return (
     <div className="flex flex-col justify-between w-full h-full px-2 py-5 lg:px-0 lg:pr-5 ">
@@ -85,14 +85,26 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
         ) : (
           <div className="grid items-center grid-cols-3 w-fit ">
             <button
-              onClick={() => increaseQuantitys(_id, quantity, product)}
+              onClick={() =>
+                increaseQuantitys(
+                  itemDetails?.itemId,
+                  itemDetails?.quantity,
+                  product
+                )
+              }
               className={style.cartButton}
             >
               +
             </button>
-            <h6 className="px-6"> {quantity}</h6>
+            <h6 className="px-6"> {itemDetails?.quantity}</h6>
             <button
-              //  onClick={decreaseCartQuantity}
+              onClick={() =>
+                decreaseQuantitys(
+                  itemDetails?.itemId,
+                  itemDetails?.quantity,
+                  product
+                )
+              }
               className={style.cartButton}
             >
               -
