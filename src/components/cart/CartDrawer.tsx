@@ -59,7 +59,7 @@ const CartDrawer = () => {
           <XCircleIcon className={style.icons} onClick={() => toggleDrawer()} />
         </div>
         <div className="flex flex-col justify-between h-full">
-          <div className="grid h-full grid-cols-1 gap-3 mb-5 text-sm">
+          <div className="grid h-fit grid-cols-1 gap-3 mb-5 text-sm">
             {cart?.items?.length > 0 ? (
               cart.items.map((cartItem: any) => (
                 <CartItem

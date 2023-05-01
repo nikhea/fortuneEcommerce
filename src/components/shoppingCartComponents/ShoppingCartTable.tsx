@@ -23,6 +23,7 @@ import { decreaseCartItemQuantity } from "../../Hooks/useCart/useDecreaseQuantit
 import { formatProductTitle } from "../../utils/formateString";
 
 const shoppingCartTable = () => {
+
   const { removeCartItem } = useRemoveCartItems();
   const { clearItemCart } = useclearCart();
   const { increaseQuantitys } = increaseCartItemQuantity();
@@ -35,89 +36,97 @@ const shoppingCartTable = () => {
   return (
     <div className={style.ShoppingCartTableContainer}>
       <div className={style.ShoppingCartTableContainerBg}>
-        <table>
-          <thead className="mb-5">
-            <tr className="uppercase text-[#333b4d] w-full">
-              <th>Product</th>
-              <th>price</th>
-              <th>quantity</th>
-              <th>total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cart.items?.map((item: any, index: number) => (
-              <tr key={index}>
-                <td>
-                  <div className="flex items-center gap-2">
-                    <Image
-                      src={item.product.coverPhoto}
-                      alt={item.product.name}
-                      width={100}
-                      height={100}
-                    />
-                    <div className="flex flex-col">
-                      <h2 className=" text-sm">
-                        {formatProductTitle(item.product.name, 50)}
-                      </h2>
-                      <div>
-                        <RatingStar
-                          value={item.product.rating}
-                          size={24}
-                          edit={false}
-                        />
+          <table>
+            <thead className="mb-5">
+              <tr className="uppercase text-[#333b4d] w-full">
+                <th>Product</th>
+                <th>price</th>
+                <th>quantity</th>
+                <th>total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.items?.map((item: any, index: number) => (
+                <tr key={index}>
+                  <td>
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src={item.product.coverPhoto}
+                        alt={item.product.name}
+                        width={100}
+                        height={100}
+                      />
+                      <div className="flex flex-col">
+                        <h2 className=" text-sm">
+                          {formatProductTitle(item.product.name, 50)}
+                        </h2>
+                        <div>
+                          <RatingStar
+                            value={item.product.rating}
+                            size={24}
+                            edit={false}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </td>
-                <td>
-                  {item.product.priceSymbol}{" "}
-                  {formatToCurrency(item.product.price)}
-                </td>
-                <td>
-                  <span className="flex items-center">
-                    <button
-                      className={style.iconContainer}
-                      onClick={() =>
-                        increaseQuantitys(item._id, item.quantity, item.product)
-                      }
-                    >
-                      <PlusCircleIcon className={style.icons} />
-                    </button>
-                    <input
-                      type="number"
-                      value={item.quantity}
-                      readOnly
-                      className="w-fit"
-                    />
-                    <button
-                      className={style.iconContainer}
-                      // onClick={decreaseCartQuantity}
-                      onClick={() =>
-                        decreaseQuantitys(item._id, item.quantity, item.product)
-                      }
-                    >
-                      <MinusCircleIcon className={style.icons} />
-                    </button>
-                  </span>
-                </td>
-                <td style={{ textAlign: "center" }}>
-                  {item.product.priceSymbol}{" "}
-                  {formatToCurrency(
-                    getProductItemTotal(item.quantity, item.product.price)
-                  )}
-                </td>
+                  </td>
+                  <td>
+                    {item.product.priceSymbol}{" "}
+                    {formatToCurrency(item.product.price)}
+                  </td>
+                  <td>
+                    <span className="flex items-center">
+                      <button
+                        className={style.iconContainer}
+                        onClick={() =>
+                          increaseQuantitys(
+                            item._id,
+                            item.quantity,
+                            item.product
+                          )
+                        }
+                      >
+                        <PlusCircleIcon className={style.icons} />
+                      </button>
+                      <input
+                        type="number"
+                        value={item.quantity}
+                        readOnly
+                        className="w-fit"
+                      />
+                      <button
+                        className={style.iconContainer}
+                        // onClick={decreaseCartQuantity}
+                        onClick={() =>
+                          decreaseQuantitys(
+                            item._id,
+                            item.quantity,
+                            item.product
+                          )
+                        }
+                      >
+                        <MinusCircleIcon className={style.icons} />
+                      </button>
+                    </span>
+                  </td>
+                  <td style={{ textAlign: "center" }}>
+                    {item.product.priceSymbol}{" "}
+                    {formatToCurrency(
+                      getProductItemTotal(item.quantity, item.product.price)
+                    )}
+                  </td>
 
-                <td className={style.iconContainer}>
-                  <XCircleIcon
-                    className={style.icons}
-                    // onClick={() => removeFromCart(item.product._id)}
-                    onClick={() => handleRemoveItems(item.product, item._id)}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  <td className={style.iconContainer}>
+                    <XCircleIcon
+                      className={style.icons}
+                      // onClick={() => removeFromCart(item.product._id)}
+                      onClick={() => handleRemoveItems(item.product, item._id)}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
       </div>
       <div className="flex items-center justify-between my-5">
         <Link

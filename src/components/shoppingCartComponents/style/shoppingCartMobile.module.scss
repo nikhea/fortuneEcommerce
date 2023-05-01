@@ -1,0 +1,13 @@
+.ShoppingCartMobileContainer {
+  @apply w-full h-full   col-start-1 col-end-13 lg:col-start-1 lg:col-end-9;
+  .ShoppingCartMobileContainerBg {
+    @apply bg-secondary py-10 px-3 rounded-md;
+  }
+  .icons {
+    @apply h-6 w-6;
+  }
+  .iconContainer {
+    @apply cursor-pointer relative text-xl hover:text-primary;
+    // transition-all duration-500 ease-in delay-200
+  }
+}
