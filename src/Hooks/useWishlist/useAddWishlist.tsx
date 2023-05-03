@@ -19,7 +19,7 @@ export const useAddWishlist = () => {
   return {
     AddWishlist,
     status,
-    isLoading,
+    AddWishlistisLoading:isLoading,
     data,
   };
 };

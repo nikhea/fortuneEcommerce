@@ -5,10 +5,10 @@ import { XCircleIcon } from "@heroicons/react/24/outline";
 import useDeviceProperties from "../../Hooks/UseMediaQueries";
 import { useRemoveWishlist } from "../../Hooks/useWishlist/useRemoveWishlist";
 import { formatToCurrency } from "../../utils/formateNumbers";
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { Oval, TailSpin } from "react-loader-spinner";
 import Link from "next/link";
 import { PagesRoutes } from "../../routes/ PagesRoutes";
+import RequestLoading from "../UI/Loading/RequestLoading";
 
 const style = {
   icons: ` @apply h-6 w-6;`,
@@ -96,18 +96,7 @@ const WishListItem: FC<IWishListItem> = ({
             onClick={() => removeFromWishlist(WishListId)}
           >
             {isLoading ? (
-              <Oval
-                height={30}
-                width={30}
-                color="#FB2E86"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-                ariaLabel="oval-loading"
-                secondaryColor="#FB2E86"
-                strokeWidth={2}
-                strokeWidthSecondary={2}
-              />
+              <RequestLoading width={30} height={30} />
             ) : (
               <XCircleIcon className={style.icons} />
             )}
@@ -140,7 +129,12 @@ const WishListItem: FC<IWishListItem> = ({
                 className={style.iconContainer}
                 onClick={() => removeFromWishlist(WishListId)}
               >
-                <XCircleIcon className={style.icons} />
+                {/* <XCircleIcon className={style.icons} /> */}
+                {isLoading ? (
+                  <RequestLoading width={30} height={30} />
+                ) : (
+                  <XCircleIcon className={style.icons} />
+                )}
               </div>
             </div>
             <h2 className="my-3">

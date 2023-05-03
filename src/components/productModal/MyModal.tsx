@@ -5,6 +5,8 @@ import ProductModal from "./productModal";
 import { useSingleFetchProducts } from "../../Hooks/useProducts/useSingleFetchProducts";
 import { useQuery } from "@tanstack/react-query";
 import { fetchSingleProducts } from "../../services/shared/products";
+import { queryKey } from "../../Hooks/queryKeys";
+import PageLoading from "../UI/Loading/PageLoading";
 
 interface modals {
   modalIsOpen?: any;
@@ -14,8 +16,9 @@ interface modals {
 const ModalComponent: FC = NiceModal.create<any>(({ productId }) => {
   console.log(productId);
 
-  const { data: product } = useQuery(["products", productId], () =>
-    fetchSingleProducts(productId)
+  const { data: product, isLoading } = useQuery(
+    [queryKey.products, productId],
+    () => fetchSingleProducts(productId)
   );
   if (product) {
     console.log(product.data);
@@ -60,11 +63,16 @@ const ModalComponent: FC = NiceModal.create<any>(({ productId }) => {
         //@ts-ignore  //@ts-ignore
         appElement={document.getElementById("app")}
       >
-        {product && <ProductModal product={product && product.data} />}
+        {/* {product && <ProductModal product={product && product.data} />} */}
+        {product ? (
+          <ProductModal product={product && product.data} />
+        ) : (
+          <PageLoading />
+        )}
       </ReactModal>
     </div>
   );
 });
 
 export default ModalComponent;
-// className=" overflow-y-scroll scrollbar-thin scrollbar-thumb-pink-500 scrollbar-track-pink-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
+// className="overflow-y-scroll scrollbar-thin scrollbar-thumb-pink-500 scrollbar-track-pink-300 scrollbar-thumb-rounded-full scrollbar-track-rounded-full"

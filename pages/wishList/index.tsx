@@ -2,7 +2,7 @@ import React from "react";
 import WishList from "../../src/components/WishList/WishList";
 import WishListHeader from "../../src/components/WishList/WishListHeader";
 import { useFetchWishlist } from "../../src/Hooks/useWishlist/useFetchWishlist";
-import PageLoading from "../../src/components/Loading/PageLoading";
+import PageLoading from "../../src/components/UI/Loading/PageLoading";
 
 interface Props {
   initialData: {

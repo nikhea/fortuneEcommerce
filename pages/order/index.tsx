@@ -1,6 +1,5 @@
-import React from "react";
-import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { useFetchOrders } from "../../src/Hooks/useOrder/useFetchOrders";
+import PageLoading from "../../src/components/UI/Loading/PageLoading";
 
 interface Props {
   initialData: {
@@ -9,11 +8,13 @@ interface Props {
 }
 const Orders = (props: Props) => {
   const { orders, isLoading } = useFetchOrders(props);
-
+  if (isLoading) {
+    return <PageLoading />;
+  }
   return (
     <div>
       Orders
-      {isLoading ? "loading" : JSON.stringify(orders)}
+      {JSON.stringify(orders)}
     </div>
   );
 };

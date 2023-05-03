@@ -20,6 +20,8 @@ import { useQueryClient } from "@tanstack/react-query";
 import { fetchSingleProducts } from "../../../services/shared/products";
 import { formatToCurrency } from "../../../utils/formateNumbers";
 import { useAddToCart } from "../../../Hooks/useCart/useAddToCart";
+import IconsLoading from "../../UI/Loading/IconsLoading";
+import ReactTooltips from "../../UI/Tooltip/ReactTooltips";
 
 NiceModal.register("product-modal", MyModal);
 
@@ -34,9 +36,8 @@ const FeaturedProductCardsItems: FC<Product> = ({
   product,
 }) => {
   const queryClient = useQueryClient();
-  const { AddCart } = useAddToCart();
-  const { addToCart } = useCartState();
-  const { AddWishlist } = useAddWishlist();
+  const { AddCart, AddCartisLoading } = useAddToCart();
+  const { AddWishlist, AddWishlistisLoading } = useAddWishlist();
   const handleAddToCart = (product: any, quantity: number, _id: string) => {
     // addToCart({
     //   product,
@@ -66,11 +67,23 @@ const FeaturedProductCardsItems: FC<Product> = ({
     >
       <div className="relative flex flex-col  w-full h-full  bg-[#F6F7FB] rounded-md  items-center  ">
         <div className="absolute z-20 flex mt-3 transition-all duration-500 ease-in delay-200 opacity-0 left-2 group-hover:opacity-100">
-          <ShoppingCartIcon
-            className={style.icons}
-            onClick={() => handleAddToCart(product, 1, _id)}
-          />
-          <HeartIcon className={style.icons} onClick={() => AddWishlist(_id)} />
+          {AddCartisLoading ? (
+            <IconsLoading />
+          ) : (
+            <ShoppingCartIcon
+              className={style.icons}
+              onClick={() => handleAddToCart(product, 1, _id)}
+            />
+          )}
+          {AddWishlistisLoading ? (
+            <IconsLoading />
+          ) : (
+            <HeartIcon
+              className={style.icons}
+              onClick={() => AddWishlist(_id)}
+            />
+          )}
+
           {/* <div className="flex items-center justify-center h-full p-1 bg-red-200 rounded-full "> */}
           <MagnifyingGlassPlusIcon
             className={style.icons}
