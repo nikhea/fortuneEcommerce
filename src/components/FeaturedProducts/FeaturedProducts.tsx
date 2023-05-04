@@ -8,7 +8,7 @@ const FeaturedProducts: FC<any> = ({ products }) => {
     <div className={style.FeaturedProducts}>
       <div className="container">
         <h1>Featured Products</h1>
-        <FeaturedProductCards featuredProducts={products?.data} />
+        <FeaturedProductCards featuredProducts={products} />
       </div>
     </div>
   );

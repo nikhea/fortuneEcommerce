@@ -2,14 +2,29 @@ import { storage } from "../../auth/utils";
 import axios from "../../lib/axios";
 import { notify } from "../../utils/notify";
 
-export const fetchWishlist = async () => {
-  const { data } = await axios.get("wishlist", {
-    headers: {
-      Authorization: `Bearer ${storage.getToken()}`,
-    },
-  });
-  return data.data;
+const PAGE_SIZE = 2;
+export const fetchWishlist = async ({ pageParam = 1 }) => {
+  const { data } = await axios.get(
+    `wishlist?page=${pageParam}&pageSize=${PAGE_SIZE}`,
+    {
+      headers: {
+        Authorization: `Bearer ${storage.getToken()}`,
+      },
+    }
+  );
+  console.log(data);
+
+  return data;
 };
+
+// export const fetchWishlist = async () => {
+//   const { data } = await axios.get("wishlist", {
+//     headers: {
+//       Authorization: `Bearer ${storage.getToken()}`,
+//     },
+//   });
+//   return data.data;
+// };
 
 export const addToWishlist = async (productId: string) => {
   const { data } = await axios.post(

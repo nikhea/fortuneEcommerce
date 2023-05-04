@@ -21,11 +21,11 @@ interface Props {
 const HomePage: FC<Props> = (props) => {
   const categories = useFetchCategories(props);
   const products = useFetchProducts(props);
-
+  const filiterProducts = products?.data.results[0].data || [];
   return (
     <div>
       <Hero />
-      <FeaturedProducts products={products} />
+      <FeaturedProducts products={filiterProducts} />
       <Features title="what shopex offer!" />
       <NewletterBanner />
     </div>

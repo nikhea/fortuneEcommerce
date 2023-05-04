@@ -10,6 +10,7 @@ import Image9 from "./image8.png";
 import NewLetterBannerImage from "./newletterBanner.png";
 import NotFoundImage from "./NotFoundImage.png";
 import CartEmptyImage from "./cartEmpty.png";
+import UserPlaceHoldeerImage from "./userPlaceHoldeerImage.jpg";
 export {
   Image1,
   Image2,
@@ -23,4 +24,5 @@ export {
   NewLetterBannerImage,
   NotFoundImage,
   CartEmptyImage,
+  UserPlaceHoldeerImage,
 };

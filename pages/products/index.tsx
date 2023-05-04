@@ -9,6 +9,7 @@ import { fetchCategories } from "../../src/services/shared/categories";
 import { fetchProducts } from "../../src/services/shared/products";
 import { useFetchProducts } from "../../src/Hooks/useProducts/useFetchProducts";
 import { queryKey } from "../../src/Hooks/queryKeys";
+import Filiters from "../../src/components/Filiters/Filiters";
 
 interface Props {
   initialData: {
@@ -18,6 +19,7 @@ interface Props {
 }
 const Products: FC<Props> = (props) => {
   const products = useFetchProducts(props);
+  const filiterProducts = products?.data.results[0].data || [];
 
   return (
     <>
@@ -26,9 +28,12 @@ const Products: FC<Props> = (props) => {
         <ProductHeader />
 
         <div className="grid-cols-12 gap-2 lg:grid">
-          <CategoriesSiderBar />
+          <div className="col-start-1 col-end-3">
+            <CategoriesSiderBar />
+            <Filiters />
+          </div>
           <div className="w-full h-full min-h-screen col-start-3 col-end-13">
-            <ProductsList products={products.data} />
+            <ProductsList products={filiterProducts} />
           </div>
         </div>
       </div>

@@ -23,8 +23,9 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   description,
   product,
 }) => {
+  let CartisLoading = true;
   const { isProductInCart } = useCartState();
-  const { AddCart } = useAddToCart();
+  const { AddCart, AddCartisLoading } = useAddToCart();
   const { increaseQuantitys } = increaseCartItemQuantity();
   const { decreaseQuantitys } = decreaseCartItemQuantity();
   const itemDetails = useCartState((state) => state.getItemDetails(_id));
@@ -79,8 +80,10 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
             full
             shadow
             onClick={() => AddCart(product)}
+            disabled={AddCartisLoading}
+            // disabled
           >
-            Add to cart
+            {AddCartisLoading ? "adding item to cart" : " add to cart"}
           </Button>
         ) : (
           <div className="grid items-center grid-cols-3 w-fit ">

@@ -7,6 +7,7 @@ import NiceModal from "@ebay/nice-modal-react";
 import ReviewModel from "./ReviewModel";
 import { useFetchProductReviews } from "../../../../../Hooks/useReview/useFetchReview";
 import { format, parseISO } from "date-fns";
+import { UserPlaceHoldeerImage } from "../../../../../images/jpeg/imagesPng";
 
 export type IProductReview = {
   productReviews: IProductReviews[];
@@ -24,7 +25,7 @@ const reviews: FC<{ productId: string }> = ({ productId }) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <img
-            // src={review.photo}
+            src={UserPlaceHoldeerImage.src}
             alt={`${review.user.firstname} ${review.user.lastname}`}
             className={` w-[50px] h-[50px] rounded-full group-hover:scale-125`}
           />

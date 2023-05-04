@@ -11,22 +11,43 @@ interface Props {
 }
 const wishList = (props: Props) => {
   // const loading = true;
-  const { wishlist, isLoading } = useFetchWishlist(props);
+  const {
+    wishlist,
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    status,
+  } = useFetchWishlist(props);
 
   if (isLoading) {
     return <PageLoading />;
   }
-  const result = wishlist.map((item: any) => (
-    <WishList key={item._id} WishListId={item._id} product={item.product} />
+  console.log(wishlist);
+  // const result = wishlist.map((item: any) => (
+  //   <WishList key={item._id} WishListId={item._id} product={item.product} />
+  // ));
+  const result = wishlist?.pages.map((page, pageIndex) => (
+    <React.Fragment key={pageIndex}>
+      {page.data.map((item: any) => (
+        <WishList key={item._id} WishListId={item._id} product={item.product} />
+      ))}
+    </React.Fragment>
   ));
   return (
     <div className="container m-auto">
-      <WishListHeader productsLength={wishlist.length} />
+      <WishListHeader productsLength={wishlist?.pages[0].count} />
       {result}
       <div className="grid my-3 text-center place-content-center">
-        <button className="p-2 text-white capitalize rounded-md bg-primary">
-          load more
-        </button>
+        {hasNextPage && (
+          <button
+            onClick={() => fetchNextPage()}
+            disabled={isFetchingNextPage}
+            className="p-2 text-white capitalize rounded-md bg-primary"
+          >
+            {isFetchingNextPage ? "Loading..." : "Load More"}
+          </button>
+        )}
       </div>
     </div>
   );
@@ -35,4 +56,17 @@ const wishList = (props: Props) => {
 export default wishList;
 {
   /* <WishList products={dummyProductsData} /> */
+}
+
+{
+  /* <button
+onClick={() => fetchNextPage()}
+disabled={isFetchingNextPage}
+className="p-2 text-white capitalize rounded-md bg-primary"
+>
+{isFetchingNextPage ? "Loading..." : "Load More"}
+</button>
+{/* <button >
+load more
+</button> */
 }

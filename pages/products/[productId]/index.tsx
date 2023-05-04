@@ -51,7 +51,8 @@ const ProductPage = (props: Props) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const products = await fetchProducts();
-  const paths = products?.data.map((product: any) => ({
+  const filiterProducts = products?.data.results[0].data || [];
+  const paths = filiterProducts.map((product: any) => ({
     params: { productId: product.name.toString() },
   }));
   return { paths, fallback: false };
