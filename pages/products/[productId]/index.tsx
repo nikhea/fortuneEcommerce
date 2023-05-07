@@ -60,6 +60,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const SingleproductId = params?.productId;
   const queryClient = new QueryClient();
+  //@ts-ignore
+
   await queryClient.prefetchQuery(["products"], fetchProducts);
 
   await queryClient.prefetchQuery(["products", SingleproductId], () =>
