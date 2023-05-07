@@ -12,6 +12,7 @@ import { queryKey } from "../../src/Hooks/queryKeys";
 import Filiters from "../../src/components/Filiters/Filiters";
 import ProductPagination from "../../src/components/ProductsComponents/ProductPagination/ProductPagination";
 import { useSubFiliters } from "../../src/store/useSubFiliters";
+import PageLoading from "../../src/components/UI/Loading/PageLoading";
 
 interface Props {
   initialData: {
@@ -49,15 +50,21 @@ const Products: FC<Props> = (props) => {
             <Filiters />
           </div>
           <div className="w-full h-full min-h-screen col-start-3 col-end-13">
-            <ProductsList products={filiterProducts} />
+            {isLoading ? (
+              <PageLoading />
+            ) : (
+              <>
+                <ProductsList products={filteredProducts} />
 
-            <ProductPagination
-              pageNumber={pageNumber}
-              totalPages={totalPages}
-              handlePreviousClick={handlePreviousClick}
-              handleNextClick={handleNextClick}
-              setPageNumber={setPageNumber}
-            />
+                <ProductPagination
+                  pageNumber={pageNumber}
+                  totalPages={totalPages}
+                  handlePreviousClick={handlePreviousClick}
+                  handleNextClick={handleNextClick}
+                  setPageNumber={setPageNumber}
+                />
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -75,7 +82,9 @@ export async function getStaticProps() {
 
   //@ts-ignore
 
-  // await queryClient.prefetchQuery([queryKey.products], fetchProducts);
+  await queryClient.prefetchQuery([queryKey.products], () =>
+    fetchProducts(1, 9, 1)
+  );
 
   return {
     props: {

@@ -10,6 +10,7 @@ import {
 import { GetStaticPaths, GetStaticProps, GetServerSideProps } from "next";
 import { useSingleFetchProducts } from "../../../src/Hooks/useProducts/useSingleFetchProducts";
 import { useRouter } from "next/router";
+import { queryKey } from "../../../src/Hooks/queryKeys";
 
 interface Props {
   initialData: {
@@ -50,7 +51,7 @@ const ProductPage = (props: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const products = await fetchProducts();
+  const products = await fetchProducts(1, 9, 1);
   const filiterProducts = products?.data.results[0].data || [];
   const paths = filiterProducts.map((product: any) => ({
     params: { productId: product.name.toString() },
@@ -60,9 +61,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const SingleproductId = params?.productId;
   const queryClient = new QueryClient();
-  //@ts-ignore
 
-  await queryClient.prefetchQuery(["products"], fetchProducts);
+  // await queryClient.prefetchQuery(["products"], () => fetchProducts(1, 9, 1));
+  await queryClient.prefetchQuery([queryKey.products], () =>
+    fetchProducts(1, 9, 1)
+  );
 
   await queryClient.prefetchQuery(["products", SingleproductId], () =>
     fetchSingleProducts(SingleproductId)

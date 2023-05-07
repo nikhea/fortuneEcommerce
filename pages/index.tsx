@@ -25,6 +25,7 @@ interface Props {
 const HomePage: FC<Props> = (props) => {
   const categories = useFetchCategories(props);
   const products = useFetchProductsByTage(props);
+  const { isFetching } = useFetchProducts(props);
   // const filiterProducts = products?.data.results[0].data || [];
   return (
     <div>
@@ -42,8 +43,10 @@ export async function getStaticProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery([queryKey.categories], fetchCategories);
-  //@ts-ignore
-  // await queryClient.prefetchQuery([queryKey.products], fetchProducts);
+
+  await queryClient.prefetchQuery([queryKey.products], () =>
+    fetchProducts(1, 9, 1)
+  );
   //@ts-ignore
   await queryClient.prefetchQuery(
     [queryKey.productsTage],
