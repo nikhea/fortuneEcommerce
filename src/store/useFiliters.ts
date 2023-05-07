@@ -4,6 +4,7 @@ import { createJSONStorage, devtools, persist } from "zustand/middleware";
 interface IFiilter {
   Fiilter: {};
   setFiliters: any;
+  filterProducts: {};
 }
 export const FilitersStore = (set: any) => ({
   filterProducts: {},

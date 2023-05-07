@@ -27,7 +27,10 @@ export const useFetchProducts = (props: Props) => {
     handleLimitChange,
     handleSortChange,
   } = useSubFiliters();
-
+  // pageNumber,
+  // limitProducts,
+  // sortProducts,
+  // search,
   const {
     data: products,
     isLoading,
@@ -35,42 +38,13 @@ export const useFetchProducts = (props: Props) => {
     error,
     refetch,
   } = useQuery(
-    [
-      queryKey.products,
-      pageNumber,
-      limitProducts,
-      sortProducts,
-      filterProducts,
-      search,
-    ],
-    () =>
-      fetchProducts(
-        pageNumber,
-        limitProducts,
-        sortProducts,
-        search,
-        filterProducts
-      ),
+    [queryKey.products, filterProducts],
+    () => fetchProducts(filterProducts),
     {
       keepPreviousData: true,
       refetchOnMount: true,
     }
   );
-  // const handlePreviousClick = () => {
-  //   setPageNumber((prevPage) => prevPage - 1);
-  // };
-
-  // const handleNextClick = () => {
-  //   setPageNumber((prevPage) => prevPage + 1);
-  // };
-
-  // const handleLimitChange = (limit: number) => {
-  //   setLimitProduct(limit);
-  // };
-
-  // const handleSortChange = (sort: number) => {
-  //   setSortProduct(sort);
-  // };
 
   const handleFilterChange = (filters: any) => {
     setFiliters(filters);
@@ -99,3 +73,18 @@ export const useFetchProducts = (props: Props) => {
 //   initialData: props.initialData.products,
 //   refetchOnMount: true,
 // });
+// const handlePreviousClick = () => {
+//   setPageNumber((prevPage) => prevPage - 1);
+// };
+
+// const handleNextClick = () => {
+//   setPageNumber((prevPage) => prevPage + 1);
+// };
+
+// const handleLimitChange = (limit: number) => {
+//   setLimitProduct(limit);
+// };
+
+// const handleSortChange = (sort: number) => {
+//   setSortProduct(sort);
+// };

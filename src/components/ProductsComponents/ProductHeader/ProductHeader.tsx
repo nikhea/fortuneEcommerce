@@ -5,6 +5,7 @@ import { useViewState } from "../../../store/useView";
 import { FC } from "react";
 import { useFetchProducts } from "../../../Hooks/useProducts/useFetchProducts";
 import { useSubFiliters } from "../../../store/useSubFiliters";
+import useFilitersStore from "../../../store/useFiliters";
 
 export type IProductHeader = {
   // handleSortChange: (sort: number) => void;
@@ -12,12 +13,18 @@ export type IProductHeader = {
 };
 const ProductHeader = (props: any) => {
   const { gridStyle, setGridStyle } = useViewState();
-  const { handleSortChange, handleLimitChange, handleSearch, searchQuery } =
-    useSubFiliters();
+  const {
+    handleSortChange,
+    handleLimitChange,
+    handleSearch,
+    searchQuery,
+    pageNumber,
+    limitProducts,
+    sortProducts,
+  } = useSubFiliters();
 
   const handleInputChange = (event: any) => {
     const query = event.target.value;
-
     handleSearch(query);
   };
   return (
@@ -86,8 +93,8 @@ const ProductHeader = (props: any) => {
 
 export default ProductHeader;
 const sortOptions = [
-  { value: 1, label: "ASC" },
-  { value: -1, label: "DSC" },
+  { value: -1, label: "Newest" },
+  { value: 1, label: "Oldest" },
 ];
 
 const limitOptions = [

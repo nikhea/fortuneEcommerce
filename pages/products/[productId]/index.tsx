@@ -51,7 +51,7 @@ const ProductPage = (props: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const products = await fetchProducts(1, 9, 1);
+  const products = await fetchProducts();
   const filiterProducts = products?.data.results[0].data || [];
   const paths = filiterProducts.map((product: any) => ({
     params: { productId: product.name.toString() },
@@ -63,9 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const queryClient = new QueryClient();
 
   // await queryClient.prefetchQuery(["products"], () => fetchProducts(1, 9, 1));
-  await queryClient.prefetchQuery([queryKey.products], () =>
-    fetchProducts(1, 9, 1)
-  );
+  await queryClient.prefetchQuery([queryKey.products], () => fetchProducts());
 
   await queryClient.prefetchQuery(["products", SingleproductId], () =>
     fetchSingleProducts(SingleproductId)

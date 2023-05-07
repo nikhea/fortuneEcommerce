@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import Banner from "../../src/components/Banner/Banner";
 import CategoriesSiderBar from "../../src/components/CategoriesSiderBar/CategoriesSiderBar";
 import ProductHeader from "../../src/components/ProductsComponents/ProductHeader/ProductHeader";
@@ -9,10 +9,11 @@ import { fetchCategories } from "../../src/services/shared/categories";
 import { fetchProducts } from "../../src/services/shared/products";
 import { useFetchProducts } from "../../src/Hooks/useProducts/useFetchProducts";
 import { queryKey } from "../../src/Hooks/queryKeys";
-import Filiters from "../../src/components/Filiters/Filiters";
+import FilitersSideBar from "../../src/components/Filiters/FilitersSideBar";
 import ProductPagination from "../../src/components/ProductsComponents/ProductPagination/ProductPagination";
 import { useSubFiliters } from "../../src/store/useSubFiliters";
 import PageLoading from "../../src/components/UI/Loading/PageLoading";
+import useFilitersStore from "../../src/store/useFiliters";
 
 interface Props {
   initialData: {
@@ -21,19 +22,31 @@ interface Props {
   };
 }
 const Products: FC<Props> = (props) => {
+  const { searchQuery, pageNumber, limitProducts, sortProducts } =
+    useSubFiliters();
   const {
     isLoading,
     isFetching,
     products,
-    pageNumber,
+    pageNumber: ProductpageNumber,
     handlePreviousClick,
     handleNextClick,
     setPageNumber,
     handleSortChange,
   } = useFetchProducts(props);
-  const { searchQuery } = useSubFiliters();
-  const filiterProducts = products?.data.results[0].data || [];
-  const filteredProducts = filiterProducts.filter((product: any) => {
+  const { filterProducts, setFiliters } = useFilitersStore();
+
+  useEffect(() => {
+    setFiliters({
+      search: searchQuery,
+      page: pageNumber,
+      limit: limitProducts,
+      sort: sortProducts,
+    });
+  }, [searchQuery, pageNumber, limitProducts, sortProducts]);
+
+  const maiProducts = products?.data.results[0].data || [];
+  const filteredProducts = maiProducts.filter((product: any) => {
     return product.name.toLowerCase().includes(searchQuery.toLowerCase());
   });
   const totalPages = products?.data?.totalPages;
@@ -47,17 +60,17 @@ const Products: FC<Props> = (props) => {
         <div className="grid-cols-12 gap-2 lg:grid">
           <div className="col-start-1 col-end-3">
             <CategoriesSiderBar />
-            <Filiters />
+            <FilitersSideBar />
           </div>
           <div className="w-full h-full min-h-screen col-start-3 col-end-13">
             {isLoading ? (
               <PageLoading />
             ) : (
               <>
-                <ProductsList products={filteredProducts} />
+                <ProductsList products={maiProducts} />
 
                 <ProductPagination
-                  pageNumber={pageNumber}
+                  pageNumber={ProductpageNumber}
                   totalPages={totalPages}
                   handlePreviousClick={handlePreviousClick}
                   handleNextClick={handleNextClick}
@@ -82,9 +95,7 @@ export async function getStaticProps() {
 
   //@ts-ignore
 
-  await queryClient.prefetchQuery([queryKey.products], () =>
-    fetchProducts(1, 9, 1)
-  );
+  await queryClient.prefetchQuery([queryKey.products], () => fetchProducts());
 
   return {
     props: {
