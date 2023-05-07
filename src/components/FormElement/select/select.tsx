@@ -3,7 +3,7 @@ import { FC } from "react";
 import Select from "react-select";
 import classnames from "classnames";
 export interface optionsProps {
-  value: string;
+  value: number | string;
   label: string;
 }
 interface inputProps {
@@ -20,7 +20,7 @@ interface inputProps {
   isWhiteBg?: boolean;
   options?: optionsProps[];
   field?: any;
-  handleSelectChange?: any;
+  handleSelectChange: (props: any) => void;
 }
 
 const style = {
@@ -64,20 +64,30 @@ const InputSelect: FC<inputProps> = ({
       // marginTop: "5%",
     }),
   };
+  const handleChange = (selectedOption: any) => {
+    handleSelectChange(selectedOption.value);
+    // console.log(selectedOption);
+  };
   return (
     <div className={classnames(inputSelectContainer)}>
       <Select
-        value={field}
-        placeholder={placeholder}
-        name={name}
         styles={customStyles}
         className="react-select-container"
         classNamePrefix="react-select"
-        onChange={handleSelectChange}
         options={options}
         required={required}
+        onChange={handleChange}
       />
     </div>
   );
 };
 export default InputSelect;
+// value={field}
+// placeholder={placeholder}
+// name={name}
+// styles={customStyles}
+// className="react-select-container"
+// classNamePrefix="react-select"
+// onChange={handleSelectChange}
+// options={options}
+// required={required}

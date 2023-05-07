@@ -1,22 +1,94 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchProducts } from "../../services/shared/products";
 import { queryKey } from "../queryKeys";
+import { useState } from "react";
+import useFilitersStore from "../../store/useFiliters";
+import { useSubFiliters } from "../../store/useSubFiliters";
 
 interface Props {
-  initialData: any; // replace 'any' with your actual type
+  initialData: any;
 }
 
 export const useFetchProducts = (props: Props) => {
-  const { data: products } = useQuery(
-    [queryKey.products],
-    fetchProducts, // replace with your actual fetch function
+  const { filterProducts, setFiliters } = useFilitersStore();
+  // const [pageNumber, setPageNumber] = useState(1);
+  // const [limitProducts, setLimitProduct] = useState(2);
+  // const [sortProducts, setSortProduct] = useState(1);
+  const {
+    pageNumber,
+    limitProducts,
+    sortProducts,
+    searchQuery: search,
+    setPageNumber,
+    setLimitProduct,
+    setSortProduct,
+    handlePreviousClick,
+    handleNextClick,
+    handleLimitChange,
+    handleSortChange,
+  } = useSubFiliters();
+
+  const {
+    data: products,
+    isLoading,
+    isFetching,
+    error,
+    refetch,
+  } = useQuery(
+    [
+      queryKey.products,
+      pageNumber,
+      limitProducts,
+      sortProducts,
+      filterProducts,
+      search,
+    ],
+    () =>
+      fetchProducts(
+        pageNumber,
+        limitProducts,
+        sortProducts,
+        search,
+        filterProducts
+      ),
     {
-      // initialData: props.initialData.products,
+      keepPreviousData: true,
       refetchOnMount: true,
     }
   );
+  // const handlePreviousClick = () => {
+  //   setPageNumber((prevPage) => prevPage - 1);
+  // };
 
-  return products;
+  // const handleNextClick = () => {
+  //   setPageNumber((prevPage) => prevPage + 1);
+  // };
+
+  // const handleLimitChange = (limit: number) => {
+  //   setLimitProduct(limit);
+  // };
+
+  // const handleSortChange = (sort: number) => {
+  //   setSortProduct(sort);
+  // };
+
+  const handleFilterChange = (filters: any) => {
+    setFiliters(filters);
+  };
+  return {
+    products,
+    pageNumber,
+    isFetching,
+    isLoading,
+    error,
+    refetch,
+    setPageNumber,
+    handlePreviousClick,
+    handleNextClick,
+    handleLimitChange,
+    handleSortChange,
+    handleFilterChange,
+  };
 };
 
 // const { data: categories } = useQuery(["categories"], fetchCategories, {

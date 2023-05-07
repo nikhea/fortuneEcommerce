@@ -3,8 +3,10 @@
 }
 .filiterItem {
   @apply flex items-center;
+  //  w-[80%]
   p {
     @apply w-[80%];
+    // @apply w-[100%];
   }
 }
 .input {

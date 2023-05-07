@@ -1,27 +1,39 @@
-// "use client";
 import style from "../style/productHeader.module.scss";
 import { ListBulletIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
-import Select from "../../FormElement/select/select";
+import Select, { optionsProps } from "../../FormElement/select/select";
 import { useViewState } from "../../../store/useView";
+import { FC } from "react";
+import { useFetchProducts } from "../../../Hooks/useProducts/useFetchProducts";
+import { useSubFiliters } from "../../../store/useSubFiliters";
 
-const ProductHeader = () => {
+export type IProductHeader = {
+  // handleSortChange: (sort: number) => void;
+  // props: any;
+};
+const ProductHeader = (props: any) => {
   const { gridStyle, setGridStyle } = useViewState();
+  const { handleSortChange, handleLimitChange, handleSearch, searchQuery } =
+    useSubFiliters();
+
+  const handleInputChange = (event: any) => {
+    const query = event.target.value;
+
+    handleSearch(query);
+  };
   return (
     <div className="flex-col items-center justify-between hidden my-10 lg:flex lg:flex-row">
       <div className="flex flex-col justify-between">
         <h2>Ecommerce Acceories & Furniture item </h2>
         <p>About 9,620 results</p>
       </div>
+
       <div className={style.filiters}>
         <div className={style.filiterItem}>
           <p>sort by :</p>
           <Select
             placeholder="Type"
-            // options={propertyTypeOPtions}
-            // field={propertyTypeOPtions.find(
-            //   ({ value }) => value === propertyTypeField.value
-            // )}
-            // handleSelectChange={handlepropertyTypeChange}
+            options={sortOptions}
+            handleSelectChange={handleSortChange}
             inputFull
             isCurve
           />
@@ -30,11 +42,8 @@ const ProductHeader = () => {
           <p>per page :</p>
           <Select
             placeholder="Type"
-            // options={propertyTypeOPtions}
-            // field={propertyTypeOPtions.find(
-            //   ({ value }) => value === propertyTypeField.value
-            // )}
-            // handleSelectChange={handlepropertyTypeChange}
+            options={limitOptions}
+            handleSelectChange={handleLimitChange}
             inputFull
           />
         </div>
@@ -62,7 +71,13 @@ const ProductHeader = () => {
         </div>
         <div className={style.filiterItem}>
           <p className="mr-5">search :</p>
-          <input type="text" placeholder="Search" className={style.input} />
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchQuery}
+            className={style.input}
+            onChange={handleInputChange}
+          />
         </div>
       </div>
     </div>
@@ -70,3 +85,15 @@ const ProductHeader = () => {
 };
 
 export default ProductHeader;
+const sortOptions = [
+  { value: 1, label: "ASC" },
+  { value: -1, label: "DSC" },
+];
+
+const limitOptions = [
+  { value: 1, label: "1" },
+  { value: 3, label: "3" },
+  { value: 5, label: "5" },
+  { value: 8, label: "8" },
+  { value: 10, label: "10" },
+];

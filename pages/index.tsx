@@ -8,8 +8,12 @@ import { FC } from "react";
 import { useFetchCategories } from "../src/Hooks/useFetchCategories";
 import { useFetchProducts } from "../src/Hooks/useProducts/useFetchProducts";
 import { fetchCategories } from "../src/services/shared/categories";
-import { fetchProducts } from "../src/services/shared/products";
+import {
+  fetchProducts,
+  fetchProductsByTages,
+} from "../src/services/shared/products";
 import { queryKey } from "../src/Hooks/queryKeys";
+import { useFetchProductsByTage } from "../src/Hooks/useProducts/useFetchProductsByTages";
 
 interface Props {
   initialData: {
@@ -20,12 +24,12 @@ interface Props {
 
 const HomePage: FC<Props> = (props) => {
   const categories = useFetchCategories(props);
-  const products = useFetchProducts(props);
-  const filiterProducts = products?.data.results[0].data || [];
+  const products = useFetchProductsByTage(props);
+  // const filiterProducts = products?.data.results[0].data || [];
   return (
     <div>
       <Hero />
-      <FeaturedProducts products={filiterProducts} />
+      <FeaturedProducts products={products} />
       <Features title="what shopex offer!" />
       <NewletterBanner />
     </div>
@@ -38,8 +42,13 @@ export async function getStaticProps() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery([queryKey.categories], fetchCategories);
+  //@ts-ignore
   await queryClient.prefetchQuery([queryKey.products], fetchProducts);
-
+  //@ts-ignore
+  await queryClient.prefetchQuery(
+    [queryKey.productsTage],
+    fetchProductsByTages
+  );
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

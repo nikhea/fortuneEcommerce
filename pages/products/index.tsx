@@ -10,22 +10,38 @@ import { fetchProducts } from "../../src/services/shared/products";
 import { useFetchProducts } from "../../src/Hooks/useProducts/useFetchProducts";
 import { queryKey } from "../../src/Hooks/queryKeys";
 import Filiters from "../../src/components/Filiters/Filiters";
+import ProductPagination from "../../src/components/ProductsComponents/ProductPagination/ProductPagination";
+import { useSubFiliters } from "../../src/store/useSubFiliters";
 
 interface Props {
   initialData: {
-    categories: any; // replace 'any' with your actual type
-    products: any; // replace 'any' with your actual type
+    categories: any;
+    products: any;
   };
 }
 const Products: FC<Props> = (props) => {
-  const products = useFetchProducts(props);
+  const {
+    isLoading,
+    isFetching,
+    products,
+    pageNumber,
+    handlePreviousClick,
+    handleNextClick,
+    setPageNumber,
+    handleSortChange,
+  } = useFetchProducts(props);
+  const { searchQuery } = useSubFiliters();
   const filiterProducts = products?.data.results[0].data || [];
+  const filteredProducts = filiterProducts.filter((product: any) => {
+    return product.name.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+  const totalPages = products?.data?.totalPages;
 
   return (
     <>
       <Banner image={BannerData.image} title={BannerData.title} />
       <div className="container">
-        <ProductHeader />
+        <ProductHeader handleSortChange={() => handleSortChange} />
 
         <div className="grid-cols-12 gap-2 lg:grid">
           <div className="col-start-1 col-end-3">
@@ -34,6 +50,14 @@ const Products: FC<Props> = (props) => {
           </div>
           <div className="w-full h-full min-h-screen col-start-3 col-end-13">
             <ProductsList products={filiterProducts} />
+
+            <ProductPagination
+              pageNumber={pageNumber}
+              totalPages={totalPages}
+              handlePreviousClick={handlePreviousClick}
+              handleNextClick={handleNextClick}
+              setPageNumber={setPageNumber}
+            />
           </div>
         </div>
       </div>
@@ -49,6 +73,8 @@ const BannerData = {
 export async function getStaticProps() {
   const queryClient = new QueryClient();
 
+  //@ts-ignore
+
   await queryClient.prefetchQuery([queryKey.products], fetchProducts);
 
   return {
@@ -60,3 +86,6 @@ export async function getStaticProps() {
   };
 }
 export default Products;
+// const totalPages = products?.totalCount
+//   ? Math.ceil(products.totalCount / products?.limit)
+//   : 1;
