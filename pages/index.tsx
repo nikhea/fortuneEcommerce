@@ -43,7 +43,7 @@ export async function getStaticProps() {
 
   await queryClient.prefetchQuery([queryKey.categories], fetchCategories);
   //@ts-ignore
-  await queryClient.prefetchQuery([queryKey.products], fetchProducts);
+  // await queryClient.prefetchQuery([queryKey.products], fetchProducts);
   //@ts-ignore
   await queryClient.prefetchQuery(
     [queryKey.productsTage],

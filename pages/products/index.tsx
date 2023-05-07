@@ -75,7 +75,7 @@ export async function getStaticProps() {
 
   //@ts-ignore
 
-  await queryClient.prefetchQuery([queryKey.products], fetchProducts);
+  // await queryClient.prefetchQuery([queryKey.products], fetchProducts);
 
   return {
     props: {

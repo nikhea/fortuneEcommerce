@@ -1,14 +1,15 @@
 import axios from "../../lib/axios";
 
 export const fetchProducts = async (
-  pageNumber?: number | undefined,
-  limitProducts?: number | undefined,
-  sortProducts?: number | undefined,
+  pageNumber?: number | 1,
+  limitProducts?: number | 9,
+  sortProducts?: number | 1,
   search?: string,
   filterProducts?: any
 ) => {
+  // &search=${search}
   const { data } = await axios.get(
-    `products?page=${pageNumber}&limit=${limitProducts}&sort=${sortProducts}&search=${search}`,
+    `products?page=${pageNumber}&limit=${limitProducts}&sort=${sortProducts}`,
     {
       params: filterProducts,
     }
