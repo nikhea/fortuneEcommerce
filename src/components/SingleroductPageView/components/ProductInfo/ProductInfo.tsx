@@ -25,6 +25,7 @@ const ProductInfo: FC<IProductInfo> = ({
   productName,
   productReviews,
   productId,
+  product,
 }) => {
   const [step, setStep] = useState(0);
 
@@ -40,15 +41,22 @@ const ProductInfo: FC<IProductInfo> = ({
         {(() => {
           switch (step) {
             case 0:
-              return <Description />;
+            return <Description />;
             case 1:
-              return <AdditionalInformation />;
+              return (
+                <AdditionalInformation
+                  productSpecifications={product.specifications}
+                  productFeatures={product.features}
+                  productavailability={product.availability}
+                  productStatus={product.status}
+                />
+              );
             case 2:
             // return <Videos YouTubeVideo={YouTubeVideo} />;
             case 3:
-              return <Reviews productId={productId} />;
+            return <Reviews productId={productId} />;
             default:
-              return <Description />;
+            return <Description />;
           }
         })()}
       </div>

@@ -3,7 +3,7 @@ import RatingFiliter from "./FIilterSideBarComponents/RatingFiliter";
 
 const FilitersSideBar = () => {
   return (
-    <div className="col-start-1 col-end-3 bg-red-200">
+    <div className="col-start-1 col-end-3 ">
       <h1 className="">
         <RatingFiliter />
       </h1>

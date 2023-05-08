@@ -5,7 +5,7 @@ export type IHeaderProps = {
 };
 
 const style = {
-  headerTitleContainer: ` hidden md:flex justify-between borde mb-16 capitalize md:text-1xl`,
+  headerTitleContainer: `flex justify-between borde mb-16 capitalize md:text-1xl`,
   headerTitle: ``,
 };
 
@@ -27,8 +27,8 @@ const ProductInfoHeader: FC<IHeaderProps> = ({ step, setStep }) => {
           style={{ width: "55%", textAlign: "center", cursor: "pointer" }}
           className={
             step === index
-              ? `bg-transparent border-b border-primary   border-solid	 text-[#000] `
-              : "hover:text-primary"
+              ? `bg-transparent border-b border-primary   border-solid	 text-[#000] text-sm md:text-md`
+              : "hover:text-primary text-sm md:text-md"
           }
           onClick={() => handleActiveTab(index)}
         >

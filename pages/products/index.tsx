@@ -22,8 +22,13 @@ interface Props {
   };
 }
 const Products: FC<Props> = (props) => {
-  const { searchQuery, pageNumber, limitProducts, sortProducts } =
-    useSubFiliters();
+  const {
+    selectedRating,
+    searchQuery,
+    pageNumber,
+    limitProducts,
+    sortProducts,
+  } = useSubFiliters();
   const {
     isLoading,
     isFetching,
@@ -42,8 +47,9 @@ const Products: FC<Props> = (props) => {
       page: pageNumber,
       limit: limitProducts,
       sort: sortProducts,
+      rating: selectedRating,
     });
-  }, [searchQuery, pageNumber, limitProducts, sortProducts]);
+  }, [searchQuery, selectedRating, pageNumber, limitProducts, sortProducts]);
 
   const maiProducts = products?.data.results[0].data || [];
   const filteredProducts = maiProducts.filter((product: any) => {

@@ -13,6 +13,9 @@ export type Product = {
   status?: string;
   product?: any;
   quantity?: number;
+  features?: string[];
+  availability?: any;
+  specifications?: any;
 };
 export type IRelatedProductItem = {
   _id: string;

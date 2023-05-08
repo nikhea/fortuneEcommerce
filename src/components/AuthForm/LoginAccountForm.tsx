@@ -11,6 +11,8 @@ import { useLogin } from "../../auth/auth";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 import { notify } from "../../utils/notify";
+import { useQueryClient } from "@tanstack/react-query";
+import { queryKey } from "../../Hooks/queryKeys";
 
 const AccountForm: FC<IAccountFormDefaultText> = ({
   type,
@@ -21,6 +23,7 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
   ButtonSign,
   FormInputData,
 }) => {
+  const queryClient = useQueryClient();
   const login = useLogin();
   const router = useRouter();
 
@@ -38,6 +41,7 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
       onSuccess: () => {
         reset();
         router.push("/");
+        queryClient.invalidateQueries([queryKey.carts]);
         notify({
           type: "success",
           message: "Logged In Successfully",

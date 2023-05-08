@@ -1,0 +1,9 @@
+.borderContent {
+  @apply border;
+  h1 {
+    @apply p-5 uppercase border border-t-0 border-l-0 border-r-0;
+  }
+  ul {
+    @apply list-inside p-5 text-gray-500;
+  }
+}

@@ -5,6 +5,8 @@ type IUseSubFiliters = {
   limitProducts: number;
   sortProducts: number;
   searchQuery: string;
+  selectedRating: number | null;
+  setSelectedRating: (value: number | null) => void;
   setPageNumber: (pageNumber: number) => void;
   setLimitProduct: (limitProducts: number) => void;
   setSortProduct: (sortProducts: number) => void;
@@ -20,6 +22,8 @@ export const useSubFiliters = create<IUseSubFiliters>((set) => ({
   limitProducts: 9,
   sortProducts: 1,
   searchQuery: "",
+  selectedRating: null,
+  setSelectedRating: (value) => set(() => ({ selectedRating: value })),
   setPageNumber: (pageNumber) => set(() => ({ pageNumber })),
   setLimitProduct: (limitProducts: number) => set(() => ({ limitProducts })),
   setSortProduct: (sortProducts: number) => set(() => ({ sortProducts })),

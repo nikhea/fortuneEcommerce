@@ -13,6 +13,10 @@ import { TbBrandWish } from "react-icons/tb";
 import { PagesRoutes } from "../../../routes/ PagesRoutes";
 import { logoutFn, useLogout, useUser } from "../../../auth/auth";
 import { toast } from "react-toastify";
+import { useQueryClient } from "@tanstack/react-query";
+import { queryKey } from "../../../Hooks/queryKeys";
+import { useclearCart } from "../../../Hooks/useCart/useClearCart";
+import { useCartState } from "../../../store/useCartStore";
 const style = {
   Menu: `min-w-[150px] mx-auto  flex flex-col rounded-[10px] py-1 mt-2 text-[#0D0E43]`,
   MenuItem: `!mb-2`,
@@ -21,6 +25,10 @@ const style = {
   icons: `h-6 w-6 mr-2`,
 };
 const dropDown = ({ children }: any) => {
+  const queryClient = useQueryClient();
+  const { clearItemCart } = useclearCart();
+  const { cart } = useCartState();
+
   const router = useRouter();
   const user = useUser();
   const logout = useLogout({});
@@ -37,7 +45,10 @@ const dropDown = ({ children }: any) => {
       {},
       {
         onSuccess: () => {
-          // router.push("/");
+          queryClient.invalidateQueries([queryKey.carts]);
+          queryClient.invalidateQueries([queryKey.wishlist]);
+          router.push("/");
+          clearItemCart(cart);
           toast.success("Logged Out Successfully");
         },
       }
