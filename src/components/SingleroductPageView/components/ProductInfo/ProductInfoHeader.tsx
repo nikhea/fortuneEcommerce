@@ -27,8 +27,8 @@ const ProductInfoHeader: FC<IHeaderProps> = ({ step, setStep }) => {
           style={{ width: "55%", textAlign: "center", cursor: "pointer" }}
           className={
             step === index
-              ? `bg-transparent border-b border-primary   border-solid	 text-[#000] text-sm md:text-md`
-              : "hover:text-primary text-sm md:text-md"
+              ? `bg-transparent border-b border-primary   border-solid	 text-[#000] text-sm md:text-[16px]`
+              : "hover:text-primary text-sm md:text-[16px]"
           }
           onClick={() => handleActiveTab(index)}
         >

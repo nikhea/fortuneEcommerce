@@ -73,7 +73,7 @@ const Products: FC<Props> = (props) => {
               <PageLoading />
             ) : (
               <>
-                <ProductsList products={maiProducts} />
+                <ProductsList products={filteredProducts} />
 
                 <ProductPagination
                   pageNumber={ProductpageNumber}

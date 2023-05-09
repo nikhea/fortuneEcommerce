@@ -32,7 +32,7 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   const { decreaseQuantitys } = decreaseCartItemQuantity();
   const itemDetails = useCartState((state) => state.getItemDetails(_id));
   return (
-    <div className="h-full w-full flex flex-col justify-between py-5 px-2 lg:px-0 lg:pr-5 ">
+    <div className="flex flex-col justify-between w-full h-full px-2 py-5 lg:px-0 lg:pr-5 ">
       <div className="flex items-center justify-between">
         <h1 className="  text-xl capitalize text-[#151875]  font-bold ">
           {name}
@@ -44,26 +44,26 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
       </div>
       <div className="flex items-center">
         <RatingStar value={rating} size={24} edit={false} />
-        <h5 className="ml-1">(9 reviews)</h5>
+        <h5 className="ml-1">{reviews && `(${reviews.length} reviews)`}</h5>
       </div>
       <div className="bg-primary text-white px-2 py-1 w-fit rounded-md text-[1em] ">
         free delivery*
       </div>
       <div className={style.spacer} />
       <div className="flex flex-col space-y-3">
-        <h2 className=" capitalize text-xl ">
+        <h2 className="text-xl capitalize ">
           <span className="mr-1"> {priceSymbol}</span>
           {formatToCurrency(price)}
         </h2>
         <p>{description}</p>
-        <div className="flex items-center  text-primary">
+        <div className="flex items-center text-primary">
           <CheckCircleIcon className={style.icons} />
           <h5>shop secure, free return</h5>
         </div>
       </div>
       <div className={style.spacer} />
 
-      {/* <div className="flex items-center  gap-x-3">
+      {/* <div className="flex items-center gap-x-3">
         <button className={style.btn}>Add to wishlist</button>
         <button className={style.btn}>Add to compare</button>
       </div> */}

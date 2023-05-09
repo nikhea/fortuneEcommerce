@@ -1,5 +1,5 @@
 .borderContent {
-  @apply border;
+  @apply border bg-white rounded-lg;
   h1 {
     @apply p-5 uppercase border border-t-0 border-l-0 border-r-0;
   }
