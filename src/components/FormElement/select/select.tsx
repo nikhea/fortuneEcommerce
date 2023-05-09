@@ -21,6 +21,7 @@ interface inputProps {
   options?: optionsProps[];
   field?: any;
   handleSelectChange: (props: any) => void;
+  defaultValue?: any;
 }
 
 const style = {
@@ -42,6 +43,7 @@ const InputSelect: FC<inputProps> = ({
   options,
   handleSelectChange,
   field,
+  defaultValue,
 }) => {
   let inputSelectContainer = {
     // [`${style.input}`]: true,
@@ -77,6 +79,7 @@ const InputSelect: FC<inputProps> = ({
         options={options}
         required={required}
         onChange={handleChange}
+        defaultValue={defaultValue}
       />
     </div>
   );

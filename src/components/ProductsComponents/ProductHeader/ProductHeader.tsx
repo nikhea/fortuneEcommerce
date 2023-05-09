@@ -43,6 +43,7 @@ const ProductHeader = (props: any) => {
             handleSelectChange={handleSortChange}
             inputFull
             isCurve
+            defaultValue={sortOptions[0]}
           />
         </div>
         <div className={style.filiterItem}>
@@ -51,6 +52,7 @@ const ProductHeader = (props: any) => {
             placeholder="Type"
             options={limitOptions}
             handleSelectChange={handleLimitChange}
+            defaultValue={limitOptions[3]}
             inputFull
           />
         </div>
@@ -101,6 +103,5 @@ const limitOptions = [
   { value: 1, label: "1" },
   { value: 3, label: "3" },
   { value: 5, label: "5" },
-  { value: 8, label: "8" },
-  { value: 10, label: "10" },
+  { value: 9, label: "9" },
 ];

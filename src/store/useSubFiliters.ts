@@ -20,7 +20,7 @@ type IUseSubFiliters = {
 export const useSubFiliters = create<IUseSubFiliters>((set) => ({
   pageNumber: 1,
   limitProducts: 9,
-  sortProducts: 1,
+  sortProducts: -1,
   searchQuery: "",
   selectedRating: null,
   setSelectedRating: (value) => set(() => ({ selectedRating: value })),
