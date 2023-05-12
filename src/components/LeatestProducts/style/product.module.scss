@@ -1,0 +1,73 @@
+.link {
+  @apply border-0 border-solid min-w-[10px] w-fit px-10 not-italic font-[400] text-[14px] outline-none cursor-pointer my-3 py-[1em]  capitalize rounded-[8px] text-center text-white bg-primary;
+}
+.icons {
+  // @apply h-5 w-5 mr-2 text-blue-500 cursor-pointer mb-3;
+  // @apply hover:text-blue-700 hover:bg-[#EEEFFB] hover:rounded-full;
+  @apply h-auto  w-[34px] p-[5px] mr-2 bg-white text-pink-400 cursor-pointer mb-3;
+  @apply hover:text-primary hover:scale-105 hover:bg-[#EEEFFB] rounded-full;
+  @apply transition-all duration-500 ease-in delay-200;
+}
+
+.productGrid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  transition-all duration-500 ease-in delay-200 w-[95%];
+  .cards {
+    @apply flex flex-col mx-5 mb-16 shadow-md rounded-md items-center justify-center transition-all duration-500 ease-in delay-200 cursor-pointer;
+    .upperPart {
+      @apply relative flex flex-col  w-full h-[100%]  bg-[#F6F7FB] rounded-md  items-center;
+    }
+    .iconsContainer {
+      @apply absolute flex flex-col  transition-all duration-500 ease-in delay-200  left-2 bottom-0 z-20;
+    }
+    .imgContainer {
+      // @apply mt-[30px] w-[200px] overflow-hidden;
+      @apply h-full w-full overflow-hidden rounded-t-md;
+
+      .img {
+        @apply h-[100px] object-cover  transition-all duration-500 ease-in delay-200;
+      }
+    }
+    .textContainer {
+      // overflow-hidden object-cover rounded-md group-hover:scale-105 transition-all duration-500 ease-in delay-200
+      @apply w-full h-full px-3 py-3;
+      .text {
+        @apply hidden;
+      }
+      .h6 {
+        @apply text-[12px] capitalize text-[#151875]  font-bold;
+      }
+    }
+  }
+  .priceRateContainer {
+    @apply flex items-center justify-between;
+  }
+}
+.productList {
+  @apply grid grid-cols-1 transition-all duration-500 ease-in delay-200;
+  .cards {
+    @apply flex  mx-5 mb-16    transition-all duration-500 ease-in delay-200 cursor-pointer;
+    // items-center justify-center
+    .upperPart {
+      @apply relative flex flex-col   h-full  bg-[#F6F7FB] rounded-md  items-center w-[300px];
+    }
+    .iconsContainer {
+      @apply absolute flex flex-col  transition-all duration-500 ease-in delay-200 left-2 bottom-0 z-20;
+    }
+    .imgContainer {
+      @apply w-full h-full overflow-hidden;
+      .img {
+        @apply w-full h-full object-cover  transition-all duration-500 ease-in delay-200;
+      }
+    }
+    .textContainer {
+      @apply flex flex-col gap-y-5 h-full px-10 py-3 w-[70%];
+
+      .h6 {
+        @apply text-xl capitalize text-[#151875]  font-bold;
+      }
+    }
+  }
+  .priceRateContainer {
+    @apply flex items-center gap-5;
+  }
+}

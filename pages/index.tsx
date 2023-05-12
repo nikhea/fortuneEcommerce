@@ -14,6 +14,7 @@ import {
 } from "../src/services/shared/products";
 import { queryKey } from "../src/Hooks/queryKeys";
 import { useFetchProductsByTage } from "../src/Hooks/useProducts/useFetchProductsByTages";
+import LeatestProducts from "../src/components/LeatestProducts/LeatestProducts";
 
 interface Props {
   initialData: {
@@ -31,7 +32,9 @@ const HomePage: FC<Props> = (props) => {
     <div>
       <Hero />
       <FeaturedProducts products={products} />
+
       <Features title="what shopex offer!" />
+      <LeatestProducts />
       <NewletterBanner />
     </div>
   );
