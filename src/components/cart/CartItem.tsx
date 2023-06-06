@@ -29,6 +29,7 @@ const CartItem: FC<Product> = ({
   quantity,
   product,
   _id,
+  slug,
 }) => {
   const { removeCartItem } = useRemoveCartItems();
   const { increaseQuantitys } = increaseCartItemQuantity();
@@ -51,7 +52,7 @@ const CartItem: FC<Product> = ({
         <div className={style.priceRateContainer}>
           <Link
             className="hover:text-primary"
-            href={`${PagesRoutes.products}/${name}`}
+            href={`${PagesRoutes.products}/${slug}`}
           >
             <h2 className="text-sm">{formatProductTitle(name, 20)}</h2>
           </Link>

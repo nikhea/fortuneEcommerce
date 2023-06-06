@@ -73,6 +73,7 @@ const CartDrawer = () => {
                   rating={0}
                   product={cartItem.product}
                   description={""}
+                  slug={cartItem.product.slug}
                 />
               ))
             ) : (
