@@ -13,6 +13,7 @@ const SpecialOffer = ({ SpecialOfferProducts }: any) => {
       rating={product.rating}
       priceSymbol={product.priceSymbol}
       description={product.description}
+      slug={product.slug}
     />
   ));
   return <LeatestProductCard displayProduct={displayProduct} />;
