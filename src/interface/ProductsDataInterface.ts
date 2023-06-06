@@ -20,7 +20,7 @@ export type Product = {
 };
 export type IRelatedProductItem = {
   _id: string;
-  slug: string;
+  // slug: string;
   image: string | StaticImageData;
   name: string;
   price: number;
