@@ -30,6 +30,8 @@ const mainNav = () => {
   const { setCartDrawer } = useCartDrawerState();
   const { setMobileMenuState } = useMobileMenuStateState();
   const [background, setBackground] = useState(false);
+  console.log(cart);
+
   const ChangeBackground = () => {
     if (window.scrollY >= 90) {
       setBackground(true);
@@ -53,6 +55,14 @@ const mainNav = () => {
       </Link>
     </li>
   ));
+  let displayCartTotal;
+  if (cart && cart.items !== undefined) {
+    displayCartTotal = cart.items.length > 0 && (
+      <span className="absolute left-[12px] top-[-5px] bg-primary  w-5 h-5 rounded-full flex justify-center items-center">
+        <h1 className="text-[12px] text-white">{getTotalQuantity()}</h1>
+      </span>
+    );
+  }
   return (
     <div
       className={` ${style.mainHeaderBgNormal} ${
@@ -84,12 +94,7 @@ const mainNav = () => {
             className={`${style.subHeader__content} relative cursor-pointer`}
           >
             <ShoppingCartIcon className={style.icons} />
-
-            {cart.items.length > 0 && (
-              <span className="absolute left-[12px] top-[-5px] bg-primary  w-5 h-5 rounded-full flex justify-center items-center">
-                <h1 className="text-[12px] text-white">{getTotalQuantity()}</h1>
-              </span>
-            )}
+            {displayCartTotal}
           </div>
           {isTabletOrMobile && (
             <div
