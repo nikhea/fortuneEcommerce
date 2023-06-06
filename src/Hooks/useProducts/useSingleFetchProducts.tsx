@@ -8,6 +8,8 @@ interface Props {
 }
 
 export const useSingleFetchProducts = (props: Props) => {
+  console.log(props, "signle");
+
   const { data: product } = useQuery(
     [queryKey.products, props.id],
     () => fetchSingleProducts(props.id),

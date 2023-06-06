@@ -20,7 +20,6 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   price,
   rating,
   priceSymbol,
-  description,
   product,
 }) => {
   let CartisLoading = true;
@@ -54,7 +53,7 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
           <span className="mr-1"> {priceSymbol}</span>
           {formatToCurrency(price)}
         </h2>
-        <p>{description}</p>
+        <p>{product.shortDescription}</p>
         <div className="flex items-center text-primary">
           <CheckCircleIcon className={`${style.icons} h-6 w-6 mr-2`} />
           <h5>shop secure, free return</h5>

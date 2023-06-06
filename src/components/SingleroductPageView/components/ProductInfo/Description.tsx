@@ -1,7 +1,7 @@
-import React from "react";
+import parse from "html-react-parser";
 
-const description = () => {
-  return <div>description</div>;
+const Description = ({ description }: any) => {
+  return <div>{parse(description)}</div>;
 };
 
-export default description;
+export default Description;

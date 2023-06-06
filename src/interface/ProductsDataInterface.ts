@@ -3,6 +3,7 @@ import { StaticImageData } from "next/image";
 export type Product = {
   _id: string;
   name: string;
+  slug: string;
   coverPhoto?: any;
   image?: any;
   images?: string[];
@@ -19,6 +20,7 @@ export type Product = {
 };
 export type IRelatedProductItem = {
   _id: string;
+  slug: string;
   image: string | StaticImageData;
   name: string;
   price: number;
@@ -27,11 +29,13 @@ export type IRelatedProductItem = {
 };
 export type SingleInfoPageComponentProduct = {
   _id: string;
+  slug: string;
   name: string;
   price: number;
   rating: number;
   priceSymbol: string;
   description: string;
+  shortDescription: string;
   quantity?: number;
   product?: any;
 };

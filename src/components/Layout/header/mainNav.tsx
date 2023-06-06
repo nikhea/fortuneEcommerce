@@ -30,7 +30,6 @@ const mainNav = () => {
   const { setCartDrawer } = useCartDrawerState();
   const { setMobileMenuState } = useMobileMenuStateState();
   const [background, setBackground] = useState(false);
-
   const ChangeBackground = () => {
     if (window.scrollY >= 90) {
       setBackground(true);

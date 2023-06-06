@@ -17,6 +17,7 @@
     "date-fns": "^2.30.0",
     "framer-motion": "^10.3.1",
     "googleapis": "^114.0.0",
+    "html-react-parser": "^4.0.0",
     "next": "latest",
     "nextjs-progressbar": "^0.0.16",
     "nprogress": "^0.2.0",

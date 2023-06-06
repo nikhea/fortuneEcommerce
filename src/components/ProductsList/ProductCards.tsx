@@ -19,6 +19,7 @@ const ProductCards: FC<ProductCardsProps> = ({ products }) => {
       rating={product.rating}
       priceSymbol={product.priceSymbol}
       description={product.description}
+      slug={product.slug}
     />
   ));
 

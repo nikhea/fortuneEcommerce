@@ -22,12 +22,15 @@ const ProductListItem: FC<Product> = ({
   images,
   description,
   price,
+  slug,
   rating,
   priceSymbol,
 }) => {
+  console.log(slug, "products");
+
   const queryClient = useQueryClient();
-  const showProductModal = (id: any) => {
-    NiceModal.show("product-modal", { productId: id });
+  const showProductModal = (slug: any) => {
+    NiceModal.show("product-modal", { slug });
   };
   const productFetch = (id: any) => {
     queryClient.prefetchQuery({
@@ -38,7 +41,7 @@ const ProductListItem: FC<Product> = ({
   return (
     <div
       className={`${style.cards} group `}
-      onMouseEnter={() => productFetch(_id)}
+      onMouseEnter={() => productFetch(slug)}
     >
       <div className={style.upperPart}>
         <div
@@ -48,7 +51,7 @@ const ProductListItem: FC<Product> = ({
           <HeartIcon className={style.icons} />
           <MagnifyingGlassPlusIcon
             className={style.icons}
-            onClick={() => showProductModal(name)}
+            onClick={() => showProductModal(slug)}
           />
         </div>
         <div className={style.imgContainer}>
@@ -63,7 +66,7 @@ const ProductListItem: FC<Product> = ({
         </div>
       </div>
       <div className={style.textContainer}>
-        <Link href={`${PagesRoutes.products}/${name}`}>
+        <Link href={`${PagesRoutes.products}/${slug}`}>
           <h6 className={style.h6}>{name}</h6>
         </Link>
         <p className={style.text}>{description}</p>

@@ -22,6 +22,7 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
   rating,
   priceSymbol,
   description,
+  shortDescription,
   product,
 }) => {
   const { reviews, isLoading } = useFetchProductReviews(_id);
@@ -55,7 +56,7 @@ const TextContainer: FC<SingleInfoPageComponentProduct> = ({
           <span className="mr-1"> {priceSymbol}</span>
           {formatToCurrency(price)}
         </h2>
-        <p>{description}</p>
+        <p>{shortDescription}</p>
         <div className="flex items-center text-primary">
           <CheckCircleIcon className={style.icons} />
           <h5>shop secure, free return</h5>

@@ -35,23 +35,15 @@ const FeaturedProductCardsItems: FC<Product> = ({
   priceSymbol,
   product,
 }) => {
+  const { slug } = product;
   const queryClient = useQueryClient();
   const { AddCart, AddCartisLoading } = useAddToCart();
   const { AddWishlist, AddWishlistisLoading } = useAddWishlist();
   const handleAddToCart = (product: any, quantity: number, _id: string) => {
-    // addToCart({
-    //   product,
-    //   quantity,
-    //   _id,
-    // });
-
     AddCart(product);
   };
-  const handleAddLike = () => {
-    console.log("like");
-  };
-  const showProductModal = (id: any) => {
-    NiceModal.show("product-modal", { productId: id });
+  const showProductModal = (slug: any) => {
+    NiceModal.show("product-modal", { slug });
   };
   const productFetch = (id: any) => {
     queryClient.prefetchQuery({
@@ -62,7 +54,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
 
   return (
     <div
-      onMouseEnter={() => productFetch(_id)}
+      onMouseEnter={() => productFetch(slug)}
       className={`${style.cards} group transition-all duration-500 ease-in delay-200 hover:cursor-pointer h-[500]`}
     >
       <div className="relative flex flex-col  w-full h-full  bg-[#F6F7FB] rounded-md  items-center  ">
@@ -87,7 +79,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
           {/* <div className="flex items-center justify-center h-full p-1 bg-red-200 rounded-full "> */}
           <MagnifyingGlassPlusIcon
             className={style.icons}
-            onClick={() => showProductModal(name)}
+            onClick={() => showProductModal(slug)}
           />
           {/* </div> */}
         </div>
@@ -111,7 +103,7 @@ const FeaturedProductCardsItems: FC<Product> = ({
         </Link> */}
       </div>
       <div className="w-full h-full px-3 py-3 ">
-        <Link href={`${PagesRoutes.products}/${name}`}>
+        <Link href={`${PagesRoutes.products}/${slug}`}>
           <h6 className=" text-md capitalize text-[#151875]  font-bold  ">
             {name}
           </h6>

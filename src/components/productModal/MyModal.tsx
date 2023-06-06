@@ -13,16 +13,10 @@ interface modals {
   setIsOpen?: any;
 }
 
-const ModalComponent: FC = NiceModal.create<any>(({ productId }) => {
-  console.log(productId);
-
-  const { data: product, isLoading } = useQuery(
-    [queryKey.products, productId],
-    () => fetchSingleProducts(productId)
+const ModalComponent: FC = NiceModal.create<any>(({ slug }) => {
+  const { data: product, isLoading } = useQuery([queryKey.products, slug], () =>
+    fetchSingleProducts(slug)
   );
-  if (product) {
-    console.log(product.data);
-  }
 
   const modal = useModal();
 

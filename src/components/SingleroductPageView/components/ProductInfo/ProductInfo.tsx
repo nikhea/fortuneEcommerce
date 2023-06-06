@@ -34,6 +34,7 @@ const ProductInfo: FC<IProductInfo> = ({
   //   () => FetchYoutubeData(productName),
   //   { ...defaultQueryOptions }
   // );
+
   return (
     <div className="p-5 my-10 bg-gray-100 rounded-md shadow-md">
       <ProductInfoHeader step={step} setStep={setStep} />
@@ -41,7 +42,7 @@ const ProductInfo: FC<IProductInfo> = ({
         {(() => {
           switch (step) {
             case 0:
-            return <Description />;
+              return <Description description={product.description} />;
             case 1:
               return (
                 <AdditionalInformation
@@ -54,9 +55,9 @@ const ProductInfo: FC<IProductInfo> = ({
             case 2:
             // return <Videos YouTubeVideo={YouTubeVideo} />;
             case 3:
-            return <Reviews productId={productId} />;
+              return <Reviews productId={productId} />;
             default:
-            return <Description />;
+              return <Description description={product.description} />;
           }
         })()}
       </div>

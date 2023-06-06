@@ -12,11 +12,11 @@ const ImageContainer = ({ images }: any) => {
       className=" cursor-pointer mx-3 rounded-xl"
     >
       <Image
-        src={image}
+        src={image.secure_url}
         blurDataURL={image.blurDataURL}
         width={100}
         height={100}
-        alt={""}
+        alt={image.path}
         className="rounded-xl"
       />
     </div>
@@ -27,7 +27,7 @@ const ImageContainer = ({ images }: any) => {
       <div className=" h-full  mb-5">
         <Zoom>
           <Image
-            src={images[idx]}
+            src={images[idx].secure_url}
             blurDataURL={images[idx].blurDataURL}
             layout="responsive"
             width={900}

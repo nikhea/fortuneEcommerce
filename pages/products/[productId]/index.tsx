@@ -25,6 +25,8 @@ const ProductPage = (props: Props) => {
   // if (router.isFallback) {
   //   return <div>Loading...</div>;
   // }
+  console.log(product);
+
   return (
     <div className="container my-5">
       <div className="grid grid-cols-1 bg-gray-100 rounded-md shadow-md lg:grid-cols-2 gap-x-5">
@@ -36,8 +38,10 @@ const ProductPage = (props: Props) => {
           rating={product.rating}
           priceSymbol={product.priceSymbol}
           description={product.description}
+          shortDescription={product.shortDescription}
           quantity={0}
           product={product}
+          slug={product.slug}
         />
       </div>
       <ProductInfo
@@ -54,7 +58,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const products = await fetchProducts();
   const filiterProducts = products?.data.results[0].data || [];
   const paths = filiterProducts.map((product: any) => ({
-    params: { productId: product.name.toString() },
+    params: { productId: product.slug.toString() },
   }));
   return { paths, fallback: false };
 };
@@ -62,7 +66,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const SingleproductId = params?.productId;
   const queryClient = new QueryClient();
 
-  // await queryClient.prefetchQuery(["products"], () => fetchProducts(1, 9, 1));
   await queryClient.prefetchQuery([queryKey.products], () => fetchProducts());
 
   await queryClient.prefetchQuery(["products", SingleproductId], () =>
@@ -83,64 +86,3 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default ProductPage;
-
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const products = await fetchProducts();
-
-//   const paths = products?.data.map((product: any) => ({
-//     params: { productId: product._id.toString() },
-//   }));
-
-//   return { paths, fallback: false };
-// };
-
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   const SingleproductId = params?.productId;
-//   const queryClient = new QueryClient();
-//   await queryClient.prefetchQuery(["products"], fetchProducts);
-
-//   await queryClient.prefetchQuery(["products", SingleproductId], () =>
-//     fetchSingleProducts(SingleproductId)
-//   );
-//   const ProductsData = await fetchSingleProducts(SingleproductId);
-//   console.log(ProductsData, "Products");
-
-//   return {
-//     props: {
-//       dehydratedState: dehydrate(queryClient),
-//       initialData: {
-//         product: ProductsData,
-//       },
-//       id: SingleproductId,
-//     },
-
-//     revalidate: 10,
-//   };
-// };
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   return {
-//     paths: [],
-//     fallback: true,
-//   };
-// };
-
-// export async function getServerSideProps(context: { params: any }) {
-//   const { params } = context;
-//   const SingleproductId = params?.productId;
-//   const queryClient = new QueryClient();
-//   await queryClient.prefetchQuery(["products"], fetchProducts);
-
-//   await queryClient.prefetchQuery(["products", SingleproductId], () =>
-//     fetchSingleProducts(SingleproductId)
-//   );
-//   const product = await fetchSingleProducts(SingleproductId);
-//   return {
-//     props: {
-//       dehydratedState: dehydrate(queryClient),
-//       initialData: {
-//         product,
-//       },
-//       id: SingleproductId,
-//     },
-//   };
-// }

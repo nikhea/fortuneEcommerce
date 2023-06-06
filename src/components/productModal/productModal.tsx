@@ -29,6 +29,8 @@ const productModal = ({ product }: any) => {
           description={product.description}
           product={product}
           quantity={product.quantity}
+          slug={product.slug}
+          shortDescription={product.shortDescription}
         />
       </div>
     </>

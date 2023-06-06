@@ -23,7 +23,6 @@ const wishList = (props: Props) => {
   if (isLoading) {
     return <PageLoading />;
   }
-  console.log(wishlist);
   // const result = wishlist.map((item: any) => (
   //   <WishList key={item._id} WishListId={item._id} product={item.product} />
   // ));

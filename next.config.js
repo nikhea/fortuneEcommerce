@@ -13,6 +13,8 @@ module.exports = {
       "images.unsplash.com",
       "media.istockphoto.com",
       "ng.jumia.is",
+      "www.datarecovery.co.nz",
+      "res.cloudinary.com",
     ],
   },
 };

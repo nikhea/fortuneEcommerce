@@ -15,6 +15,7 @@ import {
 import { queryKey } from "../src/Hooks/queryKeys";
 import { useFetchProductsByTage } from "../src/Hooks/useProducts/useFetchProductsByTages";
 import LeatestProducts from "../src/components/LeatestProducts/LeatestProducts";
+import CategoriesGrid from "../src/components/categoriesGrid/CategoriesGrid";
 
 interface Props {
   initialData: {
@@ -31,6 +32,7 @@ const HomePage: FC<Props> = (props) => {
   return (
     <div>
       <Hero />
+      {/* <CategoriesGrid categories={categories} /> */}
       <FeaturedProducts products={products} />
 
       <Features title="what shopex offer!" />
