@@ -15,7 +15,7 @@ const ThreeColumnHome = ({ products }: any) => {
         key={product._id}
         className="flex align-baseline text-[#151875] gap-2  items-center"
       >
-        <div className=" flex  rounded-md   bg-secondary shadow-md p-3">
+        <div className="flex p-3 rounded-md shadow-md  bg-secondary">
           <Image
             src={product.coverPhoto}
             alt={product.name}
@@ -25,7 +25,7 @@ const ThreeColumnHome = ({ products }: any) => {
         </div>
         <div>
           <Link href={`${PagesRoutes.products}/${product.slug}`}>
-            <h1 className=" font-bold">
+            <h1 className="font-bold ">
               {product.name.length > 20
                 ? `${product.name.slice(0, 30)}...`
                 : product.name}
@@ -41,7 +41,7 @@ const ThreeColumnHome = ({ products }: any) => {
     ));
   return (
     <div className="container mb-72 ">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 rounded-md">
+      <div className="grid grid-cols-1 gap-3 rounded-md md:grid-cols-2 lg:grid-cols-3">
         <div className={`${first.bgColor} ${style.dateCardItems} `}>
           <h1>{first.title}</h1>
           <p>
@@ -60,10 +60,8 @@ const ThreeColumnHome = ({ products }: any) => {
         </div>
         <div className={`${second.bgColor} ${style.dateCardItems} `}>
           <h1>{second.title}</h1>
-          <p>
-            {second.linkText}
-            <hr className=" w-[115px]" />
-          </p>
+          <p>{second.linkText}</p>
+          <hr className=" w-[115px]" />
           <div className={`${style.imageContainer}`}>
             <Image
               className=""
@@ -74,7 +72,7 @@ const ThreeColumnHome = ({ products }: any) => {
             />
           </div>
         </div>
-        <div className="w-full gap-y-2 overflow-x-hidden   flex flex-col justify-between">
+        <div className="flex flex-col justify-between w-full overflow-x-hidden gap-y-2">
           {displayProducts}
         </div>
       </div>

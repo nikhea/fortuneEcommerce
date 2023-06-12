@@ -75,3 +75,6 @@ li {
 .swiper-content {
   height: 100% !important;
 }
+.swiper-backface-hidden .swiper-slide {
+  height: auto;
+}

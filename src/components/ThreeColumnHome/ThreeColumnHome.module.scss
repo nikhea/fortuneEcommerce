@@ -4,11 +4,11 @@
     @apply text-3xl text-[#151875] font-medium;
   }
   p {
-    @apply text-xl text-primary font-medium   pb-2 cursor-pointer w-fit;
-    hr {
-      @apply border-t-[1px] border-primary;
-      width: 115px;
-    }
+    @apply text-xl text-primary font-medium  cursor-pointer w-fit;
+  }
+  hr {
+    @apply border-t-[1px] border-primary;
+    width: 115px;
   }
 }
 

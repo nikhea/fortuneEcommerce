@@ -43,10 +43,15 @@ export const addToCartServer = async (product: any) => {
           message: data.message,
         });
       }
-    } catch (err) {
+    } catch (error: any) {
       useCartState.getState().removeFromCart(product._id);
       // cartStore.removeFromCart(product._id);
-      reject(err);
+      const { message } = error?.response?.data;
+      notify({
+        type: "error",
+        message: message,
+      });
+      reject(error);
     }
   });
 };

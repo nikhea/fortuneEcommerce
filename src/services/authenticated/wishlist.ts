@@ -2,6 +2,22 @@ import { storage } from "../../auth/utils";
 import axios from "../../lib/axios";
 import { notify } from "../../utils/notify";
 
+export type Error = {
+  error: {
+    response: {
+      data: {
+        message: string;
+      };
+    };
+  };
+};
+interface CustomError {
+  response?: {
+    data?: {
+      message?: any;
+    };
+  };
+}
 const PAGE_SIZE = 2;
 export const fetchWishlist = async ({ pageParam = 1 }) => {
   const { data } = await axios.get(
@@ -27,34 +43,42 @@ export const fetchWishlist = async ({ pageParam = 1 }) => {
 // };
 
 export const addToWishlist = async (productId: string) => {
-  const { data } = await axios.post(
-    "wishlist",
-    { productId },
-    {
-      headers: {
-        Authorization: `Bearer ${storage.getToken()}`,
-      },
+  try {
+    const { data } = await axios.post(
+      "wishlist",
+      { productId },
+      {
+        headers: {
+          Authorization: `Bearer ${storage.getToken()}`,
+        },
+      }
+    );
+    if (data.statuscode === 409) {
+      notify({
+        type: "info",
+        message: data.message,
+      });
     }
-  );
-  if (data.statuscode === 409) {
-    notify({
-      type: "info",
-      message: data.message,
-    });
-  }
-  if (data.statuscode === 201) {
-    notify({
-      type: "success",
-      message: data.message,
-    });
-  }
-  if (data.statuscode === 400) {
+    if (data.statuscode === 201) {
+      notify({
+        type: "success",
+        message: data.message,
+      });
+    }
+    if (data.statuscode === 400) {
+      notify({
+        type: "error",
+        message: data.message,
+      });
+    }
+    return data.data;
+  } catch (error: any) {
+    const { message } = error?.response?.data
     notify({
       type: "error",
-      message: data.message,
+      message: message,
     });
   }
-  return data.data;
 };
 export const removeWishlist = async (id: string) => {
   const { data } = await axios.delete(`wishlist/${id}`, {

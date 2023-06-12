@@ -1,0 +1,5 @@
+.icons {
+  @apply h-auto  w-[34px] p-[5px] mr-2 bg-white text-pink-400 cursor-pointer mb-3;
+  @apply hover:text-primary hover:scale-105 hover:bg-[#EEEFFB] rounded-full;
+  @apply transition-all duration-500 ease-in delay-200;
+}
