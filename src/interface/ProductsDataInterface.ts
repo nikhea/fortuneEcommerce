@@ -11,6 +11,7 @@ export type Product = {
   rating: number;
   priceSymbol: string;
   description: string;
+  shortDescription?: string;
   status?: string;
   product?: any;
   quantity?: number;

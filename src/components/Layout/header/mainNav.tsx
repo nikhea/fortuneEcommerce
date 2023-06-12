@@ -70,9 +70,19 @@ const mainNav = () => {
       }`}
     >
       <div className={`${style.mainHeader} container`}>
+        {/* <span className="flex items-center "> */}
+        {isTabletOrMobile && (
+          <div
+            onClick={() => setMobileMenuState(true)}
+            className={`${style.subHeader__content} relative cursor-pointer`}
+          >
+            <Bars3Icon className={style.icons} />
+          </div>
+        )}
         <Link href={PagesRoutes.home} shallow>
           <HeaderIcon />
         </Link>
+        {/* </span> */}
         {isDesktopOrLaptop && <ul className="hidden">{displayNameItems}</ul>}
         <div className={style.subHeaderLeft}>
           {isDesktopOrLaptop && (
@@ -96,14 +106,14 @@ const mainNav = () => {
             <ShoppingCartIcon className={style.icons} />
             {displayCartTotal}
           </div>
-          {isTabletOrMobile && (
+          {/* {isTabletOrMobile && (
             <div
               onClick={() => setMobileMenuState(true)}
               className={`${style.subHeader__content} relative cursor-pointer`}
             >
               <Bars3Icon className={style.icons} />
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>

@@ -1,0 +1,17 @@
+.dateCardItems {
+  @apply relative w-full p-5 rounded-lg;
+  h1 {
+    @apply text-3xl text-[#151875] font-medium;
+  }
+  p {
+    @apply text-xl text-primary font-medium   pb-2 cursor-pointer w-fit;
+    hr {
+      @apply border-t-[1px] border-primary;
+      width: 115px;
+    }
+  }
+}
+
+.imageContainer {
+  @apply flex items-end justify-end h-[80%];
+}

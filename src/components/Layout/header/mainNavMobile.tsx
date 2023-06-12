@@ -33,11 +33,11 @@ const mainNavMobile = () => {
     <Drawer
       open={MobileMenuState}
       onClose={toggleDrawer}
-      direction="top"
+      direction="left"
       duration={1000}
       style={{
-        width: isDesktopOrLaptop ? "40vw" : "100vw",
-        height: "50%",
+        width: isDesktopOrLaptop ? "40vw" : "80%",
+        height: "100%",
         zIndex: "99999999999999999",
         overflow: "hidden",
         // background: "pink",

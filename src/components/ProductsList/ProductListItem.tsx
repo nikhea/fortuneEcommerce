@@ -21,13 +21,12 @@ const ProductListItem: FC<Product> = ({
   coverPhoto,
   images,
   description,
+  shortDescription,
   price,
   slug,
   rating,
   priceSymbol,
 }) => {
-  console.log(slug, "products");
-
   const queryClient = useQueryClient();
   const showProductModal = (slug: any) => {
     NiceModal.show("product-modal", { slug });
@@ -61,7 +60,7 @@ const ProductListItem: FC<Product> = ({
             layout="responsive"
             width={900}
             height={900}
-            className={`${style.img} group-hover:scale-110`}
+            className={`${style.img} h-auto group-hover:scale-110`}
           />
         </div>
       </div>
@@ -69,7 +68,7 @@ const ProductListItem: FC<Product> = ({
         <Link href={`${PagesRoutes.products}/${slug}`}>
           <h6 className={style.h6}>{name}</h6>
         </Link>
-        <p className={style.text}>{description}</p>
+        <p className={style.text}>{shortDescription}</p>
         <div className={style.priceRateContainer}>
           <h2>
             <span className="mr-1"> {priceSymbol}</span>
