@@ -31,8 +31,14 @@ export type ISliderCard = {
   ProductsData: any;
   title: string;
   cardLink: string;
+  backgroundColor: string;
 };
-const SliderCard: FC<ISliderCard> = ({ ProductsData, title, cardLink }) => {
+const SliderCard: FC<ISliderCard> = ({
+  ProductsData,
+  title,
+  cardLink,
+  backgroundColor,
+}) => {
   const { isDesktopOrLaptop } = useDeviceProperties();
   const displayProducts = ProductsData.slice(0, 8).map((product: any) => (
     <SwiperSlide key={product._id}>
@@ -49,7 +55,9 @@ const SliderCard: FC<ISliderCard> = ({ ProductsData, title, cardLink }) => {
   ));
   return (
     <div className="my-5 rounded-md shadow-md bg-secondary">
-      <div className="flex items-center justify-between px-5 py-3 bg-green-200 rounded-t-md">
+      <div
+        className={`flex items-center justify-between px-5 py-3 ${backgroundColor} rounded-t-md`}
+      >
         <h1 className="text-xl capitalize">{title}</h1>
         <Link href={cardLink} className="flex items-center uppercase">
           see all <ChevronRightIcon className="w-5 h-5 ml-2" />
