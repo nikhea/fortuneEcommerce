@@ -11,12 +11,15 @@ import useFetchSingleCategories from "../../../src/Hooks/useCategories/useFetchS
 
 const index = (props: any) => {
   // const category = useFetchSingleCategories(props);
-  // console.log(props);
-  return <div>index</div>;
+  return (
+    <div>
+      <h1>index {props.id}</h1>
+      <div>{JSON.stringify(props)}</div>
+    </div>
+  );
 };
 export const getStaticPaths: GetStaticPaths = async () => {
   const category = await fetchCategories();
-  console.log(category);
   const categories = category?.data || [];
   const paths = categories.map((category: any) => ({
     params: { shopId: category.name.toString() },
