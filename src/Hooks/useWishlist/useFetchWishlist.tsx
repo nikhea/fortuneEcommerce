@@ -22,6 +22,7 @@ export const useFetchWishlist = (props?: Props) => {
       }
       return undefined;
     },
+    refetchOnMount: true,
   });
 
   return {

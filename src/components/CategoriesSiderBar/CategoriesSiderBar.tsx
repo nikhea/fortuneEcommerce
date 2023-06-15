@@ -1,6 +1,7 @@
 import style from "./style/CategoriesSiderBar.module.scss";
 import Link from "next/link";
 import { categoriesRoutes } from "../../routes/CategoriesRoutes";
+import { PagesRoutes } from "../../routes/ PagesRoutes";
 
 const ProductSiderBar = () => {
   const displayCategoriesData = categoriesRoutes.map((categories, index) => {
@@ -9,7 +10,10 @@ const ProductSiderBar = () => {
         key={index}
         className="my-0  group w-full hover:text-primary  py-3 h-fit px-2 m-auto"
       >
-        <Link href={`${categories.name}`} className="flex items-center">
+        <Link
+          href={`${PagesRoutes.shop}/${categories.name}`}
+          className="flex items-center"
+        >
           <span className={style.icons}>{categories.icon}</span>
           <h1> {categories.name}</h1>
         </Link>
