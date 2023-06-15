@@ -11,7 +11,7 @@ export const useFetchCategories = (props: Props) => {
     [queryKey.categories],
     fetchCategories, // replace with your actual fetch function
     {
-      //   initialData: props.initialData.categories,
+      initialData: props?.initialData?.categories,
       refetchOnMount: true,
     }
   );

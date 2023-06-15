@@ -106,6 +106,9 @@ export async function getStaticProps() {
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
+      initialData: {
+        products: queryClient.getQueryData(["products"]),
+      },
     },
 
     revalidate: 10,

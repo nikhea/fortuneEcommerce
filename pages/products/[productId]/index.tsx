@@ -25,8 +25,6 @@ const ProductPage = (props: Props) => {
   // if (router.isFallback) {
   //   return <div>Loading...</div>;
   // }
-  console.log(product);
-
   return (
     <div className="container my-5">
       <div className="grid grid-cols-1 bg-gray-100 rounded-md shadow-md lg:grid-cols-2 gap-x-5">
@@ -49,7 +47,7 @@ const ProductPage = (props: Props) => {
         productId={product._id}
         product={product}
       />
-      <RelatedProduct />
+      {/* <RelatedProduct /> */}
     </div>
   );
 };

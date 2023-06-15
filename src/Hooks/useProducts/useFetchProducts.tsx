@@ -41,6 +41,7 @@ export const useFetchProducts = (props: Props) => {
     [queryKey.products, filterProducts],
     () => fetchProducts(filterProducts),
     {
+      initialData: props?.initialData?.products,
       keepPreviousData: true,
       refetchOnMount: true,
     }

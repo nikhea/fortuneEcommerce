@@ -4,8 +4,18 @@ import SliderCard from "../../src/components/Slider/SliderCard";
 import { dummyProductsData } from "../../src/seed/seedDB";
 import { PagesRoutes } from "../../src/routes/ PagesRoutes";
 import CardGrid from "../../src/components/shopComponents/CardGrid/CardGrid";
+import { QueryClient, dehydrate } from "@tanstack/react-query";
+import { queryKey } from "../../src/Hooks/queryKeys";
+import { fetchCategories } from "../../src/services/shared/categories";
+import {
+  fetchProducts,
+  fetchProductsByTages,
+} from "../../src/services/shared/products";
+import { useFetchCategories } from "../../src/Hooks/useFetchCategories";
 
-const ShopPage = () => {
+const ShopPage = (props: any) => {
+  const categories = useFetchCategories(props);
+
   return (
     <div className="container">
       <Header />
@@ -53,6 +63,29 @@ const ShopPage = () => {
 };
 
 export default ShopPage;
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery([queryKey.categories], fetchCategories);
+
+  await queryClient.prefetchQuery([queryKey.products], () => fetchProducts());
+  //@ts-ignore
+  await queryClient.prefetchQuery(
+    [queryKey.productsTage],
+    fetchProductsByTages
+  );
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+      initialData: {
+        categories: queryClient.getQueryData(["categories"]),
+        products: queryClient.getQueryData(["products"]),
+      },
+    },
+
+    revalidate: 10,
+  };
+}
 
 const ItemData = [
   {

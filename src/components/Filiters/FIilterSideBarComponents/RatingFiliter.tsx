@@ -9,7 +9,6 @@ const RatingFilter = () => {
     setSelectedRating(value);
     // console.log("Selected rating:", value);
   };
-  console.log(selectedRating);
 
   const displayValue = defalutValue.map((value, index) => (
     <div key={index} className="">

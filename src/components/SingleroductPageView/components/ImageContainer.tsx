@@ -9,7 +9,7 @@ const ImageContainer = ({ images }: any) => {
     <div
       key={index}
       onClick={() => setIdx(index)}
-      className=" cursor-pointer mx-3 rounded-xl"
+      className="mx-3 cursor-pointer  rounded-xl"
     >
       <Image
         src={image.secure_url}
@@ -24,7 +24,7 @@ const ImageContainer = ({ images }: any) => {
   return (
     // grid place-content-start place-items-center
     <div className=" h-full  rounded-l-md  pb-5 pt-6  w-[95%] m-auto grid place-content-center place-items-center">
-      <div className=" h-full  mb-5">
+      <div className="h-full mb-5 ">
         <Zoom>
           <Image
             src={images[idx].secure_url}
@@ -37,7 +37,7 @@ const ImageContainer = ({ images }: any) => {
         </Zoom>
       </div>
 
-      <div className="h-full  flex justify-center">{displayImages}</div>
+      <div className="flex justify-center h-full">{displayImages}</div>
     </div>
   );
 };
