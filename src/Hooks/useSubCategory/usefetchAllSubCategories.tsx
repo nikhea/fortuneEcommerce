@@ -3,12 +3,9 @@ import { fetchAllSubCategories } from "../../services/shared/subcategories";
 import { queryKey } from "../queryKeys";
 
 const usefetchAllSubCategories = () => {
-  const { data: subCategories } = useQuery(
-    [queryKey.subcategory],
-    fetchAllSubCategories
-  );
+  const subCategories = useQuery([queryKey.subcategory], fetchAllSubCategories);
 
-  return subCategories;
+  return subCategories.data;
 };
 
 export default usefetchAllSubCategories;

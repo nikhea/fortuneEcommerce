@@ -8,7 +8,6 @@ const style = {
   btn: `  @apply border-0  border-solid  min-w-[10px] text-center  rounded-[8px] text-white  bg-primary  not-italic font-[400] text-sm outline-none cursor-pointer  py-[1em] px-[2em] capitalize   h-full  `,
 };
 const NotFound = () => {
-  console.log(NotFoundImage);
   return (
     <div className="container grid w-full h-full place-content-center">
       <Image
