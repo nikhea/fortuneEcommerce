@@ -87,7 +87,7 @@ export async function getStaticProps() {
   };
 }
 
-const ItemData = [
+export const ItemData = [
   {
     title: "android phone",
     image:

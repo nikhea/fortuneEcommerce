@@ -9,13 +9,27 @@ import {
 } from "../../../src/services/shared/categories";
 import useFetchSingleCategories from "../../../src/Hooks/useCategories/useFetchSingleCategories";
 
+import { PagesRoutes } from "../../../src/routes/ PagesRoutes";
+import { ItemData } from "..";
+import CardGrid from "../../../src/components/shopComponents/CardGrid/CardGrid";
+import SubCategoriesList from "../../../src/components/shopSinglePage/SubCategoriesList";
+import Banner from "../../../src/components/Banner/Banner";
+
 const index = (props: any) => {
-  // const category = useFetchSingleCategories(props);
+  const category = useFetchSingleCategories(props);
+
   return (
-    <div>
-      <h1>index {props.id}</h1>
-      <div>{JSON.stringify(props)}</div>
-    </div>
+    <>
+      <Banner image={category.coverPhoto} title={props.id} />
+      <div className="container">
+        <SubCategoriesList category={category} ID={props.id} />
+        <CardGrid
+          ItemsData={ItemData}
+          title="Phone Deals"
+          backgroundColor="bg-green-200"
+        />
+      </div>
+    </>
   );
 };
 export const getStaticPaths: GetStaticPaths = async () => {

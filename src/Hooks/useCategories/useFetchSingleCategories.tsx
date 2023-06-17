@@ -6,13 +6,22 @@ import { fetchSingleCategories } from "../../services/shared/categories";
 interface IProps {
   name?: string | undefined;
 }
-
-const useFetchSingleCategories = (name: string) => {
-  const { data: Category } = useQuery([queryKey.categories, name], () =>
-    fetchSingleCategories(name)
+interface Props {
+  initialData: any;
+  id: string | undefined;
+  name: string;
+}
+const useFetchSingleCategories = (props: Props) => {
+  const { data: Category } = useQuery(
+    [queryKey.categories, props.id],
+    () => fetchSingleCategories(props.id),
+    {
+      initialData: props?.initialData?.category,
+      refetchOnMount: true,
+    }
   );
 
-  return Category;
+  return Category?.data;
 };
 
 export default useFetchSingleCategories;

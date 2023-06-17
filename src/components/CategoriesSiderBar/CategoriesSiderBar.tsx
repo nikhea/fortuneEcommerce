@@ -8,7 +8,7 @@ const ProductSiderBar = () => {
     return (
       <li
         key={index}
-        className="my-0  group w-full hover:text-primary  py-3 h-fit px-2 m-auto"
+        className="w-full px-2 py-3 m-auto my-0 group hover:text-primary h-fit"
       >
         <Link
           href={`${PagesRoutes.shop}/${categories.name}`}
@@ -24,15 +24,15 @@ const ProductSiderBar = () => {
             {categories.subcategories.map((subcategory, index) => (
               <div key={index}>
                 <Link
-                  href={`${subcategory.subName}`}
+                  href={`${PagesRoutes.shop}/${categories.name}/${subcategory.subName}`}
                   className="uppercase !w-full inline-block border-b-[1px] border-b-gray-200 mb-2 hover:text-primary overflow-hidden "
                 >
                   {subcategory.subName}
                 </Link>
                 {subcategory.subLinks.map((link, index) => (
                   <Link
-                    href={`${link}`}
-                    className="flex flex-col capitalize mb-1 w-fit hover:text-primary text-sm overflow-hidden"
+                    href={`${PagesRoutes.shop}/${categories.name}/${link}`}
+                    className="flex flex-col mb-1 overflow-hidden text-sm capitalize w-fit hover:text-primary"
                     key={index}
                   >
                     {link}
