@@ -6,6 +6,13 @@ type IUseSubFiliters = {
   sortProducts: number;
   searchQuery: string;
   selectedRating: number | null;
+  minPrice: number | null;
+  maxPrice: number | null;
+  selectedValue: number | null;
+  setMinPrice: (min: number) => void;
+  setMaxPrice: (max: number) => void;
+  setSelectedValue: (value: number) => void;
+  resetFilter: () => void;
   setSelectedRating: (value: number | null) => void;
   setPageNumber: (pageNumber: number) => void;
   setLimitProduct: (limitProducts: number) => void;
@@ -23,6 +30,9 @@ export const useSubFiliters = create<IUseSubFiliters>((set) => ({
   sortProducts: -1,
   searchQuery: "",
   selectedRating: null,
+  minPrice: null,
+  maxPrice: null,
+  selectedValue: null,
   setSelectedRating: (value) => set(() => ({ selectedRating: value })),
   setPageNumber: (pageNumber) => set(() => ({ pageNumber })),
   setLimitProduct: (limitProducts: number) => set(() => ({ limitProducts })),
@@ -33,4 +43,9 @@ export const useSubFiliters = create<IUseSubFiliters>((set) => ({
   handleLimitChange: (limit: number) => set({ limitProducts: limit }),
   handleSortChange: (sort: number) => set({ sortProducts: sort }),
   handleSearch: (query: string) => set({ searchQuery: query }),
+  setMinPrice: (min) => set({ minPrice: min }),
+  setMaxPrice: (max) => set({ maxPrice: max }),
+  setSelectedValue: (value) => set({ selectedValue: value }),
+  resetFilter: () =>
+    set({ minPrice: null, maxPrice: null, selectedValue: null }),
 }));

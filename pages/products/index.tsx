@@ -14,6 +14,7 @@ import ProductPagination from "../../src/components/ProductsComponents/ProductPa
 import { useSubFiliters } from "../../src/store/useSubFiliters";
 import PageLoading from "../../src/components/UI/Loading/PageLoading";
 import useFilitersStore from "../../src/store/useFiliters";
+import PriceFilter from "../../src/components/Filiters/FIilterSideBarComponents/priceFiliter";
 
 interface Props {
   initialData: {
@@ -28,6 +29,8 @@ const Products: FC<Props> = (props) => {
     pageNumber,
     limitProducts,
     sortProducts,
+    minPrice,
+    maxPrice,
   } = useSubFiliters();
   const {
     isLoading,
@@ -48,8 +51,18 @@ const Products: FC<Props> = (props) => {
       limit: limitProducts,
       sort: sortProducts,
       rating: selectedRating,
+      minPrice,
+      maxPrice,
     });
-  }, [searchQuery, selectedRating, pageNumber, limitProducts, sortProducts]);
+  }, [
+    searchQuery,
+    selectedRating,
+    pageNumber,
+    limitProducts,
+    sortProducts,
+    minPrice,
+    maxPrice,
+  ]);
 
   const maiProducts = products?.data.results[0].data || [];
   const filteredProducts = maiProducts.filter((product: any) => {
@@ -66,7 +79,10 @@ const Products: FC<Props> = (props) => {
         <div className="grid-cols-12 gap-2 lg:grid">
           <div className="col-start-1 col-end-3">
             <CategoriesSiderBar />
-            <FilitersSideBar />
+            <div className="bg-secondary px-2 rounded-md my-5 py-3">
+              <FilitersSideBar />
+              <PriceFilter />
+            </div>
           </div>
           <div className="w-full h-full min-h-screen col-start-3 col-end-13">
             {isLoading ? (
