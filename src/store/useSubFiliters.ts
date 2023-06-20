@@ -47,5 +47,14 @@ export const useSubFiliters = create<IUseSubFiliters>((set) => ({
   setMaxPrice: (max) => set({ maxPrice: max }),
   setSelectedValue: (value) => set({ selectedValue: value }),
   resetFilter: () =>
-    set({ minPrice: null, maxPrice: null, selectedValue: null }),
+    set({
+      minPrice: null,
+      maxPrice: null,
+      selectedValue: null,
+      selectedRating: null,
+      pageNumber: 1,
+      limitProducts: 9,
+      sortProducts: -1,
+      searchQuery: "",
+    }),
 }));

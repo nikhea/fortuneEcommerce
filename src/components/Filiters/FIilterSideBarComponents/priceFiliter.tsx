@@ -32,7 +32,7 @@ const PriceFilter = () => {
   console.log(selectedValue);
 
   return (
-    <div className="">
+    <div className=" mt-3">
       <h2>Price </h2>
       <div className="w-full">
         {defaultValues.map((value, index) => (
@@ -56,7 +56,7 @@ const PriceFilter = () => {
         <label>
           Min Price:
           <input
-            className="w-full my-2 rounded-md  font-normal  focus:outline-none focus:outline-pink-500"
+            className="w-full my-2 rounded-md  font-normal  focus:outline-none px-1"
             type="number"
             value={minPrice || ""}
             onChange={(e) => setMinPrice(parseInt(e.target.value))}
@@ -65,7 +65,7 @@ const PriceFilter = () => {
         <label>
           Max Price:
           <input
-            className="w-full my-2 rounded-md  font-normal  focus:outline-none focus:outline-pink-500"
+            className="w-full my-2 rounded-md  font-normal  focus:outline-none px-1"
             type="number"
             value={maxPrice || ""}
             onChange={(e) => setMaxPrice(parseInt(e.target.value))}

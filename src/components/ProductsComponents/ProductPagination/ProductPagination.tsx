@@ -15,8 +15,14 @@ const ProductPagination: FC<IProductPagination> = ({
   setPageNumber,
 }) => {
   return (
-    <div>
-      <button onClick={handlePreviousClick} disabled={pageNumber === 1}>
+    <div className="flex justify-center text-center space-x-2">
+      <button
+        onClick={handlePreviousClick}
+        className={`${
+          pageNumber === 1 ? "cursor-not-allowed" : "cursor-pointer"
+        }`}
+        disabled={pageNumber === 1}
+      >
         Previous
       </button>
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
@@ -30,6 +36,7 @@ const ProductPagination: FC<IProductPagination> = ({
               key={page}
               onClick={() => setPageNumber(page)}
               disabled={pageNumber === page}
+              className={`${page === pageNumber ? "text-primary" : ""}`}
             >
               {page}
             </button>
@@ -39,7 +46,13 @@ const ProductPagination: FC<IProductPagination> = ({
         }
         return null;
       })}
-      <button onClick={handleNextClick} disabled={pageNumber === totalPages}>
+      <button
+        className={`${
+          pageNumber === totalPages ? "cursor-not-allowed" : "cursor-pointer"
+        }`}
+        onClick={handleNextClick}
+        disabled={pageNumber === totalPages}
+      >
         Next
       </button>
     </div>

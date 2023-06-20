@@ -76,7 +76,7 @@ const Products: FC<Props> = (props) => {
       <div className="container">
         <ProductHeader handleSortChange={() => handleSortChange} />
 
-        <div className="grid-cols-12 gap-2 lg:grid">
+        <div className="grid-cols-12 gap-5 lg:grid">
           <div className="col-start-1 col-end-3">
             <CategoriesSiderBar />
             <div className="bg-secondary px-2 rounded-md my-5 py-3">
