@@ -18,8 +18,6 @@ export const useAddToCart = () => {
   );
 
   const AddCart = async (product: any) => {
-    // addToCart(product);
-
     try {
       await mutateAsync(product);
     } catch (error) {

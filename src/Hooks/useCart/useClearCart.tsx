@@ -21,9 +21,7 @@ export const useclearCart = () => {
     try {
       clearCart(cart);
       await mutateAsync(cart._id);
-    } catch (error) {
-      //   removeFromCart(product._id);
-    }
+    } catch (error) {}
   };
   return {
     clearItemCart,

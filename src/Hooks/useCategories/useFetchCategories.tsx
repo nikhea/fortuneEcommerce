@@ -3,13 +3,13 @@ import { fetchCategories } from "../../services/shared/categories";
 import { queryKey } from "../queryKeys";
 
 interface Props {
-  initialData: any; // replace 'any' with your actual type
+  initialData: any;
 }
 
 export const useFetchCategories = (props: Props) => {
   const { data: categories } = useQuery(
     [queryKey.categories],
-    fetchCategories, // replace with your actual fetch function
+    fetchCategories,
     {
       initialData: props?.initialData?.categories,
       refetchOnMount: true,

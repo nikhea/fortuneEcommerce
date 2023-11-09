@@ -26,9 +26,7 @@ export const increaseCartItemQuantity = () => {
     try {
       increaseQuantity(product._id);
       await increaseCartItemQuantity.mutateAsync({ ItemId, quantity });
-    } catch (error) {
-      //   addToCart(product);
-    }
+    } catch (error) {}
   };
   return {
     increaseQuantitys,

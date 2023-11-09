@@ -3,7 +3,7 @@ import { fetchOrders } from "../../services/authenticated/order";
 import { queryKey } from "../queryKeys";
 
 interface Props {
-  initialData?: any; // replace 'any' with your actual type
+  initialData?: any;
 }
 
 export const useFetchOrders = (props?: Props) => {
@@ -11,7 +11,6 @@ export const useFetchOrders = (props?: Props) => {
     [queryKey.orders],
     fetchOrders, // replace with your actual fetch function
     {
-      //   initialData: props.initialData.wishlist,
       refetchOnMount: true,
     }
   );

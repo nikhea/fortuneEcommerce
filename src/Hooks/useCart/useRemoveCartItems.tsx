@@ -33,24 +33,3 @@ export const useRemoveCartItems = () => {
     data: removeCartItemMutation.data,
   };
 };
-
-//   const { mutateAsync, status, isLoading, data } = useMutation(async (productId:any, itemId: any) => {
-//     await deleteCartItem(productId, itemId);
-
-//   }, {
-//     onSuccess: () => {
-//       queryClient.invalidateQueries(["carts"]);
-//     },
-//   });
-
-//   const deleteCartItems = async (product: any, itemId: string) => {
-//     // await mutateAsync({product,itemId} );
-//     await removeCartItemMutation.mutateAsync({product, itemId});
-
-//   };
-//   return {
-//     deleteCartItems,
-//     status,
-//     isLoading,
-//     data,
-//   };
