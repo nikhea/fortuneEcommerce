@@ -65,27 +65,3 @@ export const useFetchProducts = (props: Props) => {
     handleFilterChange,
   };
 };
-
-// const { data: categories } = useQuery(["categories"], fetchCategories, {
-//   initialData: props.initialData.categories,
-//   refetchOnMount: true,
-// });
-// const { data: products } = useQuery(["products"], fetchProducts, {
-//   initialData: props.initialData.products,
-//   refetchOnMount: true,
-// });
-// const handlePreviousClick = () => {
-//   setPageNumber((prevPage) => prevPage - 1);
-// };
-
-// const handleNextClick = () => {
-//   setPageNumber((prevPage) => prevPage + 1);
-// };
-
-// const handleLimitChange = (limit: number) => {
-//   setLimitProduct(limit);
-// };
-
-// const handleSortChange = (sort: number) => {
-//   setSortProduct(sort);
-// };
