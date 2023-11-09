@@ -7,19 +7,17 @@ export const useAddWishlist = () => {
 
   const { mutateAsync, status, isLoading, data } = useMutation(addToWishlist, {
     onSuccess: () => {
-      // queryCache.invalidateQueries(WISHLIST_QUERY_KEY);
       queryClient.invalidateQueries([queryKey.wishlist]);
     },
   });
 
   const AddWishlist = async (id: string) => {
     await mutateAsync(id);
-    // console.log(id, "hljlkjjjkljjjj");
   };
   return {
     AddWishlist,
     status,
-    AddWishlistisLoading:isLoading,
+    AddWishlistisLoading: isLoading,
     data,
   };
 };

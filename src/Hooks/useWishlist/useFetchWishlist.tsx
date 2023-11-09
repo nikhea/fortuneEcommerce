@@ -34,19 +34,3 @@ export const useFetchWishlist = (props?: Props) => {
     status,
   };
 };
-
-// export const useFetchWishlist = (props?: Props) => {
-//   const { data: wishlist, isLoading } = useQuery(
-//     [queryKey.wishlist],
-//     fetchWishlist,
-//     {
-
-//       refetchOnMount: true,
-//     }
-//   );
-
-//   return {
-//     wishlist,
-//     isLoading,
-//   };
-// };
