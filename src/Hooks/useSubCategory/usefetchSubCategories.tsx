@@ -31,11 +31,3 @@ const usefetchSubCategories = () => {
 };
 
 export default usefetchSubCategories;
-
-// const { data: subcategories } = useQuery(
-//   [queryKey.subcategory],
-//   fetchSubCategories
-// );
-
-// return subcategories;
-// };
