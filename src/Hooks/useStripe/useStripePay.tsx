@@ -6,6 +6,7 @@ import { StripPayment } from "../../services/authenticated/stripe";
 export const useStripePay = () => {
   const { cart } = useCartState();
   const userData = useUser();
+
   const cartItem = cart.items;
   const user = userData.data;
 

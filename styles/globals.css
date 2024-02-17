@@ -2,7 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "node_modules/nprogress/nprogress.css";
+/* @import "node_modules/nprogress/nprogress.css"; */
 * {
   padding: 0;
   margin: 0;

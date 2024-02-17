@@ -28,8 +28,6 @@ export const fetchWishlist = async ({ pageParam = 1 }) => {
       },
     }
   );
-  console.log(data);
-
   return data;
 };
 
@@ -73,7 +71,7 @@ export const addToWishlist = async (productId: string) => {
     }
     return data.data;
   } catch (error: any) {
-    const { message } = error?.response?.data
+    const { message } = error?.response?.data;
     notify({
       type: "error",
       message: message,
