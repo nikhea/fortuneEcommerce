@@ -5,7 +5,6 @@ import { XCircleIcon } from "@heroicons/react/24/outline";
 import useDeviceProperties from "../../Hooks/UseMediaQueries";
 import { useRemoveWishlist } from "../../Hooks/useWishlist/useRemoveWishlist";
 import { formatToCurrency } from "../../utils/formateNumbers";
-import { Oval, TailSpin } from "react-loader-spinner";
 import Link from "next/link";
 import { PagesRoutes } from "../../routes/ PagesRoutes";
 import RequestLoading from "../UI/Loading/RequestLoading";
