@@ -4,7 +4,7 @@ import { notify } from "../../utils/notify";
 export const StripPayment = async (cartItem: any, user: any) => {
   try {
     const res = await axios.post(
-      "stripe/create-checkout-session",
+      "payment/create-checkout-session",
       {
         cartItem,
         user,

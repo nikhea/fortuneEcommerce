@@ -137,7 +137,6 @@ export const deleteCartItem = async (product: any, itemId: string) => {
           },
         }
       );
-      console.log(data);
 
       resolve(data);
       if (data.statuscode === 200) {
@@ -171,7 +170,6 @@ export const ClearCartServer = async (cartId: string) => {
           },
         }
       );
-      console.log(data);
 
       resolve(data);
       if (data.statuscode === 200) {
