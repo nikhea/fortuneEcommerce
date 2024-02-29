@@ -41,10 +41,10 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
       onSuccess: () => {
         reset();
         router.push("/");
-        notify({
-          type: "success",
-          message: "Register  Successfully",
-        });
+        // notify({
+        //   type: "success",
+        //   message: "Register  Successfully",
+        // });
       },
     });
   };

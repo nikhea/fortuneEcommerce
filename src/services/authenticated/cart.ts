@@ -32,25 +32,25 @@ export const addToCartServer = async (product: any) => {
       );
       resolve(data);
       if (data.statuscode === 200) {
-        notify({
-          type: "info",
-          message: data.message,
-        });
-      }
-      if (data.statuscode === 201) {
-        notify({
-          type: "success",
-          message: data.message,
-        });
+        //   notify({
+        //     type: "info",
+        //     message: data.message,
+        //   });
+        // }
+        // if (data.statuscode === 201) {
+        //   notify({
+        //     type: "success",
+        //     message: data.message,
+        //   });
       }
     } catch (error: any) {
       useCartState.getState().removeFromCart(product._id);
       // cartStore.removeFromCart(product._id);
       const { message } = error?.response?.data;
-      notify({
-        type: "error",
-        message: message,
-      });
+      // notify({
+      //   type: "error",
+      //   message: message,
+      // });
       reject(error);
     }
   });
@@ -72,18 +72,18 @@ export const increaseCartItemQuantityServer = async (
         }
       );
       resolve(data);
-      if (data.statuscode === 200) {
-        notify({
-          type: "info",
-          message: data.message,
-        });
-      }
-      if (data.statuscode === 201) {
-        notify({
-          type: "success",
-          message: data.message,
-        });
-      }
+      // if (data.statuscode === 200) {
+      //   notify({
+      //     type: "info",
+      //     message: data.message,
+      //   });
+      // }
+      // if (data.statuscode === 201) {
+      //   notify({
+      //     type: "success",
+      //     message: data.message,
+      //   });
+      // }
     } catch (err) {
       reject(err);
     }
@@ -106,18 +106,18 @@ export const decreaseCartItemQuantityServer = async (
         }
       );
       resolve(data);
-      if (data.statuscode === 200) {
-        notify({
-          type: "info",
-          message: data.message,
-        });
-      }
-      if (data.statuscode === 201) {
-        notify({
-          type: "success",
-          message: data.message,
-        });
-      }
+      // if (data.statuscode === 200) {
+      //   notify({
+      //     type: "info",
+      //     message: data.message,
+      //   });
+      // }
+      // if (data.statuscode === 201) {
+      //   notify({
+      //     type: "success",
+      //     message: data.message,
+      //   });
+      // }
     } catch (err) {
       reject(err);
     }
@@ -139,18 +139,18 @@ export const deleteCartItem = async (product: any, itemId: string) => {
       );
 
       resolve(data);
-      if (data.statuscode === 200) {
-        notify({
-          type: "info",
-          message: data.message,
-        });
-      }
-      if (data.statuscode === 201) {
-        notify({
-          type: "success",
-          message: data.message,
-        });
-      }
+      // if (data.statuscode === 200) {
+      //   notify({
+      //     type: "info",
+      //     message: data.message,
+      //   });
+      // }
+      // if (data.statuscode === 201) {
+      //   notify({
+      //     type: "success",
+      //     message: data.message,
+      //   });
+      // }
     } catch (err) {
       cartStore.addToCart(product);
 
@@ -172,18 +172,18 @@ export const ClearCartServer = async (cartId: string) => {
       );
 
       resolve(data);
-      if (data.statuscode === 200) {
-        notify({
-          type: "info",
-          message: data.message,
-        });
-      }
-      if (data.statuscode === 201) {
-        notify({
-          type: "success",
-          message: data.message,
-        });
-      }
+      // if (data.statuscode === 200) {
+      //   notify({
+      //     type: "info",
+      //     message: data.message,
+      //   });
+      // }
+      // if (data.statuscode === 201) {
+      //   notify({
+      //     type: "success",
+      //     message: data.message,
+      //   });
+      // }
     } catch (err) {
       reject(err);
     }

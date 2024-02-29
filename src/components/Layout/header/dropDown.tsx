@@ -49,7 +49,7 @@ const dropDown = ({ children }: any) => {
           queryClient.invalidateQueries([queryKey.wishlist]);
           router.push("/");
           clearItemCart(cart);
-          toast.success("Logged Out Successfully");
+          // toast.success("Logged Out Successfully");
         },
       }
     );

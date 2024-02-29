@@ -15,28 +15,28 @@ export const addShippingServer = async (shippingData: any) => {
         },
       }
     );
-    if (data.statuscode === 201) {
-      notify({
-        type: "success",
-        message: data.message,
-      });
-    }
+    // if (data.statuscode === 201) {
+    //   notify({
+    //     type: "success",
+    //     message: data.message,
+    //   });
+    // }
   } catch (err: any) {
-    if (err.response.data) {
-      const { data } = err.response;
-      if (data.statuscode === 500) {
-        notify({
-          type: "error",
-          message: data.message,
-        });
-      }
-      if (data.statuscode === 400) {
-        notify({
-          type: "info",
-          message: data.message,
-        });
-      }
-    }
+    // if (err.response.data) {
+    //   const { data } = err.response;
+    //   if (data.statuscode === 500) {
+    //     notify({
+    //       type: "error",
+    //       message: data.message,
+    //     });
+    //   }
+    //   if (data.statuscode === 400) {
+    //     notify({
+    //       type: "info",
+    //       message: data.message,
+    //     });
+    //   }
+    // }
   }
 };
 export const UpdateShippingServer = async (shippingData: any) => {
@@ -52,18 +52,18 @@ export const UpdateShippingServer = async (shippingData: any) => {
         }
       );
       resolve(data);
-      if (data.statuscode === 200) {
-        notify({
-          type: "info",
-          message: data.message,
-        });
-      }
-      if (data.statuscode === 201) {
-        notify({
-          type: "success",
-          message: data.message,
-        });
-      }
+      // if (data.statuscode === 200) {
+      //   notify({
+      //     type: "info",
+      //     message: data.message,
+      //   });
+      // }
+      // if (data.statuscode === 201) {
+      //   notify({
+      //     type: "success",
+      //     message: data.message,
+      //   });
+      // }
     } catch (err) {
       reject(err);
     }

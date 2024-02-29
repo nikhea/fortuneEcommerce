@@ -85,18 +85,18 @@ export const removeWishlist = async (id: string) => {
     },
   });
 
-  if (data.statuscode === 400) {
-    notify({
-      type: "error",
-      message: data.message,
-    });
-  }
-  if (data.statuscode === 200) {
-    notify({
-      type: "success",
-      message: data.message,
-    });
-  }
+  // if (data.statuscode === 400) {
+  //   notify({
+  //     type: "error",
+  //     message: data.message,
+  //   });
+  // }
+  // if (data.statuscode === 200) {
+  //   notify({
+  //     type: "success",
+  //     message: data.message,
+  //   });
+  // }
 
   // return data.data;
 };
