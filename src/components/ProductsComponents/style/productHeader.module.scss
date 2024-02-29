@@ -1,12 +1,10 @@
 .filiters {
-  @apply flex items-center justify-between gap-5;
+  @apply flex items-center justify-between gap-5 w-full;
 }
 .filiterItem {
-  @apply flex items-center;
-  //  w-[80%]
+  @apply flex items-center w-full;
   p {
-    @apply w-[80%];
-    // @apply w-[100%];
+    @apply w-[40%];
   }
 }
 .input {

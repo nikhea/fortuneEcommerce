@@ -73,7 +73,7 @@ const CartDrawer = () => {
                   slug={cartItem.product?.slug}
                 />
               ))}
-            {cart.items.length > 0 && (
+            {cart?.items?.length > 0 && (
               <div className="flex flex-col my-5">
                 <div className="flex items-center justify-between py-2 text-xl capitalize ">
                   <h1 className="">subTotal:</h1>

@@ -44,10 +44,8 @@ const ThreeColumnHome = ({ products }: any) => {
       <div className="grid grid-cols-1 gap-3 rounded-md md:grid-cols-2 lg:grid-cols-3">
         <div className={`${first.bgColor} ${style.dateCardItems} `}>
           <h1>{first.title}</h1>
-          <p>
-            {first.linkText}
-            <hr className=" w-[115px]" />
-          </p>
+          <p>{first.linkText}</p>
+          <hr className=" w-[115px]" />
           <div className={`${style.imageContainer}`}>
             <Image
               className=""
