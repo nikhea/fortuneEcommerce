@@ -4,7 +4,7 @@ import { useUser } from "../../auth/auth";
 import { StripPayment } from "../../services/authenticated/stripe";
 
 export const useStripePay = () => {
-  const { cart } = useCartState();
+  const { cart, clearCartItems } = useCartState();
   const userData = useUser();
 
   const cartItem = cart.items;
@@ -18,7 +18,8 @@ export const useStripePay = () => {
     },
     {
       onSuccess: () => {
-        // queryClient.invalidateQueries(["carts"]);
+        clearCartItems();
+        queryClient.invalidateQueries(["carts"]);
       },
     }
   );

@@ -21,8 +21,8 @@ const ShippingSideTotal = ({ user }: any) => {
         type: "error",
         message: "Please add your shipping details",
       });
-      clearCartItems();
     handleCheckout();
+    clearCartItems();
   };
   return (
     <div className="bg-[#F4F4FC] w-full px-3 py-3 rounded-md flex flex-col  justify-center gap-y-5">
