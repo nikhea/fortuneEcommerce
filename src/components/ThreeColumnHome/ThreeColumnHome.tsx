@@ -9,13 +9,13 @@ import Link from "next/link";
 const ThreeColumnHome = ({ products }: any) => {
   const { first, second } = dataThreeColumnHome;
   const displayProducts = products
-    .slice(0, 3)
+    ?.slice(0, 3)
     .map((product: Product, index: any) => (
       <div
         key={product._id}
         className="flex align-baseline text-[#151875] gap-2  items-center"
       >
-        <div className="flex p-3 rounded-md shadow-md  bg-secondary">
+        <div className="flex p-3 rounded-md shadow-md bg-secondary">
           <Image
             src={product.coverPhoto}
             alt={product.name}

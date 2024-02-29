@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchProducts } from "../../services/shared/products";
 import { queryKey } from "../queryKeys";
-import { useState } from "react";
 import useFilitersStore from "../../store/useFiliters";
 import { useSubFiliters } from "../../store/useSubFiliters";
 

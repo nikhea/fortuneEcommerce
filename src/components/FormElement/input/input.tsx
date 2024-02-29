@@ -21,6 +21,7 @@ interface inputProps {
   borderBottom?: boolean;
   Width?: string;
   isBlackBg?: boolean;
+  disabled?: boolean;
 }
 const style = {
   input: `my-[10px]  py-[15px] px-[23px]  text-[.9375rem]   pr-[23px] outline-none`,
@@ -58,6 +59,7 @@ const input: FC<inputProps> = (props) => {
     Width,
     borderBottom,
     isBlackBg,
+    disabled,
     ...rest
   } = props;
   let Input = {
@@ -82,6 +84,7 @@ const input: FC<inputProps> = (props) => {
         {...inputRef}
         value={value}
         onChange={onChange}
+        disabled={disabled}
         // autoComplete="off"
         autoComplete="new-password"
         multiple

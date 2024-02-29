@@ -11,7 +11,8 @@
   @apply h-6 w-6 cursor-pointer hover:text-primary text-3xl;
 }
 .iconContainer {
-  @apply flex justify-end     top-0 my-5;
+  @apply flex   justify-end;
+  // top-0 right-0  mt-[12px] mr-[20px]
 }
 
 .btn {

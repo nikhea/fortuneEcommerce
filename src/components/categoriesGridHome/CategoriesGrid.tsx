@@ -7,7 +7,7 @@ import { PagesRoutes } from "../../routes/ PagesRoutes";
 
 const CategoriesGrid = ({ categories }: any) => {
   const { isTabletOrMobile } = useDeviceProperties();
-  const displayCategoriesLg = categories.data.map((category: any) => (
+  const displayCategoriesLg = categories?.data.map((category: any) => (
     <Link
       href={`${PagesRoutes.shop}/${category.name}`}
       key={category._id}
@@ -18,27 +18,29 @@ const CategoriesGrid = ({ categories }: any) => {
         width={300}
         src={category.coverPhoto}
         alt={category.name}
-        className="object-cover h-full rounded-md  "
+        className="object-cover h-full rounded-md "
       />
-      <h1 className="capitalize group-hover:text-primary text-center mt-3">
+      <h1 className="mt-3 text-center capitalize group-hover:text-primary">
         {category.name}
       </h1>
     </Link>
   ));
-  const displayCategories = categories.data.slice(0, 4).map((category: any) => (
-    <Link href="" key={category._id} className={`${style.gridItem} group`}>
-      <Image
-        height={300}
-        width={300}
-        src={category.coverPhoto}
-        alt={category.name}
-        className="object-cover h-full rounded-md  "
-      />
-      <h1 className="capitalize text-center mt-3 group-hover:text-primary">
-        {category.name}
-      </h1>
-    </Link>
-  ));
+  const displayCategories = categories?.data
+    .slice(0, 3)
+    .map((category: any) => (
+      <Link href="" key={category._id} className={`${style.gridItem} group`}>
+        <Image
+          height={300}
+          width={300}
+          src={category.coverPhoto}
+          alt={category.name}
+          className="object-cover h-full rounded-md "
+        />
+        <h1 className="mt-3 text-center capitalize group-hover:text-primary">
+          {category.name}
+        </h1>
+      </Link>
+    ));
   return (
     <div className="container mt-5">
       <h1 className="text-2xl capitalize text-[#151875]  font-bold text-center my-5">

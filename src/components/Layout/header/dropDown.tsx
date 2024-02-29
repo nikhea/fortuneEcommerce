@@ -79,6 +79,14 @@ const dropDown = ({ children }: any) => {
         ) : (
           <>
             <Link
+              href={PagesRoutes.order}
+              shallow
+              className={style.MenuItemLink}
+            >
+              <TbBrandWish className={style.icons} />
+              <p className={style.MenuItemLinkText}>orders</p>
+            </Link>
+            <Link
               href={PagesRoutes.wishList}
               shallow
               className={style.MenuItemLink}

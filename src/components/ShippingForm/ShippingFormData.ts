@@ -7,19 +7,21 @@ export type ShippingFormData = {
   lastname: string;
   postalCode: string;
   phone: number;
+  country: string;
   state: string;
   city: string;
-  address: string;
+  street: string;
 };
 
 export const ShippingSchema = yup.object().shape({
   email: yup.string().required(),
-  getUpdates: yup.bool().required().default(false),
   firstname: yup.string().required(),
   lastname: yup.string().required(),
-  address: yup.string().required(),
+  getUpdates: yup.bool().required().default(false),
+  street: yup.string().required(),
   city: yup.string().required(),
   state: yup.string().required(),
   postalCode: yup.string().required(),
   phone: yup.number().required(),
+  country: yup.string().required(),
 });

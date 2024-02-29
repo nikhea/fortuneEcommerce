@@ -86,7 +86,8 @@ const mainNav = () => {
         <div className={style.subHeaderLeft}>
           {isDesktopOrLaptop && (
             <DropDown>
-              <Link href="/#" shallow className="text-[#0D0E43]">
+              {/* <Link href="" shallow className="text-[#0D0E43]"> */}
+              <div className="text-[#0D0E43] cursor-pointer">
                 <div className={style.subHeader__content}>
                   <UserCircleIcon className={style.icons} />
                   <h1>
@@ -95,7 +96,9 @@ const mainNav = () => {
                       : "Account"}
                   </h1>
                 </div>
-              </Link>
+              </div>
+
+              {/* </Link> */}
             </DropDown>
           )}
           <div

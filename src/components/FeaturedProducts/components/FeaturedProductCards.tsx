@@ -30,7 +30,7 @@ import useDeviceProperties from "../../../Hooks/UseMediaQueries";
 
 const FeaturedProductCards: FC<featuredProducts> = ({ featuredProducts }) => {
   const { isDesktopOrLaptop } = useDeviceProperties();
-  const displayData = featuredProducts.map((product: Product) => (
+  const displayData = featuredProducts?.map((product: Product) => (
     <SwiperSlide key={product._id}>
       <FeaturedProductCardsItems
         key={product._id}
