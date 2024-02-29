@@ -58,7 +58,7 @@ const CartDrawer = () => {
         <div className="">
           <div className="">
             {cart?.items?.length > 0 &&
-              cart.items.map((cartItem: any) => (
+              cart?.items?.map((cartItem: any) => (
                 <CartItem
                   key={cartItem._id}
                   name={cartItem.product?.name}
