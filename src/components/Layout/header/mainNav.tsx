@@ -22,7 +22,6 @@ import { useCart } from "../../../Hooks/useCart/useFetchCart";
 const mainNav = () => {
   const user = useUser();
   // const { wishlist, isLoading } = useFetchWishlist();
-
   const { cart, getTotalQuantity } = useCartState();
   const { CartItemState } = useCart();
   const { isDesktopOrLaptop, isTabletOrMobile } = useDeviceProperties();
