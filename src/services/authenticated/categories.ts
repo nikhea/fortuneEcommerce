@@ -20,23 +20,23 @@ export const createCategories = async ({ categoriesData }: any) => {
       },
     }
   );
-  if (data.statuscode === 409) {
-    notify({
-      type: "info",
-      message: data.message,
-    });
-  }
-  if (data.statuscode === 201) {
-    notify({
-      type: "success",
-      message: data.message,
-    });
-  }
+  // if (data.statuscode === 409) {
+  //   notify({
+  //     type: "info",
+  //     message: data.message,
+  //   });
+  // }
+  // if (data.statuscode === 201) {
+  //   notify({
+  //     type: "success",
+  //     message: data.message,
+  //   });
+  // }
   if (data.statuscode === 400) {
-    notify({
-      type: "error",
-      message: data.message,
-    });
+    // notify({
+    //   type: "error",
+    //   message: data.message,
+    // });
   }
   return data.data;
 };
@@ -57,18 +57,18 @@ export const UpdateCategoriesServer = async (
         }
       );
       resolve(data);
-      if (data.statuscode === 200) {
-        notify({
-          type: "info",
-          message: data.message,
-        });
-      }
-      if (data.statuscode === 201) {
-        notify({
-          type: "success",
-          message: data.message,
-        });
-      }
+      // if (data.statuscode === 200) {
+      //   notify({
+      //     type: "info",
+      //     message: data.message,
+      //   });
+      // }
+      // if (data.statuscode === 201) {
+      //   notify({
+      //     type: "success",
+      //     message: data.message,
+      //   });
+      // }
     } catch (err) {
       reject(err);
     }
@@ -81,18 +81,18 @@ export const removeCategories = async (id: string) => {
     },
   });
 
-  if (data.statuscode === 400) {
-    notify({
-      type: "error",
-      message: data.message,
-    });
-  }
-  if (data.statuscode === 200) {
-    notify({
-      type: "success",
-      message: data.message,
-    });
-  }
+  // if (data.statuscode === 400) {
+  //   notify({
+  //     type: "error",
+  //     message: data.message,
+  //   });
+  // }
+  // if (data.statuscode === 200) {
+  //   notify({
+  //     type: "success",
+  //     message: data.message,
+  //   });
+  // }
 
   // return data.data;
 };
