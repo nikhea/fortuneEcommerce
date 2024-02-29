@@ -54,8 +54,8 @@ const mainNav = () => {
     </li>
   ));
   let displayCartTotal;
-  if (cart && cart.items !== undefined) {
-    displayCartTotal = cart.items.length > 0 && (
+  if (cart && cart?.items !== undefined) {
+    displayCartTotal = cart?.items?.length > 0 && (
       <span className="absolute left-[12px] top-[-5px] bg-primary  w-5 h-5 rounded-full flex justify-center items-center">
         <h1 className="text-[12px] text-white">{getTotalQuantity()}</h1>
       </span>
