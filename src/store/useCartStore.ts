@@ -48,6 +48,7 @@ interface CartStore {
 
   // getTotal: () => void;
   clearCart: (cart: CartState) => void;
+  clearCartItems: () => void;
   getItemDetails: (
     productId: string
   ) => { itemId: any; quantity: number } | undefined;
@@ -197,6 +198,13 @@ export const useCartState = create<CartStore>()(
         }
       },
       clearCart: () => {
+        set(() => ({
+          cart: {
+            items: [],
+          },
+        }));
+      },
+      clearCartItems: () => {
         set(() => ({
           cart: {
             items: [],

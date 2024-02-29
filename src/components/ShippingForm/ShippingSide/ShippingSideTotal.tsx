@@ -10,7 +10,7 @@ import { notify } from "../../../utils/notify";
 
 const ShippingSideTotal = ({ user }: any) => {
   const { isLoading, handleCheckout } = useStripePay();
-  const { getSubTotal } = useCartState();
+  const { getSubTotal, clearCartItems } = useCartState();
 
   const pathname = usePathname();
   const currentRoute = PagesRoutes.shipping;
@@ -21,6 +21,7 @@ const ShippingSideTotal = ({ user }: any) => {
         type: "error",
         message: "Please add your shipping details",
       });
+      clearCartItems();
     handleCheckout();
   };
   return (
