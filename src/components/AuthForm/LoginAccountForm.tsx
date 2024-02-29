@@ -38,14 +38,14 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
   } = methods;
   const submitForm = (data: any) => {
     login.mutate(data, {
-      onSuccess: async () => {
+      onSuccess: () => {
         reset();
-        await queryClient.invalidateQueries([queryKey.carts]);
         router.push("/");
-        // notify({
-        //   type: "success",
-        //   message: "Logged In Successfully",
-        // });
+        queryClient.invalidateQueries([queryKey.carts]);
+        notify({
+          type: "success",
+          message: "Logged In Successfully",
+        });
       },
     });
   };
