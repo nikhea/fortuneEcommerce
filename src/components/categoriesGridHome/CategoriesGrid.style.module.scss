@@ -1,5 +1,6 @@
 .gridContainer {
-  @apply bg-secondary  shadow-md h-full p-3 pb-0 gap-5  rounded-lg grid-cols-4  grid lg:grid-cols-7;
+  @apply bg-secondary  shadow-md h-full p-3 pb-0 gap-5  rounded-lg grid-cols-3  grid lg:grid-cols-7;
+  // @apply bg-secondary  shadow-md h-full p-3 pb-0 gap-5  rounded-lg grid-cols-4  grid lg:grid-cols-7;
 }
 
 .gridItem {

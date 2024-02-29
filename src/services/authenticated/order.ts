@@ -4,7 +4,7 @@ import { useCartState } from "../../store/i";
 import { notify } from "../../utils/notify";
 
 export const fetchOrders = async () => {
-  const { data } = await axios.get("orders", {
+  const { data } = await axios.get("orders/user", {
     // headers: {
     //   Authorization: `Bearer ${storage.getToken()}`,
     // },
@@ -12,3 +12,13 @@ export const fetchOrders = async () => {
 
   return data.data;
 };
+
+// export const fetchOrders = async () => {
+//   const { data } = await axios.get("orders", {
+//     // headers: {
+//     //   Authorization: `Bearer ${storage.getToken()}`,
+//     // },
+//   });
+
+//   return data.data;
+// };

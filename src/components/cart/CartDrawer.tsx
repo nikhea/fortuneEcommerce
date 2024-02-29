@@ -17,28 +17,14 @@ import { useCartState } from "../../store/useCartStore";
 import { CartEmptyImage } from "../../images/jpeg/imagesPng";
 import { useUser } from "../../auth/auth";
 const CartDrawer = () => {
+  const user = useUser();
   const { isDesktopOrLaptop } = useDeviceProperties();
   const { CartDrawer, setCartDrawer } = useCartDrawerState();
   const { cart, getSubTotal } = useCartState();
-  const user = useUser();
   const toggleDrawer = () => {
     setCartDrawer(!CartDrawer);
   };
-  // const displayCartItem = {cart?.items?.length}
-  // cart.items?.map((cartItem: any) => (
-  //   <CartItem
-  //     key={cartItem._id}
-  //     name={cartItem.product.name}
-  //     price={cartItem.product.price}
-  //     priceSymbol={cartItem.product.priceSymbol}
-  //     image={cartItem.product.coverPhoto}
-  //     quantity={cartItem.quantity}
-  //     _id={cartItem._id}
-  //     rating={0}
-  //     product={cartItem.product}
-  //     description={""}
-  //   />
-  // ));
+
   return (
     <Drawer
       open={CartDrawer}
@@ -54,56 +40,63 @@ const CartDrawer = () => {
         overflowY: "scroll",
       }}
     >
-      <div className="relative  w-[95%] m-auto h-full">
+      <div className="h-full w-[95%] m-auto mt-3">
         <div className={style.iconContainer}>
           <XCircleIcon className={style.icons} onClick={() => toggleDrawer()} />
         </div>
-        <div className="flex flex-col justify-between h-full">
-          <div className="grid h-fit grid-cols-1 gap-3 mb-5 text-sm">
-            {cart?.items?.length > 0 ? (
+        {cart?.items?.length === 0 && (
+          <div className="grid h-full place-content-center place-items-center">
+            <Image
+              src={CartEmptyImage.src}
+              alt={CartEmptyImage.src}
+              width={500}
+              height={500}
+            />
+            <p>Your cart is empty</p>
+          </div>
+        )}
+        <div className="">
+          <div className="">
+            {cart?.items?.length > 0 &&
               cart.items.map((cartItem: any) => (
                 <CartItem
                   key={cartItem._id}
-                  name={cartItem.product.name}
-                  price={cartItem.product.price}
-                  priceSymbol={cartItem.product.priceSymbol}
-                  image={cartItem.product.coverPhoto}
-                  quantity={cartItem.quantity}
-                  _id={cartItem._id}
+                  name={cartItem.product?.name}
+                  price={cartItem.product?.price}
+                  priceSymbol={cartItem.product?.priceSymbol}
+                  image={cartItem.product?.coverPhoto}
+                  quantity={cartItem?.quantity}
+                  _id={cartItem?._id}
                   rating={0}
-                  product={cartItem.product}
+                  product={cartItem?.product}
                   description={""}
-                  slug={cartItem.product.slug}
+                  slug={cartItem.product?.slug}
                 />
-              ))
-            ) : (
-              <div className="grid h-full place-content-center place-items-center">
-                <Image
-                  src={CartEmptyImage.src}
-                  alt={CartEmptyImage.src}
-                  width={500}
-                  height={500}
-                />
-                {cart?.items?.length === 0 && "Your cart is empty"}
+              ))}
+            {cart.items.length > 0 && (
+              <div className="flex flex-col my-5">
+                <div className="flex items-center justify-between py-2 text-xl capitalize ">
+                  <h1 className="">subTotal:</h1>
+                  <h2>$ {formatToCurrency(getSubTotal())}</h2>
+                </div>
+                <div className="grid w-full grid-cols-2 gap-3 m-auto mb-5 text-sm">
+                  <Link
+                    href={PagesRoutes.products}
+                    onClick={() => toggleDrawer()}
+                  >
+                    <button className={style.btnOutline}>
+                      continue shopping
+                    </button>
+                  </Link>
+                  <Link
+                    href={PagesRoutes.shoppingCart}
+                    onClick={() => toggleDrawer()}
+                  >
+                    <button className={style.btn}> view cart</button>
+                  </Link>
+                </div>
               </div>
             )}
-          </div>
-          <div className="flex flex-col">
-            <div className="flex items-center justify-between py-2 text-xl capitalize w-[95%] m-auto">
-              <h1 className="">subTotal:</h1>
-              <h2>$ {formatToCurrency(getSubTotal())}</h2>
-            </div>
-            <div className="grid grid-cols-2 gap-3 m-auto mb-5 text-sm  w-[95%]">
-              <Link href={PagesRoutes.products} onClick={() => toggleDrawer()}>
-                <button className={style.btnOutline}> continue shopping</button>
-              </Link>
-              <Link
-                href={PagesRoutes.shoppingCart}
-                onClick={() => toggleDrawer()}
-              >
-                <button className={style.btn}> view cart</button>
-              </Link>
-            </div>
           </div>
         </div>
       </div>

@@ -18,7 +18,6 @@ const ContactForm = () => {
     handleSubmit,
     formState: { errors },
   } = methods;
-  console.log(errors);
   const submitForm = (formData: any) => {
     console.log(errors);
     console.log(formData);

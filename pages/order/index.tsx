@@ -11,12 +11,9 @@ const Orders = (props: Props) => {
   if (isLoading) {
     return <PageLoading />;
   }
-  return (
-    <div>
-      Orders
-      {JSON.stringify(orders)}
-    </div>
-  );
+  console.log(orders, "orders");
+
+  return <div>Orders</div>;
 };
 
 export default Orders;
