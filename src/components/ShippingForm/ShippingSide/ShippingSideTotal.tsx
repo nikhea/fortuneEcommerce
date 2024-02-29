@@ -9,20 +9,22 @@ import { useCartState } from "../../../store/useCartStore";
 import { notify } from "../../../utils/notify";
 
 const ShippingSideTotal = ({ user }: any) => {
-  const { isLoading, handleCheckout } = useStripePay();
+  const { isLoading, status, handleCheckout } = useStripePay();
   const { getSubTotal, clearCartItems } = useCartState();
 
   const pathname = usePathname();
   const currentRoute = PagesRoutes.shipping;
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!user.shipping)
       return notify({
         type: "error",
         message: "Please add your shipping details",
       });
     handleCheckout();
-    clearCartItems();
+    if (status === "success") {
+      clearCartItems();
+    }
   };
   return (
     <div className="bg-[#F4F4FC] w-full px-3 py-3 rounded-md flex flex-col  justify-center gap-y-5">

@@ -45,7 +45,7 @@ const shoppingCartTable = () => {
             </tr>
           </thead>
           <tbody>
-            {cart.items?.map((item: any, index: number) => (
+            {cart?.items?.map((item: any, index: number) => (
               <tr key={index}>
                 <td>
                   <div className="flex items-center gap-2">
