@@ -78,7 +78,7 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
                 <label className={style.label}>password</label>
                 <Input
                   type="password"
-                  placeholder="Password Address"
+                  placeholder="Password"
                   name="password"
                   required
                   isWhiteBg
@@ -96,7 +96,9 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
         </FormProvider>
         <div className={style.TextContainerFooter}>
           <h1>{altBase}</h1>
-          <Link href={altLink}>{altLinkText}</Link>
+          <Link href={altLink} className="hover:text-primary">
+            {altLinkText}
+          </Link>
         </div>
       </div>
     </div>
