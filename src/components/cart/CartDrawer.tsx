@@ -44,7 +44,7 @@ const CartDrawer = () => {
         <div className={style.iconContainer}>
           <XCircleIcon className={style.icons} onClick={() => toggleDrawer()} />
         </div>
-        {cart?.items?.length === 0 && (
+        {!cart?.items?.length  && (
           <div className="grid h-full place-content-center place-items-center">
             <Image
               src={CartEmptyImage.src}

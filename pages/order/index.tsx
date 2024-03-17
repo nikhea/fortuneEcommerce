@@ -1,5 +1,6 @@
 import { useFetchOrders } from "../../src/Hooks/useOrder/useFetchOrders";
 import PageLoading from "../../src/components/UI/Loading/PageLoading";
+import OrderEmpty from "../../src/components/orders/emptyOrder/orderEmpty";
 
 interface Props {
   initialData: {
@@ -17,7 +18,12 @@ const Orders = (props: Props) => {
       {JSON.stringify(order.user.email)}
     </div>
   ));
-  return <div>{displayOrder}</div>;
+  return (
+    <div>
+      {orders.length <= 0 && <OrderEmpty />}
+      {/* {orders && <>{displayOrder}</>} */}
+    </div>
+  );
 };
 
 export default Orders;

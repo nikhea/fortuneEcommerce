@@ -32,7 +32,7 @@ const ShoppingCartMobile = () => {
     <div className={style.ShoppingCartMobileContainer}>
       <div className={style.ShoppingCartMobileContainerBg}>
         <div>
-          {cart.items?.map((item: any, index: number) => (
+          {cart?.items?.map((item: any, index: number) => (
             <div key={index}>
               <div className="flex">
                 <Image
