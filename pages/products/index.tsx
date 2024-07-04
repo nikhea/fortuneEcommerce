@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { FC, useEffect } from "react";
 import Banner from "../../src/components/Banner/Banner";
 import CategoriesSiderBar from "../../src/components/CategoriesSiderBar/CategoriesSiderBar";
@@ -15,6 +16,7 @@ import { useSubFiliters } from "../../src/store/useSubFiliters";
 import PageLoading from "../../src/components/UI/Loading/PageLoading";
 import useFilitersStore from "../../src/store/useFiliters";
 import PriceFilter from "../../src/components/Filiters/FIilterSideBarComponents/priceFiliter";
+
 
 interface Props {
   initialData: {
@@ -72,6 +74,9 @@ const Products: FC<Props> = (props) => {
 
   return (
     <>
+      <Head>
+        <title>Products | Hekto commerce</title>
+      </Head>
       <Banner image={BannerData.image} title={BannerData.title} />
       <div className="container">
         <ProductHeader handleSortChange={() => handleSortChange} />
@@ -79,7 +84,7 @@ const Products: FC<Props> = (props) => {
         <div className="grid-cols-12 gap-5 lg:grid">
           <div className="col-start-1 col-end-3">
             <CategoriesSiderBar />
-            <div className="bg-secondary px-2 rounded-md my-5 py-3">
+            <div className="px-2 py-3 my-5 rounded-md bg-secondary">
               <FilitersSideBar />
               <PriceFilter />
             </div>

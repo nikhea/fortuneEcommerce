@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import React from "react";
 import { PagesRoutes } from "../../src/routes/ PagesRoutes";
 import { NotFoundImage } from "../../src/images/jpeg/imagesPng";
@@ -9,24 +11,29 @@ const style = {
 };
 const NotFound = () => {
   return (
-    <div className="container grid w-full h-full place-content-center">
-      <Image
-        src={NotFoundImage.src}
-        alt="Not Found"
-        width={913}
-        height={645}
-        blurDataURL={NotFoundImage.blurDataURL}
-      />
-      {/* <h1 className="text-[#152970] font-black text-center text-2xl">
+    <>
+      <Head>
+        <title>404 NotFound | Hekto commerce</title>
+      </Head>
+      <div className="container grid w-full h-full place-content-center">
+        <Image
+          src={NotFoundImage.src}
+          alt="Not Found"
+          width={913}
+          height={645}
+          blurDataURL={NotFoundImage.blurDataURL}
+        />
+        {/* <h1 className="text-[#152970] font-black text-center text-2xl">
         oops! The page you resquested was not found!
       </h1> */}
-      <Link
-        href={PagesRoutes.home}
-        className=" grid justify-center text-center bg-black w-fit place-self-center place-content-center rounded-[8px]"
-      >
-        <button className={style.btn}>back to home</button>
-      </Link>
-    </div>
+        <Link
+          href={PagesRoutes.home}
+          className=" grid justify-center text-center bg-black w-fit place-self-center place-content-center rounded-[8px]"
+        >
+          <button className={style.btn}>back to home</button>
+        </Link>
+      </div>
+    </>
   );
 };
 

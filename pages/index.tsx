@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import Hero from "../src/components/Hero/Hero";
 import FeaturedProducts from "../src/components/FeaturedProducts/FeaturedProducts";
 import Features from "../src/components/Features/Features";
@@ -33,6 +35,13 @@ const HomePage: FC<Props> = (props) => {
   // const filiterProducts = products?.data.results[0].data || [];
   return (
     <div>
+      <Head>
+        <title>Hekto commerce - Home Decor</title>
+        <meta
+          name="description"
+          content="At Hekto Furniture, we prioritize our clients' satisfaction and strive to provide an exceptional shopping experience. Our selection of home decor is designed to meet your specific needs, and we maintain high standards in our shopping practices."
+        />
+      </Head>
       <Hero />
       <CategoriesGrid categories={categories} />
       <FeaturedProducts products={products} />

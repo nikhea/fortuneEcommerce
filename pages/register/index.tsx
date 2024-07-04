@@ -1,4 +1,4 @@
-"use client";
+import Head from "next/head";
 
 import { useRouter } from "next/router";
 import { useRegister } from "../../src/auth/auth";
@@ -11,6 +11,9 @@ const Register = () => {
   const registerData = (data: any) => {};
   return (
     <>
+      <Head>
+        <title>My Account | Hekto commerce</title>
+      </Head>
       <Banner image={BannerData.image} title={BannerData.title} />
       <div className="container">
         <AccountForm

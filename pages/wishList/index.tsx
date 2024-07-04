@@ -4,6 +4,7 @@ import WishListHeader from "../../src/components/WishList/WishListHeader";
 import { useFetchWishlist } from "../../src/Hooks/useWishlist/useFetchWishlist";
 import PageLoading from "../../src/components/UI/Loading/PageLoading";
 import WishListEmpty from "../../src/components/WishList/WishListEmpty";
+import Head from "next/head";
 
 interface Props {
   initialData: {
@@ -36,6 +37,9 @@ const wishList = (props: Props) => {
   ));
   return (
     <div className="container m-auto">
+      <Head>
+        <title>WishList | Hekto commerce</title>
+      </Head>
       {/* {!wishList && <WishListEmpty />} */}
       {wishlist?.pages[0].data.length > 0 ? (
         <>

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useFetchOrders } from "../../src/Hooks/useOrder/useFetchOrders";
 import PageLoading from "../../src/components/UI/Loading/PageLoading";
 import OrderEmpty from "../../src/components/orders/emptyOrder/orderEmpty";
@@ -20,6 +21,9 @@ const Orders = (props: Props) => {
   ));
   return (
     <div>
+      <Head>
+        <title>Orders | Hekto commerce</title>
+      </Head>
       {orders.length <= 0 && <OrderEmpty />}
       {/* {orders && <>{displayOrder}</>} */}
     </div>
