@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
@@ -14,12 +16,16 @@ import { ItemData } from "..";
 import CardGrid from "../../../src/components/shopComponents/CardGrid/CardGrid";
 import SubCategoriesList from "../../../src/components/shopSinglePage/SubCategoriesList";
 import Banner from "../../../src/components/Banner/Banner";
+import { capitalizeFirstLetter } from "../../../src/utils/capitalizeFirstLetter";
 
 const index = (props: any) => {
   const category = useFetchSingleCategories(props);
 
   return (
     <>
+      <Head>
+        <title>{capitalizeFirstLetter(category.name)} | Hekto commerce</title>
+      </Head>
       <Banner image={category.coverPhoto} title={props.id} />
       <div className="container">
         <SubCategoriesList category={category} ID={props.id} />

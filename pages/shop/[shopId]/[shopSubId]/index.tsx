@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { queryKey } from "../../../../src/Hooks/queryKeys";
@@ -13,14 +15,17 @@ import { ItemData } from "../..";
 import CardGrid from "../../../../src/components/shopComponents/CardGrid/CardGrid";
 import Link from "next/link";
 import { PagesRoutes } from "../../../../src/routes/ PagesRoutes";
+import { capitalizeFirstLetter } from "../../../../src/utils/capitalizeFirstLetter";
 
 const index = (props: any) => {
   const subCategories = usefetchAllSubCategories();
   const subCategory = usefetchSingleSubCategories(props);
-  console.log(subCategory);
 
   return (
     <>
+      <Head>
+        <title>{capitalizeFirstLetter(subCategory.name)}| Hekto commerce</title>
+      </Head>
       <Banner image={subCategory.coverPhoto} title={props.id} />
       <div className="container">
         <span className="flex gap-2 mt-5 capitalize w-fit">

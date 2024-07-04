@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import ImageContainer from "../../../src/components/SingleroductPageView/components/ImageContainer";
 import TextContainer from "../../../src/components/SingleroductPageView/components/TextContainer";
 import RelatedProduct from "../../../src/components/RelatedProduct/RelatedProduct";
@@ -11,6 +13,7 @@ import { GetStaticPaths, GetStaticProps, GetServerSideProps } from "next";
 import { useSingleFetchProducts } from "../../../src/Hooks/useProducts/useSingleFetchProducts";
 import { useRouter } from "next/router";
 import { queryKey } from "../../../src/Hooks/queryKeys";
+import { capitalizeFirstLetter } from "../../../src/utils/capitalizeFirstLetter";
 
 interface Props {
   initialData: {
@@ -27,6 +30,11 @@ const ProductPage = (props: Props) => {
   // }
   return (
     <div className="container my-5">
+      <Head>
+        <title>{capitalizeFirstLetter(product.name)}| Hekto commerce</title>
+
+        {/* <title>{product.name}| Hekto commerce</title> */}
+      </Head>
       <div className="grid grid-cols-1 bg-gray-100 rounded-md shadow-md lg:grid-cols-2 gap-x-5">
         <ImageContainer images={product.photos} />
         <TextContainer
