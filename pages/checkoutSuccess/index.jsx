@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 import Link from "next/link";
 import { PagesRoutes } from "../../src/routes/ PagesRoutes";
@@ -6,9 +7,12 @@ import { CheckCircleIcon } from "@heroicons/react/24/outline";
 const Success = () => {
   return (
     <div className="container flex items-center justify-center h-screen">
+      <Head>
+        <title>Check out Success | Hekto commerce</title>
+      </Head>
       <div className=" shadow-2xl  rounded-xl p-10 h-[80%]  ">
         <div className="flex flex-col items-center justify-center h-full text-center ">
-          <CheckCircleIcon className="mr-2  h-36 w-36 text-primary" />
+          <CheckCircleIcon className="mr-2 h-36 w-36 text-primary" />
 
           <h1 className="mb-2 capitalize text-[#151875] font-bold text-2xl md:text-3xl">
             your payment is successful

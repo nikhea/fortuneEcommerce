@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import style from "./index.module.scss";
 import Banner from "../../src/components/Banner/Banner";
 import ContactWay from "../../src/components/ContactComponents/components/ContactWay";
@@ -8,6 +10,9 @@ import ContactLogo from "../../src/components/ContactComponents/components/Conta
 const Contact = () => {
   return (
     <>
+      <Head>
+        <title>Contact Us | Hekto commerce</title>
+      </Head>
       <Banner title={BannerData.title} />
 
       <div className="container">

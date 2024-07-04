@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 import { Header } from "../../src/components/shopComponents";
 import SliderCard from "../../src/components/Slider/SliderCard";
@@ -18,6 +19,9 @@ const ShopPage = (props: any) => {
 
   return (
     <div className="container">
+      <Head>
+        <title>Shop | Hekto commerce</title>
+      </Head>
       <Header />
       <SliderCard
         title="top selling"

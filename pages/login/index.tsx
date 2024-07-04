@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useLogin } from "../../src/auth/auth";
 import AccountForm from "../../src/components/AuthForm/LoginAccountForm";
 import Banner from "../../src/components/Banner/Banner";
@@ -15,8 +16,10 @@ const page = () => {
   };
   return (
     <>
+      <Head>
+        <title>My Account | Hekto commerce</title>
+      </Head>
       <Banner title={BannerData.title} />
-
       <div className="container">
         <AccountForm
           type={AccountFormDefaultText.type}
