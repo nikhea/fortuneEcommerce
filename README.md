@@ -4,7 +4,7 @@
 
 Hekto E-commerce is a dynamic online marketplace designed to facilitate the seamless buying and selling of various products and services. Acting as a virtual marketplace, it enables sellers to list their products while allowing buyers to browse, compare, and make purchases conveniently. The platform serves as an intermediary, connecting sellers with potential customers and ensuring secure transactions.
 
-**Project Link:** [Visit the live website](https://fortune-ecommerce.vercel.app/)
+**Project Link:** [Visit the live website](https://hektocommerce.vercel.app/)
 
 ## Technologies Used
 
