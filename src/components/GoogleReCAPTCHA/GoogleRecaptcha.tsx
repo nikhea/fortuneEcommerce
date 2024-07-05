@@ -20,7 +20,7 @@ const AuthReCAPTCHA: FC<Props> = ({ onChange }) => {
     //   style={{ transform: "scale(0.9)", transformOrigin: "0 0" }}
     // >
     <ReCAPTCHA
-      sitekey="6LfErggqAAAAAE7W4S1kz4t7acPC1szKurB8rvLq"
+      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
       onChange={handleChange}
     />
     // </div>
