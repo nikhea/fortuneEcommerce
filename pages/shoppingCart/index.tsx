@@ -19,7 +19,7 @@ const ShoppingCart = () => {
         {isDesktopOrLaptop ? <ShoppingCartTable /> : <ShoppingCartMobile />}
         <div className="flex flex-col justify-between w-full col-start-1 col-end-13 lg:col-start-9 lg:col-end-13 h-fit">
           <ShippingSideTotal />
-          <CalulateShipping title="Calculate  Shiping" />
+          {/* <CalulateShipping title="Calculate  Shiping" /> */}
         </div>
       </div>
     </div>

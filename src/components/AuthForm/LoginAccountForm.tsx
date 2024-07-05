@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginAccountFormData, loginAccountSchema } from "./AccountFormData";
 import Input from "../FormElement/input/input";
 import Button from "../FormElement/Button/Button";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { IAccountFormDefaultText } from "../../interface/AccountForm";
 import Link from "next/link";
 import { useLogin } from "../../auth/auth";
@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import { notify } from "../../utils/notify";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKey } from "../../Hooks/queryKeys";
+import AuthReCAPTCHA from "../GoogleReCAPTCHA/GoogleRecaptcha";
 
 const AccountForm: FC<IAccountFormDefaultText> = ({
   type,
@@ -23,6 +24,8 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
   ButtonSign,
   FormInputData,
 }) => {
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const [captchaError, setCaptchaError] = useState<boolean>(false);
   const queryClient = useQueryClient();
   const login = useLogin();
   const router = useRouter();
@@ -36,16 +39,28 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
     handleSubmit,
     formState: { errors },
   } = methods;
+
+  const onCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
+  };
+
   const submitForm = (data: any) => {
+    if (!captchaValue) {
+      setCaptchaError(true);
+      notify({ type: "error", message: "complete the reCAPTCHA" });
+      return;
+    }
+    const formData = { ...data, recaptcha: captchaValue };
+    console.log(formData);
     login.mutate(data, {
       onSuccess: () => {
         reset();
         router.push("/");
         queryClient.invalidateQueries([queryKey.carts]);
-        notify({
-          type: "success",
-          message: "Logged In Successfully",
-        });
+        // notify({
+        //   type: "success",
+        //   message: "Logged In Successfully",
+        // });
       },
     });
   };
@@ -87,6 +102,9 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
                   // Width="100%"
                   inputRef={register("password")}
                 />
+              </div>
+              <div className={style.inputContainer}>
+                <AuthReCAPTCHA onChange={onCaptchaChange} />
               </div>
               <Button isCurve primary padding uppercase full>
                 {login.isLoading ? "signing in..." : ButtonSign}
