@@ -24,7 +24,7 @@ const index = (props: any) => {
   return (
     <>
       <Head>
-        <title>{capitalizeFirstLetter(subCategory.name)}| Hekto commerce</title>
+        <title>{capitalizeFirstLetter(subCategory.name)} | Hekto commerce</title>
       </Head>
       <Banner image={subCategory.coverPhoto} title={props.id} />
       <div className="container">

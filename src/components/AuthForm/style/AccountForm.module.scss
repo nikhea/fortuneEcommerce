@@ -33,3 +33,12 @@
   @apply text-center capitalize flex items-center justify-center mt-5 text-[#9096B2];
 }
 // 9096B2
+.captchaContainer {
+  @apply w-full mb-5;
+}
+
+.captchaError {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}

@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginAccountFormData, loginAccountSchema } from "./AccountFormData";
 import Input from "../FormElement/input/input";
 import Button from "../FormElement/Button/Button";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { IAccountFormDefaultText } from "../../interface/AccountForm";
 import Link from "next/link";
 import { useLogin } from "../../auth/auth";
@@ -13,6 +13,9 @@ import { useRouter } from "next/router";
 import { notify } from "../../utils/notify";
 import { useQueryClient } from "@tanstack/react-query";
 import { queryKey } from "../../Hooks/queryKeys";
+import AuthReCAPTCHA from "../GoogleReCAPTCHA/GoogleRecaptcha";
+import { HiOutlineEye } from "react-icons/hi";
+import { HiEyeSlash } from "react-icons/hi2";
 
 const AccountForm: FC<IAccountFormDefaultText> = ({
   type,
@@ -23,6 +26,9 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
   ButtonSign,
   FormInputData,
 }) => {
+  const [view, setView] = useState(true);
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const [captchaError, setCaptchaError] = useState<boolean>(false);
   const queryClient = useQueryClient();
   const login = useLogin();
   const router = useRouter();
@@ -36,16 +42,28 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
     handleSubmit,
     formState: { errors },
   } = methods;
+
+  const onCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
+  };
+
   const submitForm = (data: any) => {
+    if (!captchaValue) {
+      setCaptchaError(true);
+      notify({ type: "error", message: "complete the reCAPTCHA" });
+      return;
+    }
+    const formData = { ...data, recaptcha: captchaValue };
+    console.log(formData);
     login.mutate(data, {
       onSuccess: () => {
         reset();
         router.push("/");
         queryClient.invalidateQueries([queryKey.carts]);
-        notify({
-          type: "success",
-          message: "Logged In Successfully",
-        });
+        // notify({
+        //   type: "success",
+        //   message: "Logged In Successfully",
+        // });
       },
     });
   };
@@ -61,7 +79,9 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
           <form onSubmit={handleSubmit(submitForm)}>
             <div className="  w-[90%] m-auto ">
               <div className={style.inputContainer}>
-                <label className={style.label}>email</label>
+                <label className={style.label}>
+                  email <span className="text-primary">*</span>
+                </label>
                 <Input
                   type="email"
                   placeholder="Email Address"
@@ -75,18 +95,35 @@ const AccountForm: FC<IAccountFormDefaultText> = ({
                 />
               </div>
               <div className={style.inputContainer}>
-                <label className={style.label}>password</label>
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  required
-                  isWhiteBg
-                  isCurve
-                  errors={errors}
-                  // Width="100%"
-                  inputRef={register("password")}
-                />
+                <label className={style.label}>
+                  password <span className="text-primary">*</span>
+                </label>
+                <div className="relative ">
+                  <Input
+                    type={view ? "password" : "text"}
+                    placeholder="Password"
+                    name="password"
+                    required
+                    isWhiteBg
+                    isCurve
+                    errors={errors}
+                    Width="100%"
+                    inputRef={register("password")}
+                  />
+                  <div
+                    className="absolute cursor-pointer top-7 right-3"
+                    onClick={() => setView(!view)}
+                  >
+                    {view ? (
+                      <HiOutlineEye className="w-[20px] hover:text-primary  " />
+                    ) : (
+                      <HiEyeSlash className="w-[20px] hover:text-primary  " />
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className={style.inputContainer}>
+                <AuthReCAPTCHA onChange={onCaptchaChange} />
               </div>
               <Button isCurve primary padding uppercase full>
                 {login.isLoading ? "signing in..." : ButtonSign}

@@ -13,7 +13,7 @@ const ProductInfoHeader: FC<IHeaderProps> = ({ step, setStep }) => {
   const [title] = useState([
     "description",
     "additional information",
-    "videos",
+    // "videos",
     "reviews",
   ]);
   const handleActiveTab = (index: any) => {

@@ -13,7 +13,7 @@ const NotFound = () => {
   return (
     <>
       <Head>
-        <title>404 NotFound | Hekto commerce</title>
+        <title>404 Not Found | Hekto commerce</title>
       </Head>
       <div className="container grid w-full h-full place-content-center">
         <Image
